@@ -216,3 +216,19 @@ footer a:hover {
         font-size: 0.8rem;
     }
 }
+
+
+#showAllButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#showAllButton:hover {
+    background-color: #e0e0e0;
+}
