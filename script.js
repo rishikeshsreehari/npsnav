@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const fundTable = document.getElementById("fundTableBody");
-    const headers = document.querySelectorAll("th");
+    const headers = document.querySelectorAll("#fundTable th");
 
     // Function to sort table
     function sortTable(columnIndex, isNumeric, ascending) {
@@ -27,13 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add click event to each header for sorting
     headers.forEach((header, index) => {
         header.classList.add('sortable');
-        const sortIcon = header.querySelector('.sort-icon');
-        if (!sortIcon) {
-            const icon = document.createElement('span');
-            icon.classList.add('sort-icon');
-            header.appendChild(icon);
-        }
-
         header.addEventListener("click", function() {
             const isNumeric = index !== 0; // Assume all columns except the first are numeric
             const isAscending = !this.classList.contains("sorted-asc");
