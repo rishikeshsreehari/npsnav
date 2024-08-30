@@ -1,0 +1,954 @@
+[
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001001",
+        "Scheme Name": "SBI PENSION FUND SCHEME - CENTRAL GOVT",
+        "NAV": "46.1194"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001002",
+        "Scheme Name": "SBI PENSION FUND SCHEME - STATE GOVT",
+        "NAV": "39.6136"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001003",
+        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER I",
+        "NAV": "58.5947"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001004",
+        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER I",
+        "NAV": "40.4644"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001006",
+        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER II",
+        "NAV": "54.2440"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001009",
+        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "37.2726"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001010",
+        "Scheme Name": "SBI PENSION FUNDS PVT LTD SCHEME - CORPORATE-CG",
+        "NAV": "29.4516"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001015",
+        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - APY FUND SCHEME",
+        "NAV": "11.6260"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001005",
+        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER I",
+        "NAV": "38.1523"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001007",
+        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER II",
+        "NAV": "36.1884"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001008",
+        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER II",
+        "NAV": "36.2382"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001011",
+        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
+        "NAV": "22.4300"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001012",
+        "Scheme Name": "SBI PENSION FUND SCHEME A - TIER I",
+        "NAV": "19.4620"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001013",
+        "Scheme Name": "SBI PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001014",
+        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUND SCHEME TAX SAVER TIER II",
+        "NAV": "12.9456"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+        "Scheme Code": "SM001016",
+        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
+        "NAV": "10.1811"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002001",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- CENTRAL GOVT",
+        "NAV": "44.7903"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002002",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- STATE GOVT",
+        "NAV": "39.8702"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002003",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME E - TIER I",
+        "NAV": "73.9219"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002004",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME C - TIER I",
+        "NAV": "35.8139"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002006",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME E - TIER II",
+        "NAV": "58.7423"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002009",
+        "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "37.0419"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002010",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME - CORPORATE-CG",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002015",
+        "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - APY FUND SCHEME",
+        "NAV": "11.8218"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002005",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME G - TIER I",
+        "NAV": "34.1064"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002007",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME C - TIER II",
+        "NAV": "34.2295"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002008",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME G - TIER II",
+        "NAV": "34.8725"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002011",
+        "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - ATAL PENSION YOJANA (APY)",
+        "NAV": "22.8952"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002012",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME A - TIER I",
+        "NAV": "16.1704"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002013",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002014",
+        "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME TAX SAVER TIER II",
+        "NAV": "13.2012"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
+        "Scheme Code": "SM002016",
+        "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
+        "NAV": "10.2442"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003001",
+        "Scheme Name": "LIC PENSION FUND SCHEME - CENTRAL GOVT",
+        "NAV": "44.9889"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003002",
+        "Scheme Name": "LIC PENSION FUND SCHEME - STATE GOVT",
+        "NAV": "40.0367"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003003",
+        "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "37.2677"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003004",
+        "Scheme Name": "LIC PENSION FUND LIMITED SCHEME - CORPORATE-CG",
+        "NAV": "29.7174"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003006",
+        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER I",
+        "NAV": "26.0689"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003009",
+        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER II",
+        "NAV": "24.7421"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003010",
+        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER II",
+        "NAV": "28.9176"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003015",
+        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - APY FUND SCHEME",
+        "NAV": "11.8954"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003005",
+        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER I",
+        "NAV": "45.5742"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003007",
+        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER I",
+        "NAV": "28.4690"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003008",
+        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER II",
+        "NAV": "37.8677"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003011",
+        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
+        "NAV": "22.9967"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003012",
+        "Scheme Name": "LIC PENSION FUND SCHEME A - TIER I",
+        "NAV": "17.6645"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003013",
+        "Scheme Name": "LIC PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003014",
+        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME TAX SAVER TIER II",
+        "NAV": "14.0297"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC PENSION FUND LIMITED",
+        "Scheme Code": "SM003016",
+        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
+        "NAV": "10.2325"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005005",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER II",
+        "NAV": "33.6925"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005007",
+        "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "32.4726"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005008",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER I",
+        "NAV": "17.0448"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005001",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER I",
+        "NAV": "68.0174"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005002",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER I",
+        "NAV": "38.7071"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005003",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER I",
+        "NAV": "35.2699"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005004",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER II",
+        "NAV": "59.8382"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005006",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER II",
+        "NAV": "32.5544"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005009",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM005",
+        "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
+        "Scheme Code": "SM005010",
+        "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND SCHEME TAX SAVER TIER II",
+        "NAV": "14.0028"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007005",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER II",
+        "NAV": "37.3303"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007007",
+        "Scheme Name": "NPS TRUST A/C-ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007008",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER I",
+        "NAV": "17.0214"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007001",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I",
+        "NAV": "73.9331"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007002",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I",
+        "NAV": "40.3175"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007003",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I",
+        "NAV": "35.2171"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007004",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II",
+        "NAV": "58.1482"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007006",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER II",
+        "NAV": "33.7543"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007009",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM007010",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUNDS SCHEME TAX SAVER TIER II",
+        "NAV": "13.5974"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008005",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER II",
+        "NAV": "25.0052"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008007",
+        "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME - NPS LITE SCHEME - GOVT. PATTERN",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008008",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME A - TIER I",
+        "NAV": "19.0414"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008001",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER I",
+        "NAV": "54.1561"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008002",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER I",
+        "NAV": "26.7281"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008003",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER I",
+        "NAV": "26.4232"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008004",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER II",
+        "NAV": "46.8104"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008006",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER II",
+        "NAV": "26.7379"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008009",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
+        "Scheme Code": "SM008010",
+        "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LTD SCHEME TAX SAVER TIER II",
+        "NAV": "13.2938"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010001",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I",
+        "NAV": "29.1123"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010002",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I",
+        "NAV": "17.9833"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010003",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I",
+        "NAV": "17.7025"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010004",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER I",
+        "NAV": "15.8189"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010006",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II",
+        "NAV": "17.3702"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010009",
+        "Scheme Name": "ADITYA BIRLA SUN LIFE PENSION FUND SCHEME TAX SAVER TIER II",
+        "NAV": "14.1319"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010005",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II",
+        "NAV": "29.2486"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010007",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II",
+        "NAV": "16.9953"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM010",
+        "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
+        "Scheme Code": "SM010008",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER II",
+        "NAV": "10.0000"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011005",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II",
+        "NAV": "16.0080"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011007",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II",
+        "NAV": "11.9663"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011008",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED TAX SAVER - TIER II",
+        "NAV": "12.5542"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011001",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I",
+        "NAV": "16.0334"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011002",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I",
+        "NAV": "11.5085"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011003",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I",
+        "NAV": "11.9142"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011004",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME A - TIER I",
+        "NAV": "11.6780"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM011",
+        "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
+        "Scheme Code": "SM011006",
+        "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME C - TIER II",
+        "NAV": "11.5932"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012005",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
+        "NAV": "15.6671"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012007",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
+        "NAV": "11.6397"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012008",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED TAX SAVER TIER II",
+        "NAV": "11.3151"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012001",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
+        "NAV": "14.8426"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012002",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
+        "NAV": "11.5041"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012003",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
+        "NAV": "11.9515"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012004",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I",
+        "NAV": "9.8014"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM012",
+        "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM012006",
+        "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
+        "NAV": "11.5950"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013005",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
+        "NAV": "15.2132"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013007",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
+        "NAV": "11.6571"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013008",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME TAX SAVER - TIER II",
+        "NAV": "11.2236"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013001",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
+        "NAV": "15.0641"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013002",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
+        "NAV": "11.5024"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013003",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
+        "NAV": "11.8106"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013004",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I",
+        "NAV": "11.2536"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013006",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
+        "NAV": "11.3351"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014005",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II",
+        "NAV": "12.2045"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014007",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II",
+        "NAV": "10.5026"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014008",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME TAX SAVER TIER II",
+        "NAV": "10.3763"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014001",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I",
+        "NAV": "12.6185"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014002",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I",
+        "NAV": "10.5745"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014003",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I",
+        "NAV": "10.8981"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014004",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME A - TIER I",
+        "NAV": "10.4256"
+    },
+    {
+        "Date": "08/29/2024",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014006",
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER II",
+        "NAV": "10.6362"
+    }
+]
