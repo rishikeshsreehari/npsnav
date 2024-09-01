@@ -4,6 +4,7 @@ import os
 from io import BytesIO
 import json
 from collections import OrderedDict
+from datetime import datetime
 
 def download_and_extract_nav(date_str):
     url = f"https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip"
@@ -68,8 +69,10 @@ def update_scheme_json(data):
         # Add or overwrite the NAV for the specific date
         scheme_data[scheme["Date"]] = scheme["NAV"]
 
-        # Sort the dictionary to keep the latest NAV at the top
-        sorted_scheme_data = OrderedDict(sorted(scheme_data.items(), reverse=True))
+        # Sort the dictionary by date (descending) and update
+        sorted_scheme_data = OrderedDict(
+            sorted(scheme_data.items(), key=lambda x: datetime.strptime(x[0], '%m/%d/%Y'), reverse=True)
+        )
 
         with open(scheme_file, 'w') as f:
             json.dump(sorted_scheme_data, f, indent=4)
