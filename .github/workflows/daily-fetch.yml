@@ -1,0 +1,29 @@
+name: Scheduled Build
+
+on:
+  schedule:
+    # Runs at 10:00 PM IST every day
+    - cron: '30 16 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run fetch.py
+      run: python scripts/fetch.py
+
+    - name: Run build.py
+      run: python scripts/build.py
