@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 # Load the base data.json file
 def load_base_data():
@@ -26,6 +27,13 @@ def format_nav(nav):
     if nav is None or nav == "null":
         return '-'
     return f'{float(nav):.2f}'
+
+# Convert date from mm/dd/yyyy to dd-mm-yyyy format
+def convert_date_format(date_str):
+    try:
+        return datetime.strptime(date_str, "%m/%d/%Y").strftime("%d-%m-%Y")
+    except ValueError:
+        return date_str
 
 # Generate table rows for all funds
 def generate_table_rows(funds):
@@ -70,8 +78,8 @@ def build_site():
     template = load_template()
     version = load_version()
     
-    # Use the date of the first fund entry as the NAV date
-    nav_date = funds[0]['Date'] if funds else "N/A"
+    # Convert the date of the first fund entry to dd-mm-yyyy format
+    nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
     
     table_rows = generate_table_rows(funds)
     final_html = build_index_html(template, table_rows, nav_date, version)
