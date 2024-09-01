@@ -44,7 +44,7 @@ def generate_table_rows(funds):
         nav = format_nav(fund['NAV'])
         row = f'''
         <tr>
-            <td><a href="{scheme_code}.html">{scheme_name}</a></td>
+            <td><a href="funds/{scheme_code}.html">{scheme_name}</a></td>
             <td>{nav}</td>
             <td>{format_value(fund.get('1D'))}</td>
             <td>{format_value(fund.get('7D'))}</td>
