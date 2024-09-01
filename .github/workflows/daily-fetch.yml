@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs at 10:00 PM IST every day
     - cron: '30 16 * * *'
+  workflow_dispatch:   #Enable manualrun
 
 jobs:
   build:
