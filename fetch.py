@@ -85,7 +85,7 @@ def clean_up(file_name):
 
 # Example usage
 if __name__ == "__main__":
-    date_str = "29082024"  # Use the appropriate date format here
+    date_str = "30082024"  # Use the appropriate date format here
     out_file = download_and_extract_nav(date_str)
     
     if out_file:

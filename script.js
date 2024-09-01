@@ -25,17 +25,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to sort table
     function sortTable(columnIndex, isNumeric, ascending) {
         rows.sort((a, b) => {
-            const aText = a.cells[columnIndex].innerText;
-            const bText = b.cells[columnIndex].innerText;
+            let aText = a.cells[columnIndex].innerText.trim();
+            let bText = b.cells[columnIndex].innerText.trim();
+
+            // Handle "-" values explicitly: treat them as a special case
+            if (aText === '-') aText = ascending ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+            if (bText === '-') bText = ascending ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
 
             if (isNumeric) {
-                return ascending
-                    ? parseFloat(aText) - parseFloat(bText)
-                    : parseFloat(bText) - parseFloat(aText);
+                aText = parseFloat(aText);
+                bText = parseFloat(bText);
+                return ascending ? aText - bText : bText - aText;
             } else {
-                return ascending
-                    ? aText.localeCompare(bText)
-                    : bText.localeCompare(aText);
+                return ascending ? aText.localeCompare(bText) : bText.localeCompare(aText);
             }
         });
 
@@ -66,15 +68,12 @@ document.addEventListener("DOMContentLoaded", function() {
         renderTable();
     });
 
-    // Default sort by 5Y column (index 8) in descending order
-    const fiveYearHeader = headers[8]; // 5Y column
+    // Default sort by 5Y column (index 9) in descending order
+    const fiveYearHeader = headers[9]; // 5Y column
     fiveYearHeader.classList.add("sorted-desc");
-    sortTable(8, true, false);
+    sortTable(9, true, false);
 
-    // Set the last updated date
-    const lastUpdatedElement = document.getElementById("lastUpdated");
-    const now = new Date();
-    lastUpdatedElement.textContent = now.toLocaleString();
+    
 
     // Initial rendering of the table
     renderTable();
