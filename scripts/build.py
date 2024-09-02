@@ -12,7 +12,8 @@ if __name__ == "__main__":
     scripts = [
         'scripts/calculate.py',
         'scripts/main.py',
-        'scripts/api.py'
+        'scripts/api.py',
+        'scripts/funds.py'
     ]
     
     for script in scripts:
