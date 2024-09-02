@@ -177,9 +177,12 @@ function filterData(range) {
 
     // Update active button state
     document.querySelectorAll('.timeframe-buttons button').forEach(btn => {
-        btn.classList.remove('active');
+        btn.classList.remove('active', 'selected');
     });
-    document.querySelector(`.timeframe-buttons button[onclick="filterData('${range}')"]`).classList.add('active');
+    const selectedButton = document.querySelector(`.timeframe-buttons button[onclick="filterData('${range}')"]`);
+    if (selectedButton) {
+        selectedButton.classList.add('active', 'selected');
+    }
 }
 
 // Initialize chart and show data by default
@@ -188,11 +191,19 @@ window.addEventListener('load', function() {
     
     // Find the first visible button and use it as default
     const buttons = document.querySelectorAll('.timeframe-buttons button');
+    let defaultButton;
     for (let button of buttons) {
         if (button.style.display !== 'none') {
-            filterData(button.textContent);
+            defaultButton = button;
             break;
         }
+    }
+    
+    // If '1Y' button is visible, use it as default, otherwise use the first visible button
+    if (document.querySelector('.timeframe-buttons button[onclick="filterData(\'1Y\')"]').style.display !== 'none') {
+        filterData('1Y');
+    } else if (defaultButton) {
+        filterData(defaultButton.textContent);
     }
     
     window.scrollTo(0, 0);
