@@ -238,12 +238,10 @@ th.sorted-desc .sort-icon::after {
     margin: 20px 0;
 }
 
-
 .nav-date {
     font-size: 0.8em;
     color: rgba(102, 102, 102, 0.7);
 }
-
 
 .timeframe-buttons {
     margin-top: 1em;
@@ -270,7 +268,6 @@ th.sorted-desc .sort-icon::after {
     background-color: #333;
     color: #fff;
 }
-
 
 #navChart {
     width: 100%;
