@@ -88,8 +88,20 @@ def render_html_files(env, funds):
                 print(f'Rendered {output_path}')
 
 # Function to create robots.txt and sitemap.xml
-def create_robots_and_sitemap():
-    robots_content = "User-agent: *\nDisallow:\n"
+def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None):
+    if disallowed_paths is None:
+        disallowed_paths = []
+
+    if sitemap_included_paths is None:
+        sitemap_included_paths = []
+
+    # robots.txt content
+    robots_content = "User-agent: *\n"
+    for path in disallowed_paths:
+        robots_content += f"Disallow: /{path}\n"
+    robots_content += "Disallow:\n"  # Allow all other paths
+
+    # Sitemap XML content
     sitemap_content = "<?xml version='1.0' encoding='UTF-8'?>\n<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
 
     # Generate sitemap entries
@@ -98,12 +110,18 @@ def create_robots_and_sitemap():
             if file.endswith('.html'):
                 file_path = os.path.join(root, file)
                 url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
-                sitemap_content += f"  <url><loc>https://yourdomain.com/{url_path}</loc></url>\n"
+                
+                # Check if the exact path is to be included in the sitemap
+                if url_path in sitemap_included_paths:
+                    sitemap_content += f"  <url><loc>https://yourdomain.com/{url_path}</loc></url>\n"
 
     sitemap_content += "</urlset>"
 
+    # Write robots.txt
     with open('public/robots.txt', 'w') as robots_file:
         robots_file.write(robots_content)
+
+    # Write sitemap.xml
     with open('public/sitemap.xml', 'w') as sitemap_file:
         sitemap_file.write(sitemap_content)
 
@@ -121,7 +139,18 @@ def build_site():
     funds = load_base_data()
     
     render_html_files(env, funds)
-    create_robots_and_sitemap()
+    
+    # Customize the paths for robots.txt and sitemap.xml
+    disallowed = [
+        "api/",        
+    ]
+
+    sitemap_included = [
+        "index.html",
+        # Add other specific paths here if needed""
+    ]
+    
+    create_robots_and_sitemap(disallowed_paths=disallowed, sitemap_included_paths=sitemap_included)
     copy_assets()
 
 # Execute the build process
