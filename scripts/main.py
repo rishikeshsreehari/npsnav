@@ -113,7 +113,7 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
                 
                 # Check if the exact path is to be included in the sitemap
                 if url_path in sitemap_included_paths:
-                    sitemap_content += f"  <url><loc>https://yourdomain.com/{url_path}</loc></url>\n"
+                    sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc></url>\n"
 
     sitemap_content += "</urlset>"
 
@@ -147,6 +147,7 @@ def build_site():
 
     sitemap_included = [
         "index.html",
+        "nps-api.html",
         # Add other specific paths here if needed""
     ]
     
