@@ -11,7 +11,7 @@ def run_script(script_path):
 if __name__ == "__main__":
     scripts = [
         'scripts/calculate.py',
-        'scripts/generate.py',
+        'scripts/main.py',
         'scripts/api.py'
     ]
     

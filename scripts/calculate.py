@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 
 # Load the base data.json file
 def load_base_data():
-    with open('data.json', 'r') as file:
+    with open('data/data.json', 'r') as file:
         return json.load(file)
 
 # Load the historical NAV data for a specific scheme

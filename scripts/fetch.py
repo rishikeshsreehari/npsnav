@@ -47,7 +47,7 @@ def parse_out_file(file_name):
     return data_list
 
 def save_to_root(data):
-    root_file = "data.json"  # Overwrite the data.json file every day
+    root_file = "data/data.json"  # Overwrite the data.json file every day
     with open(root_file, 'w') as json_file:
         json.dump(data, json_file, indent=4)
     print(f"All data saved to {root_file}")

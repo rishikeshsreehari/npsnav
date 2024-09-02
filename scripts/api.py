@@ -3,12 +3,12 @@ import json
 
 # Load the base data.json file
 def load_base_data():
-    with open('data.json', 'r') as file:
+    with open('data/data.json', 'r') as file:
         return json.load(file)
 
 # Function to generate plain text HTML files for each fund (without any HTML tags)
 def generate_api_text_files(funds):
-    api_folder = 'api'
+    api_folder = 'public/api'
     
     # Create the API directory if it doesn't exist
     if not os.path.exists(api_folder):

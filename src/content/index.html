@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - NPS Fund Performances{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Top NPS Fund Performances</h1>
+    <p>Latest NAVs and returns of NPS investments</p>
+    <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
+</section>
+
+<section id="funds" class="funds-table">
+    <p class="scroll-hint">Swipe to see more →</p>
+    <div class="table-container">
+        <table id="fundTable">
+            <thead>
+                <tr>
+                    <th>Scheme <span class="sort-icon"></span></th>
+                    <th>NAV <span class="sort-icon"></span></th>
+                    <th>1D <span class="sort-icon"></span></th>
+                    <th>7D <span class="sort-icon"></span></th>
+                    <th>1M <span class="sort-icon"></span></th>
+                    <th>3M <span class="sort-icon"></span></th>
+                    <th>6M <span class="sort-icon"></span></th>
+                    <th>1Y <span class="sort-icon"></span></th>
+                    <th>3Y <span class="sort-icon"></span></th>
+                    <th>5Y <span class="sort-icon"></span></th>
+                </tr>
+            </thead>
+            <tbody id="fundTableBody">
+                {{ TABLE_ROWS }} <!-- Placeholder for dynamic table rows -->
+            </tbody>
+        </table>
+        <button id="showAllButton" style="display: none;">Show All</button>
+    </div>
+</section>
+{% endblock %}
