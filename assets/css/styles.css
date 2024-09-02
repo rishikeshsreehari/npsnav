@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fff;
+    background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
     font-size: 16px;
@@ -21,13 +21,16 @@ header {
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: normal;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 nav ul {
@@ -41,104 +44,102 @@ nav ul {
 nav ul li a {
     color: #333;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.hero {
+nav ul li a:hover {
+    color: #666;
+}
+
+.fund-details {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-top: 2rem;
     text-align: center;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid #ddd;
 }
 
-
-
-.fund-details h1 {
-    font-size: 2.5em;
+.fund-name {
+    font-size: 1.8em;
     margin-bottom: 0.2em;
+    color: #333;
 }
 
-.fund-details h3 {
-    font-size: 1.2em;
+.fund-pfm {
+    font-size: 1em;
     color: #666;
     margin-top: 0;
+    margin-bottom: 1.5em;
+    font-weight: normal;
 }
 
-.current-nav {
-    font-size: 2em;
-    margin: 20px 0;
+.fund-nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.nav-value {
+    font-size: 3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.2rem; /* Reduced from 0.5rem */
+}
+
+.nav-return {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.2rem; /* Reduced from 0.5rem */
+}
+
+.nav-return.positive {
+    color: #28a745;
+}
+
+.nav-return.negative {
+    color: #dc3545;
 }
 
 .nav-date {
     font-size: 0.8em;
     color: #666;
+    margin-top: 0.1rem; /* Added small top margin */
 }
 
-
 .timeframe-buttons {
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
 }
 
 .timeframe-buttons button {
-    margin-right: 10px;
-    padding: 8px 12px;
-    border: 1px solid #007bff;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.timeframe-buttons button:hover {
-    background-color: #0056b3;
-}
-
-.funds-table {
-    padding: 1rem;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-}
-
-th, td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    white-space: nowrap;
-}
-
-th {
-    font-weight: bold;
-    background-color: #f5f5f5;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-tbody tr:hover {
-    background-color: #f9f9f9;
-}
-
-tbody tr td:first-child {
-    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
     color: #333;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
 }
 
-.last-updated {
-    margin-top: 1rem;
-    font-family: monospace;
-    color: #666;
-    font-size: 0.8rem;
+.timeframe-buttons button:hover,
+.timeframe-buttons button.active {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #333;
 }
 
-.disclaimer {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: #666;
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-top: 2rem;
 }
 
 footer {
@@ -151,205 +152,43 @@ footer {
     border-top: 1px solid #ddd;
 }
 
-footer hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-    margin-bottom: 1rem;
-}
-
-footer h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-footer a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
 .disclaimer, .contact-info, .contribute, .copyright {
     margin-bottom: 1rem;
 }
 
 .copyright {
     font-size: 0.8rem;
-    text-align: center;
     color: #666;
-}
-
-.scroll-hint {
-    display: none;
-    text-align: right;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 0.5rem;
-    font-size: 0.8rem;
-}
-
-.sort-icon {
-    margin-left: 0.25rem;
-    font-size: 0.8em;
-    color: #999;
-}
-
-th.sortable {
-    cursor: pointer;
-}
-
-th.sortable .sort-icon::after {
-    content: '↕';
-}
-
-th.sorted-asc .sort-icon::after {
-    content: '↑';
-}
-
-th.sorted-desc .sort-icon::after {
-    content: '↓';
-}
-
-#showAllButton {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-#showAllButton:hover {
-    background-color: #e0e0e0;
 }
 
 @media (max-width: 768px) {
     body {
         font-size: 14px;
+        padding: 10px;
     }
 
-    .funds-table {
-        padding: 0.5rem;
-    }
-
-    table {
-        font-size: 0.8rem;
-    }
-
-    th, td {
-        padding: 0.4rem;
-        position: static;
-        min-width: 80px;
-    }
-
-    th:first-child, td:first-child {
-        min-width: 120px;
-    }
-
-    .scroll-hint {
-        display: block;
-    }
-
-    footer {
+    .fund-details {
         padding: 1rem;
-        font-size: 0.8rem;
     }
-}
 
+    .fund-name {
+        font-size: 1.5em;
+    }
 
+    .nav-value {
+        font-size: 2.5em;
+    }
 
-#navChart {
-    width: 100%;
-    height: 400px;
-    max-height: 60vh; /* Limit the height to 60% of the viewport height */
-}
+    .nav-return {
+        font-size: 1em;
+    }
 
-.chart-container {
-    position: relative;
-    height: 60vh;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
     .chart-container {
-        height: 50vh;
+        height: 300px;
     }
-}
 
-.timeframe-buttons {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.timeframe-buttons button {
-    padding: 8px 12px;
-    border: 1px solid #666;
-    background-color: #f5f5f5;
-    color: #333;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-    align-items: center;
-}
-
-.timeframe-buttons button:hover,
-.timeframe-buttons button.active {
-    background-color: #333;
-    color: #fff;
-}
-
-@media (max-width: 768px) {
-    .timeframe-buttons {
-        justify-content: center;
+    .timeframe-buttons button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8em;
     }
-}
-
-.fund-details {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-.fund-name {
-    font-size: 2em;
-    margin-bottom: 0.2em;
-    color: #333;
-}
-
-.fund-pfm {
-    font-size: 1.2em;
-    color: #666;
-    margin-top: 0;
-    margin-bottom: 1em;
-    font-weight: normal;
-}
-
-.current-nav {
-    margin: 20px 0;
-}
-
-.nav-value {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-.nav-date, .nav-return {
-    font-size: 0.9em;
-    color: #666;
-    margin-left: 10px;
-}
-
-.nav-return.positive {
-    color: #28a745;
-}
-
-.nav-return.negative {
-    color: #dc3545;
 }

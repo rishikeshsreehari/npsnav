@@ -13,10 +13,10 @@
         <section class="fund-details">
             <h2 class="fund-name">{{ scheme_name }}</h2>
             <h3 class="fund-pfm">{{ pfm_name }}</h3>
-            <div class="current-nav">
-                <span class="nav-value">₹{{ current_nav }}</span>
-                <span class="nav-date">(As of {{ nav_date }})</span>
-                <span class="nav-return" id="navReturn"></span>
+            <div class="fund-nav-container">
+                <div class="nav-value">₹{{ "%.2f"|format(current_nav) }}</div>
+                <div id="navReturn" class="nav-return"></div>
+                <div class="nav-date">As of {{ nav_date }}</div>
             </div>
             <div class="timeframe-buttons" 
                 data-first-date="{{ first_date }}" 
@@ -27,6 +27,8 @@
                 <button onclick="filterData('1Y')">1Y</button>
                 <button onclick="filterData('3Y')">3Y</button>
                 <button onclick="filterData('5Y')">5Y</button>
+                <button onclick="filterData('ALL')">ALL</button>
+
             </div>
             <div class="chart-container">
                 <canvas id="navChart"></canvas>

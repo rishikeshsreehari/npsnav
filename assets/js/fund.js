@@ -102,7 +102,7 @@ function initChart() {
 
 function hideButtons(buttonsToHide) {
     document.querySelectorAll('.timeframe-buttons button').forEach(button => {
-        if (buttonsToHide.includes(button.textContent)) {
+        if (buttonsToHide.includes(button.textContent) && button.textContent !== 'ALL') {
             button.style.display = 'none';
         } else {
             button.style.display = ''; // Make sure other buttons are visible
@@ -168,7 +168,7 @@ function filterData(range) {
     const navReturnElement = document.getElementById('navReturn');
     if (range !== 'ALL' && returns[range] && !isNaN(parseFloat(returns[range])) && returns[range] !== '') {
         const returnValue = parseFloat(returns[range]);
-        navReturnElement.textContent = `(${returnValue >= 0 ? '+' : ''}${returnValue}%)`;
+        navReturnElement.textContent = `${returnValue >= 0 ? '+' : ''}${returnValue}%`;
         navReturnElement.classList.remove('positive', 'negative');
         navReturnElement.classList.add(returnValue >= 0 ? 'positive' : 'negative');
     } else {

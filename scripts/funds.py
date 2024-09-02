@@ -19,7 +19,7 @@ for fund in funds_data:
     scheme_code = fund['Scheme Code']
     scheme_name = fund['Scheme Name']
     pfm_name = fund['PFM Name']
-    current_nav = fund['NAV']
+    current_nav = round(float(fund['NAV']), 2)
     nav_date = fund['Date']
 
     # Load the individual fund JSON for historic NAVs
