@@ -11,7 +11,6 @@ on:
 
 jobs:
   fetch-and-build:
-    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +34,7 @@ jobs:
         git config --global user.name "DailyUpdateBot"
         git config --global user.email "bot@npsnav.in"
         git add .
-        git commit -m "Daily NAV update by bot"
+        git commit -m "Daily NAV update by bot" || echo "No changes to commit"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
