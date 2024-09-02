@@ -1,13 +1,17 @@
-name: Scheduled Build
+name: Scheduled Fetch and Build on Push
 
 on:
+  push:
+    branches:
+      - main  # Adjust if you want to run on a different branch
   schedule:
     # Runs at 10:00 PM IST every day, actions run on UTC
     - cron: '30 16 * * *'
   workflow_dispatch:  # Enables manual triggering
 
 jobs:
-  build:
+  fetch-and-build:
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -26,15 +30,42 @@ jobs:
     - name: Run fetch.py
       run: python scripts/fetch.py
 
-    - name: Run build.py
-      run: python scripts/build.py
-
     - name: Commit and Push Changes
       run: |
         git config --global user.name "DailyUpdateBot"
         git config --global user.email "bot@npsnav.in"
         git add .
         git commit -m "Daily NAV update by bot"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-on-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run build.py
+      run: python scripts/build.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "BuildBot"
+        git config --global user.email "bot@npsnav.in"
+        git add .
+        git commit -m "Build triggered by push"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
