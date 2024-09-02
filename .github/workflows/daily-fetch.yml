@@ -1,9 +1,6 @@
 name: Scheduled NPS NAV Daily Fetch
 
 on:
-  push:
-    branches:
-      - main  # Adjust if you want to run on a different branch
   schedule:
     # Runs at 10:00 PM IST every day, actions run on UTC
     - cron: '30 16 * * *'
