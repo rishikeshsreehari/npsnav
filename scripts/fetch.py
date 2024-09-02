@@ -4,7 +4,7 @@ import os
 from io import BytesIO
 import json
 from collections import OrderedDict
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def download_and_extract_nav(date_str):
     url = f"https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip"
@@ -48,6 +48,12 @@ def parse_out_file(file_name):
 
 def save_to_root(data):
     root_file = "data/data.json"  # Overwrite the data.json file every day
+    if os.path.exists(root_file):
+        with open(root_file, 'r') as json_file:
+            existing_data = json.load(json_file)
+        existing_data.extend(data)
+        data = existing_data
+
     with open(root_file, 'w') as json_file:
         json.dump(data, json_file, indent=4)
     print(f"All data saved to {root_file}")
@@ -83,22 +89,43 @@ def clean_up(file_name):
         os.remove(file_name)
         print(f"Deleted {file_name}")
 
+def get_last_date_in_data():
+    root_file = "data/data.json"
+    if os.path.exists(root_file):
+        with open(root_file, 'r') as json_file:
+            data = json.load(json_file)
+            if data:
+                last_entry = data[-1]
+                last_date_str = last_entry['Date']
+                return datetime.strptime(last_date_str, "%m/%d/%Y")
+    return None
+
 # Example usage
 if __name__ == "__main__":
-    # Get today's date in DDMMYYYY format
+    # Get today's date
+    today = datetime.now()
     
+    # Get the last date from data.json
+    last_date = get_last_date_in_data()
     
-    date_str = datetime.now().strftime("%d%m%Y")
-    #date_str = "30082024"  # Enable for custom run
+    if not last_date:
+        # If no date found, start from a default date (e.g., 30th August 2024)
+        last_date = datetime.strptime("30/08/2024", "%d/%m/%Y")
 
-
-    
-    out_file = download_and_extract_nav(date_str)
-    
-    if out_file:
-        nav_data = parse_out_file(out_file)
-        save_to_root(nav_data)  # Save to data.json
-        update_scheme_json(nav_data)
-        clean_up(out_file)
-    else:
-        print(f"No NAV data available for {date_str}.")
+    # Iterate through each date from the last date + 1 day until today
+    current_date = last_date + timedelta(days=1)
+    while current_date <= today:
+        date_str = current_date.strftime("%d%m%Y")
+        print(f"Trying to fetch NAV data for {current_date.strftime('%d-%m-%Y')}...")  # Print statement added
+        out_file = download_and_extract_nav(date_str)
+        
+        if out_file:
+            nav_data = parse_out_file(out_file)
+            save_to_root(nav_data)  # Save to data.json
+            update_scheme_json(nav_data)
+            clean_up(out_file)
+        else:
+            print(f"No NAV data available for {date_str}.")
+        
+        # Move to the next date
+        current_date += timedelta(days=1)

@@ -295,6 +295,7 @@ th.sorted-desc .sort-icon::after {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
+    align-items: center;
 }
 
 .timeframe-buttons button:hover,

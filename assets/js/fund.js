@@ -65,10 +65,49 @@ function initChart() {
                 }
             }
         });
+
+        const firstDate = new Date(Math.min(...parsedData.map(item => item.x)));
+        const lastDate = new Date(Math.max(...parsedData.map(item => item.x)));
+        const currentDate = new Date();
+        
+        const buttonsToHide = [];
+
+        ['1M', '3M', '6M', '1Y', '3Y', '5Y'].forEach(range => {
+            let shouldHide = false;
+            
+            // Check if there's enough data for this range
+            const rangeInMonths = parseInt(range);
+            const rangeStartDate = new Date(currentDate);
+            rangeStartDate.setMonth(rangeStartDate.getMonth() - rangeInMonths);
+            if (firstDate > rangeStartDate) {
+                shouldHide = true;
+            }
+            
+            // Check if return value is invalid
+            if (!returns[range] || isNaN(parseFloat(returns[range])) || returns[range] === '') {
+                shouldHide = true;
+            }
+            
+            if (shouldHide) {
+                buttonsToHide.push(range);
+            }
+        });
+
+        hideButtons(buttonsToHide);
     } else {
         console.error('No valid data to display in the chart');
         document.getElementById('navChart').innerHTML = 'No data available for chart';
     }
+}
+
+function hideButtons(buttonsToHide) {
+    document.querySelectorAll('.timeframe-buttons button').forEach(button => {
+        if (buttonsToHide.includes(button.textContent)) {
+            button.style.display = 'none';
+        } else {
+            button.style.display = ''; // Make sure other buttons are visible
+        }
+    });
 }
 
 function getTimeUnit(range) {
@@ -127,7 +166,7 @@ function filterData(range) {
 
     // Update return display
     const navReturnElement = document.getElementById('navReturn');
-    if (range in returns && returns[range] !== 'NAN' && returns[range] !== '') {
+    if (range !== 'ALL' && returns[range] && !isNaN(parseFloat(returns[range])) && returns[range] !== '') {
         const returnValue = parseFloat(returns[range]);
         navReturnElement.textContent = `(${returnValue >= 0 ? '+' : ''}${returnValue}%)`;
         navReturnElement.classList.remove('positive', 'negative');
@@ -143,9 +182,18 @@ function filterData(range) {
     document.querySelector(`.timeframe-buttons button[onclick="filterData('${range}')"]`).classList.add('active');
 }
 
-// Initialize chart and show 1Y data by default
+// Initialize chart and show data by default
 window.addEventListener('load', function() {
     initChart();
-    filterData('1Y');
+    
+    // Find the first visible button and use it as default
+    const buttons = document.querySelectorAll('.timeframe-buttons button');
+    for (let button of buttons) {
+        if (button.style.display !== 'none') {
+            filterData(button.textContent);
+            break;
+        }
+    }
+    
     window.scrollTo(0, 0);
 });

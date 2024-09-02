@@ -11,8 +11,8 @@
     <main>
         
         <section class="fund-details">
-            <h1 class="fund-name">{{ scheme_name }}</h1>
-            <h2 class="fund-pfm">{{ pfm_name }}</h2>
+            <h2 class="fund-name">{{ scheme_name }}</h2>
+            <h3 class="fund-pfm">{{ pfm_name }}</h3>
             <div class="current-nav">
                 <span class="nav-value">₹{{ current_nav }}</span>
                 <span class="nav-date">(As of {{ nav_date }})</span>
@@ -27,7 +27,6 @@
                 <button onclick="filterData('1Y')">1Y</button>
                 <button onclick="filterData('3Y')">3Y</button>
                 <button onclick="filterData('5Y')">5Y</button>
-                <button onclick="filterData('ALL')">ALL</button>
             </div>
             <div class="chart-container">
                 <canvas id="navChart"></canvas>
