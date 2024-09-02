@@ -1,4 +1,4 @@
-name: Scheduled Fetch and Build on Push
+name: Scheduled NPS NAV Daily Fetch
 
 on:
   push:
