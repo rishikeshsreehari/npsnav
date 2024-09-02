@@ -30,12 +30,25 @@ jobs:
     - name: Run fetch.py
       run: python scripts/fetch.py
 
+    - name: Temporarily allow public directory
+      run: |
+        sed -i '/public\//d' .gitignore
+
     - name: Commit and Push Changes
       run: |
         git config --global user.name "DailyUpdateBot"
         git config --global user.email "bot@npsnav.in"
         git add .
-        git commit -m "Daily NAV update by bot"
+        git commit -m "Daily NAV update by bot" || echo "Nothing to commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Revert .gitignore changes (optional)
+      run: |
+        echo 'public/' >> .gitignore
+        git add .gitignore
+        git commit -m "Revert .gitignore change" || echo "No .gitignore change to revert"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,12 +73,25 @@ jobs:
     - name: Run build.py
       run: python scripts/build.py
 
+    - name: Temporarily allow public directory
+      run: |
+        sed -i '/public\//d' .gitignore
+
     - name: Commit and Push Changes
       run: |
         git config --global user.name "BuildBot"
         git config --global user.email "bot@npsnav.in"
         git add .
-        git commit -m "Build triggered by push"
+        git commit -m "Build triggered by push" || echo "Nothing to commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Revert .gitignore changes (optional)
+      run: |
+        echo 'public/' >> .gitignore
+        git add .gitignore
+        git commit -m "Revert .gitignore change" || echo "No .gitignore change to revert"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
