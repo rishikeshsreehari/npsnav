@@ -96,7 +96,7 @@ def calculate_returns_for_fund(fund):
 
 # Save the updated data back to data.json
 def save_updated_data(base_data):
-    with open('data.json', 'w') as file:
+    with open('data/data.json', 'w') as file:
         json.dump(base_data, file, indent=4)
 
 # Main execution

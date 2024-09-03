@@ -21,11 +21,15 @@ for fund in funds_data:
     pfm_name = fund['PFM Name']
     current_nav = round(float(fund['NAV']), 2)
     nav_date = fund['Date']
+    
+    print(f"Processing fund: {scheme_name} (Scheme Code: {scheme_code})")
 
     # Load the individual fund JSON for historic NAVs
     nav_file = f'data/{scheme_code}.json'
     with open(nav_file, 'r') as nav_f:
         historical_navs = json.load(nav_f)
+        
+    
 
     # Transform the nav_data into an array of objects
     nav_data = [{"date": date, "nav": nav} for date, nav in historical_navs.items()]
