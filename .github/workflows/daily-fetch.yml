@@ -2,10 +2,10 @@ name: Scheduled NPS NAV Daily Fetch
 
 on:
   schedule:
-    # Runs at 9:00 AM IST every day, actions run on UTC
-    - cron: '30 03 * * *'
-    # Runs at 9:00 PM IST every day, actions run on UTC
-    - cron: '30 15 * * *'
+    # Runs at 11:00 AM IST every day, actions run on UTC
+    - cron: '30 05 * * *'
+    # Runs at 11:00 PM IST every day, actions run on UTC
+    - cron: '30 17 * * *'
   workflow_dispatch:  # Enables manual triggering
 
 jobs:
