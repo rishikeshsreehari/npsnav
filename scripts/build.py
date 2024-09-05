@@ -13,7 +13,8 @@ if __name__ == "__main__":
         'scripts/calculate.py',
         'scripts/main.py',
         'scripts/api.py',
-        'scripts/funds.py'
+        'scripts/funds.py',
+        'scripts/minify.py'
     ]
     
     for script in scripts:
