@@ -21,14 +21,13 @@ header {
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 1rem;
 }
 
 nav ul {
@@ -50,6 +49,27 @@ nav ul li a {
     border-bottom: 1px solid #ddd;
     margin-bottom: 2rem;
 }
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #333; /* Dark gray for a neutral tone */
+    color: #fff; /* White text for contrast */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 0.25rem; /* Slightly rounded corners */
+    border: 1px solid #333; /* Consistent with button color */
+    margin-top: 1.5rem; /* Add margin to the top for spacing */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #fff; /* White background on hover */
+    color: #333; /* Dark gray text on hover */
+    border: 1px solid #333; /* Keep the border */
+}
+
 
 .funds-table {
     padding: 1rem;
@@ -131,7 +151,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.disclaimer, .contact-info, .contribute, .copyright {
+.disclaimer, .contact-info, .contribute, .copyright, .license-info {
     margin-bottom: 1rem;
 }
 
@@ -404,4 +424,39 @@ th.sorted-desc .sort-icon::after {
     th:first-child, td:first-child {
         min-width: 180px; /* Adjust if needed for very small screens */
     }
+}
+
+
+/* Style for the logo */
+.logo-link {
+    font-family: 'Arial', sans-serif; /* Choose a simple, clean font */
+    font-size: 2rem; /* Larger size to stand out */
+    font-weight: bold; /* Make it bold for prominence */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Dark color for a strong presence */
+    letter-spacing: 0.05em; /* Add slight letter spacing for a refined look */
+}
+
+/* Optional: Logo hover effect */
+.logo-link:hover {
+    color: #0073e6; /* Subtle color change on hover */
+}
+
+/* Style for navigation items */
+nav ul {
+    list-style: none; /* Remove default bullet points */
+    display: flex; /* Align menu items horizontally */
+    gap: 20px; /* Space between menu items */
+}
+
+nav ul li a {
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem; /* Slightly smaller than the logo */
+    font-weight: normal;
+}
+
+nav ul li a:hover {
+    color: #0073e6; /* Add hover effect to menu links */
 }

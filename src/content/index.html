@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - NPS Fund Performances{% endblock %}
 
+{% block title %}Latest NAV of NPS Funds - Top National Pension Scheme(NPS) Fund Performance{% endblock %}
+{% block description %}Explore the latest NAVs of all NPS funds in India. Track and analyze the top-performing National Pension Scheme funds. Use our simple API to track NPS NAVs directly in your Google Sheets for easier financial planning.{% endblock %}
+{% block keywords %}NPS, NAV, National Pension Scheme, NPS fund performance, India, NPS API, NPS NAV in Google Sheets, pension funds, investment, financial planning, NPS NAV Excel{% endblock %}
+{% block og_title %}Track Latest NPS Fund Performances - National Pension Scheme (NPS) NAV Updates{% endblock %}
+{% block og_description %}Stay updated with the latest NAVs of all NPS funds in India. Track top-performing National Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets effortlessly.{% endblock %}
+{% block og_url %}https://npsnav.in{% endblock %}
+{% block canonical %}https://npsnav.in{% endblock %}
 {% block content %}
+
 <section class="hero">
-    <h1>NPS Fund Performances</h1>
-    <p>Latest NAVs and returns of NPS investments</p>
+    <h1>Latest NAV and Historical Performance of NPS Funds</h1>
+    <p class="subheading">Track the latest NAVs and top-performing National Pension Scheme (NPS) funds in India.</p>
+    <p>Use our FREE API to integrate the latest NPS fund NAVs directly into Google Sheets, Microsoft Excel, or other financial planning tools.</p>
+    <a href="/nps-api/" class="cta-button">Explore API</a>
     <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
 </section>
+
+
 
 <section id="funds" class="funds-table">
     <p class="scroll-hint">Swipe to see more →</p>

@@ -52,7 +52,8 @@ for fund in funds_data:
             "5Y": fund["5Y"]
         },
         first_date=first_date,
-        last_date=last_date
+        last_date=last_date,
+        scheme_code=scheme_code  # scheme_code for canonical
         )
     # Write the rendered HTML to a file with UTF-8 encoding
     output_path = os.path.join(output_dir, f'{scheme_code}.html')

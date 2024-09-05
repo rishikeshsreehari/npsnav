@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include 'head.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Default Title - NPSNAV.in{% endblock %}</title>
+
+    <meta name="description" content="{% block description %}Default description for NPSNAV.in.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}NPS, NAV, National Pension Scheme, fund performance, investment{% endblock %}">
+    <meta name="author" content="{% block author %}NPSNAV.in{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}NPSNAV.in - NPS Fund Performances{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Get the latest NAV and performance updates for NPS funds.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}/assets/images/logo.png{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://npsnav.in{% endblock %}">
+
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="{% block canonical %}https://npsnav.in{% endblock %}">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
     {% include 'header.html' %}
@@ -13,7 +35,6 @@
     {% include 'footer.html' %}
     
     <script src="assets/js/script.js"></script>
-    <!-- Analytics shortcode -->
-    {% include 'analytics.html' %} 
+    {% block scripts %}{% endblock %}
 </body>
 </html>

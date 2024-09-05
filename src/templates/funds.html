@@ -1,58 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include 'head.html' %}
-    <link rel="stylesheet" href="/assets/css/styles.css">
+{% extends 'base.html' %}
+
+{% block title %}
+    NAV History of {{ scheme_name }}
+{% endblock %}
+
+{% block description %}
+    Latest NAV and historical performance of {{ scheme_name }}. Access the latest NPS NAV data easily with a simple API for Google Sheets and Excel.
+{% endblock %}
+
+{% block canonical %}
+    <link rel="canonical" href="https://npsnav.in/funds/{{ scheme_code }}">
+{% endblock %}
+
+
+
+{% block content %}
+<section class="fund-details">
+    <h2 class="fund-name">{{ scheme_name }}</h2>
+    <h3 class="fund-pfm">{{ pfm_name }}</h3>
+    <div class="fund-nav-container">
+        <div class="nav-label-date"></div>
+        <span class="nav-value">₹{{ "%.2f"|format(current_nav) }}</span>
+        <span id="navReturn" class="nav-return">
+            <!-- Return value will be inserted here by JavaScript -->
+        </span>
+    </div>
+
+    <div class="timeframe-buttons" 
+        data-first-date="{{ first_date }}" 
+        data-last-date="{{ last_date }}">
+        <button onclick="filterData('1M')">1M</button>
+        <button onclick="filterData('3M')">3M</button>
+        <button onclick="filterData('6M')">6M</button>
+        <button onclick="filterData('1Y')" class="selected">1Y</button>
+        <button onclick="filterData('3Y')">3Y</button>
+        <button onclick="filterData('5Y')">5Y</button>
+        <button onclick="filterData('ALL')">ALL</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="navChart"></canvas>
+    </div>
+    <span class="nav-date">Last updated on {{ nav_date }}</span>
+</section>
+
+<script>
+    const navData = {{ nav_data | tojson }};
+    const returns = {{ returns | tojson }};
+</script>
+
+{% endblock %}
+
+{% block scripts %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-</head>
-<body>
-    {% include 'header.html' %}
-    <main>
-        
-        <section class="fund-details">
-            <h2 class="fund-name">{{ scheme_name }}</h2>
-            <h3 class="fund-pfm">{{ pfm_name }}</h3>
-            <div class="fund-nav-container">
-                <div class="nav-label-date">
-                    
-                </div>
-                <span class="nav-value">₹{{ "%.2f"|format(current_nav) }}</span>
-                <span id="navReturn" class="nav-return">
-                    <!-- Return value will be inserted here by JavaScript -->
-                </span>
-            </div>
-            
-            <div class="timeframe-buttons" 
-                data-first-date="{{ first_date }}" 
-                data-last-date="{{ last_date }}">
-                <button onclick="filterData('1M')">1M</button>
-                <button onclick="filterData('3M')">3M</button>
-                <button onclick="filterData('6M')">6M</button>
-                <button onclick="filterData('1Y')" class="selected">1Y</button>
-                <button onclick="filterData('3Y')">3Y</button>
-                <button onclick="filterData('5Y')">5Y</button>
-                <button onclick="filterData('ALL')">ALL</button>
-            </div>
-
-            <div class="chart-container">
-                <canvas id="navChart"></canvas>
-            </div>
-            <span class="nav-date">Last updated on {{ nav_date }}</span>
-        </section>
-        
-        <script>
-            const navData = {{ nav_data | tojson }};
-            const returns = {{ returns | tojson }};
-        </script>
-
-
-    </main>
-    {% include 'footer.html' %}
-
-    <script>
-        const navData = {{ nav_data | tojson }};
-    </script>
     <script src="/assets/js/fund.js"></script>
-</body>
-</html>
+{% endblock %}
