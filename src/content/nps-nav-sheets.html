@@ -15,10 +15,10 @@
     <!-- Main content area -->
     <div class="doc-content">
         <section id="google-sheets-guide">
-            <h1>How to Track NPS NAV on Google Sheets</h1>
+            <h2>How to Track NPS NAV on Google Sheets</h2>
             <p>Tracking the latest NAV of your NPS fund in Google Sheets is straightforward. By using the <code>IMPORTDATA</code> function, you can pull real-time NAV data directly into your spreadsheet. Here's how to do it:</p>
 
-            <h2>Step 1: Use the <code>IMPORTDATA</code> Function</h2>
+            <h3>Step 1: Use the <code>IMPORTDATA</code> Function</h3>
             <p>Google Sheets offers the <code>IMPORTDATA</code> function, which allows you to fetch external data using a URL. This feature is perfect for tracking NPS NAV data.</p>
             <pre><code>=IMPORTDATA("https://npsnav.in/api/SchemeCode")</code></pre>
             <p>Replace <code>SchemeCode</code> with the actual code of the NPS fund you want to track.</p>
@@ -26,17 +26,17 @@
             <p><strong>Example:</strong></p>
             <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001")</code></pre>
 
-            <h2>Step 2: Calculate the Value of Your NPS Portfolio</h2>
+            <h3>Step 2: Calculate the Value of Your NPS Portfolio</h3>
             <p>Once you have the current NAV, you can calculate the value of your NPS portfolio by multiplying the NAV by the number of units you hold.</p>
 
             <p><strong>Example Calculation:</strong></p>
             <pre><code>=IMPORTDATA("https://npsnav.in/api/SchemeCode") * 268</code></pre>
             <p>Make sure you input the correct scheme code and the number of units you hold in that particular NPS fund.</p>
 
-            <h2>Step 3: Ensure You Choose the Right Fund</h2>
+            <h3>Step 3: Ensure You Choose the Right Fund</h3>
             <p>There are multiple NPS schemes under various tiers and schemes. Ensure that you choose the right fund as per your portfolio. You can find the complete list of scheme codes <a href="/nps-funds-list">here</a>.</p>
 
-            <h2>Example NPS Portfolio on Google Sheets</h2>
+            <h3>Example NPS Portfolio on Google Sheets</h3>
             <p>Below is an example screenshot of how a sample NPS portfolio looks on Google Sheets:</p>
             <img src="/assets/images/nps-nav-on-google-sheets.png" alt="Google Sheets NPS NAV Example" class="responsive-image">
 

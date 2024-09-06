@@ -15,10 +15,10 @@
     <!-- Main content area -->
     <div class="doc-content">
         <section id="api-usage">
-            <h1>NPS Fund NAV API – Track the Latest NAV of National Pension Scheme Funds</h1>
+            <h2>NPS Fund NAV API – Track the Latest NAV of National Pension Scheme Funds</h2>
             <p>Effortlessly access the latest Net Asset Values (NAVs) of India's National Pension Scheme (NPS) funds with our lightweight and easy-to-use API. Integrate real-time NAV data into your Google Sheets, Microsoft Excel, or any financial planning tool.</p>
             
-            <h2>API Usage Examples</h2>
+            <h3>API Usage Examples</h3>
             <p>You can fetch NAV values for any NPS fund using its unique scheme code. Check out these examples:</p>
             <ul>
                 <li><strong>SBI Pension Fund Scheme NAV</strong>: <a href="https://npsnav.in/api/SM001001">https://npsnav.in/api/SM001001</a></li>
@@ -31,7 +31,7 @@
         </section>
 
         <section id="google-sheets">
-            <h2>How to Track NPS NAV in Google Sheets</h2>
+            <h3>How to Track NPS NAV in Google Sheets</h3>
             <p>Easily track the latest NAV of NPS funds in Google Sheets by using the <code>IMPORTDATA</code> function:</p>
             <pre>=IMPORTDATA("https://npsnav.in/api/SM001001")</pre>
             <br>
@@ -39,7 +39,7 @@
         </section>
 
         <section id="excel">
-            <h2>How to Track NPS NAV in Microsoft Excel</h2>
+            <h3>How to Track NPS NAV in Microsoft Excel</h3>
             <p>For Microsoft Excel users, use the <code>WEBSERVICE</code> function to fetch NPS NAV data directly:</p>
             <pre>=WEBSERVICE("https://npsnav.in/api/SM001001")</pre>
             <br>
@@ -47,18 +47,18 @@
         </section>
 
         <section id="historical">
-            <h2>Access Historical NPS Fund NAV Data</h2>
+            <h3>Access Historical NPS Fund NAV Data</h3>
             <p>While our API currently provides only real-time NAV data, <strong>historical NAV data</strong> is available as JSON files in our <a href="https://github.com/rishikeshsreehari/npsnav/tree/main/data">GitHub repository</a>.If you have a genuine use case and need historical data through the API, feel free to <a href="https://github.com/rishikeshsreehari/npsnav/issues/new">request a new feature</a> or <a href="mailto:contact@npsnav.in">contact us</a>.</p>
         </section>
 
         <section id="scheme-codes">
-            <h2>Full List of NPS Scheme Codes</h2>
+            <h3>Full List of NPS Scheme Codes</h3>
             <p>To explore all available NPS funds, visit the full list of scheme names and their codes: <a href="/nps-funds-list">View NPS Scheme Codes</a></p>
         </section>
         
 
         <section>
-            <h2>Why Use NPSNAV API?</h2>
+            <h3>Why Use NPSNAV API?</h3>
             <ul>
                 <li><strong>Simple and Efficient:</strong> Get NAV values with a single API call—no need for complex setups.</li>
                 <li><strong>No Parsing Required:</strong> Our API returns plain text, making it easy to integrate into various tools like spreadsheets.</li>
