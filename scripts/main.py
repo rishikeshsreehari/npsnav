@@ -133,9 +133,12 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
             if file.endswith('.html'):
                 file_path = os.path.join(root, file)
                 url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
+
+                # Remove the ".html" extension from the URL path
+                url_path = url_path[:-5] if url_path.endswith('.html') else url_path
                 
                 # Check if the exact path is to be included in the sitemap
-                if url_path in sitemap_included_paths:
+                if url_path in [path[:-5] for path in sitemap_included_paths]:  # Strip .html in sitemap_included_paths as well
                     sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc></url>\n"
 
     sitemap_content += "</urlset>"
@@ -149,6 +152,8 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
         sitemap_file.write(sitemap_content)
 
     print("robots.txt and sitemap.xml have been created.")
+
+
 
 # Copy assets to public directory
 def copy_assets():
