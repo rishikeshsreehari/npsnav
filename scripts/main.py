@@ -175,6 +175,9 @@ def build_site():
     sitemap_included = [
         "index.html",
         "nps-api.html",
+        "nps-nav-excel.html",
+        "nps-nav-sheets.html",
+        "nps-funds-list.html",
     ]
     
     create_robots_and_sitemap(disallowed_paths=disallowed, sitemap_included_paths=sitemap_included)

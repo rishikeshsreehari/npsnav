@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}How to Track NPS NAV on Microsoft Excel{% endblock %}
+{% block description %}Learn how to track the latest NAV of NPS funds in Microsoft Excel. Use our API to integrate NPS NAV data and calculate the value of your NPS portfolio on Excel.{% endblock %}
+{% block keywords %}NPS, NAV, National Pension Scheme, NPS API, NPS fund performance, pension funds, India, NPS NAV in Excel, financial planning, portfolio tracking{% endblock %}
+{% block og_title %}How to Track NPS NAV on Microsoft Excel{% endblock %}
+{% block og_description %}Learn to track NPS NAV in Microsoft Excel using a simple API call. Calculate the value of your NPS portfolio based on real-time NAV data with ease.{% endblock %}
+{% block og_url %}https://npsnav.in/nps-nav-excel{% endblock %}
+{% block canonical %}https://npsnav.in/nps-nav-excel{% endblock %}
+
+{% block content %}
+
+<div class="doc-container">
+
+    <!-- Main content area -->
+    <div class="doc-content">
+        <section id="excel-guide">
+            <h1>How to Track NPS NAV on Microsoft Excel</h1>
+            <p>Tracking the latest NAV of your NPS fund in Microsoft Excel is simple. By using the <code>WEBSERVICE</code> function, you can pull real-time NAV data directly into your spreadsheet. Here’s how to do it:</p>
+
+            <h2>Step 1: Use the <code>WEBSERVICE</code> Function</h2>
+            <p>Microsoft Excel offers the <code>WEBSERVICE</code> function, which allows you to fetch external data using a URL. This feature is perfect for tracking NPS NAV data.</p>
+            <pre><code>=WEBSERVICE("https://npsnav.in/api/SchemeCode")</code></pre>
+            <p>Replace <code>SchemeCode</code> with the actual code of the NPS fund you want to track.</p>
+            <p>List of all available NPS schemes can be accessed <a href="/nps-funds-list">here</a>.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>=WEBSERVICE("https://npsnav.in/api/SM001001")</code></pre>
+
+            <h2>Step 2: Calculate the Value of Your NPS Portfolio</h2>
+            <p>Once you have the current NAV, you can calculate the value of your NPS portfolio by multiplying the NAV by the number of units you hold.</p>
+
+            <p><strong>Example Calculation:</strong></p>
+            <pre><code>=WEBSERVICE("https://npsnav.in/api/SchemeCode") * 268</code></pre>
+            <p>Make sure you input the correct scheme code and the number of units you hold in that particular NPS fund.</p>
+
+            <h2>Step 3: Ensure You Choose the Right Fund</h2>
+            <p>There are multiple NPS schemes under various tiers and schemes. Ensure that you choose the right fund as per your portfolio. You can find the complete list of scheme codes <a href="/nps-funds-list">here</a>.</p>
+
+            <h2>Example NPS Portfolio on Microsoft Excel</h2>
+            <p>Below is an example screenshot of how a sample NPS portfolio looks on Microsoft Excel:</p>
+            <img src="/assets/images/nps-nav-on-excel.png" alt="Microsoft Excel NPS NAV Example" class="responsive-image">
+
+            <p>Trouble tracking NPS NAV on Microsoft Excel? <a href="https://github.com/rishikeshsreehari/npsnav/issues/new">Create an issue</a> or <a href="mailto:contact@npsnav.in">contact us</a>.</p>
+
+        </section>
+
+    </div>
+
+</div>
+
+{% endblock %}
