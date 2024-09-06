@@ -87,6 +87,29 @@ def render_html_files(env, funds):
                     output_file.write(rendered_content)
                 print(f'Rendered {output_path}')
 
+# Function to generate scheme list page with scheme names and codes
+def generate_scheme_list_page(env, funds):
+    # Load the scheme list template
+    template = env.get_template('nps-funds-list.html')
+
+    # Generate the list of schemes
+    schemes = []
+    for fund in funds:
+        schemes.append({
+            'Scheme_Name': fund['Scheme Name'],
+            'Scheme_Code': fund['Scheme Code'],
+        })
+
+    # Render the page with the list of schemes
+    output_path = os.path.join('public', 'nps-funds-list.html')
+    rendered_content = template.render(schemes=schemes)
+
+    # Save the rendered content to the public directory
+    with open(output_path, 'w') as output_file:
+        output_file.write(rendered_content)
+
+    print(f'Scheme list page generated at {output_path}')
+
 # Function to create robots.txt and sitemap.xml
 def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None):
     if disallowed_paths is None:
@@ -138,7 +161,11 @@ def build_site():
     env = init_jinja_env()
     funds = load_base_data()
     
+    # Render all regular HTML files
     render_html_files(env, funds)
+    
+    # Generate the scheme list page
+    generate_scheme_list_page(env, funds)
     
     # Customize the paths for robots.txt and sitemap.xml
     disallowed = [
@@ -148,7 +175,6 @@ def build_site():
     sitemap_included = [
         "index.html",
         "nps-api.html",
-        # Add other specific paths here if needed""
     ]
     
     create_robots_and_sitemap(disallowed_paths=disallowed, sitemap_included_paths=sitemap_included)
