@@ -6,30 +6,35 @@ import json
 from collections import OrderedDict
 from datetime import datetime, timedelta
 
-def download_and_extract_nav(date_str):
-    url = f"https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip"
-    response = requests.get(url)
+def download_and_extract_nav(date_str, url_variations):
+    """
+    Attempt to download and extract the NAV data for a given date using multiple URL variations.
+    Returns the extracted file name if successful, otherwise returns None.
+    """
+    for variation in url_variations:
+        url = variation.format(date_str=date_str)
+        print(f"Trying URL: {url}")
+        
+        response = requests.get(url)
+        
+        if response.status_code == 200:
+            print(f"Successfully downloaded: {url}")
+            with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
+                for file_name in zip_ref.namelist():
+                    if file_name.endswith('.out'):
+                        zip_ref.extract(file_name, os.getcwd())
+                        print(f"Extracted: {file_name}")
+                        return file_name  # Return the extracted file name once successful
+        
+        elif response.status_code == 404:
+            print(f"NAV file not available at {url}. Trying next variation.")
+        else:
+            print(f"Failed to download from {url}. Status code: {response.status_code}")
     
-    if response.status_code == 200:
-        print(f"Successfully downloaded: {url}")
-        
-        with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
-            for file_name in zip_ref.namelist():
-                if file_name.endswith('.out'):
-                    zip_ref.extract(file_name, os.getcwd())
-                    print(f"Extracted: {file_name}")
-                    return file_name
-        
-        print("No .out file found in the ZIP archive.")
-        return None
-    elif response.status_code == 404:
-        print(f"NAV file not available for the date: {date_str}. It might be a non-operational day.")
-        return None
-    else:
-        print(f"Failed to download the file. Status code: {response.status_code}")
-        return None
+    return None  # If no variation worked, return None
 
 def parse_out_file(file_name):
+    """Parse the .out file and extract the NAV data."""
     data_list = []
     with open(file_name, 'r') as file:
         for line in file:
@@ -47,6 +52,7 @@ def parse_out_file(file_name):
     return data_list
 
 def save_latest_data(new_data):
+    """Save the latest NAV data to data.json, ensuring only the most recent NAV for each scheme is retained."""
     root_file = "data/data.json"
     os.makedirs(os.path.dirname(root_file), exist_ok=True)  # Ensure the data directory exists
     
@@ -75,6 +81,7 @@ def save_latest_data(new_data):
     print(f"Latest data saved to {root_file}")
 
 def update_scheme_json(data):
+    """Update individual JSON files for each scheme with the latest NAV data."""
     if not os.path.exists('data'):
         os.makedirs('data')
     
@@ -101,11 +108,13 @@ def update_scheme_json(data):
         print(f"Updated {scheme_file}")
 
 def clean_up(file_name):
+    """Delete the extracted .out file to clean up."""
     if os.path.exists(file_name):
         os.remove(file_name)
         print(f"Deleted {file_name}")
 
 def get_last_date_in_data():
+    """Fetch the last available date from data.json to resume fetching from the correct point."""
     root_file = "data/data.json"
     if os.path.exists(root_file):
         with open(root_file, 'r') as json_file:
@@ -116,31 +125,39 @@ def get_last_date_in_data():
     return None
 
 if __name__ == "__main__":
-    root_file = "data/data.json"
+    # Define the different case variations of the URL
+    url_variations = [
+        "https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV_FILE_{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV_file_{date_str}.zip",
+        # Add more variations if necessary
+    ]
     
-    # Get the last date from data.json
+    # Get the last date from data.json or start from a default date
     last_date = get_last_date_in_data()
-
     today = datetime.now()
     
     if not last_date:
-        last_date = datetime.strptime("30/08/2024", "%d/%m/%Y")
+        last_date = datetime.strptime("30/08/2024", "%d/%m/%Y")  # Default start date
 
     all_nav_data = []  # This will hold the new data we're going to save
 
+    # Start from the day after the last date
     current_date = last_date + timedelta(days=1)
     while current_date <= today:
         date_str = current_date.strftime("%d%m%Y")
         print(f"Trying to fetch NAV data for {current_date.strftime('%d-%m-%Y')}...")
-        out_file = download_and_extract_nav(date_str)
+        
+        # Try to download and extract the file using the URL variations
+        out_file = download_and_extract_nav(date_str, url_variations)
         
         if out_file:
             nav_data = parse_out_file(out_file)
             all_nav_data.extend(nav_data)  # Add this day's data to our new dataset
             update_scheme_json(nav_data)
-            clean_up(out_file)
+            clean_up(out_file)  # Clean up the .out file
         else:
-            print(f"No NAV data available for {date_str}.")
+            print(f"No NAV data available for {current_date.strftime('%d-%m-%Y')}.")
         
         current_date += timedelta(days=1)
     
