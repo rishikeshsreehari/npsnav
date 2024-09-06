@@ -111,6 +111,7 @@ def generate_scheme_list_page(env, funds):
     print(f'Scheme list page generated at {output_path}')
 
 # Function to create robots.txt and sitemap.xml
+# Function to create robots.txt and sitemap.xml
 def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None):
     if disallowed_paths is None:
         disallowed_paths = []
@@ -134,11 +135,16 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
                 file_path = os.path.join(root, file)
                 url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
 
-                # Remove the ".html" extension from the URL path
-                url_path = url_path[:-5] if url_path.endswith('.html') else url_path
-                
+                # Special case for index.html (should point to the root URL)
+                if url_path.endswith('index.html'):
+                    url_path = url_path[:-10]  # Remove '/index.html' to represent the root or subfolder
+
+                # Remove the ".html" extension for other pages
+                elif url_path.endswith('.html'):
+                    url_path = url_path[:-5]  # Remove the '.html' extension
+
                 # Check if the exact path is to be included in the sitemap
-                if url_path in [path[:-5] for path in sitemap_included_paths]:  # Strip .html in sitemap_included_paths as well
+                if url_path in [path[:-5] if path != "index.html" else "" for path in sitemap_included_paths]:
                     sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc></url>\n"
 
     sitemap_content += "</urlset>"
