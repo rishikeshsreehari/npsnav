@@ -17,7 +17,7 @@ os.makedirs(output_dir, exist_ok=True)
 # Loop through each fund in data.json
 for fund in funds_data:
     scheme_code = fund['Scheme Code']
-    scheme_name = fund['Scheme Name']
+    scheme_name = fund['Scheme Name'].upper()
     pfm_name = fund['PFM Name']
     current_nav = round(float(fund['NAV']), 2)
     nav_date = fund['Date']

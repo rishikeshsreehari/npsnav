@@ -23,7 +23,7 @@
         <tbody>
             {% for scheme in schemes %}
             <tr>
-                <td>{{ scheme.Scheme_Name }}</td>
+                <td><a href="/funds/{{ scheme.Scheme_Code }}">{{ scheme.Scheme_Name }}</a></td>
                 <td>{{ scheme.Scheme_Code }}</td>
             </tr>
             {% endfor %}

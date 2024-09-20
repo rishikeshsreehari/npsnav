@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ scheme_name | title }} - Latest NAV & Returns
+    {{ scheme_name }} - Latest NAV & Returns
 {% endblock %}
+
+{% block keywords %}NPS, NAV, National Pension Scheme, Scheme Codes, NPS API, {{ scheme_name }}{% endblock %}
+
 
 {% block description %}
     {{ scheme_name }} historical returns and latest NAV. Access the latest NPS NAV data easily with a simple API for Google Sheets and Excel.
