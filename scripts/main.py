@@ -110,54 +110,6 @@ def generate_scheme_list_page(env, funds):
 
     print(f'Scheme list page generated at {output_path}')
 
-# Function to create robots.txt and sitemap.xml
-def create_robots_and_sitemap(funds, disallowed_paths=None):
-    if disallowed_paths is None:
-        disallowed_paths = []
-
-    # robots.txt content
-    robots_content = "User-agent: *\n"
-    for path in disallowed_paths:
-        robots_content += f"Disallow: /{path}\n"
-    robots_content += "Disallow:\n"  # Allow all other paths
-
-    # Get the NAV_DATE for lastmod
-    nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
-
-    # Sitemap XML content
-    sitemap_content = "<?xml version='1.0' encoding='UTF-8'?>\n<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
-
-    # Generate sitemap entries
-    for root, dirs, files in os.walk('public'):
-        for file in files:
-            # Avoiding api folder and html files inside api folder
-            if file.endswith('.html') and 'api' not in root and '404.html' not in file:
-            
-                file_path = os.path.join(root, file)
-                url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
-
-                # Special case for index.html (should point to the root URL)
-                if url_path.endswith('index.html'):
-                    url_path = url_path[:-10]  # Remove '/index.html' to represent the root or subfolder
-
-                # Remove the ".html" extension for other pages
-                elif url_path.endswith('.html'):
-                    url_path = url_path[:-5]  # Remove the '.html' extension
-
-                sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc><lastmod>{nav_date}</lastmod></url>\n"
-
-    sitemap_content += "</urlset>"
-
-    # Write robots.txt
-    with open('public/robots.txt', 'w') as robots_file:
-        robots_file.write(robots_content)
-
-    # Write sitemap.xml
-    with open('public/sitemap.xml', 'w') as sitemap_file:
-        sitemap_file.write(sitemap_content)
-
-    print("robots.txt and sitemap.xml have been created.")
-
 # Copy assets to public directory
 def copy_assets():
     if os.path.exists('assets'):
@@ -175,12 +127,7 @@ def build_site():
     # Generate the scheme list page
     generate_scheme_list_page(env, funds)
     
-    # Customize the paths for robots.txt and sitemap.xml
-    disallowed = [
-        "api/",        
-    ]
-    
-    create_robots_and_sitemap(funds, disallowed_paths=disallowed)
+    # Copy assets to the public directory
     copy_assets()
 
 # Execute the build process
