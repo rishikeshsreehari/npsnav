@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    NAV History of {{ scheme_name }}
+    {{ scheme_name | title }} - Latest NAV & Returns
 {% endblock %}
 
 {% block description %}
-    Latest NAV and historical performance of {{ scheme_name }}. Access the latest NPS NAV data easily with a simple API for Google Sheets and Excel.
+    {{ scheme_name }} historical returns and latest NAV. Access the latest NPS NAV data easily with a simple API for Google Sheets and Excel.
 {% endblock %}
 
 {% block canonical %}https://npsnav.in/funds/{{ scheme_code }}{% endblock %}
