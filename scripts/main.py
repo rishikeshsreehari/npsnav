@@ -111,13 +111,9 @@ def generate_scheme_list_page(env, funds):
     print(f'Scheme list page generated at {output_path}')
 
 # Function to create robots.txt and sitemap.xml
-# Function to create robots.txt and sitemap.xml
-def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None):
+def create_robots_and_sitemap(funds, disallowed_paths=None):
     if disallowed_paths is None:
         disallowed_paths = []
-
-    if sitemap_included_paths is None:
-        sitemap_included_paths = []
 
     # robots.txt content
     robots_content = "User-agent: *\n"
@@ -125,13 +121,16 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
         robots_content += f"Disallow: /{path}\n"
     robots_content += "Disallow:\n"  # Allow all other paths
 
+    # Get the NAV_DATE for lastmod
+    nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
+
     # Sitemap XML content
     sitemap_content = "<?xml version='1.0' encoding='UTF-8'?>\n<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
 
     # Generate sitemap entries
     for root, dirs, files in os.walk('public'):
         for file in files:
-            if file.endswith('.html'):
+            if file.endswith('.html') and 'api' not in root:  # Skip the 'api' folder
                 file_path = os.path.join(root, file)
                 url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
 
@@ -143,9 +142,7 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
                 elif url_path.endswith('.html'):
                     url_path = url_path[:-5]  # Remove the '.html' extension
 
-                # Check if the exact path is to be included in the sitemap
-                if url_path in [path[:-5] if path != "index.html" else "" for path in sitemap_included_paths]:
-                    sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc></url>\n"
+                sitemap_content += f"  <url><loc>https://npsnav.in/{url_path}</loc><lastmod>{nav_date}</lastmod></url>\n"
 
     sitemap_content += "</urlset>"
 
@@ -158,8 +155,6 @@ def create_robots_and_sitemap(disallowed_paths=None, sitemap_included_paths=None
         sitemap_file.write(sitemap_content)
 
     print("robots.txt and sitemap.xml have been created.")
-
-
 
 # Copy assets to public directory
 def copy_assets():
@@ -182,16 +177,8 @@ def build_site():
     disallowed = [
         "api/",        
     ]
-
-    sitemap_included = [
-        "index.html",
-        "nps-api.html",
-        "nps-nav-excel.html",
-        "nps-nav-sheets.html",
-        "nps-funds-list.html",
-    ]
     
-    create_robots_and_sitemap(disallowed_paths=disallowed, sitemap_included_paths=sitemap_included)
+    create_robots_and_sitemap(funds, disallowed_paths=disallowed)
     copy_assets()
 
 # Execute the build process
