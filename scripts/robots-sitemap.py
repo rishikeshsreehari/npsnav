@@ -4,11 +4,13 @@ from jinja2 import Environment, FileSystemLoader
 import json
 
 # Convert date from mm/dd/yyyy to dd-mm-yyyy format
+# Convert date from mm/dd/yyyy to yyyy-mm-dd format for sitemaps
 def convert_date_format(date_str):
     try:
-        return datetime.strptime(date_str, "%m/%d/%Y").strftime("%d-%m-%Y")
+        return datetime.strptime(date_str, "%m/%d/%Y").strftime("%Y-%m-%d")
     except ValueError:
         return date_str
+
 
 # Load the base data.json file to get NAV_DATE
 def load_base_data():
