@@ -130,7 +130,9 @@ def create_robots_and_sitemap(funds, disallowed_paths=None):
     # Generate sitemap entries
     for root, dirs, files in os.walk('public'):
         for file in files:
-            if file.endswith('.html') and 'api' not in root:  # Skip the 'api' folder
+            # Avoiding api folder and html files inside api folder
+            if file.endswith('.html') and 'api' not in root and '404.html' not in file:
+            
                 file_path = os.path.join(root, file)
                 url_path = os.path.relpath(file_path, 'public').replace(os.sep, '/')
 
