@@ -577,3 +577,23 @@ pre {
     border-radius: 4px;
     padding: 5px;
 }
+
+
+
+.buy-me-coffee {
+    display: block; /* Ensures the image behaves like a block-level element */
+    margin: 0 auto; /* Auto margins on both sides center the image */
+    max-width: 20%; /* Responsive width to fit its container */
+    min-height: auto;
+    height: auto; /* Maintains the aspect ratio */
+    cursor: pointer; /* Changes the cursor to suggest it's clickable */
+    margin-bottom: 1rem;
+
+}
+
+
+@media (max-width: 768px) {
+    .buy-me-coffee {
+        max-width: 50%; /* Set the width to 50% for smaller screens */
+    }
+}
