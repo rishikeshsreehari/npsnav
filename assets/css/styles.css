@@ -580,7 +580,7 @@ pre {
 
 
 
-.buy-me-coffee {
+.donate {
     display: block; /* Ensures the image behaves like a block-level element */
     margin: 0 auto; /* Auto margins on both sides center the image */
     max-width: 20%; /* Responsive width to fit its container */
@@ -593,7 +593,7 @@ pre {
 
 
 @media (max-width: 768px) {
-    .buy-me-coffee {
+    .donate {
         max-width: 50%; /* Set the width to 50% for smaller screens */
     }
 }
