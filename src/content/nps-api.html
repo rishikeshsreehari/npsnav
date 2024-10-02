@@ -10,45 +10,94 @@
 {% block content %}
 
 <div class="doc-container">
-    
 
     <!-- Main content area -->
     <div class="doc-content">
         <section id="api-usage">
             <h2>NPS Fund NAV API – Track the Latest NAV of National Pension Scheme Funds</h2>
-            <p>Effortlessly access the latest Net Asset Values (NAVs) of India's National Pension Scheme (NPS) funds with our lightweight and easy-to-use API. Integrate real-time NAV data into your Google Sheets, Microsoft Excel, or any financial planning tool.</p>
-            
-            <h3>API Usage Examples</h3>
+            <p>Effortlessly access the latest Net Asset Values (NAVs) of India's National Pension Scheme (NPS) funds with our lightweight and easy-to-use API. The site currently provides three types of API: <a href="#simple-api">Simple API for NAV</a>, <a href="#detailed-api">Detailed API</a>, and <a href="#historical-api">Historical API</a>. Integrate real-time NAV data into your Google Sheets, Microsoft Excel, or any financial planning tool.</p>
+
+            <h3 id="simple-api">Simple API for NAV</h3>
             <p>You can fetch NAV values for any NPS fund using its unique scheme code. Check out these examples:</p>
             <ul>
                 <li><strong>SBI Pension Fund Scheme NAV</strong>: <a href="https://npsnav.in/api/SM001001">https://npsnav.in/api/SM001001</a></li>
-                <li><strong>UTI Retirement Pension Fund Scheme NAV</strong>: <a href="https://npsnav.in/api/SM001002">https://npsnav.in/api/SM002001</a></li>
-                <li><strong>HDFC Pension Scheme E NAV</strong>: <a href="https://npsnav.in/api/SM001003">https://npsnav.in/api/SM008001</a></li>
+                <li><strong>UTI Retirement Pension Fund Scheme NAV</strong>: <a href="https://npsnav.in/api/SM001002">https://npsnav.in/api/SM001002</a></li>
+                <li><strong>HDFC Pension Scheme E NAV</strong>: <a href="https://npsnav.in/api/SM008001">https://npsnav.in/api/SM008001</a></li>
             </ul>
 
-            <p><a href="/nps-funds-list">List of all NPS funds with scheme name and scheme code.</a></p>
-
-        </section>
-
-        <section id="google-sheets">
-            <h3>How to Track NPS NAV in Google Sheets</h3>
+            <h4>How to Track NAV in Google Sheets</h4>
             <p>Easily track the latest NAV of NPS funds in Google Sheets by using the <code>IMPORTDATA</code> function:</p>
             <pre>=IMPORTDATA("https://npsnav.in/api/SM001001")</pre>
-            <br>
             <p><a href="/nps-nav-sheets">Learn more about integrating NPS NAV into Google Sheets</a></p>
-        </section>
 
-        <section id="excel">
-            <h3>How to Track NPS NAV in Microsoft Excel</h3>
+            <h4>How to Track NAV in Microsoft Excel</h4>
             <p>For Microsoft Excel users, use the <code>WEBSERVICE</code> function to fetch NPS NAV data directly:</p>
             <pre>=WEBSERVICE("https://npsnav.in/api/SM001001")</pre>
-            <br>
             <p><a href="/nps-nav-excel">Learn more about integrating NPS NAV into Microsoft Excel</a></p>
+
+            <p><a href="/nps-funds-list">List of all NPS funds with scheme name and scheme code.</a></p>
         </section>
 
-        <section id="historical">
+        <!-- Detailed API Section -->
+        <section id="detailed-api">
+            <h3>Access Detailed NPS Fund Data</h3>
+            <p>Use the detailed API to get more information about each NPS fund, including its NAV and other performance data. Here's an example:</p>
+
+            <h4>Example Query</h4>
+            <pre>https://npsnav.in/api/detailed/SM001001</pre>
+
+            <h4>Example Result</h4>
+            <pre>
+{
+  "Last Updated": "01-10-2024",
+  "PFM Code": "PFM001",
+  "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+  "Scheme Code": "SM001001",
+  "Scheme Name": "SBI PENSION FUND SCHEME - CENTRAL GOVT",
+  "NAV": "46.7686",
+  "1D": "0.10",
+  "7D": "0.13",
+  "1M": "1.34",
+  "3M": "3.51",
+  "6M": "6.73",
+  "1Y": "13.98",
+  "3Y": "8.16",
+  "5Y": "9.23"
+}
+            </pre>
+            <p>This API returns detailed information, such as 1-day, 7-day, 1-month, 3-month, 6-month, 1-year, 3-year and 5-year returns.</p>
+        </section>
+
+        <!-- Historical API Section -->
+        <section id="historical-api">
             <h3>Access Historical NPS Fund NAV Data</h3>
-            <p>While our API currently provides only real-time NAV data, <strong>historical NAV data</strong> is available as JSON files in our <a href="https://github.com/rishikeshsreehari/npsnav/tree/main/data">GitHub repository</a>.If you have a genuine use case and need historical data through the API, feel free to <a href="https://github.com/rishikeshsreehari/npsnav/issues/new">request a new feature</a> or <a href="mailto:contact@npsnav.in">contact us</a>.</p>
+            <p>Our historical API allows you to access past NAV values of NPS funds. Use this API to track the historical performance of your investments. Here's an example:</p>
+
+            <h4>Example Query</h4>
+            <pre>https://npsnav.in/api/historical/SM001001</pre>
+
+            <h4>Example Result</h4>
+            <pre>
+{
+  "data": [
+    {
+      "date": "01-10-2024",
+      "nav": 46.7686
+    },
+    {
+      "date": "30-09-2024",
+      "nav": 46.7231
+    }
+  ],
+  "metadata": {
+    "currency": "INR",
+    "dataType": "NAV",
+    "lastUpdated": "01-10-2024"
+  }
+}
+            </pre>
+
+            <p>Track daily historical NAV performance of any NPS fund for smarter financial planning.</p>
         </section>
 
         <section id="scheme-codes">
@@ -56,15 +105,16 @@
             <p>To explore all available NPS funds, visit the full list of scheme names and their codes: <a href="/nps-funds-list">View NPS Scheme Codes</a></p>
         </section>
         
-
         <section>
-            <h3>Why Use NPSNAV API?</h3>
+            <h3>Why Use NPSNAV.in API?</h3>
             <ul>
-                <li><strong>Simple and Efficient:</strong> Get NAV values with a single API call—no need for complex setups.</li>
-                <li><strong>No Parsing Required:</strong> Our API returns plain text, making it easy to integrate into various tools like spreadsheets.</li>
-                <li><strong>Unlimited Access:</strong> No restrictions or usage limits, use it as much as you need.</li>
-                <li><strong>No Sign-ups or Maintenance:</strong> Start using the API instantly without registration or setup.</li>
+                <li><strong>Versatile API Options:</strong> Access multiple API types—simple text-based NAV values, detailed fund data, and historical NAV performance—all tailored to meet different needs.</li>
+                <li><strong>Easy Integration:</strong> Our APIs are designed for seamless integration with tools like Google Sheets, Excel, or any financial application.</li>
+                <li><strong>Comprehensive Data:</strong> From real-time NAV updates to detailed fund performance and historical data, our APIs cover all aspects of NPS fund tracking.</li>
+                <li><strong>Unlimited Usage:</strong> No restrictions or usage limits—use the API as much as needed, without sign-ups or registrations.</li>
+                <li><strong>Always Up-to-Date:</strong> We strive to provide the most up-to-date NAV data compared to other sites, ensuring that you have the latest information for smarter financial planning.</li>
             </ul>
+            
         </section>
     </div>
 </div>
