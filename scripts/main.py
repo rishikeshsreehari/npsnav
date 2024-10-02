@@ -110,11 +110,17 @@ def generate_scheme_list_page(env, funds):
 
     print(f'Scheme list page generated at {output_path}')
 
-# Copy assets to public directory
-def copy_assets():
+# Copy files to public directory
+def copy_files():
+    # Check and copy assets directory
     if os.path.exists('assets'):
         shutil.copytree('assets', 'public/assets', dirs_exist_ok=True)
         print("Assets have been copied.")
+    
+    # Check and copy the _redirects file
+    if os.path.exists('_redirects'):
+        shutil.copy('_redirects', 'public/_redirects')
+        print("_redirects file has been copied.")
 
 # Main function to orchestrate the build process
 def build_site():
@@ -128,7 +134,7 @@ def build_site():
     generate_scheme_list_page(env, funds)
     
     # Copy assets to the public directory
-    copy_assets()
+    copy_files()
 
 # Execute the build process
 if __name__ == "__main__":

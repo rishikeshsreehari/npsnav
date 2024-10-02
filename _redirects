@@ -1,0 +1,2 @@
+# Redirect for detailed API to serve .json files
+/api/detailed/:scheme_id  /api/detailed/:scheme_id.json  200
