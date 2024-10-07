@@ -3,6 +3,8 @@ import json
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+DATE_FORMAT = '%m/%d/%Y'
+
 # Load the base data.json file
 def load_base_data():
     with open('data/data.json', 'r') as file:
@@ -18,11 +20,11 @@ def load_historical_data(scheme_code):
 
 # Get the NAV for the strictly previous available date before the target date
 def get_nav_for_previous_date(historical_data, target_date):
-    target_datetime = datetime.strptime(target_date, '%m/%d/%Y')
-    sorted_dates = sorted(historical_data.keys(), key=lambda x: datetime.strptime(x, '%m/%d/%Y'), reverse=True)
+    target_datetime = datetime.strptime(target_date, DATE_FORMAT)
+    sorted_dates = sorted(historical_data.keys(), key=lambda x: datetime.strptime(x, DATE_FORMAT), reverse=True)
 
     for date_str in sorted_dates:
-        current_datetime = datetime.strptime(date_str, '%m/%d/%Y')
+        current_datetime = datetime.strptime(date_str, DATE_FORMAT)
         if current_datetime <= target_datetime:
             return date_str, historical_data[date_str]
 
@@ -60,28 +62,28 @@ def calculate_returns_for_fund(fund):
     latest_date = fund['Date']
     
     # Calculate returns using the strictly previous available date
-    one_day_date, one_day_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(days=1)).strftime('%m/%d/%Y'))
+    one_day_date, one_day_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(days=1)).strftime(DATE_FORMAT))
     one_day_return = calculate_return(latest_nav, one_day_nav)
     
-    seven_day_date, seven_day_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(days=7)).strftime('%m/%d/%Y'))
+    seven_day_date, seven_day_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(days=7)).strftime(DATE_FORMAT))
     seven_day_return = calculate_return(latest_nav, seven_day_nav)
     
-    one_month_date, one_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(months=1)).strftime('%m/%d/%Y'))
+    one_month_date, one_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(months=1)).strftime(DATE_FORMAT))
     one_month_return = calculate_return(latest_nav, one_month_nav)
     
-    three_month_date, three_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(months=3)).strftime('%m/%d/%Y'))
+    three_month_date, three_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(months=3)).strftime(DATE_FORMAT))
     three_month_return = calculate_return(latest_nav, three_month_nav)
     
-    six_month_date, six_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(months=6)).strftime('%m/%d/%Y'))
+    six_month_date, six_month_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(months=6)).strftime(DATE_FORMAT))
     six_month_return = calculate_return(latest_nav, six_month_nav)
     
-    one_year_date, one_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(years=1)).strftime('%m/%d/%Y'))
+    one_year_date, one_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(years=1)).strftime(DATE_FORMAT))
     one_year_return = calculate_return(latest_nav, one_year_nav)
     
-    three_year_date, three_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(years=3)).strftime('%m/%d/%Y'))
+    three_year_date, three_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(years=3)).strftime(DATE_FORMAT))
     three_year_return = calculate_annualized_return(latest_nav, three_year_nav, 3)
     
-    five_year_date, five_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, '%m/%d/%Y') - relativedelta(years=5)).strftime('%m/%d/%Y'))
+    five_year_date, five_year_nav = get_nav_for_previous_date(historical_data, (datetime.strptime(latest_date, DATE_FORMAT) - relativedelta(years=5)).strftime(DATE_FORMAT))
     five_year_return = calculate_annualized_return(latest_nav, five_year_nav, 5)
     
     # Update the fund entry with calculated returns
