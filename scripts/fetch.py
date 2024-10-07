@@ -6,6 +6,8 @@ import json
 from collections import OrderedDict
 from datetime import datetime, timedelta
 
+DATE_FORMAT = '%m/%d/%Y'
+
 def download_and_extract_nav(date_str, url_variations):
     """
     Attempt to download and extract the NAV data for a given date using multiple URL variations.
@@ -100,7 +102,7 @@ def update_scheme_json(data):
 
         # Sort the dictionary by date (descending) and update
         sorted_scheme_data = OrderedDict(
-            sorted(scheme_data.items(), key=lambda x: datetime.strptime(x[0], '%m/%d/%Y'), reverse=True)
+            sorted(scheme_data.items(), key=lambda x: datetime.strptime(x[0], DATE_FORMAT), reverse=True)
         )
 
         with open(scheme_file, 'w') as f:
