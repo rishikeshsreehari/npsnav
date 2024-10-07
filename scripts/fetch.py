@@ -72,7 +72,7 @@ def save_latest_data(new_data):
     
     for record in all_data:
         key = (record["PFM Code"], record["Scheme Code"])
-        if key not in latest_records or datetime.strptime(record["Date"], "%m/%d/%Y") > datetime.strptime(latest_records[key]["Date"], "%m/%d/%Y"):
+        if key not in latest_records or datetime.strptime(record["Date"], DATE_FORMAT) > datetime.strptime(latest_records[key]["Date"], DATE_FORMAT):
             latest_records[key] = record
     
     # Convert the dictionary values back to a list
@@ -122,7 +122,7 @@ def get_last_date_in_data():
         with open(root_file, 'r') as json_file:
             data = json.load(json_file)
             if data:
-                last_date = max(datetime.strptime(entry['Date'], "%m/%d/%Y") for entry in data)
+                last_date = max(datetime.strptime(entry['Date'], DATE_FORMAT) for entry in data)
                 return last_date
     return None
 
