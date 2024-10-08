@@ -112,14 +112,13 @@
     /* Table Styles */
     .table-container {
         width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
     #fundTable {
         width: 100%;
         border-collapse: collapse;
         font-size: 14px;
-        white-space: nowrap;
     }
     #fundTable th, #fundTable td {
         padding: 10px;
@@ -138,9 +137,10 @@
         min-width: 200px;
         max-width: 300px;
     }
+    /* Adjust scheme name cell to prevent weird wrapping */
     #fundTable td:first-child {
-        word-wrap: break-word;
         white-space: normal;
+        word-break: break-word;
     }
     .scroll-hint {
         display: none;
@@ -184,6 +184,11 @@
         }
         .scheme-column {
             min-width: 150px;
+        }
+        /* Ensure scheme names wrap properly on mobile */
+        #fundTable td:first-child {
+            white-space: normal;
+            word-break: break-word;
         }
     }
 </style>
