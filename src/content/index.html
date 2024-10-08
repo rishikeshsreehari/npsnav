@@ -36,7 +36,7 @@
         <table id="fundTable">
             <thead>
                 <tr>
-                    <th>Scheme <span class="sort-icon"></span></th>
+                    <th class="scheme-column">Scheme <span class="sort-icon"></span></th>
                     <th>NAV <span class="sort-icon"></span></th>
                     <th>1D <span class="sort-icon"></span></th>
                     <th>7D <span class="sort-icon"></span></th>
@@ -88,6 +88,50 @@
     }
     #filterButton svg {
         vertical-align: middle;
+    }
+    .table-container {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    #fundTable {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+    #fundTable th, #fundTable td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    #fundTable th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    .scheme-column {
+        min-width: 200px;
+        max-width: 300px;
+    }
+    #fundTable td:first-child {
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    #fundTable th:not(:first-child), #fundTable td:not(:first-child) {
+        width: 60px;
+        white-space: nowrap;
+    }
+    @media screen and (max-width: 768px) {
+        #fundTable {
+            font-size: 12px;
+        }
+        #fundTable th, #fundTable td {
+            padding: 6px;
+        }
+        .scheme-column {
+            min-width: 150px;
+        }
+        #fundTable th:not(:first-child), #fundTable td:not(:first-child) {
+            width: 50px;
+        }
     }
 </style>
 
