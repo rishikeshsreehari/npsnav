@@ -14,13 +14,74 @@
 
 ## API Usage
 
-You can use the free API to get the latest NAV for any NPS fund. Access the latest NAV data using the following URL format:
+Easily integrate real-time and historical NAV data for any NPS fund with our API. Three types of APIs are currently available:
+
+### Simple API
+Fetch the latest NAV of any NPS fund using its scheme code.
   ```
   https://npsnav.in/api/{scheme_code}
   ```
-Replace \`{scheme_code}\` with the scheme code of the fund you are interested in. The API will return the NAV value as plain text. A list of all scheme codes can be found [here](https://npsnav.in/nps-funds-list).
+The API will return the NAV value as plain text.
 
-Read more about the [API here](https://npsnav.in/nps-api).
+### Detailed API
+
+Get detailed information about an NPS fund, including returns over various timeframes.
+
+```
+https://npsnav.in/api/detailed/{scheme_code}
+```
+Sample Result:
+
+```
+{
+  "Last Updated": "01-10-2024",
+  "PFM Code": "PFM001",
+  "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
+  "Scheme Code": "SM001001",
+  "Scheme Name": "SBI PENSION FUND SCHEME - CENTRAL GOVT",
+  "NAV": "46.7686",
+  "1D": "0.10",
+  "7D": "0.13",
+  "1M": "1.34",
+  "3M": "3.51",
+  "6M": "6.73",
+  "1Y": "13.98",
+  "3Y": "8.16",
+  "5Y": "9.23"
+}
+```
+
+### Historical API
+
+Retrieve historical NAV data for any NPS fund.
+
+```
+https://npsnav.in/api/historical/{scheme_code}
+```
+Sample Result:
+
+```
+ {
+  "data": [
+    {
+      "date": "01-10-2024",
+      "nav": 46.7686
+    },
+    {
+      "date": "30-09-2024",
+      "nav": 46.7231
+    }
+  ],
+  "metadata": {
+    "currency": "INR",
+    "dataType": "NAV",
+    "lastUpdated": "01-10-2024"
+  }
+}
+```
+Replace `{scheme_code}` with the scheme code of the fund you are interested in. A list of all scheme codes can be found [here](https://npsnav.in/nps-funds-list).
+
+Read more about [APIs here](https://npsnav.in/nps-api).
 
 ## Setup Instructions
 
@@ -61,9 +122,15 @@ To run the project locally, follow the steps below:
 
 GitHub Actions trigger `fetch.py` every day at **11 AM** and **11 PM IST**. This script fetches the latest NAV data and commits any changes, which automatically triggers a build on Cloudflare to keep the site updated. Check `daily-fetch.yml` for more details.
 
+## Hosting and Stats
+
+The site is hosted on Cloudflare Pages. The stats are collected using GoatCounter and can be viewed [here](https://npsnav.goatcounter.com/). Please note that these stats do not include API calls.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request to contribute.
+
+Some existing bugs and enhancements can be viewed in the [issues section](https://github.com/rishikeshsreehari/npsnav/issues).
 
 ## License
 
