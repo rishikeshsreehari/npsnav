@@ -7,6 +7,12 @@
 {% block og_description %}Stay updated with the latest NAVs of all NPS funds in India. Track top-performing National Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets effortlessly.{% endblock %}
 {% block og_url %}https://npsnav.in{% endblock %}
 {% block canonical %}https://npsnav.in{% endblock %}
+
+{% block head %}
+    <!-- Add the viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
 {% block content %}
 
 <section class="hero">
@@ -22,10 +28,7 @@
     <div class="filter-container">
         <input type="text" id="filterInput" placeholder="Filter by scheme name">
         <button id="filterButton">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
+            <!-- SVG icon -->
         </button>
     </div>
 </section>
@@ -57,6 +60,7 @@
 </section>
 
 <style>
+    /* General Styles */
     body {
         font-family: Arial, sans-serif;
         line-height: 1.6;
@@ -101,6 +105,8 @@
     #filterButton svg {
         vertical-align: middle;
     }
+
+    /* Table Styles */
     .table-container {
         width: 100%;
         overflow-x: auto;
@@ -139,7 +145,30 @@
         color: #666;
         margin-bottom: 10px;
     }
+
+    /* Responsive Styles */
     @media screen and (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        .hero h1 {
+            font-size: 24px;
+        }
+        .hero p {
+            font-size: 14px;
+        }
+        .filter-container {
+            max-width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        #filterInput, #filterButton {
+            width: 100%;
+            padding: 10px;
+        }
+        #filterButton {
+            border-top: 1px solid #ccc;
+        }
         .scroll-hint {
             display: block;
         }
@@ -156,6 +185,7 @@
 </style>
 
 <script>
+    // Filter functionality
     document.getElementById('filterButton').addEventListener('click', function() {
         const filterValue = document.getElementById('filterInput').value.toLowerCase();
         const rows = document.getElementById('fundTableBody').getElementsByTagName('tr');
@@ -170,6 +200,7 @@
         }
     });
 
+    // Trigger filter on Enter key
     document.getElementById('filterInput').addEventListener('keyup', function(event) {
         if (event.key === 'Enter') {
             document.getElementById('filterButton').click();
