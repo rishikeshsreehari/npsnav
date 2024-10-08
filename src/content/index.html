@@ -137,10 +137,9 @@
         min-width: 200px;
         max-width: 300px;
     }
-    /* Adjust scheme name cell to prevent weird wrapping */
+    /* Adjust scheme name cell to prevent wrapping */
     #fundTable td:first-child {
-        white-space: normal;
-        word-break: break-word;
+        white-space: nowrap;
     }
     .scroll-hint {
         display: none;
@@ -185,10 +184,9 @@
         .scheme-column {
             min-width: 150px;
         }
-        /* Ensure scheme names wrap properly on mobile */
+        /* Disable text wrapping on mobile */
         #fundTable td:first-child {
-            white-space: normal;
-            word-break: break-word;
+            white-space: nowrap;
         }
     }
 </style>
