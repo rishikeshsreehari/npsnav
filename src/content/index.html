@@ -30,8 +30,30 @@
     </div>
 </section>
 
-<section id="funds" class="funds-container">
-    <!-- Fund cards will be dynamically inserted here -->
+<section id="funds" class="funds-table">
+    <p class="scroll-hint">Swipe to see more →</p>
+    <div class="table-container">
+        <table id="fundTable">
+            <thead>
+                <tr>
+                    <th class="scheme-column">Scheme <span class="sort-icon"></span></th>
+                    <th>NAV <span class="sort-icon"></span></th>
+                    <th>1D <span class="sort-icon"></span></th>
+                    <th>7D <span class="sort-icon"></span></th>
+                    <th>1M <span class="sort-icon"></span></th>
+                    <th>3M <span class="sort-icon"></span></th>
+                    <th>6M <span class="sort-icon"></span></th>
+                    <th>1Y <span class="sort-icon"></span></th>
+                    <th>3Y <span class="sort-icon"></span></th>
+                    <th>5Y <span class="sort-icon"></span></th>
+                </tr>
+            </thead>
+            <tbody id="fundTableBody">
+                {{ TABLE_ROWS }} <!-- Placeholder for dynamic table rows -->
+            </tbody>
+        </table>
+    </div>
+    <button id="showAllButton" style="display: none;">Show All</button>
 </section>
 
 <style>
@@ -79,112 +101,79 @@
     #filterButton svg {
         vertical-align: middle;
     }
-    .funds-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
-    .fund-card {
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    #fundTable {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        white-space: nowrap;
     }
-    .fund-card h3 {
-        margin-top: 0;
-        margin-bottom: 15px;
-        font-size: 18px;
-        color: #2c3e50;
+    #fundTable th, #fundTable td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
     }
-    .fund-details {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .fund-detail {
-        display: flex;
-        justify-content: space-between;
-    }
-    .fund-detail-label {
+    #fundTable th {
+        background-color: #f2f2f2;
         font-weight: bold;
-        color: #7f8c8d;
+        position: sticky;
+        top: 0;
+        z-index: 1;
     }
-    .fund-detail-value {
-        text-align: right;
+    .scheme-column {
+        min-width: 200px;
+        max-width: 300px;
     }
-    @media (max-width: 600px) {
-        .funds-container {
-            grid-template-columns: 1fr;
+    #fundTable td:first-child {
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    .scroll-hint {
+        display: none;
+        text-align: center;
+        font-style: italic;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    @media screen and (max-width: 768px) {
+        .scroll-hint {
+            display: block;
+        }
+        #fundTable {
+            font-size: 12px;
+        }
+        #fundTable th, #fundTable td {
+            padding: 8px;
+        }
+        .scheme-column {
+            min-width: 150px;
         }
     }
 </style>
 
 <script>
-    // Sample data structure (replace with your actual data)
-    const fundsData = [
-        {
-            scheme: "SBI Pension Fund Scheme E - Tier I",
-            nav: "34.5678",
-            returns: {
-                "1D": "0.5%",
-                "7D": "1.2%",
-                "1M": "2.5%",
-                "3M": "4.8%",
-                "6M": "7.3%",
-                "1Y": "12.6%",
-                "3Y": "32.4%",
-                "5Y": "54.7%"
-            }
-        },
-        // Add more fund objects here
-    ];
-
-    function createFundCard(fund) {
-        const card = document.createElement('div');
-        card.className = 'fund-card';
-        card.innerHTML = `
-            <h3>${fund.scheme}</h3>
-            <div class="fund-details">
-                <div class="fund-detail">
-                    <span class="fund-detail-label">NAV:</span>
-                    <span class="fund-detail-value">${fund.nav}</span>
-                </div>
-                ${Object.entries(fund.returns).map(([period, value]) => `
-                    <div class="fund-detail">
-                        <span class="fund-detail-label">${period}:</span>
-                        <span class="fund-detail-value">${value}</span>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-        return card;
-    }
-
-    function renderFunds(funds) {
-        const container = document.getElementById('funds');
-        container.innerHTML = '';
-        funds.forEach(fund => {
-            container.appendChild(createFundCard(fund));
-        });
-    }
-
-    function filterFunds() {
+    document.getElementById('filterButton').addEventListener('click', function() {
         const filterValue = document.getElementById('filterInput').value.toLowerCase();
-        const filteredFunds = fundsData.filter(fund => 
-            fund.scheme.toLowerCase().includes(filterValue)
-        );
-        renderFunds(filteredFunds);
-    }
-
-    document.getElementById('filterButton').addEventListener('click', filterFunds);
-    document.getElementById('filterInput').addEventListener('keyup', function(event) {
-        if (event.key === 'Enter') {
-            filterFunds();
+        const rows = document.getElementById('fundTableBody').getElementsByTagName('tr');
+        
+        for (let row of rows) {
+            const schemeName = row.cells[0].textContent.toLowerCase();
+            if (schemeName.includes(filterValue)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         }
     });
 
-    // Initial render
-    renderFunds(fundsData);
+    document.getElementById('filterInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            document.getElementById('filterButton').click();
+        }
+    });
 </script>
 {% endblock %}
