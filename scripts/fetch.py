@@ -5,6 +5,9 @@ from io import BytesIO
 import json
 from collections import OrderedDict
 from datetime import datetime, timedelta
+import concurrent.futures
+
+DATE_FORMAT = '%m/%d/%Y'
 
 def download_and_extract_nav(date_str, url_variations):
     """
@@ -15,21 +18,25 @@ def download_and_extract_nav(date_str, url_variations):
         url = variation.format(date_str=date_str)
         print(f"Trying URL: {url}")
         
-        response = requests.get(url)
+        try:
+            response = requests.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                print(f"Successfully downloaded: {url}")
+                with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
+                    for file_name in zip_ref.namelist():
+                        if file_name.endswith('.out'):
+                            zip_ref.extract(file_name, os.getcwd())
+                            print(f"Extracted: {file_name}")
+                            return file_name  # Return the extracted file name once successful
+            
+            elif response.status_code == 404:
+                print(f"NAV file not available at {url}. Trying next variation.")
+            else:
+                print(f"Failed to download from {url}. Status code: {response.status_code}")
         
-        if response.status_code == 200:
-            print(f"Successfully downloaded: {url}")
-            with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
-                for file_name in zip_ref.namelist():
-                    if file_name.endswith('.out'):
-                        zip_ref.extract(file_name, os.getcwd())
-                        print(f"Extracted: {file_name}")
-                        return file_name  # Return the extracted file name once successful
-        
-        elif response.status_code == 404:
-            print(f"NAV file not available at {url}. Trying next variation.")
-        else:
-            print(f"Failed to download from {url}. Status code: {response.status_code}")
+        except requests.RequestException as e:
+            print(f"Error downloading from {url}: {e}")
     
     return None  # If no variation worked, return None
 
@@ -70,7 +77,7 @@ def save_latest_data(new_data):
     
     for record in all_data:
         key = (record["PFM Code"], record["Scheme Code"])
-        if key not in latest_records or datetime.strptime(record["Date"], "%m/%d/%Y") > datetime.strptime(latest_records[key]["Date"], "%m/%d/%Y"):
+        if key not in latest_records or datetime.strptime(record["Date"], DATE_FORMAT) > datetime.strptime(latest_records[key]["Date"], DATE_FORMAT):
             latest_records[key] = record
     
     # Convert the dictionary values back to a list
@@ -100,7 +107,7 @@ def update_scheme_json(data):
 
         # Sort the dictionary by date (descending) and update
         sorted_scheme_data = OrderedDict(
-            sorted(scheme_data.items(), key=lambda x: datetime.strptime(x[0], '%m/%d/%Y'), reverse=True)
+            sorted(scheme_data.items(), key=lambda x: datetime.strptime(x[0], DATE_FORMAT), reverse=True)
         )
 
         with open(scheme_file, 'w') as f:
@@ -120,20 +127,33 @@ def get_last_date_in_data():
         with open(root_file, 'r') as json_file:
             data = json.load(json_file)
             if data:
-                last_date = max(datetime.strptime(entry['Date'], "%m/%d/%Y") for entry in data)
+                last_date = max(datetime.strptime(entry['Date'], DATE_FORMAT) for entry in data)
                 return last_date
     return None
 
+def process_date(date, url_variations):
+    """Process a single date: download, extract, parse, and update data."""
+    date_str = date.strftime("%d%m%Y")
+    print(f"Trying to fetch NAV data for {date.strftime('%d-%m-%Y')}...")
+    
+    out_file = download_and_extract_nav(date_str, url_variations)
+    
+    if out_file:
+        nav_data = parse_out_file(out_file)
+        update_scheme_json(nav_data)
+        clean_up(out_file)  # Clean up the .out file
+        return nav_data
+    else:
+        print(f"No NAV data available for {date.strftime('%d-%m-%Y')}.")
+        return []
+
 if __name__ == "__main__":
-    # Define the different case variations of the URL
     url_variations = [
         "https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV_FILE_{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV_file_{date_str}.zip",
-        # Add more variations if necessary
     ]
     
-    # Get the last date from data.json or start from a default date
     last_date = get_last_date_in_data()
     today = datetime.now()
     
@@ -144,23 +164,19 @@ if __name__ == "__main__":
 
     # Start from the day after the last date
     current_date = last_date + timedelta(days=1)
-    while current_date <= today:
-        date_str = current_date.strftime("%d%m%Y")
-        print(f"Trying to fetch NAV data for {current_date.strftime('%d-%m-%Y')}...")
-        
-        # Try to download and extract the file using the URL variations
-        out_file = download_and_extract_nav(date_str, url_variations)
-        
-        if out_file:
-            nav_data = parse_out_file(out_file)
-            all_nav_data.extend(nav_data)  # Add this day's data to our new dataset
-            update_scheme_json(nav_data)
-            clean_up(out_file)  # Clean up the .out file
-        else:
-            print(f"No NAV data available for {current_date.strftime('%d-%m-%Y')}.")
-        
-        current_date += timedelta(days=1)
-    
+    dates_to_process = [current_date + timedelta(days=i) for i in range((today - current_date).days + 1)]
+
+    # Use ThreadPoolExecutor for concurrent processing
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        future_to_date = {executor.submit(process_date, date, url_variations): date for date in dates_to_process}
+        for future in concurrent.futures.as_completed(future_to_date):
+            date = future_to_date[future]
+            try:
+                nav_data = future.result()
+                all_nav_data.extend(nav_data)
+            except Exception as exc:
+                print(f"Date {date} generated an exception: {exc}")
+
     # Only update data.json if new data is available
     if all_nav_data:
         save_latest_data(all_nav_data)
