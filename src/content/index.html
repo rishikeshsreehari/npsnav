@@ -31,7 +31,6 @@
 </section>
 
 <section id="funds" class="funds-table">
-    <p class="scroll-hint">Swipe to see more →</p>
     <div class="table-container">
         <table id="fundTable">
             <thead>
@@ -99,7 +98,7 @@
         font-size: 14px;
     }
     #fundTable th, #fundTable td {
-        padding: 8px;
+        padding: 10px;
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
@@ -116,21 +115,49 @@
         white-space: normal;
     }
     #fundTable th:not(:first-child), #fundTable td:not(:first-child) {
-        width: 60px;
+        width: 80px;
         white-space: nowrap;
     }
+    
     @media screen and (max-width: 768px) {
         #fundTable {
-            font-size: 12px;
+            font-size: 14px;
         }
-        #fundTable th, #fundTable td {
-            padding: 6px;
+        #fundTable, #fundTable tbody, #fundTable tr, #fundTable td {
+            display: block;
+            width: 100%;
+        }
+        #fundTable thead {
+            display: none;
+        }
+        #fundTable tr {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        #fundTable td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+        #fundTable td:last-child {
+            border-bottom: none;
+        }
+        #fundTable td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+            text-align: left;
         }
         .scheme-column {
-            min-width: 150px;
-        }
-        #fundTable th:not(:first-child), #fundTable td:not(:first-child) {
-            width: 50px;
+            min-width: unset;
+            max-width: unset;
         }
     }
 </style>
@@ -141,7 +168,7 @@
         const rows = document.getElementById('fundTableBody').getElementsByTagName('tr');
         
         for (let row of rows) {
-            const schemeName = row.getElementsByTagName('td')[0].textContent.toLowerCase();
+            const schemeName = row.querySelector('td[data-label="Scheme"]').textContent.toLowerCase();
             if (schemeName.includes(filterValue)) {
                 row.style.display = '';
             } else {
@@ -155,5 +182,22 @@
             document.getElementById('filterButton').click();
         }
     });
+
+    // Add data-label attributes to table cells for mobile view
+    function addDataLabels() {
+        const table = document.getElementById('fundTable');
+        const headerCells = table.querySelectorAll('th');
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+                cell.setAttribute('data-label', headerCells[index].textContent.trim());
+            });
+        });
+    }
+
+    // Call the function when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', addDataLabels);
 </script>
 {% endblock %}
