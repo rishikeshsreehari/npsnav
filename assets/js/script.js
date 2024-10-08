@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const headers = document.querySelectorAll("#fundTable th");
     const showAllButton = document.getElementById("showAllButton");
     const filterInput = document.getElementById("filterInput");
-    const rows = Array.from(fundTable.rows);
+    let rows = Array.from(fundTable.rows);
 
-    let numFundsToShow = 10; // Variable for home page table pagination, sort works irrespective
+    let numFundsToShow = 10; // Variable for home page table pagination
     let allFundsShown = false;
     let filterText = ''; // Variable to store the filter text
 
@@ -25,9 +25,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Append the rows to the table
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
-        
+
         // Toggle the "Show All" button visibility
-        showAllButton.style.display = allFundsShown ? 'none' : 'block';
+        if (filteredRows.length > numFundsToShow && !allFundsShown) {
+            showAllButton.style.display = 'block';
+        } else {
+            showAllButton.style.display = 'none';
+        }
     }
 
     // Function to sort table

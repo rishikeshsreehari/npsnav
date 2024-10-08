@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block title %}National Pension Scheme(NPS) Fund Performance and Latest NAV API{% endblock %}
 {% block description %}Explore the latest NAVs of all NPS funds in India. Track and analyze the top-performing National Pension Scheme funds. Use our simple API to track NPS NAVs directly in your Google Sheets for easier financial planning.{% endblock %}
 {% block keywords %}NPS, NAV, National Pension Scheme, NPS fund performance, India, NPS API, NPS NAV in Google Sheets, pension funds, investment, financial planning, NPS NAV Excel{% endblock %}
@@ -7,12 +8,6 @@
 {% block og_description %}Stay updated with the latest NAVs of all NPS funds in India. Track top-performing National Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets effortlessly.{% endblock %}
 {% block og_url %}https://npsnav.in{% endblock %}
 {% block canonical %}https://npsnav.in{% endblock %}
-
-{% block head %}
-    <!-- Add the viewport meta tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% endblock %}
-
 {% block content %}
 
 <section class="hero">
@@ -24,17 +19,8 @@
     <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
 </section>
 
-<section class="filter-section">
-    <div class="filter-container">
-        <input type="text" id="filterInput" placeholder="Filter by scheme name">
-        <button id="filterButton">
-            <!-- SVG icon -->
-            <svg width="16" height="16" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M9.5 3a6.5 6.5 0 0 1 5.18 10.38l5.6 5.6-1.42 1.42-5.6-5.6A6.5 6.5 0 1 1 9.5 3m0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9z"/>
-            </svg>
-        </button>
-    </div>
-</section>
+
+
 
 <section id="funds" class="funds-table">
     <p class="scroll-hint">Swipe to see more →</p>
@@ -42,7 +28,7 @@
         <table id="fundTable">
             <thead>
                 <tr>
-                    <th class="scheme-column">Scheme <span class="sort-icon"></span></th>
+                    <th>Scheme <span class="sort-icon"></span></th>
                     <th>NAV <span class="sort-icon"></span></th>
                     <th>1D <span class="sort-icon"></span></th>
                     <th>7D <span class="sort-icon"></span></th>
@@ -58,161 +44,7 @@
                 {{ TABLE_ROWS }} <!-- Placeholder for dynamic table rows -->
             </tbody>
         </table>
+        <button id="showAllButton" style="display: none;">Show All</button>
     </div>
-    <button id="showAllButton" style="display: none;">Show All</button>
 </section>
-
-<style>
-    /* General Styles */
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    .hero {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .filter-section {
-        margin: 20px 0;
-    }
-    .filter-container {
-        display: flex;
-        max-width: 400px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 25px;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    #filterInput {
-        flex-grow: 1;
-        padding: 10px 15px;
-        border: none;
-        font-size: 16px;
-        outline: none;
-    }
-    #filterButton {
-        background-color: #f0f0f0;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    #filterButton:hover {
-        background-color: #e0e0e0;
-    }
-    #filterButton svg {
-        vertical-align: middle;
-    }
-
-    /* Table Styles */
-    .table-container {
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    #fundTable {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-    }
-    #fundTable th, #fundTable td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-    #fundTable th {
-        background-color: #f2f2f2;
-        font-weight: bold;
-        position: -webkit-sticky; /* For Safari and iOS */
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-    .scheme-column {
-        min-width: 150px;
-    }
-    /* Allow text wrapping for scheme names */
-    #fundTable td:first-child {
-        white-space: normal;
-        word-break: break-word;
-    }
-    .scroll-hint {
-        display: none;
-        text-align: center;
-        font-style: italic;
-        color: #666;
-        margin-bottom: 10px;
-    }
-
-    /* Responsive Styles */
-    @media screen and (max-width: 768px) {
-        body {
-            padding: 10px;
-        }
-        .hero h1 {
-            font-size: 24px;
-        }
-        .hero p {
-            font-size: 14px;
-        }
-        .filter-container {
-            max-width: 100%;
-            flex-direction: column;
-            align-items: stretch;
-        }
-        #filterInput, #filterButton {
-            width: 100%;
-            padding: 10px;
-        }
-        #filterButton {
-            border-top: 1px solid #ccc;
-        }
-        .scroll-hint {
-            display: block;
-        }
-        #fundTable {
-            font-size: 12px;
-        }
-        #fundTable th, #fundTable td {
-            padding: 8px;
-        }
-        .scheme-column {
-            min-width: 120px;
-        }
-        /* Ensure scheme names wrap properly */
-        #fundTable td:first-child {
-            white-space: normal;
-            word-break: break-word;
-        }
-    }
-</style>
-
-<script>
-    // Filter functionality
-    document.getElementById('filterButton').addEventListener('click', function() {
-        const filterValue = document.getElementById('filterInput').value.toLowerCase();
-        const rows = document.getElementById('fundTableBody').getElementsByTagName('tr');
-        
-        for (let row of rows) {
-            const schemeName = row.cells[0].textContent.toLowerCase();
-            if (schemeName.includes(filterValue)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        }
-    });
-
-    // Trigger filter on Enter key
-    document.getElementById('filterInput').addEventListener('keyup', function(event) {
-        if (event.key === 'Enter') {
-            document.getElementById('filterButton').click();
-        }
-    });
-</script>
 {% endblock %}
