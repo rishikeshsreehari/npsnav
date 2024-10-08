@@ -40,6 +40,19 @@
     <p class="scroll-hint">Swipe to see more →</p>
     <div class="table-container">
         <table id="fundTable">
+            <!-- Define column widths -->
+            <colgroup>
+                <col style="width: 200px;">
+                <col style="width: 80px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+                <col style="width: 60px;">
+            </colgroup>
             <thead>
                 <tr>
                     <th class="scheme-column">Scheme <span class="sort-icon"></span></th>
@@ -119,11 +132,14 @@
         width: 100%;
         border-collapse: collapse;
         font-size: 14px;
+        table-layout: fixed; /* Added */
     }
     #fundTable th, #fundTable td {
         padding: 10px;
         text-align: left;
         border-bottom: 1px solid #ddd;
+        overflow: hidden; /* Added */
+        text-overflow: ellipsis; /* Added */
     }
     #fundTable th {
         background-color: #f2f2f2;
@@ -137,8 +153,8 @@
         min-width: 200px;
         max-width: 300px;
     }
-    /* Adjust scheme name cell to prevent wrapping */
-    #fundTable td:first-child {
+    /* Disable text wrapping and handle overflow */
+    #fundTable td {
         white-space: nowrap;
     }
     .scroll-hint {
@@ -184,9 +200,11 @@
         .scheme-column {
             min-width: 150px;
         }
-        /* Disable text wrapping on mobile */
-        #fundTable td:first-child {
+        /* Ensure text does not wrap and prevent overlapping */
+        #fundTable td {
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 </style>
