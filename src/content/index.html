@@ -29,6 +29,9 @@
         <input type="text" id="filterInput" placeholder="Filter by scheme name">
         <button id="filterButton">
             <!-- SVG icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M9.5 3a6.5 6.5 0 0 1 5.18 10.38l5.6 5.6-1.42 1.42-5.6-5.6A6.5 6.5 0 1 1 9.5 3m0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9z"/>
+            </svg>
         </button>
     </div>
 </section>
@@ -109,7 +112,7 @@
     /* Table Styles */
     .table-container {
         width: 100%;
-        overflow-x: auto;
+        overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
     }
     #fundTable {
@@ -126,6 +129,7 @@
     #fundTable th {
         background-color: #f2f2f2;
         font-weight: bold;
+        position: -webkit-sticky; /* For Safari and iOS */
         position: sticky;
         top: 0;
         z-index: 1;
