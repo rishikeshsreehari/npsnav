@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block title %}National Pension Scheme(NPS) Fund Performance and Latest NAV API{% endblock %}
 {% block description %}Explore the latest NAVs of all NPS funds in India. Track and analyze the top-performing National Pension Scheme funds. Use our simple API to track NPS NAVs directly in your Google Sheets for easier financial planning.{% endblock %}
 {% block keywords %}NPS, NAV, National Pension Scheme, NPS fund performance, India, NPS API, NPS NAV in Google Sheets, pension funds, investment, financial planning, NPS NAV Excel{% endblock %}
@@ -19,9 +18,17 @@
     <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
 </section>
 
-
-
-<input type="text" id="filterInput" placeholder="Filter by name">
+<section class="filter-section">
+    <div class="filter-container">
+        <input type="text" id="filterInput" placeholder="Filter by scheme name">
+        <button id="filterButton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
+    </div>
+</section>
 
 <section id="funds" class="funds-table">
     <p class="scroll-hint">Swipe to see more →</p>
@@ -48,4 +55,61 @@
         <button id="showAllButton" style="display: none;">Show All</button>
     </div>
 </section>
+
+<style>
+    .filter-section {
+        margin: 20px 0;
+    }
+    .filter-container {
+        display: flex;
+        max-width: 400px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #filterInput {
+        flex-grow: 1;
+        padding: 10px 15px;
+        border: none;
+        font-size: 16px;
+        outline: none;
+    }
+    #filterButton {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    #filterButton:hover {
+        background-color: #e0e0e0;
+    }
+    #filterButton svg {
+        vertical-align: middle;
+    }
+</style>
+
+<script>
+    document.getElementById('filterButton').addEventListener('click', function() {
+        const filterValue = document.getElementById('filterInput').value.toLowerCase();
+        const rows = document.getElementById('fundTableBody').getElementsByTagName('tr');
+        
+        for (let row of rows) {
+            const schemeName = row.getElementsByTagName('td')[0].textContent.toLowerCase();
+            if (schemeName.includes(filterValue)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    });
+
+    document.getElementById('filterInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            document.getElementById('filterButton').click();
+        }
+    });
+</script>
 {% endblock %}
