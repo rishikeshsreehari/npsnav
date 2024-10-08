@@ -2,18 +2,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const fundTable = document.getElementById("fundTableBody");
     const headers = document.querySelectorAll("#fundTable th");
     const showAllButton = document.getElementById("showAllButton");
+    const filterInput = document.getElementById("filterInput");
     const rows = Array.from(fundTable.rows);
 
     let numFundsToShow = 10; // Variable for home page table pagination, sort works irrespective
     let allFundsShown = false;
+    let filterText = ''; // Variable to store the filter text
 
-    // Function to render the table based on the number of funds to show
+    // Function to render the table based on the number of funds to show and filter text
     function renderTable() {
         // Clear the table first
         fundTable.innerHTML = '';
 
+        // Filter rows based on the filter text
+        const filteredRows = rows.filter(row => {
+            const fundName = row.cells[0].innerText.toLowerCase();
+            return fundName.includes(filterText.toLowerCase());
+        });
+
         // Get the rows to display
-        const rowsToDisplay = allFundsShown ? rows : rows.slice(0, numFundsToShow);
+        const rowsToDisplay = allFundsShown ? filteredRows : filteredRows.slice(0, numFundsToShow);
 
         // Append the rows to the table
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
@@ -68,12 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
         renderTable();
     });
 
+    // Add event listener for filter input
+    filterInput.addEventListener("input", function() {
+        filterText = this.value;
+        allFundsShown = false; // Reset to show limited rows when filtering
+        renderTable();
+    });
+
     // Default sort by 5Y column (index 9) in descending order
     const fiveYearHeader = headers[9]; // 5Y column
     fiveYearHeader.classList.add("sorted-desc");
     sortTable(9, true, false);
-
-    
 
     // Initial rendering of the table
     renderTable();
