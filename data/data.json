@@ -5,7 +5,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001001",
         "Scheme Name": "SBI PENSION FUND SCHEME - CENTRAL GOVT",
-        "NAV": "46.5729"
+        "NAV": "46.5729",
+        "1D": "-0.02",
+        "7D": "0.33",
+        "1M": "0.82",
+        "3M": "2.61",
+        "6M": "6.14",
+        "1Y": "13.55",
+        "3Y": "7.99",
+        "5Y": "9.13"
     },
     {
         "Date": "10/11/2024",
@@ -13,7 +21,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001002",
         "Scheme Name": "SBI PENSION FUND SCHEME - STATE GOVT",
-        "NAV": "40.0256"
+        "NAV": "40.0256",
+        "1D": "-0.03",
+        "7D": "0.29",
+        "1M": "0.85",
+        "3M": "2.81",
+        "6M": "6.38",
+        "1Y": "13.80",
+        "3Y": "8.01",
+        "5Y": "9.10"
     },
     {
         "Date": "10/11/2024",
@@ -21,7 +37,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001003",
         "Scheme Name": "SBI PENSION FUND SCHEME E - TIER I",
-        "NAV": "57.7556"
+        "NAV": "57.7556",
+        "1D": "0.04",
+        "7D": "0.23",
+        "1M": "-0.59",
+        "3M": "0.77",
+        "6M": "9.95",
+        "1Y": "28.86",
+        "3Y": "14.09",
+        "5Y": "18.44"
     },
     {
         "Date": "10/11/2024",
@@ -29,7 +53,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001004",
         "Scheme Name": "SBI PENSION FUND SCHEME C - TIER I",
-        "NAV": "41.0841"
+        "NAV": "41.0841",
+        "1D": "0.04",
+        "7D": "0.33",
+        "1M": "1.23",
+        "3M": "3.00",
+        "6M": "5.06",
+        "1Y": "9.67",
+        "3Y": "6.39",
+        "5Y": "7.59"
     },
     {
         "Date": "10/11/2024",
@@ -37,7 +69,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001006",
         "Scheme Name": "SBI PENSION FUND SCHEME E - TIER II",
-        "NAV": "55.0294"
+        "NAV": "55.0294",
+        "1D": "-0.00",
+        "7D": "0.21",
+        "1M": "2.20",
+        "3M": "4.11",
+        "6M": "13.65",
+        "1Y": "32.83",
+        "3Y": "15.28",
+        "5Y": "19.21"
     },
     {
         "Date": "10/11/2024",
@@ -45,7 +85,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001009",
         "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "37.7016"
+        "NAV": "37.7016",
+        "1D": "0.03",
+        "7D": "0.46",
+        "1M": "0.96",
+        "3M": "2.80",
+        "6M": "6.18",
+        "1Y": "13.58",
+        "3Y": "8.00",
+        "5Y": "9.15"
     },
     {
         "Date": "10/11/2024",
@@ -53,7 +101,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001010",
         "Scheme Name": "SBI PENSION FUNDS PVT LTD SCHEME - CORPORATE-CG",
-        "NAV": "29.7755"
+        "NAV": "29.7755",
+        "1D": "-0.04",
+        "7D": "0.32",
+        "1M": "0.88",
+        "3M": "2.89",
+        "6M": "6.53",
+        "1Y": "13.97",
+        "3Y": "8.06",
+        "5Y": "9.14"
     },
     {
         "Date": "10/11/2024",
@@ -61,7 +117,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001015",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - APY FUND SCHEME",
-        "NAV": "11.7572"
+        "NAV": "11.7572",
+        "1D": "-0.04",
+        "7D": "0.31",
+        "1M": "0.83",
+        "3M": "2.94",
+        "6M": "6.60",
+        "1Y": "13.56",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -69,7 +133,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001005",
         "Scheme Name": "SBI PENSION FUND SCHEME G - TIER I",
-        "NAV": "38.7190"
+        "NAV": "38.7190",
+        "1D": "-0.07",
+        "7D": "0.37",
+        "1M": "0.98",
+        "3M": "3.27",
+        "6M": "6.24",
+        "1Y": "12.53",
+        "3Y": "7.21",
+        "5Y": "7.63"
     },
     {
         "Date": "10/11/2024",
@@ -77,7 +149,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001007",
         "Scheme Name": "SBI PENSION FUND SCHEME C - TIER II",
-        "NAV": "36.7519"
+        "NAV": "36.7519",
+        "1D": "0.02",
+        "7D": "0.28",
+        "1M": "1.22",
+        "3M": "2.98",
+        "6M": "5.10",
+        "1Y": "9.73",
+        "3Y": "6.06",
+        "5Y": "7.27"
     },
     {
         "Date": "10/11/2024",
@@ -85,7 +165,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001008",
         "Scheme Name": "SBI PENSION FUND SCHEME G - TIER II",
-        "NAV": "36.7462"
+        "NAV": "36.7462",
+        "1D": "-0.05",
+        "7D": "0.41",
+        "1M": "0.94",
+        "3M": "3.20",
+        "6M": "6.25",
+        "1Y": "12.59",
+        "3Y": "7.20",
+        "5Y": "7.53"
     },
     {
         "Date": "10/11/2024",
@@ -93,7 +181,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001011",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "22.6745"
+        "NAV": "22.6745",
+        "1D": "-0.05",
+        "7D": "0.32",
+        "1M": "0.89",
+        "3M": "2.83",
+        "6M": "6.41",
+        "1Y": "13.78",
+        "3Y": "7.92",
+        "5Y": "9.16"
     },
     {
         "Date": "10/11/2024",
@@ -101,7 +197,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001012",
         "Scheme Name": "SBI PENSION FUND SCHEME A - TIER I",
-        "NAV": "20.0250"
+        "NAV": "20.0250",
+        "1D": "-0.38",
+        "7D": "-0.08",
+        "1M": "1.81",
+        "3M": "4.56",
+        "6M": "6.72",
+        "1Y": "15.34",
+        "3Y": "7.96",
+        "5Y": "9.61"
     },
     {
         "Date": "10/11/2024",
@@ -109,7 +213,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001013",
         "Scheme Name": "SBI PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -117,7 +229,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001014",
         "Scheme Name": "NPS TRUST A/C-SBI PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "13.0796"
+        "NAV": "13.0796",
+        "1D": "-0.10",
+        "7D": "0.39",
+        "1M": "0.81",
+        "3M": "2.95",
+        "6M": "7.05",
+        "1Y": "15.02",
+        "3Y": "7.81",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -125,7 +245,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001016",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
-        "NAV": "10.2306"
+        "NAV": "10.2306",
+        "1D": "-0.03",
+        "7D": "0.27",
+        "1M": "0.31",
+        "3M": "1.18",
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -133,7 +261,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002001",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- CENTRAL GOVT",
-        "NAV": "45.3013"
+        "NAV": "45.3013",
+        "1D": "-0.05",
+        "7D": "0.26",
+        "1M": "0.91",
+        "3M": "2.98",
+        "6M": "6.53",
+        "1Y": "14.13",
+        "3Y": "8.07",
+        "5Y": "9.33"
     },
     {
         "Date": "10/11/2024",
@@ -141,7 +277,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002002",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- STATE GOVT",
-        "NAV": "40.3330"
+        "NAV": "40.3330",
+        "1D": "-0.05",
+        "7D": "0.27",
+        "1M": "0.93",
+        "3M": "3.00",
+        "6M": "6.59",
+        "1Y": "14.22",
+        "3Y": "8.10",
+        "5Y": "9.31"
     },
     {
         "Date": "10/11/2024",
@@ -149,7 +293,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002003",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME E - TIER I",
-        "NAV": "74.0427"
+        "NAV": "74.0427",
+        "1D": "-0.16",
+        "7D": "0.70",
+        "1M": "1.46",
+        "3M": "3.57",
+        "6M": "15.87",
+        "1Y": "40.32",
+        "3Y": "17.44",
+        "5Y": "20.83"
     },
     {
         "Date": "10/11/2024",
@@ -157,7 +309,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002004",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME C - TIER I",
-        "NAV": "36.3555"
+        "NAV": "36.3555",
+        "1D": "0.04",
+        "7D": "0.31",
+        "1M": "1.22",
+        "3M": "2.96",
+        "6M": "4.96",
+        "1Y": "9.57",
+        "3Y": "6.27",
+        "5Y": "7.60"
     },
     {
         "Date": "10/11/2024",
@@ -165,7 +325,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002006",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME E - TIER II",
-        "NAV": "58.4320"
+        "NAV": "58.4320",
+        "1D": "-0.22",
+        "7D": "0.43",
+        "1M": "0.82",
+        "3M": "2.54",
+        "6M": "13.60",
+        "1Y": "35.62",
+        "3Y": "15.81",
+        "5Y": "20.05"
     },
     {
         "Date": "10/11/2024",
@@ -173,7 +341,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002009",
         "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "37.4680"
+        "NAV": "37.4680",
+        "1D": "-0.04",
+        "7D": "0.29",
+        "1M": "0.92",
+        "3M": "2.96",
+        "6M": "6.41",
+        "1Y": "13.85",
+        "3Y": "7.96",
+        "5Y": "9.26"
     },
     {
         "Date": "10/11/2024",
@@ -181,7 +357,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002010",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME - CORPORATE-CG",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -189,7 +373,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002015",
         "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - APY FUND SCHEME",
-        "NAV": "11.9664"
+        "NAV": "11.9664",
+        "1D": "-0.03",
+        "7D": "0.34",
+        "1M": "0.95",
+        "3M": "3.02",
+        "6M": "6.70",
+        "1Y": "14.13",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -197,7 +389,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002005",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME G - TIER I",
-        "NAV": "34.6259"
+        "NAV": "34.6259",
+        "1D": "-0.08",
+        "7D": "0.31",
+        "1M": "0.96",
+        "3M": "3.26",
+        "6M": "6.25",
+        "1Y": "12.52",
+        "3Y": "7.45",
+        "5Y": "7.50"
     },
     {
         "Date": "10/11/2024",
@@ -205,7 +405,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002007",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME C - TIER II",
-        "NAV": "34.7218"
+        "NAV": "34.7218",
+        "1D": "0.07",
+        "7D": "0.31",
+        "1M": "1.12",
+        "3M": "2.82",
+        "6M": "4.78",
+        "1Y": "9.40",
+        "3Y": "6.22",
+        "5Y": "7.46"
     },
     {
         "Date": "10/11/2024",
@@ -213,7 +421,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002008",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME G - TIER II",
-        "NAV": "35.3896"
+        "NAV": "35.3896",
+        "1D": "-0.09",
+        "7D": "0.22",
+        "1M": "0.93",
+        "3M": "3.20",
+        "6M": "6.00",
+        "1Y": "12.07",
+        "3Y": "7.31",
+        "5Y": "7.38"
     },
     {
         "Date": "10/11/2024",
@@ -221,7 +437,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002011",
         "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "23.1679"
+        "NAV": "23.1679",
+        "1D": "-0.05",
+        "7D": "0.26",
+        "1M": "0.95",
+        "3M": "3.04",
+        "6M": "6.64",
+        "1Y": "14.22",
+        "3Y": "8.06",
+        "5Y": "9.27"
     },
     {
         "Date": "10/11/2024",
@@ -229,7 +453,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002012",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME A - TIER I",
-        "NAV": "16.7906"
+        "NAV": "16.7906",
+        "1D": "-0.48",
+        "7D": "0.07",
+        "1M": "2.62",
+        "3M": "4.83",
+        "6M": "7.22",
+        "1Y": "14.06",
+        "3Y": "7.03",
+        "5Y": "6.53"
     },
     {
         "Date": "10/11/2024",
@@ -237,7 +469,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002013",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -245,7 +485,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002014",
         "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "13.3534"
+        "NAV": "13.3534",
+        "1D": "-0.05",
+        "7D": "0.19",
+        "1M": "0.74",
+        "3M": "2.94",
+        "6M": "6.35",
+        "1Y": "13.44",
+        "3Y": "8.83",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -253,7 +501,15 @@
         "PFM Name": "UTI RETIREMENT SOLUTIONS LIMITED",
         "Scheme Code": "SM002016",
         "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
-        "NAV": "10.3312"
+        "NAV": "10.3312",
+        "1D": "0.02",
+        "7D": "0.14",
+        "1M": "0.61",
+        "3M": "1.80",
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -261,7 +517,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003001",
         "Scheme Name": "LIC PENSION FUND SCHEME - CENTRAL GOVT",
-        "NAV": "45.5092"
+        "NAV": "45.5092",
+        "1D": "-0.05",
+        "7D": "0.24",
+        "1M": "0.91",
+        "3M": "2.90",
+        "6M": "6.41",
+        "1Y": "13.88",
+        "3Y": "8.11",
+        "5Y": "9.36"
     },
     {
         "Date": "10/11/2024",
@@ -269,7 +533,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003002",
         "Scheme Name": "LIC PENSION FUND SCHEME - STATE GOVT",
-        "NAV": "40.4963"
+        "NAV": "40.4963",
+        "1D": "-0.05",
+        "7D": "0.24",
+        "1M": "0.90",
+        "3M": "2.88",
+        "6M": "6.43",
+        "1Y": "13.94",
+        "3Y": "8.10",
+        "5Y": "9.28"
     },
     {
         "Date": "10/11/2024",
@@ -277,7 +549,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003003",
         "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "37.6933"
+        "NAV": "37.6933",
+        "1D": "-0.05",
+        "7D": "0.25",
+        "1M": "0.88",
+        "3M": "2.89",
+        "6M": "6.38",
+        "1Y": "13.42",
+        "3Y": "7.97",
+        "5Y": "9.30"
     },
     {
         "Date": "10/11/2024",
@@ -285,7 +565,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003004",
         "Scheme Name": "LIC PENSION FUND LIMITED SCHEME - CORPORATE-CG",
-        "NAV": "30.0619"
+        "NAV": "30.0619",
+        "1D": "-0.05",
+        "7D": "0.25",
+        "1M": "0.91",
+        "3M": "2.95",
+        "6M": "6.52",
+        "1Y": "13.91",
+        "3Y": "8.20",
+        "5Y": "9.28"
     },
     {
         "Date": "10/11/2024",
@@ -293,7 +581,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003006",
         "Scheme Name": "LIC PENSION FUND SCHEME C - TIER I",
-        "NAV": "26.4338"
+        "NAV": "26.4338",
+        "1D": "0.06",
+        "7D": "0.31",
+        "1M": "1.09",
+        "3M": "2.79",
+        "6M": "4.73",
+        "1Y": "9.33",
+        "3Y": "6.23",
+        "5Y": "7.60"
     },
     {
         "Date": "10/11/2024",
@@ -301,7 +597,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003009",
         "Scheme Name": "LIC PENSION FUND SCHEME C - TIER II",
-        "NAV": "25.0863"
+        "NAV": "25.0863",
+        "1D": "0.07",
+        "7D": "0.30",
+        "1M": "1.08",
+        "3M": "2.75",
+        "6M": "4.67",
+        "1Y": "9.32",
+        "3Y": "6.15",
+        "5Y": "8.04"
     },
     {
         "Date": "10/11/2024",
@@ -309,7 +613,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003010",
         "Scheme Name": "LIC PENSION FUND SCHEME G - TIER II",
-        "NAV": "29.3713"
+        "NAV": "29.3713",
+        "1D": "-0.06",
+        "7D": "0.36",
+        "1M": "1.05",
+        "3M": "3.37",
+        "6M": "6.34",
+        "1Y": "12.27",
+        "3Y": "7.37",
+        "5Y": "7.71"
     },
     {
         "Date": "10/11/2024",
@@ -317,7 +629,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003015",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - APY FUND SCHEME",
-        "NAV": "12.0175"
+        "NAV": "12.0175",
+        "1D": "-0.03",
+        "7D": "0.25",
+        "1M": "0.92",
+        "3M": "2.74",
+        "6M": "6.76",
+        "1Y": "15.03",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -325,7 +645,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003005",
         "Scheme Name": "LIC PENSION FUND SCHEME E - TIER I",
-        "NAV": "45.2808"
+        "NAV": "45.2808",
+        "1D": "-0.12",
+        "7D": "-0.12",
+        "1M": "0.28",
+        "3M": "1.64",
+        "6M": "11.23",
+        "1Y": "31.17",
+        "3Y": "15.16",
+        "5Y": "19.61"
     },
     {
         "Date": "10/11/2024",
@@ -333,7 +661,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003007",
         "Scheme Name": "LIC PENSION FUND SCHEME G - TIER I",
-        "NAV": "28.9068"
+        "NAV": "28.9068",
+        "1D": "-0.07",
+        "7D": "0.34",
+        "1M": "1.00",
+        "3M": "3.31",
+        "6M": "6.30",
+        "1Y": "12.39",
+        "3Y": "7.32",
+        "5Y": "7.78"
     },
     {
         "Date": "10/11/2024",
@@ -341,7 +677,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003008",
         "Scheme Name": "LIC PENSION FUND SCHEME E - TIER II",
-        "NAV": "37.6449"
+        "NAV": "37.6449",
+        "1D": "-0.09",
+        "7D": "-0.14",
+        "1M": "0.46",
+        "3M": "1.80",
+        "6M": "11.39",
+        "1Y": "30.57",
+        "3Y": "14.91",
+        "5Y": "19.44"
     },
     {
         "Date": "10/11/2024",
@@ -349,7 +693,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003011",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "23.2637"
+        "NAV": "23.2637",
+        "1D": "-0.05",
+        "7D": "0.23",
+        "1M": "0.90",
+        "3M": "2.89",
+        "6M": "6.54",
+        "1Y": "14.11",
+        "3Y": "8.19",
+        "5Y": "9.44"
     },
     {
         "Date": "10/11/2024",
@@ -357,7 +709,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003012",
         "Scheme Name": "LIC PENSION FUND SCHEME A - TIER I",
-        "NAV": "17.9239"
+        "NAV": "17.9239",
+        "1D": "-0.23",
+        "7D": "0.03",
+        "1M": "0.83",
+        "3M": "2.79",
+        "6M": "4.22",
+        "1Y": "10.53",
+        "3Y": "7.02",
+        "5Y": "7.36"
     },
     {
         "Date": "10/11/2024",
@@ -365,7 +725,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003013",
         "Scheme Name": "LIC PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -373,7 +741,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003014",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.1378"
+        "NAV": "14.1378",
+        "1D": "-0.03",
+        "7D": "0.20",
+        "1M": "0.82",
+        "3M": "2.91",
+        "6M": "7.11",
+        "1Y": "15.83",
+        "3Y": "9.66",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -381,7 +757,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003016",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
-        "NAV": "10.3365"
+        "NAV": "10.3365",
+        "1D": "-0.06",
+        "7D": "0.19",
+        "1M": "0.81",
+        "3M": "2.19",
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -389,7 +773,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005005",
         "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER II",
-        "NAV": "34.1578"
+        "NAV": "34.1578",
+        "1D": "0.03",
+        "7D": "0.28",
+        "1M": "1.09",
+        "3M": "2.77",
+        "6M": "4.73",
+        "1Y": "9.18",
+        "3Y": "6.10",
+        "5Y": "7.23"
     },
     {
         "Date": "10/11/2024",
@@ -397,7 +789,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005007",
         "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "32.8078"
+        "NAV": "32.8078",
+        "1D": "-0.05",
+        "7D": "0.28",
+        "1M": "0.77",
+        "3M": "2.87",
+        "6M": "6.66",
+        "1Y": "14.25",
+        "3Y": "8.21",
+        "5Y": "9.34"
     },
     {
         "Date": "10/11/2024",
@@ -405,7 +805,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005008",
         "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER I",
-        "NAV": "17.4445"
+        "NAV": "17.4445",
+        "1D": "-0.60",
+        "7D": "-0.15",
+        "1M": "1.03",
+        "3M": "4.49",
+        "6M": "5.08",
+        "1Y": "15.77",
+        "3Y": "7.03",
+        "5Y": "6.87"
     },
     {
         "Date": "10/11/2024",
@@ -413,7 +821,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005001",
         "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER I",
-        "NAV": "67.2996"
+        "NAV": "67.2996",
+        "1D": "0.05",
+        "7D": "-0.15",
+        "1M": "-0.12",
+        "3M": "2.17",
+        "6M": "12.71",
+        "1Y": "33.16",
+        "3Y": "15.75",
+        "5Y": "20.01"
     },
     {
         "Date": "10/11/2024",
@@ -421,7 +837,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005002",
         "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER I",
-        "NAV": "39.2787"
+        "NAV": "39.2787",
+        "1D": "0.02",
+        "7D": "0.29",
+        "1M": "1.17",
+        "3M": "2.90",
+        "6M": "4.95",
+        "1Y": "9.55",
+        "3Y": "6.31",
+        "5Y": "7.19"
     },
     {
         "Date": "10/11/2024",
@@ -429,7 +853,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005003",
         "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER I",
-        "NAV": "35.7463"
+        "NAV": "35.7463",
+        "1D": "-0.12",
+        "7D": "0.29",
+        "1M": "0.76",
+        "3M": "3.06",
+        "6M": "6.10",
+        "1Y": "12.33",
+        "3Y": "7.24",
+        "5Y": "7.67"
     },
     {
         "Date": "10/11/2024",
@@ -437,7 +869,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005004",
         "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER II",
-        "NAV": "59.1807"
+        "NAV": "59.1807",
+        "1D": "0.05",
+        "7D": "-0.16",
+        "1M": "-0.16",
+        "3M": "2.05",
+        "6M": "12.64",
+        "1Y": "33.04",
+        "3Y": "15.75",
+        "5Y": "19.83"
     },
     {
         "Date": "10/11/2024",
@@ -445,7 +885,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005006",
         "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER II",
-        "NAV": "33.0045"
+        "NAV": "33.0045",
+        "1D": "-0.14",
+        "7D": "0.33",
+        "1M": "0.82",
+        "3M": "3.10",
+        "6M": "6.04",
+        "1Y": "12.08",
+        "3Y": "7.18",
+        "5Y": "7.49"
     },
     {
         "Date": "10/11/2024",
@@ -453,7 +901,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005009",
         "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -461,7 +917,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005010",
         "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.1241"
+        "NAV": "14.1241",
+        "1D": "-0.06",
+        "7D": "0.28",
+        "1M": "0.65",
+        "3M": "2.89",
+        "6M": "7.12",
+        "1Y": "14.79",
+        "3Y": "8.32",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -469,7 +933,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007005",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER II",
-        "NAV": "37.8872"
+        "NAV": "37.8872",
+        "1D": "0.06",
+        "7D": "0.34",
+        "1M": "1.17",
+        "3M": "2.86",
+        "6M": "4.97",
+        "1Y": "9.51",
+        "3Y": "6.37",
+        "5Y": "7.46"
     },
     {
         "Date": "10/11/2024",
@@ -477,7 +949,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007007",
         "Scheme Name": "NPS TRUST A/C-ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -485,7 +965,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007008",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER I",
-        "NAV": "17.5702"
+        "NAV": "17.5702",
+        "1D": "-0.26",
+        "7D": "0.15",
+        "1M": "2.00",
+        "3M": "4.48",
+        "6M": "8.08",
+        "1Y": "15.21",
+        "3Y": "7.83",
+        "5Y": "7.01"
     },
     {
         "Date": "10/11/2024",
@@ -493,7 +981,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007001",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I",
-        "NAV": "73.1714"
+        "NAV": "73.1714",
+        "1D": "-0.11",
+        "7D": "0.26",
+        "1M": "0.42",
+        "3M": "1.29",
+        "6M": "11.86",
+        "1Y": "34.44",
+        "3Y": "15.84",
+        "5Y": "20.38"
     },
     {
         "Date": "10/11/2024",
@@ -501,7 +997,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007002",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I",
-        "NAV": "40.9258"
+        "NAV": "40.9258",
+        "1D": "0.05",
+        "7D": "0.32",
+        "1M": "1.18",
+        "3M": "2.89",
+        "6M": "5.02",
+        "1Y": "9.57",
+        "3Y": "6.41",
+        "5Y": "7.51"
     },
     {
         "Date": "10/11/2024",
@@ -509,7 +1013,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007003",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I",
-        "NAV": "35.7124"
+        "NAV": "35.7124",
+        "1D": "-0.07",
+        "7D": "0.37",
+        "1M": "0.93",
+        "3M": "3.19",
+        "6M": "6.09",
+        "1Y": "12.20",
+        "3Y": "7.06",
+        "5Y": "7.59"
     },
     {
         "Date": "10/11/2024",
@@ -517,7 +1029,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007004",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II",
-        "NAV": "57.5460"
+        "NAV": "57.5460",
+        "1D": "-0.12",
+        "7D": "0.20",
+        "1M": "0.23",
+        "3M": "1.26",
+        "6M": "11.13",
+        "1Y": "32.84",
+        "3Y": "15.63",
+        "5Y": "20.29"
     },
     {
         "Date": "10/11/2024",
@@ -525,7 +1045,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007006",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER II",
-        "NAV": "34.2308"
+        "NAV": "34.2308",
+        "1D": "-0.06",
+        "7D": "0.37",
+        "1M": "0.92",
+        "3M": "3.19",
+        "6M": "6.14",
+        "1Y": "12.08",
+        "3Y": "7.09",
+        "5Y": "7.61"
     },
     {
         "Date": "10/11/2024",
@@ -533,7 +1061,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007009",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -541,7 +1077,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007010",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUNDS SCHEME TAX SAVER TIER II",
-        "NAV": "13.7389"
+        "NAV": "13.7389",
+        "1D": "-0.10",
+        "7D": "0.24",
+        "1M": "0.78",
+        "3M": "2.99",
+        "6M": "6.82",
+        "1Y": "14.71",
+        "3Y": "8.49",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -549,7 +1093,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008005",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER II",
-        "NAV": "25.3780"
+        "NAV": "25.3780",
+        "1D": "0.04",
+        "7D": "0.30",
+        "1M": "1.18",
+        "3M": "2.95",
+        "6M": "5.02",
+        "1Y": "9.85",
+        "3Y": "6.59",
+        "5Y": "7.80"
     },
     {
         "Date": "10/11/2024",
@@ -557,7 +1109,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008007",
         "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME - NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -565,7 +1125,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008008",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME A - TIER I",
-        "NAV": "19.4764"
+        "NAV": "19.4764",
+        "1D": "-0.28",
+        "7D": "0.04",
+        "1M": "1.28",
+        "3M": "3.67",
+        "6M": "5.70",
+        "1Y": "13.74",
+        "3Y": "9.08",
+        "5Y": "8.62"
     },
     {
         "Date": "10/11/2024",
@@ -573,7 +1141,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008001",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER I",
-        "NAV": "54.0703"
+        "NAV": "54.0703",
+        "1D": "-0.05",
+        "7D": "0.19",
+        "1M": "0.43",
+        "3M": "3.03",
+        "6M": "12.83",
+        "1Y": "33.58",
+        "3Y": "15.05",
+        "5Y": "19.83"
     },
     {
         "Date": "10/11/2024",
@@ -581,7 +1157,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008002",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER I",
-        "NAV": "27.1501"
+        "NAV": "27.1501",
+        "1D": "0.02",
+        "7D": "0.33",
+        "1M": "1.27",
+        "3M": "3.04",
+        "6M": "5.07",
+        "1Y": "9.90",
+        "3Y": "6.71",
+        "5Y": "7.99"
     },
     {
         "Date": "10/11/2024",
@@ -589,7 +1173,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008003",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER I",
-        "NAV": "26.8053"
+        "NAV": "26.8053",
+        "1D": "-0.08",
+        "7D": "0.35",
+        "1M": "0.92",
+        "3M": "3.28",
+        "6M": "6.28",
+        "1Y": "12.63",
+        "3Y": "7.25",
+        "5Y": "7.84"
     },
     {
         "Date": "10/11/2024",
@@ -597,7 +1189,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008004",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER II",
-        "NAV": "46.7513"
+        "NAV": "46.7513",
+        "1D": "-0.05",
+        "7D": "0.19",
+        "1M": "0.44",
+        "3M": "3.02",
+        "6M": "12.80",
+        "1Y": "33.64",
+        "3Y": "15.12",
+        "5Y": "19.83"
     },
     {
         "Date": "10/11/2024",
@@ -605,7 +1205,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008006",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER II",
-        "NAV": "27.1434"
+        "NAV": "27.1434",
+        "1D": "-0.08",
+        "7D": "0.36",
+        "1M": "1.00",
+        "3M": "3.36",
+        "6M": "6.32",
+        "1Y": "12.59",
+        "3Y": "7.21",
+        "5Y": "7.60"
     },
     {
         "Date": "10/11/2024",
@@ -613,7 +1221,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008009",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -621,7 +1237,15 @@
         "PFM Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM008010",
         "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LTD SCHEME TAX SAVER TIER II",
-        "NAV": "13.4384"
+        "NAV": "13.4384",
+        "1D": "-0.04",
+        "7D": "0.31",
+        "1M": "0.77",
+        "3M": "3.09",
+        "6M": "6.73",
+        "1Y": "14.09",
+        "3Y": "8.07",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -629,7 +1253,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010001",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I",
-        "NAV": "28.9960"
+        "NAV": "28.9960",
+        "1D": "0.05",
+        "7D": "0.03",
+        "1M": "0.03",
+        "3M": "2.92",
+        "6M": "12.72",
+        "1Y": "32.83",
+        "3Y": "15.41",
+        "5Y": "19.22"
     },
     {
         "Date": "10/11/2024",
@@ -637,7 +1269,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010002",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I",
-        "NAV": "18.2666"
+        "NAV": "18.2666",
+        "1D": "0.02",
+        "7D": "0.30",
+        "1M": "1.25",
+        "3M": "2.96",
+        "6M": "4.98",
+        "1Y": "9.86",
+        "3Y": "6.55",
+        "5Y": "7.79"
     },
     {
         "Date": "10/11/2024",
@@ -645,7 +1285,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010003",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I",
-        "NAV": "17.9695"
+        "NAV": "17.9695",
+        "1D": "-0.05",
+        "7D": "0.36",
+        "1M": "0.96",
+        "3M": "3.27",
+        "6M": "6.20",
+        "1Y": "12.53",
+        "3Y": "7.42",
+        "5Y": "7.79"
     },
     {
         "Date": "10/11/2024",
@@ -653,7 +1301,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010004",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER I",
-        "NAV": "16.0805"
+        "NAV": "16.0805",
+        "1D": "-0.24",
+        "7D": "-0.10",
+        "1M": "0.94",
+        "3M": "2.96",
+        "6M": "4.72",
+        "1Y": "12.16",
+        "3Y": "7.72",
+        "5Y": "6.40"
     },
     {
         "Date": "10/11/2024",
@@ -661,7 +1317,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010006",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II",
-        "NAV": "17.6463"
+        "NAV": "17.6463",
+        "1D": "0.02",
+        "7D": "0.31",
+        "1M": "1.21",
+        "3M": "2.96",
+        "6M": "5.06",
+        "1Y": "10.01",
+        "3Y": "6.63",
+        "5Y": "7.78"
     },
     {
         "Date": "10/11/2024",
@@ -669,7 +1333,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010009",
         "Scheme Name": "ADITYA BIRLA SUN LIFE PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.2726"
+        "NAV": "14.2726",
+        "1D": "-0.11",
+        "7D": "0.24",
+        "1M": "0.59",
+        "3M": "2.88",
+        "6M": "6.79",
+        "1Y": "14.92",
+        "3Y": "9.15",
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -677,7 +1349,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010005",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II",
-        "NAV": "29.1520"
+        "NAV": "29.1520",
+        "1D": "0.06",
+        "7D": "0.05",
+        "1M": "0.17",
+        "3M": "3.13",
+        "6M": "13.11",
+        "1Y": "33.65",
+        "3Y": "15.80",
+        "5Y": "19.49"
     },
     {
         "Date": "10/11/2024",
@@ -685,7 +1365,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010007",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II",
-        "NAV": "17.2465"
+        "NAV": "17.2465",
+        "1D": "-0.06",
+        "7D": "0.40",
+        "1M": "0.93",
+        "3M": "3.23",
+        "6M": "6.11",
+        "1Y": "12.32",
+        "3Y": "7.30",
+        "5Y": "7.63"
     },
     {
         "Date": "10/11/2024",
@@ -693,7 +1381,15 @@
         "PFM Name": "ADITYA BIRLA SUN LIFE PENSION MANAGEMENT LIMITED",
         "Scheme Code": "SM010008",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "10/11/2024",
@@ -701,7 +1397,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011005",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II",
-        "NAV": "15.9142"
+        "NAV": "15.9142",
+        "1D": "-0.15",
+        "7D": "-0.25",
+        "1M": "0.36",
+        "3M": "1.45",
+        "6M": "12.36",
+        "1Y": "37.21",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -709,7 +1413,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011007",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II",
-        "NAV": "12.1395"
+        "NAV": "12.1395",
+        "1D": "-0.05",
+        "7D": "0.34",
+        "1M": "0.91",
+        "3M": "3.18",
+        "6M": "6.03",
+        "1Y": "11.82",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -717,7 +1429,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011008",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED TAX SAVER - TIER II",
-        "NAV": "12.6552"
+        "NAV": "12.6552",
+        "1D": "-0.07",
+        "7D": "0.08",
+        "1M": "0.75",
+        "3M": "2.86",
+        "6M": "8.00",
+        "1Y": "18.94",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -725,7 +1445,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011001",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I",
-        "NAV": "15.9485"
+        "NAV": "15.9485",
+        "1D": "-0.15",
+        "7D": "-0.21",
+        "1M": "0.40",
+        "3M": "1.51",
+        "6M": "12.27",
+        "1Y": "37.40",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -733,7 +1461,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011002",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I",
-        "NAV": "11.6841"
+        "NAV": "11.6841",
+        "1D": "0.03",
+        "7D": "0.34",
+        "1M": "1.25",
+        "3M": "3.00",
+        "6M": "5.04",
+        "1Y": "9.89",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -741,7 +1477,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011003",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I",
-        "NAV": "12.0949"
+        "NAV": "12.0949",
+        "1D": "-0.06",
+        "7D": "0.37",
+        "1M": "0.96",
+        "3M": "3.23",
+        "6M": "6.07",
+        "1Y": "12.17",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -749,7 +1493,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011004",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME A - TIER I",
-        "NAV": "12.0212"
+        "NAV": "12.0212",
+        "1D": "-0.97",
+        "7D": "-0.46",
+        "1M": "1.37",
+        "3M": "5.20",
+        "6M": "6.17",
+        "1Y": "12.13",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -757,7 +1509,15 @@
         "PFM Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011006",
         "Scheme Name": "TATA PENSION MANAGEMENT PRIVATE LIMITED SCHEME C - TIER II",
-        "NAV": "11.7819"
+        "NAV": "11.7819",
+        "1D": "0.04",
+        "7D": "0.31",
+        "1M": "1.28",
+        "3M": "3.14",
+        "6M": "5.13",
+        "1Y": "9.82",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -765,7 +1525,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012005",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
-        "NAV": "15.5164"
+        "NAV": "15.5164",
+        "1D": "0.01",
+        "7D": "-0.04",
+        "1M": "0.30",
+        "3M": "1.90",
+        "6M": "12.49",
+        "1Y": "32.64",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -773,7 +1541,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012007",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
-        "NAV": "11.8125"
+        "NAV": "11.8125",
+        "1D": "-0.05",
+        "7D": "0.35",
+        "1M": "0.87",
+        "3M": "3.05",
+        "6M": "5.61",
+        "1Y": "10.33",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -781,7 +1557,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012008",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED TAX SAVER TIER II",
-        "NAV": "11.5006"
+        "NAV": "11.5006",
+        "1D": "-0.07",
+        "7D": "0.31",
+        "1M": "1.41",
+        "3M": "2.54",
+        "6M": "4.30",
+        "1Y": "7.95",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -789,7 +1573,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012001",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
-        "NAV": "14.7471"
+        "NAV": "14.7471",
+        "1D": "0.05",
+        "7D": "0.17",
+        "1M": "0.59",
+        "3M": "2.23",
+        "6M": "12.99",
+        "1Y": "33.89",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -797,7 +1589,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012002",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
-        "NAV": "11.6671"
+        "NAV": "11.6671",
+        "1D": "0.05",
+        "7D": "0.30",
+        "1M": "1.12",
+        "3M": "2.91",
+        "6M": "4.78",
+        "1Y": "9.24",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -805,7 +1605,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012003",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
-        "NAV": "12.1230"
+        "NAV": "12.1230",
+        "1D": "-0.06",
+        "7D": "0.35",
+        "1M": "0.88",
+        "3M": "3.13",
+        "6M": "6.06",
+        "1Y": "12.07",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -813,7 +1621,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012004",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I",
-        "NAV": "9.8829"
+        "NAV": "9.8829",
+        "1D": "0.02",
+        "7D": "0.13",
+        "1M": "0.59",
+        "3M": "1.75",
+        "6M": "3.54",
+        "1Y": "7.25",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -821,7 +1637,15 @@
         "PFM Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM012006",
         "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
-        "NAV": "11.8163"
+        "NAV": "11.8163",
+        "1D": "0.09",
+        "7D": "0.35",
+        "1M": "1.28",
+        "3M": "3.35",
+        "6M": "5.85",
+        "1Y": "10.44",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -829,7 +1653,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013005",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
-        "NAV": "15.1706"
+        "NAV": "15.1706",
+        "1D": "-0.02",
+        "7D": "0.45",
+        "1M": "0.80",
+        "3M": "3.32",
+        "6M": "14.30",
+        "1Y": "35.25",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -837,7 +1669,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013007",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
-        "NAV": "11.8210"
+        "NAV": "11.8210",
+        "1D": "-0.09",
+        "7D": "0.22",
+        "1M": "0.86",
+        "3M": "3.07",
+        "6M": "6.10",
+        "1Y": "12.08",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -845,7 +1685,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013008",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME TAX SAVER - TIER II",
-        "NAV": "11.3070"
+        "NAV": "11.3070",
+        "1D": "0.02",
+        "7D": "0.12",
+        "1M": "0.52",
+        "3M": "1.59",
+        "6M": "3.24",
+        "1Y": "6.66",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -853,7 +1701,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013001",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
-        "NAV": "14.9982"
+        "NAV": "14.9982",
+        "1D": "-0.03",
+        "7D": "0.40",
+        "1M": "0.65",
+        "3M": "2.93",
+        "6M": "13.51",
+        "1Y": "34.14",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -861,7 +1717,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013002",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
-        "NAV": "11.6765"
+        "NAV": "11.6765",
+        "1D": "0.05",
+        "7D": "0.28",
+        "1M": "1.19",
+        "3M": "2.93",
+        "6M": "4.88",
+        "1Y": "9.44",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -869,7 +1733,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013003",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
-        "NAV": "11.9848"
+        "NAV": "11.9848",
+        "1D": "-0.07",
+        "7D": "0.23",
+        "1M": "0.91",
+        "3M": "3.19",
+        "6M": "6.04",
+        "1Y": "12.20",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -877,7 +1749,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013004",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I",
-        "NAV": "11.3867"
+        "NAV": "11.3867",
+        "1D": "0.06",
+        "7D": "0.12",
+        "1M": "0.92",
+        "3M": "2.04",
+        "6M": "3.70",
+        "1Y": "7.14",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -885,7 +1765,15 @@
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013006",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
-        "NAV": "11.5042"
+        "NAV": "11.5042",
+        "1D": "0.03",
+        "7D": "0.28",
+        "1M": "1.15",
+        "3M": "2.83",
+        "6M": "4.57",
+        "1Y": "9.27",
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -893,7 +1781,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014005",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II",
-        "NAV": "12.3336"
+        "NAV": "12.3336",
+        "1D": "-0.24",
+        "7D": "0.19",
+        "1M": "0.96",
+        "3M": "5.65",
+        "6M": "20.41",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -901,7 +1797,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014007",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II",
-        "NAV": "10.7690"
+        "NAV": "10.7690",
+        "1D": "0.03",
+        "7D": "0.28",
+        "1M": "1.07",
+        "3M": "3.63",
+        "6M": "5.79",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -909,7 +1813,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014008",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME TAX SAVER TIER II",
-        "NAV": "10.4547"
+        "NAV": "10.4547",
+        "1D": "0.02",
+        "7D": "0.12",
+        "1M": "0.53",
+        "3M": "1.58",
+        "6M": "3.17",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -917,7 +1829,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014001",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I",
-        "NAV": "12.7158"
+        "NAV": "12.7158",
+        "1D": "-0.21",
+        "7D": "0.20",
+        "1M": "1.16",
+        "3M": "5.03",
+        "6M": "19.31",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -925,7 +1845,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014002",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I",
-        "NAV": "10.7432"
+        "NAV": "10.7432",
+        "1D": "0.02",
+        "7D": "0.32",
+        "1M": "1.32",
+        "3M": "3.03",
+        "6M": "5.03",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -933,7 +1861,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014003",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I",
-        "NAV": "11.0733"
+        "NAV": "11.0733",
+        "1D": "-0.08",
+        "7D": "0.32",
+        "1M": "0.96",
+        "3M": "3.33",
+        "6M": "6.65",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -941,7 +1877,15 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014004",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME A - TIER I",
-        "NAV": "10.5104"
+        "NAV": "10.5104",
+        "1D": "0.02",
+        "7D": "0.13",
+        "1M": "0.58",
+        "3M": "1.69",
+        "6M": "3.34",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "10/11/2024",
@@ -949,6 +1893,14 @@
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014006",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER II",
-        "NAV": "10.8691"
+        "NAV": "10.8691",
+        "1D": "0.02",
+        "7D": "0.25",
+        "1M": "1.47",
+        "3M": "3.53",
+        "6M": "6.78",
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     }
 ]
