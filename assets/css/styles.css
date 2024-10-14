@@ -71,6 +71,7 @@ nav ul li a {
 }
 
 
+
 .funds-table {
     padding: 1rem;
     max-width: 100%;
@@ -596,4 +597,21 @@ pre {
     .donate {
         max-width: 50%; /* Set the width to 50% for smaller screens */
     }
+}
+
+#filterInput {
+    width: 50%;
+    padding: 0.75rem; /* Slightly larger padding for a more comfortable feel */
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc; /* Lighten the border for a softer look */
+    border-radius: 6px; /* Slightly increase the border radius for smoother corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a light shadow for depth */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus state */
+}
+
+#filterInput:focus {
+    border-color: #2b2c2c; /* Change the border color on focus */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance the shadow on focus for depth */
+    outline: none; /* Remove default focus outline */
 }
