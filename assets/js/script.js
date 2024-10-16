@@ -5,23 +5,75 @@ document.addEventListener("DOMContentLoaded", function() {
     const filterInput = document.getElementById("filterInput");
     let rows = Array.from(fundTable.rows);
 
-    let numFundsToShow = 10; // Variable for home page table pagination
+    let numFundsToShow = 10; // Number of funds to show initially
     let allFundsShown = false;
     let filterText = ''; // Variable to store the filter text
+
+    // List of priority words
+    const priorityWords = ['HDFC', 'LIC', 'AXIS', 'BIRLA', 'ADITYA', 'UTI', 'ICICI', 'TATA', 'MAX', 'KOTAK'];
+
+    // Simple fuzzy match function
+    function fuzzyMatch(fundName, filterText) {
+        fundName = fundName.toLowerCase();
+        filterText = filterText.toLowerCase();
+
+        let fundIndex = 0;
+        let filterIndex = 0;
+
+        while (fundIndex < fundName.length && filterIndex < filterText.length) {
+            if (fundName[fundIndex] === filterText[filterIndex]) {
+                filterIndex++;
+            }
+            fundIndex++;
+        }
+
+        return filterIndex === filterText.length;
+    }
 
     // Function to render the table based on the number of funds to show and filter text
     function renderTable() {
         // Clear the table first
         fundTable.innerHTML = '';
 
-        // Filter rows based on the filter text
-        const filteredRows = rows.filter(row => {
-            const fundName = row.cells[0].innerText.toLowerCase();
-            return fundName.includes(filterText.toLowerCase());
-        });
+        // Trim and uppercase the filter text
+        const trimmedFilterText = filterText.trim().toUpperCase();
+
+        // Check if the filter text matches any priority word
+        const matchedPriorityWords = priorityWords.filter(word => word.includes(trimmedFilterText));
+
+        let filteredRows;
+
+        if (trimmedFilterText === '') {
+            // No filter text; display funds containing any priority word
+            filteredRows = rows.filter(row => {
+                const fundName = row.cells[0].innerText.trim().toUpperCase();
+                return priorityWords.some(word => fundName.includes(word));
+            });
+        } else if (matchedPriorityWords.length > 0) {
+            // Filter funds containing the matched priority word(s)
+            filteredRows = rows.filter(row => {
+                const fundName = row.cells[0].innerText.trim().toUpperCase();
+                return matchedPriorityWords.some(word => fundName.includes(word));
+            }).filter(row => {
+                // Apply fuzzy search on the filtered funds
+                const fundName = row.cells[0].innerText.trim();
+                return fuzzyMatch(fundName, filterText.trim());
+            });
+        } else {
+            // If filter text doesn't match any priority word, apply fuzzy search to all priority funds
+            filteredRows = rows.filter(row => {
+                const fundName = row.cells[0].innerText.trim().toUpperCase();
+                return priorityWords.some(word => fundName.includes(word));
+            }).filter(row => {
+                const fundName = row.cells[0].innerText.trim();
+                return fuzzyMatch(fundName, filterText.trim());
+            });
+        }
 
         // Get the rows to display
-        const rowsToDisplay = allFundsShown ? filteredRows : filteredRows.slice(0, numFundsToShow);
+        const rowsToDisplay = allFundsShown
+            ? filteredRows
+            : filteredRows.slice(0, numFundsToShow);
 
         // Append the rows to the table
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
@@ -31,6 +83,17 @@ document.addEventListener("DOMContentLoaded", function() {
             showAllButton.style.display = 'block';
         } else {
             showAllButton.style.display = 'none';
+        }
+
+        // If no rows match, display a message
+        if (filteredRows.length === 0) {
+            const noResultsRow = document.createElement('tr');
+            const noResultsCell = document.createElement('td');
+            noResultsCell.colSpan = headers.length;
+            noResultsCell.textContent = 'No matching funds found.';
+            noResultsCell.style.textAlign = 'center';
+            noResultsRow.appendChild(noResultsCell);
+            fundTable.appendChild(noResultsRow);
         }
     }
 
@@ -88,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Default sort by 5Y column (index 9) in descending order
-    const fiveYearHeader = headers[9]; // 5Y column
+    const fiveYearHeader = headers[9]; // Adjust the index if needed
     fiveYearHeader.classList.add("sorted-desc");
     sortTable(9, true, false);
 
