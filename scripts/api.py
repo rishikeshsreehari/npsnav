@@ -68,7 +68,7 @@ def generate_historical_api_files():
     
     # Loop through each file in the data folder, ignoring 'data.json'
     for filename in os.listdir(data_folder):
-        if filename.endswith('.json') and filename != 'data.json':  # Skip 'data.json'
+        if filename.endswith('.json') and filename not in ('data.json', 'nifty.json'):  # Skip 'data and nifty json'
             scheme_code = filename.replace('.json', '')
             file_path = os.path.join(data_folder, filename)
             

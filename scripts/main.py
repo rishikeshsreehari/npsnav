@@ -38,21 +38,41 @@ def generate_table_rows(funds):
     for fund in funds:
         scheme_name = fund['Scheme Name']
         scheme_code = fund['Scheme Code']
-        nav = format_nav(fund['NAV'])
+        nav_value = fund['NAV']
+        nav = format_nav(nav_value)
+        
         row = f'''
         <tr>
             <td><a href="funds/{scheme_code}.html">{scheme_name}</a></td>
             <td>{nav}</td>
-            <td>{format_value(fund.get('1D'))}</td>
-            <td>{format_value(fund.get('7D'))}</td>
-            <td>{format_value(fund.get('1M'))}</td>
-            <td>{format_value(fund.get('3M'))}</td>
-            <td>{format_value(fund.get('6M'))}</td>
-            <td>{format_value(fund.get('1Y'))}</td>
-            <td>{format_value(fund.get('3Y'))}</td>
-            <td>{format_value(fund.get('5Y'))}</td>
-        </tr>
         '''
+
+        # List of periods to iterate over
+        periods = ['1D', '7D', '1M', '3M', '6M', '1Y', '3Y', '5Y']
+        for period in periods:
+            value = fund.get(period)
+            formatted_value = format_value(value)
+            
+            # Determine the CSS class based on the value
+            if value is None or value == '':
+                css_class = 'null'
+            else:
+                try:
+                    numeric_value = float(value)
+                    if numeric_value > 0:
+                        css_class = 'positive'
+                    elif numeric_value < 0:
+                        css_class = 'negative'
+                    else:
+                        css_class = 'zero'
+                except ValueError:
+                    # Handle cases where value is not a valid number
+                    css_class = 'null'
+            
+            # Append the table cell with the appropriate CSS class
+            row += f'<td class="{css_class}">{formatted_value}</td>'
+        
+        row += '</tr>'
         rows += row
     return rows
 
