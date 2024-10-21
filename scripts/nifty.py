@@ -3,7 +3,6 @@ from datetime import datetime
 from pathlib import Path
 import pickle
 from typing import Any, Dict, List, Literal, Optional, Union
-from zipfile import ZipFile
 from requests import Session
 from requests.exceptions import ReadTimeout
 from mthrottle import Throttle
@@ -15,6 +14,8 @@ throttleConfig = {
     },
 }
 th = Throttle(throttleConfig, 10)  # Create Throttle object
+
+DATE_FORMAT = '%m/%d/%Y'  # Define the date format
 
 class NSE:
     """Unofficial NSE API Wrapper"""
@@ -104,8 +105,8 @@ def main():
             closing_price = nifty_50['last']
             closing_price_formatted = "{:.2f}".format(closing_price)
 
-            # Get today's date in 'YYYY-MM-DD' format
-            today = datetime.now().strftime('%Y-%m-%d')
+            # Get today's date in the specified DATE_FORMAT
+            today = datetime.now().strftime(DATE_FORMAT)
 
             # Load existing JSON data or initialize new dictionary
             json_file_path = Path('data/nifty.json')
@@ -126,9 +127,14 @@ def main():
                 print(f"Adding new data for {today}: {closing_price_formatted}")
                 json_data[today] = closing_price_formatted
 
+            # Sort the data by date in reverse order (newest date first)
+            sorted_json_data = dict(
+                sorted(json_data.items(), key=lambda x: datetime.strptime(x[0], DATE_FORMAT), reverse=True)
+            )
+
             # Save the updated data back to the JSON file
             with json_file_path.open('w') as f:
-                json.dump(json_data, f, indent=4)
+                json.dump(sorted_json_data, f, indent=4)
 
             print(f"Nifty 50 closing price for {today}: {closing_price_formatted}")
         else:
