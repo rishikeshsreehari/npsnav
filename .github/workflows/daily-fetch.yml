@@ -28,6 +28,9 @@ jobs:
     - name: Run fetch.py
       run: python scripts/fetch.py
 
+    - name: Run nifty.py
+      run: python scripts/nifty.py
+
     - name: Commit and Push Changes
       run: |
         git config --global user.name "DailyUpdateBot"
