@@ -1,50 +1,47 @@
-# Script written for cleaning historic value and sort it
-
-import os
-import json
-from collections import OrderedDict
 from datetime import datetime
+import json
+from pathlib import Path
 
-# Define the directory containing the JSON files
-data_folder = "data"
+# Main logic to fetch Nifty 50 data, convert date format, and save/update it in JSON
+def main():
+    # Define the path to the JSON file
+    json_file_path = Path('data/nifty.json')
 
-# Function to clean up and sort the JSON data by date
-def clean_and_sort_json(data):
-    cleaned_data = OrderedDict()
+    try:
+        # Load the existing JSON data
+        if json_file_path.exists():
+            with json_file_path.open('r') as f:
+                json_data = json.load(f)
+        else:
+            print(f"File {json_file_path} does not exist.")
+            return
 
-    for key, value in data.items():
-        # Clean the date key and value by stripping spaces and quotes
-        clean_key = key.strip().replace('"', '')
-        clean_value = value.strip().replace('"', '')
+        # Check the current format of the dates and convert if necessary
+        new_json_data = {}
+        for old_date, price in json_data.items():
+            try:
+                # Check if the date is already in 'MM/DD/YYYY' format
+                datetime.strptime(old_date, '%m/%d/%Y')
+                # If it's already in the correct format, just copy it to the new dictionary
+                new_json_data[old_date] = price
+            except ValueError:
+                # If the date is in 'YYYY-MM-DD' format, convert it to 'MM/DD/YYYY'
+                old_date_obj = datetime.strptime(old_date, '%Y-%m-%d')
+                new_date_format = old_date_obj.strftime('%m/%d/%Y')
+                new_json_data[new_date_format] = price
 
-        # Check if the cleaned key is in the correct date format
-        try:
-            parsed_date = datetime.strptime(clean_key, "%m/%d/%Y")
-            cleaned_data[clean_key] = clean_value
-        except ValueError:
-            print(f"Skipping invalid date format: {clean_key}")
+        # Sort the dictionary by date in reverse order (newest first)
+        sorted_json_data = dict(
+            sorted(new_json_data.items(), key=lambda x: datetime.strptime(x[0], '%m/%d/%Y'), reverse=True)
+        )
 
-    # Sort the dictionary by date in descending order
-    sorted_data = OrderedDict(
-        sorted(cleaned_data.items(), key=lambda x: datetime.strptime(x[0], "%m/%d/%Y"), reverse=True)
-    )
-    
-    return sorted_data
+        # Save the updated data back to the JSON file in the new format
+        with json_file_path.open('w') as f:
+            json.dump(sorted_json_data, f, indent=4)
 
-# Iterate over each file in the data folder
-for file_name in os.listdir(data_folder):
-    if file_name.endswith('.json'):
-        file_path = os.path.join(data_folder, file_name)
-        
-        # Load the JSON data
-        with open(file_path, 'r') as f:
-            data = json.load(f, object_pairs_hook=OrderedDict)
-        
-        # Clean up and sort the data by date
-        sorted_data = clean_and_sort_json(data)
-        
-        # Save the cleaned and sorted data back to the file
-        with open(file_path, 'w') as f:
-            json.dump(sorted_data, f, indent=4)
-        
-        print(f"Cleaned and sorted {file_name} by date.")
+        print("Dates successfully converted to MM/DD/YYYY format with newest at the top.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
