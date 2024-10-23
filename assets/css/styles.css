@@ -200,6 +200,24 @@ footer a:hover {
     color: #666;
 }
 
+.hire-me {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.hire-me a {
+    font-weight: bold;
+}
+
+.hire-me a:hover {
+    color: #0056b3;
+}
+
+
 .scroll-hint {
     display: none;
     text-align: right;
