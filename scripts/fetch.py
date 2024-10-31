@@ -152,6 +152,9 @@ if __name__ == "__main__":
         "https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV_FILE_{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV_file_{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV%20File%20{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV%20FILE%20{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/nav%20file%20{date_str}.zip"
     ]
     
     last_date = get_last_date_in_data()
