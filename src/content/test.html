@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SM01001 - Latest NAV & Returns
+{% endblock %}
+
+{% block content %}
+<section class="fund-details">
+    <h2 class="fund-name">SM01001</h2>
+    <h3 class="fund-pfm">Example PFM</h3>
+    <div class="fund-nav-container">
+        <div class="nav-label-date"></div>
+        <span class="nav-value" id="navValue">₹0.00</span>
+        <span id="navReturn" class="nav-return">
+            <!-- Return value will be inserted here by JavaScript -->
+        </span>
+    </div>
+
+    <div class="timeframe-buttons">
+        <button onclick="filterData('1M')">1M</button>
+        <button onclick="filterData('3M')">3M</button>
+        <button onclick="filterData('6M')">6M</button>
+        <button onclick="filterData('1Y')" class="selected">1Y</button>
+        <button onclick="filterData('3Y')">3Y</button>
+        <button onclick="filterData('5Y')">5Y</button>
+        <button onclick="filterData('ALL')">ALL</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="navChart"></canvas>
+    </div>
+    <span class="nav-date" id="navDate">Last updated on 2024-11-13</span>
+</section>
+
+
+<script>
+    // Fetch NAV data for the fund over a specified time period
+    const fundId = 'SM01001';  // Replace with dynamic fund ID if needed
+    const timePeriod = '1Y';   // Replace with dynamic time period if needed (e.g., '3M', '5Y')
+
+    fetch(`https://npsnav.rishikeshsreehari.workers.dev/get-fund-history?fund_id=${fundId}&time_period=${timePeriod}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert('Error fetching data');
+            } else {
+                const navData = data.map(item => {
+                    const [month, day, year] = item.date.split('/');
+                    return {
+                        x: new Date(year, month - 1, day),
+                        y: parseFloat(item.nav)
+                    };
+                }).sort((a, b) => a.x - b.x);
+
+                const returns = {}; // Add returns logic if needed
+                displayNavData(navData, returns);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+    function displayNavData(navData, returns) {
+        const navValueElement = document.getElementById('navValue');
+        navValueElement.textContent = `₹${navData[navData.length - 1]?.y.toFixed(2) || '0.00'}`;
+
+        // Chart initialization
+        initChart(navData);
+
+        // You can customize further for returns display here
+        const navReturnElement = document.getElementById('navReturn');
+        navReturnElement.textContent = `${returns['1Y'] >= 0 ? '+' : ''}${returns['1Y']}%`;
+    }
+
+    function initChart(parsedData) {
+        const ctx = document.getElementById('navChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'NAV',
+                    data: parsedData,
+                    borderColor: '#333',
+                    backgroundColor: 'rgba(51, 51, 51, 0.1)',
+                    borderWidth: 1,
+                    pointRadius: 0,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'month',
+                            displayFormats: {
+                                day: 'MMM d',
+                                month: 'MMM yyyy',
+                                year: 'yyyy'
+                            }
+                        },
+                        title: { display: true, text: 'Date' }
+                    },
+                    y: {
+                        title: { display: true, text: 'NAV' }
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+
+{% endblock %}

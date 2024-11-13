@@ -156,3 +156,71 @@ async function updateNifty(env, request) {
     });
   }
 }
+
+async function getFundHistory(env, request) {
+  const url = new URL(request.url);
+  const fundId = url.searchParams.get('fund_id');
+  const timePeriod = url.searchParams.get('time_period'); // 1M, 3M, 1Y, 3Y, 5Y, ALL
+
+  if (!fundId || !timePeriod) {
+      return new Response(JSON.stringify({ error: 'fund_id and time_period are required' }), { 
+          status: 400,
+          headers: corsHeaders()
+      });
+  }
+
+  let dateCondition;
+  const currentDate = new Date();
+  switch (timePeriod) {
+      case '1M':
+          currentDate.setMonth(currentDate.getMonth() - 1);
+          dateCondition = `AND date >= ?`;
+          break;
+      case '3M':
+          currentDate.setMonth(currentDate.getMonth() - 3);
+          dateCondition = `AND date >= ?`;
+          break;
+      case '1Y':
+          currentDate.setFullYear(currentDate.getFullYear() - 1);
+          dateCondition = `AND date >= ?`;
+          break;
+      case '3Y':
+          currentDate.setFullYear(currentDate.getFullYear() - 3);
+          dateCondition = `AND date >= ?`;
+          break;
+      case '5Y':
+          currentDate.setFullYear(currentDate.getFullYear() - 5);
+          dateCondition = `AND date >= ?`;
+          break;
+      case 'ALL':
+          dateCondition = '';
+          break;
+      default:
+          return new Response(JSON.stringify({ error: 'Invalid time_period' }), { 
+              status: 400,
+              headers: corsHeaders()
+          });
+  }
+
+  try {
+      const query = `
+          SELECT date, nav 
+          FROM fund_daily_values
+          WHERE fund_id = ? ${dateCondition}
+          ORDER BY date ASC;
+      `;
+      const result = await env.DB.prepare(query)
+          .bind(fundId, currentDate.toISOString().split('T')[0])  // Format the date for comparison
+          .all();
+
+      return new Response(JSON.stringify(result || []), { 
+          headers: corsHeaders()
+      });
+  } catch (error) {
+      return new Response(JSON.stringify({ error: error.message }), { 
+          status: 500,
+          headers: corsHeaders()
+      });
+  }
+}
+
