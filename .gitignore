@@ -1,11 +1,9 @@
-
 #files to ignore
 public/
 .wrangler
 wrangler.toml
 node_modules
 data/nse_cookies.pkl
-
 
 
 # Byte-compiled / optimized / DLL files
