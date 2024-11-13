@@ -31,6 +31,10 @@ jobs:
     - name: Run nifty.py
       run: python scripts/nifty.py
 
+    - name: Run update_db.py
+      run: python scripts/update_db.py
+      continue-on-error: true  # Allow the workflow to continue even if update_db.py fails
+
     - name: Commit and Push Changes
       run: |
         git config --global user.name "DailyUpdateBot"
