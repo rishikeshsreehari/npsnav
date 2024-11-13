@@ -7,3 +7,13 @@ compatibility_date = "2024-01-01"
 binding = "DB"
 database_name = "your_database_name" #update it with your database name
 database_id = "your_database_id"  #update it with your database id
+
+# Add any environment variables here
+[vars]
+AUTH_TOKEN = "DEIFNE_YOUR_TOKEN" 
+
+
+
+[observability]
+enabled = true
+head_sampling_rate = 1

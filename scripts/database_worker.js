@@ -17,9 +17,17 @@ export default {
       });
     }
 
-    // Check authorization for all requests
+    // Log the AUTH_TOKEN from wrangler.toml (environment variable)
+    console.log("Token from wrangler.toml (env.AUTH_TOKEN):", env.AUTH_TOKEN);
+
     const authToken = request.headers.get('Authorization');
+
+    // Log the Authorization header from the request
+    console.log("Authorization header from request:", authToken);
+
+    // If the Authorization header does not match the token from wrangler.toml
     if (authToken !== `Bearer ${env.AUTH_TOKEN}`) {
+      console.log("Authorization failed: Token mismatch");
       return new Response(JSON.stringify({ error: 'Unauthorized' }), { 
         status: 401,
         headers: corsHeaders()
@@ -44,6 +52,7 @@ export default {
         });
       }
     } catch (error) {
+      console.log("Error occurred:", error);
       return new Response(JSON.stringify({ error: error.message }), { 
         status: 500,
         headers: corsHeaders()
@@ -75,6 +84,7 @@ async function getLatestFund(env, request) {
       headers: corsHeaders() 
     });
   } catch (error) {
+    console.log("Error fetching latest fund:", error);
     return new Response(JSON.stringify({ error: error.message }), { 
       status: 500,
       headers: corsHeaders()
@@ -94,6 +104,7 @@ async function getLatestNifty(env) {
       headers: corsHeaders() 
     });
   } catch (error) {
+    console.log("Error fetching latest nifty:", error);
     return new Response(JSON.stringify({ error: error.message }), { 
       status: 500,
       headers: corsHeaders()
@@ -122,6 +133,7 @@ async function updateFund(env, request) {
       headers: corsHeaders() 
     });
   } catch (error) {
+    console.log("Error updating fund:", error);
     return new Response(JSON.stringify({ error: error.message }), { 
       status: 500,
       headers: corsHeaders()
@@ -150,6 +162,7 @@ async function updateNifty(env, request) {
       headers: corsHeaders() 
     });
   } catch (error) {
+    console.log("Error updating nifty:", error);
     return new Response(JSON.stringify({ error: error.message }), { 
       status: 500,
       headers: corsHeaders()
