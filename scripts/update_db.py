@@ -10,11 +10,18 @@ WORKER_BASE_URL = 'https://npsnav.rishikeshsreehari.workers.dev'
 # Define date format used in the database
 DATE_FORMAT = '%Y-%m-%d'
 
-# Get the authorization token from the environment
+# Retrieve from GitHub Secrets
 AUTH_TOKEN = os.getenv('AUTH_TOKEN_NPSNAV_DBWORKER')
+
 
 # Headers including the authorization token
 headers = {'Authorization': f'Bearer {AUTH_TOKEN}'}
+print("Using AUTH_TOKEN:", AUTH_TOKEN)  # Confirm token value
+
+# Make the GET request to the Cloudflare Worker endpoint with the Authorization header
+response = requests.get(f"{WORKER_BASE_URL}/latest-fund?fund_id=SM003007", headers=headers)
+print("Status Code:", response.status_code)
+print("Response Content:", response.text)
 
 # List of fund IDs to ignore
 ignore_fund_ids = [
@@ -28,7 +35,7 @@ def reformat_date(date_str):
 
 def get_latest_date_for_fund(fund_id):
     """Fetch the latest NAV date for a given fund using the Cloudflare Worker."""
-    response = requests.get(f"{WORKER_BASE_URL}/latest-fund", params={'fund_id': fund_id})
+    response = requests.get(f"{WORKER_BASE_URL}/latest-fund", params={'fund_id': fund_id}, headers=headers)
     if response.ok:
         result = response.json()
         return datetime.strptime(result['date'], DATE_FORMAT).date() if result['date'] else None
@@ -37,7 +44,7 @@ def get_latest_date_for_fund(fund_id):
 
 def get_latest_nifty_date():
     """Fetch the latest NAV date for Nifty using the Cloudflare Worker."""
-    response = requests.get(f"{WORKER_BASE_URL}/latest-nifty")
+    response = requests.get(f"{WORKER_BASE_URL}/latest-nifty", headers=headers)
     if response.ok:
         result = response.json()
         return datetime.strptime(result['date'], DATE_FORMAT).date() if result['date'] else None
