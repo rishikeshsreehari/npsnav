@@ -1,3 +1,4 @@
+import os
 import requests
 import json
 from datetime import datetime
@@ -8,6 +9,12 @@ WORKER_BASE_URL = 'https://npsnav.rishikeshsreehari.workers.dev'
 
 # Define date format used in the database
 DATE_FORMAT = '%Y-%m-%d'
+
+# Get the authorization token from the environment
+AUTH_TOKEN = os.getenv('AUTH_TOKEN_NPSNAV_DBWORKER')
+
+# Headers including the authorization token
+headers = {'Authorization': f'Bearer {AUTH_TOKEN}'}
 
 # List of fund IDs to ignore
 ignore_fund_ids = [
@@ -43,7 +50,7 @@ def update_fund_nav_data(fund_id, new_data):
         # Reformat date to match the database format
         formatted_date = reformat_date(date)
         data = {'fund_id': fund_id, 'date': formatted_date, 'nav': nav}
-        response = requests.post(f"{WORKER_BASE_URL}/update-fund", json=data)
+        response = requests.post(f"{WORKER_BASE_URL}/update-fund", json=data, headers=headers)
         if not response.ok:
             raise Exception(f"Failed to update NAV for fund {fund_id} on {formatted_date}")
 
@@ -53,7 +60,7 @@ def update_nifty_data(new_data):
         # Reformat date to match the database format
         formatted_date = reformat_date(date)
         data = {'date': formatted_date, 'nav': nav}
-        response = requests.post(f"{WORKER_BASE_URL}/update-nifty", json=data)
+        response = requests.post(f"{WORKER_BASE_URL}/update-nifty", json=data, headers=headers)
         if not response.ok:
             raise Exception(f"Failed to update Nifty data for {formatted_date}")
 

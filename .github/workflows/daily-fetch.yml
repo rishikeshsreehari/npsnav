@@ -32,6 +32,8 @@ jobs:
       run: python scripts/nifty.py
 
     - name: Run update_db.py
+      env:
+        AUTH_TOKEN_NPSNAV_DBWORKER: ${{ secrets.AUTH_TOKEN_NPSNAV_DBWORKER }}
       run: python scripts/update_db.py
       continue-on-error: true  # Allow the workflow to continue even if update_db.py fails
 

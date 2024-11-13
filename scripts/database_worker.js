@@ -3,7 +3,7 @@ function corsHeaders() {
   return {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'Content-Type': 'application/json'
   };
 }
@@ -13,6 +13,15 @@ export default {
     // Handle OPTIONS request for CORS
     if (request.method === 'OPTIONS') {
       return new Response(null, {
+        headers: corsHeaders()
+      });
+    }
+
+    // Check authorization for all requests
+    const authToken = request.headers.get('Authorization');
+    if (authToken !== `Bearer ${env.AUTH_TOKEN}`) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), { 
+        status: 401,
         headers: corsHeaders()
       });
     }
