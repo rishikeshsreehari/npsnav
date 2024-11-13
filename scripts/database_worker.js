@@ -1,54 +1,149 @@
+// Add CORS headers helper function
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Content-Type': 'application/json'
+  };
+}
+
 export default {
-    async fetch(request, env) {
-      const url = new URL(request.url);
-      const { pathname } = url;
-  
-      // Add CORS headers
-      const corsHeaders = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Content-Type": "application/json"
-      };
-  
-      // Handle OPTIONS request for CORS
-      if (request.method === "OPTIONS") {
-        return new Response(null, {
-          headers: corsHeaders
-        });
-      }
-  
-      try {
-        if (pathname === "/get-last-date") {
-          const fundId = url.searchParams.get("fund_id");
-          const { results } = await env.DB.prepare("SELECT MAX(date) as last_date FROM fund_daily_values WHERE fund_id = ?")
-                                           .bind(fundId)
-                                           .all();
-          return new Response(JSON.stringify(results[0]), { 
-            headers: corsHeaders 
-          });
-        }
-  
-        if (pathname === "/add-nav-data") {
-          const { fund_id, date, nav } = await request.json();
-          await env.DB.prepare("INSERT INTO fund_daily_values (fund_id, date, nav) VALUES (?, ?, ?)")
-                      .bind(fund_id, date, nav)
-                      .run();
-          return new Response(JSON.stringify({ status: "success" }), { 
-            headers: corsHeaders 
-          });
-        }
-  
-        return new Response("Not found", { 
-          status: 404,
-          headers: corsHeaders 
-        });
-      } catch (error) {
-        console.error("Error in Worker:", error);
-        return new Response(JSON.stringify({ error: error.message }), { 
-          status: 500,
-          headers: corsHeaders 
-        });
-      }
+  async fetch(request, env) {
+    // Handle OPTIONS request for CORS
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        headers: corsHeaders()
+      });
     }
+
+    const { pathname } = new URL(request.url);
+
+    try {
+      if (pathname.startsWith('/latest-fund')) {
+        return getLatestFund(env, request);
+      } else if (pathname.startsWith('/latest-nifty')) {
+        return getLatestNifty(env);
+      } else if (pathname.startsWith('/update-fund')) {
+        return updateFund(env, request);
+      } else if (pathname.startsWith('/update-nifty')) {
+        return updateNifty(env, request);
+      } else {
+        return new Response('Not found', { 
+          status: 404,
+          headers: corsHeaders()
+        });
+      }
+    } catch (error) {
+      return new Response(JSON.stringify({ error: error.message }), { 
+        status: 500,
+        headers: corsHeaders()
+      });
+    }
+  },
 };
+
+async function getLatestFund(env, request) {
+  const url = new URL(request.url);
+  const fundId = url.searchParams.get('fund_id');
+
+  if (!fundId) {
+    return new Response(JSON.stringify({ error: 'fund_id is required' }), { 
+      status: 400,
+      headers: corsHeaders()
+    });
+  }
+
+  try {
+    const query = `
+      SELECT date, nav FROM fund_daily_values
+      WHERE fund_id = ?
+      ORDER BY date DESC LIMIT 1;
+    `;
+
+    const result = await env.DB.prepare(query).bind(fundId).first();
+    return new Response(JSON.stringify(result || { date: null, nav: null }), { 
+      headers: corsHeaders() 
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), { 
+      status: 500,
+      headers: corsHeaders()
+    });
+  }
+}
+
+async function getLatestNifty(env) {
+  try {
+    const query = `
+      SELECT date, nav FROM nifty_daily_values
+      ORDER BY date DESC LIMIT 1;
+    `;
+
+    const result = await env.DB.prepare(query).first();
+    return new Response(JSON.stringify(result || { date: null, nav: null }), { 
+      headers: corsHeaders() 
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), { 
+      status: 500,
+      headers: corsHeaders()
+    });
+  }
+}
+
+async function updateFund(env, request) {
+  try {
+    const { fund_id, date, nav } = await request.json();
+
+    if (!fund_id || !date || !nav) {
+      return new Response(JSON.stringify({ error: 'fund_id, date, and nav are required' }), { 
+        status: 400,
+        headers: corsHeaders()
+      });
+    }
+
+    const query = `
+      INSERT OR REPLACE INTO fund_daily_values (fund_id, date, nav)
+      VALUES (?, ?, ?);
+    `;
+
+    await env.DB.prepare(query).bind(fund_id, date, nav).run();
+    return new Response(JSON.stringify({ success: true }), { 
+      headers: corsHeaders() 
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), { 
+      status: 500,
+      headers: corsHeaders()
+    });
+  }
+}
+
+async function updateNifty(env, request) {
+  try {
+    const { date, nav } = await request.json();
+
+    if (!date || !nav) {
+      return new Response(JSON.stringify({ error: 'date and nav are required' }), { 
+        status: 400,
+        headers: corsHeaders()
+      });
+    }
+
+    const query = `
+      INSERT OR REPLACE INTO nifty_daily_values (date, nav)
+      VALUES (?, ?);
+    `;
+
+    await env.DB.prepare(query).bind(date, nav).run();
+    return new Response(JSON.stringify({ success: true }), { 
+      headers: corsHeaders() 
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), { 
+      status: 500,
+      headers: corsHeaders()
+    });
+  }
+}

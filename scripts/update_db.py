@@ -1,35 +1,65 @@
-import asyncio
-import aiohttp
+import requests
 import json
-import ssl 
-async def get_last_date():
-    url = "https://npsnav.rishikeshsreehari.workers.dev/get-last-date?fund_id=SM001001"
-    
-    # Configure SSL context
-    ssl_context = ssl.create_default_context()
-    ssl_context.check_hostname = False
-    ssl_context.verify_mode = ssl.CERT_NONE
-    
-    # Configure client timeout
-    timeout = aiohttp.ClientTimeout(total=10)
-    
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        try:
-            async with session.get(url, ssl=ssl_context) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    print(f"Success! Last date: {data['last_date']}")
-                    return data['last_date']
-                else:
-                    print(f"Error: Status {response.status}")
-        except Exception as e:
-            print(f"Error: {e}")
+from datetime import datetime
+import urllib3
 
-def main():
-    print("Fetching last date...")
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  # For Windows
-    last_date = asyncio.run(get_last_date())
-    print(f"Completed. Last date: {last_date}")
+# Disable SSL warnings
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# Base URL
+WORKER_BASE_URL = 'https://npsnav.rishikeshsreehari.workers.dev'
+
+# Create a session
+session = requests.Session()
+session.headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
+    "Accept-Encoding": "*",
+    "Connection": "keep-alive",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+}
+
+def test_endpoints():
+    print("Testing endpoints...")
+    
+    # Test fund endpoint
+    try:
+        print("Making request to latest-fund endpoint...")
+        fund_response = session.get(
+            f"{WORKER_BASE_URL}/latest-fund",
+            params={'fund_id': 'SM001001'},
+            verify=False,  # Disable SSL verification for testing
+            timeout=10  # Set timeout in seconds
+        )
+        print("Fund Response Status:", fund_response.status_code)
+        print("Fund Response:", fund_response.text)
+        
+        if fund_response.ok:
+            fund_data = fund_response.json()
+            print("Latest Fund Date:", fund_data.get('date'))
+    except requests.Timeout:
+        print("Fund request timed out.")
+    except Exception as e:
+        print("Fund Error:", str(e))
+
+    # Test Nifty endpoint
+    try:
+        print("Making request to latest-nifty endpoint...")
+        nifty_response = session.get(
+            f"{WORKER_BASE_URL}/latest-nifty",
+            verify=False,  # Disable SSL verification for testing
+            timeout=10  # Set timeout in seconds
+        )
+        print("Nifty Response Status:", nifty_response.status_code)
+        print("Nifty Response:", nifty_response.text)
+        
+        if nifty_response.ok:
+            nifty_data = nifty_response.json()
+            print("Latest Nifty Date:", nifty_data.get('date'))
+    except requests.Timeout:
+        print("Nifty request timed out.")
+    except Exception as e:
+        print("Nifty Error:", str(e))
 
 if __name__ == "__main__":
-    main()
+    test_endpoints()
