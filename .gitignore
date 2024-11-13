@@ -1,7 +1,7 @@
 
 #files to ignore
 public/
-.wrangler/state/v3/d1/
+.wrangler
 wrangler.toml
 node_modules
 
