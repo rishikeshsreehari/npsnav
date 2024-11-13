@@ -4,6 +4,7 @@ public/
 .wrangler
 wrangler.toml
 node_modules
+data/nse_cookies.pkl
 
 
 
