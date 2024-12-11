@@ -675,6 +675,7 @@ pre {
     outline: none; /* Remove default focus outline */
 }
 
+/* uery*/
 
 .query-container {
     margin: 20px auto;
@@ -743,4 +744,64 @@ pre {
     overflow: auto;
     white-space: pre-wrap;
     max-height: 300px;
+}
+
+
+
+.tabs {
+    display: flex;
+    margin-top: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-top: 2px solid #007bff;
+    font-weight: bold;
+}
+
+.tab:not(.active):hover {
+    background-color: #eee;
+}
+
+.tab-content {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#results-table th, #results-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#results-table th {
+    background-color: #f4f4f4;
+}
+
+#results-json {
+    font-family: monospace;
+    background: #000;
+    color: #00ff00;
+    padding: 10px;
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow: auto;
 }

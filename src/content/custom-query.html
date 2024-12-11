@@ -16,17 +16,38 @@
 
     <form id="query-form">
         <label for="query-input">SQL Query:</label>
-        <textarea id="query-input" name="query" rows="5" placeholder="e.g., SELECT * FROM fund_daily_values WHERE fund_id = 'SM001001';"></textarea>
+        <textarea id="query-input" name="query" rows="5">
+SELECT *
+FROM fund_daily_values
+WHERE fund_id IN ('SM001001', 'SM002002')
+  AND date > '2024-12-05'
+LIMIT 10
+        </textarea>
         <button type="submit" id="query-submit">Run Query</button>
     </form>
 
     <div id="query-results">
         <h3>Query Results:</h3>
-        <pre id="results-display">Results will be displayed here...</pre>
+        <div class="tabs">
+            <button class="tab active" data-tab="table-view">Table</button>
+            <button class="tab" data-tab="json-view">JSON</button>
+        </div>
+        <div class="tab-content" id="table-view">
+            <table id="results-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="tab-content" id="json-view" style="display: none;">
+            <pre id="results-json">JSON results will appear here...</pre>
+        </div>
+        <button id="download-csv" style="display: none;">Download CSV</button>
     </div>
 </div>
 
 {% endblock %}
+
+
 
 {% block scripts %}
      <script src="/assets/js/query.js"></script>
