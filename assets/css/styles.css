@@ -715,20 +715,7 @@ pre {
     resize: vertical;
 }
 
-#query-submit {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-#query-submit:hover {
-    background-color: #0056b3;
-}
 
 #query-results {
     margin-top: 20px;
@@ -765,7 +752,7 @@ pre {
 
 .tab.active {
     background-color: #fff;
-    border-top: 2px solid #007bff;
+    border-top: 3px solid  #333;;
     font-weight: bold;
 }
 
@@ -814,20 +801,6 @@ pre {
     margin-bottom: 10px;
 }
 
-#download-csv {
-    padding: 8px 16px;
-    font-size: 0.9em;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#download-csv:hover {
-    background-color: #0056b3;
-}
 
 .json-header {
     display: flex;
@@ -836,20 +809,7 @@ pre {
     margin-bottom: 10px;
 }
 
-#copy-json {
-    padding: 8px 16px;
-    font-size: 0.9em;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-#copy-json:hover {
-    background-color: #0056b3;
-}
 
 .warning {
     background-color: #fff4e5;
@@ -914,9 +874,11 @@ pre {
 }
 
 .example-tabs .tab.active {
-    background-color: #007bff;
     color: #fff;
-    border-color: #0056b3;
+    background-color: #333;
+    border: 1px solid #333;
+
+   
 }
 
 .tab-content {
@@ -933,4 +895,203 @@ pre {
 
 .tab-content code {
     cursor: pointer;
+}
+
+/* Adjust query input height */
+#query-input {
+    min-height: 200px;
+}
+
+/* Monochrome button styling */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    border: 1px solid #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Table horizontal scroll for mobile */
+.table-container {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+#results-table th, #results-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#results-table th {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 10;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    .table-container {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #results-table {
+        width: auto;
+        table-layout: fixed;
+    }
+}
+
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-header {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #f1f1f1;
+}
+
+.accordion-content {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    overflow: hidden;
+}
+
+/* General alignment for section titles */
+.section-title {
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Styling for the table list */
+.table-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+/* Table names styled consistently with their headers */
+.table-list li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.table-list code {
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #333;
+}
+
+.table-headers {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Adjusting font sizes for consistency */
+.accordion-content p,
+.accordion-content ul {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.accordion-content ul li {
+    margin-bottom: 8px;
+}
+
+.example-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.example-tabs .tab {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.example-tabs .tab.active {
+    background-color: #333
+    color: #fff;
+    
+}
+
+.example-tabs .tab:hover {
+    background-color: #ddd;
+}
+
+.tab-content p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.tab-content code {
+    display: block;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+/* Adjust tabs for smaller screens */
+@media (max-width: 768px) {
+    .example-tabs {
+        display: flex;
+        flex-direction: column; /* Stack tabs vertically */
+        gap: 5px; /* Reduce gap between tabs */
+    }
+
+    .example-tabs .tab {
+        width: 100%; /* Make tabs span the full width */
+        text-align: center; /* Center-align text */
+    }
 }

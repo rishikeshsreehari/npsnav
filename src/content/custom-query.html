@@ -12,29 +12,58 @@
 
 <div class="query-container">
     <h2>Custom NPS Data Query Builder</h2>
-
+    
+    <div class="accordion">
+        <button class="accordion-header">About the Query Builder ▼</button>
+        <div class="accordion-content" style="display: none;">
+            <p>The NPS Query Builder lets you extract, transform, and download data from NPS funds using SQL queries. Think of it as a lightweight SQL editor designed to interact with specific tables, but it only supports <strong>SELECT</strong> statements for security and simplicity.</p>
+    
+            <h3 class="section-title">Available Tables:</h3>
+            <ul class="table-list">
+                <li>
+                    <code>funds</code>: Contains fund metadata.  
+                    <br><span class="table-headers">Headers:</span> <code>fund_id</code>, <code>fund_name</code>, <code>pfm_name</code>, <code>tier</code>, <code>scheme_type</code>.
+                </li>
+                <li>
+                    <code>daily_fund_values</code>: Stores historical daily NAV values for all NPS funds.  
+                    <br><span class="table-headers">Headers:</span> <code>fund_id</code>, <code>date</code>, <code>nav</code>.
+                </li>
+                <li>
+                    <code>daily_nifty_values</code>: Holds the daily closing values of the Nifty index.  
+                    <br><span class="table-headers">Headers:</span> <code>date</code>, <code>nav</code>.
+                </li>
+            </ul>
+    
+            <h3 class="section-title">How to Use:</h3>
+            <ul>
+                <li>Write SQL queries to retrieve specific data. Only <strong>SELECT</strong> statements are allowed.</li>
+                <li>Do not end queries with a semicolon (<code>;</code>).</li>
+                <li>Use filters like <code>WHERE</code> and <code>LIMIT</code> to narrow down your results.</li>
+            </ul>
+    
+            <p>💡 <a href="https://www.w3schools.com/sql/" target="_blank">Learn more about SQL queries here</a>.</p>
+        </div>
+    </div>
+    
+    
+    
     <div class="warning">
-        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier. Please use responsibly. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, try again after the limit resets.Consider supporting</p>
+        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier, leveraging D1 Storage with a 5 million daily read operation limit. Please use it responsibly to ensure smooth functionality for everyone. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, please try again after the limit resets. This is an open-source project with no revenue, consider <a href="https://rishikeshs.com/support" target="_blank">supporting.</a></p>
     </div>
 
-
-    
-    
-
-    
-
     <form id="query-form" method="POST" action="">
-        <label for="query-input">Enter your SQL query below (Only SELECT queries are allowed):</label>
+        <label for="query-input">Enter your SQL query below(Only SELECT queries are allowed without a semicolon):</label>
         <textarea id="query-input" name="query" rows="5">
-    SELECT *
-    FROM fund_daily_values
-    WHERE fund_id = 'SM001001'
-    AND date > '2024-12-05'
-    LIMIT 10
+            SELECT *
+            FROM fund_daily_values
+            WHERE fund_id = 'SM001001'
+            AND date > '2024-12-05'
+            LIMIT 10
         </textarea>
-        <button type="submit" id="query-submit">Run Query</button>
+            
+
+        <button type="submit" id="query-submit" class="btn">Run Query</button>
     </form>
-    
 
     <div id="query-results" style="display: none;">
         <div class="tabs-container">
@@ -42,43 +71,69 @@
                 <button class="tab active" data-tab="table-view">Table</button>
                 <button class="tab" data-tab="json-view">JSON</button>
             </div>
-            <button id="download-csv" style="display: none;">Download as .csv</button>
+            <button id="download-csv"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M13 11.15V4a1 1 0 1 0-2 0v7.15L8.78 8.374a1 1 0 1 0-1.56 1.25l4 5a1 1 0 0 0 1.56 0l4-5a1 1 0 1 0-1.56-1.25L13 11.15Z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M9.657 15.874 7.358 13H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2.358l-2.3 2.874a3 3 0 0 1-4.685 0ZM17 16a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd"/>
+              </svg>
+              
+              </button>
         </div>
+
         <div id="spinner" style="display: none; text-align: center;">
             <img src="/assets/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;">
             <p>Query is processing...</p>
         </div>
-        <div class="tab-content" id="table-view" style="display: none;">
-            <table id="results-table">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
+        <div class="tab-content" id="table-view">
+            <p class="scroll-hint">Swipe to see more →</p>
+
+            <div class="table-container">
+                <table id="results-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
-        <div class="tab-content" id="json-view" style="display: none;">
+        <div class="tab-content" id="json-view">
             <div class="json-header">
                 <h3>JSON Results</h3>
-                <button id="copy-json" style="display: none;">Copy JSON</button>
+                
+                <button id="copy-json" ><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M9 8v3a1 1 0 0 1-1 1H5m11 4h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-7a1 1 0 0 0-1 1v1m4 3v10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7.13a1 1 0 0 1 .24-.65L7.7 8.35A1 1 0 0 1 8.46 8H13a1 1 0 0 1 1 1Z"/>
+                  </svg>
+                  </button>
             </div>
             <pre id="results-json">JSON results will appear here...</pre>
         </div>
     </div>
-
-    <div class="example-tabs">
-        <button class="tab active" data-tab="basic-examples">Basic</button>
-        <button class="tab" data-tab="date-filters">Date Filters</button>
-        <button class="tab" data-tab="advanced-examples">Advanced</button>
-        <button class="tab" data-tab="calculations">Calculations</button>
-    </div>
+    <br>
+    <hr>
+    <br>
+    <h3>Examples</h3>
+    <p style="text-align: left;">
+        Here are some example queries to get you started. The query builder allows you to write and execute SQL <code>SELECT</code> queries to explore NPS fund data interactively. Whether you want to retrieve the latest NAV values, filter data by date, or calculate trends over time, these examples demonstrate common use cases. Remember, only <code>SELECT</code> queries are allowed, and they must not end with a semicolon (<code>;</code>).
+    </p>
+    <br>
+    
+    
+        <div class="example-tabs">
+            <button class="tab active" data-tab="basic-examples">Basic</button>
+            <button class="tab" data-tab="date-filters">Date Filters</button>
+            <button class="tab" data-tab="advanced-examples">Advanced</button>
+            <button class="tab" data-tab="calculations">Calculations</button>
+        </div>
     
     <div class="tab-content active" id="basic-examples">
+        <p style="text-align: left;"><strong>Description:</strong> Basic queries allow you to retrieve simple datasets like the latest NAV values or fund information. Use these queries to quickly view records without additional filtering.</p>
         <code>SELECT * FROM fund_daily_values WHERE fund_id = 'SM001001' ORDER BY date DESC LIMIT 10</code>
     </div>
     
     <div class="tab-content" id="date-filters">
+        <p style="text-align: left;"><strong>Description:</strong> Use date filters to fetch data within a specific time range. Ideal for analyzing trends over a certain period.</p>
         <code>SELECT date, nav FROM fund_daily_values WHERE fund_id = 'SM002002' AND date BETWEEN '2024-01-01' AND '2024-06-30'</code>
     </div>
     
     <div class="tab-content" id="advanced-examples">
+        <p style="text-align: left;"><strong>Description:</strong> Advanced queries combine multiple tables using JOINs to provide richer insights. For instance, comparing fund NAVs with Nifty index NAVs.</p>
         <code>
     SELECT 
         f.fund_id,
@@ -95,6 +150,7 @@
     </div>
     
     <div class="tab-content" id="calculations">
+        <p style="text-align: left;"><strong>Description:</strong> Calculation queries perform arithmetic operations on NAV data to calculate returns or trends over time. Great for financial analysis.</p>
         <code>
     SELECT 
         f.fund_id,
@@ -111,24 +167,10 @@
     LIMIT 10
         </code>
         <br><br>
-        <code>
-    SELECT 
-        f.date,
-        f.nav as current_fund_nav,
-        n.nav as current_nifty_nav,
-        ROUND(((f.nav / MIN(f.nav) OVER (ORDER BY f.date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW)) - 1) * 100, 2) as fund_30day_return_pct,
-        ROUND(((n.nav / MIN(n.nav) OVER (ORDER BY f.date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW)) - 1) * 100, 2) as nifty_30day_return_pct
-    FROM fund_daily_values f
-    LEFT JOIN nifty_daily_values n ON f.date = n.date
-    WHERE f.fund_id = 'SM001001'
-    AND f.date >= '2024-01-01'
-    ORDER BY f.date DESC
-    LIMIT 10
-        </code>
+        
     </div>
-    <p><small>Click a query to use it.</small></p>
-
     
+    <p><small>Click a query to use it.</small></p>
     
 </div>
 

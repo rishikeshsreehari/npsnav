@@ -223,3 +223,11 @@ document.querySelectorAll('.tab-content code').forEach(code => {
         queryInput.dispatchEvent(new Event('input', { bubbles: true }));
     });
 });
+
+document.querySelector('.accordion-header').addEventListener('click', function () {
+    const content = document.querySelector('.accordion-content');
+    const isVisible = content.style.display === 'block';
+    content.style.display = isVisible ? 'none' : 'block';
+    this.textContent = isVisible ? 'About the Query Builder ▼' : 'About the Query Builder ▲';
+});
+
