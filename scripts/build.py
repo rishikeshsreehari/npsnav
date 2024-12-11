@@ -14,8 +14,7 @@ if __name__ == "__main__":
         'scripts/main.py',
         'scripts/api.py',
         'scripts/funds.py',
-        'scripts/minify.py',
-        'scripts/robots-sitemap.py'
+        'scripts/minify.py'
     ]
     
     for script in scripts:

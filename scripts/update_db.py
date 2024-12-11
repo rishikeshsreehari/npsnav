@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Set the base URL for your Cloudflare Worker
-WORKER_BASE_URL = 'https://npsnav.rishikeshsreehari.workers.dev'
+WORKER_BASE_URL = 'https://npsnav-write.rishikeshsreehari.workers.dev'
 
 # Define date format used in the database
 DATE_FORMAT = '%Y-%m-%d'
