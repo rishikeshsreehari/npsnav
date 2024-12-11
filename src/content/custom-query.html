@@ -48,7 +48,7 @@
     
     
     <div class="warning">
-        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier, leveraging D1 Storage with a 5 million daily read operation limit. Please use it responsibly to ensure smooth functionality for everyone. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, please try again after the limit resets. This is an open-source project with no revenue, consider <a href="https://rishikeshs.com/support" target="_blank">supporting.</a></p>
+        <p><strong>Important:</strong> This tool uses Cloudflare's free D1 Storage, with a daily limit of 5 million read operations. Please use responsibly to avoid hitting the limit, which may cause errors or empty responses. If you face issues, try again later. This is an open-source, non-revenue project. Your <a href="https://rishikeshs.com/support" target="_blank"> support</a> is appreciated!</p>
     </div>
 
     <form id="query-form" method="POST" action="">
@@ -104,6 +104,12 @@
             </div>
             <pre id="results-json">JSON results will appear here...</pre>
         </div>
+        <div class="pagination">
+            <button class="prev-page" disabled>Previous</button>
+            <span class="page-info">Page <span id="current-page">1</span> of <span id="total-pages">X</span></span>
+            <button class="next-page">Next</button>
+        </div>
+        
     </div>
     <br>
     <hr>
@@ -180,5 +186,6 @@
 
 {% block scripts %}
      <script src="/assets/js/query.js"></script>
+
 {% endblock %}
 

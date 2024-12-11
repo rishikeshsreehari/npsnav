@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Basic Elements
     const form = document.getElementById("query-form");
     const queryInput = document.getElementById("query-input");
     const queryResults = document.getElementById("query-results");
@@ -6,14 +7,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultsTable = document.getElementById("results-table");
     const resultsJson = document.getElementById("results-json");
     const downloadCsvButton = document.getElementById("download-csv");
-    const tabs = document.querySelectorAll(".tab");
-    const tabContents = document.querySelectorAll(".tab-content");
+    const resultTabs = document.querySelectorAll(".tabs .tab");
+    const resultTabContents = document.querySelectorAll(".tab-content");
+    const exampleTabs = document.querySelectorAll(".example-tabs .tab");
+    const exampleTabContents = document.querySelectorAll(".example-tabs .tab-content");
 
-    // Tab switching logic
-    tabs.forEach(tab => {
+    // Pagination Elements
+    const paginationContainer = document.querySelector(".pagination");
+    const prevPageButton = document.querySelector(".prev-page");
+    const nextPageButton = document.querySelector(".next-page");
+    const currentPageSpan = document.getElementById("current-page");
+    const totalPagesSpan = document.getElementById("total-pages");
+
+    // Pagination variables
+    let allResults = [];
+    let currentPage = 1;
+    const resultsPerPage = 20;
+
+    // Result Tab Switching Logic
+    resultTabs.forEach((tab) => {
         tab.addEventListener("click", function () {
-            tabs.forEach(t => t.classList.remove("active"));
-            tabContents.forEach(content => content.style.display = "none");
+            resultTabs.forEach((t) => t.classList.remove("active"));
+            resultTabContents.forEach((content) => (content.style.display = "none"));
 
             this.classList.add("active");
             document.getElementById(this.dataset.tab).style.display = "block";
@@ -29,122 +44,119 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Example Tab Switching Logic
+    exampleTabs.forEach((tab) => {
+        tab.addEventListener("click", function () {
+            exampleTabs.forEach((t) => t.classList.remove("active"));
+            exampleTabContents.forEach((content) => (content.style.display = "none"));
+
+            this.classList.add("active");
+            document.getElementById(this.dataset.tab).style.display = "block";
+
+            // Ensure results remain visible after switching example tabs
+            queryResults.style.display = "block";
+        });
+    });
+
+    // Copy JSON Functionality
     document.getElementById("copy-json").addEventListener("click", function () {
         const jsonContent = resultsJson.textContent.trim();
         if (jsonContent) {
-            navigator.clipboard.writeText(jsonContent).then(() => {
-                alert("JSON copied to clipboard!");
-            }).catch(err => {
-                console.error("Error copying JSON: ", err);
-            });
+            navigator.clipboard.writeText(jsonContent)
+                .then(() => alert("JSON copied to clipboard!"))
+                .catch((err) => console.error("Error copying JSON: ", err));
         }
     });
 
-    // Form submission logic
+    // Form Submission Logic
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
-    
         const query = queryInput.value.trim();
-    
+
         if (!query) {
             alert("Please enter a valid SQL SELECT query.");
             return;
         }
-    
+
         if (!query.toUpperCase().startsWith("SELECT")) {
             alert("Only SELECT queries are allowed.");
             return;
         }
-    
+
         // Hide results and show spinner
         queryResults.style.display = "block";
         spinner.style.display = "block";
-        document.querySelectorAll('.tab-content#table-view, .tab-content#json-view')
-            .forEach(content => (content.style.display = "none"));
+        resultTabContents.forEach((content) => (content.style.display = "none"));
         downloadCsvButton.style.display = "none";
-    
+
         try {
             const response = await fetch(
-                `https://npsnav-query.rishikeshsreehari.workers.dev/query?query=${encodeURIComponent(query)}`
+                `https://npsnav-query.rishikeshsreehari.workers.dev/query?query=${encodeURIComponent(
+                    query
+                )}`
             );
-    
+
             if (!response.ok) {
                 const errorData = await response.json();
                 resultsJson.textContent = `Error: ${errorData.error || "Unknown error occurred"}`;
                 spinner.style.display = "none";
                 return;
             }
-    
+
             const data = await response.json();
-    
-            // Populate table results and switch to Table view by default
+            allResults = data; // Store data for pagination
+            currentPage = 1; // Reset to the first page
+            updatePagination();
+            displayCurrentPageResults();
+
             spinner.style.display = "none";
             document.getElementById("table-view").style.display = "block";
-            document.querySelector(".tab[data-tab='table-view']").classList.add("active");
-    
+            document.querySelector(".tabs .tab[data-tab='table-view']").classList.add("active");
+
             resultsJson.textContent = JSON.stringify(data, null, 2);
-            populateTable(data);
             enableCsvDownload(data);
-    
         } catch (error) {
             spinner.style.display = "none";
             resultsJson.textContent = `Error: ${error.message}`;
         }
     });
-    
-    function resetToDefaultTab() {
-        // Ensure the Basic tab is reset and visible
-        const defaultTab = document.querySelector('.example-tabs .tab[data-tab="basic-examples"]');
-        const defaultContent = document.getElementById('basic-examples');
-    
-        // Reset all tabs and contents
-        document.querySelectorAll('.example-tabs .tab').forEach(tab => tab.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.remove('active');
-            content.style.display = 'none'; // Hide all tab contents
-        });
-    
-        // Activate the Basic tab
-        defaultTab.classList.add('active');
-        defaultContent.classList.add('active');
-        defaultContent.style.display = 'block'; // Explicitly show Basic tab content
-    }
-    
-  
-    
-    // Tab switching logic for example tabs
-    document.querySelectorAll('.example-tabs .tab').forEach(tab => {
-        tab.addEventListener('click', function () {
-            // Remove active class from all tabs and hide all contents
-            document.querySelectorAll('.example-tabs .tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-                content.style.display = 'none';
-            });
-    
-            // Add active class to the clicked tab and its content
-            this.classList.add('active');
-            const activeTabContent = document.getElementById(this.dataset.tab);
-            activeTabContent.classList.add('active');
-            activeTabContent.style.display = 'block'; // Show the active tab's content
-        });
-    });
-    
-    // Click-to-insert functionality for example queries
-    document.querySelectorAll('.tab-content code').forEach(code => {
-        code.addEventListener('click', () => {
-            const queryInput = document.getElementById('query-input');
-            queryInput.value = code.textContent.trim();
-    
-            // Trigger input event
-            queryInput.dispatchEvent(new Event('input', { bubbles: true }));
-    
-            // Reset to Basic tab when an example query is clicked
-        });
-    });
-    
-    
 
+    // Pagination Logic
+    function updatePagination() {
+        const totalPages = Math.ceil(allResults.length / resultsPerPage);
+        currentPageSpan.textContent = currentPage;
+        totalPagesSpan.textContent = totalPages;
+
+        prevPageButton.disabled = currentPage === 1;
+        nextPageButton.disabled = currentPage === totalPages;
+        paginationContainer.style.display = totalPages > 1 ? "flex" : "none";
+    }
+
+    function displayCurrentPageResults() {
+        const start = (currentPage - 1) * resultsPerPage;
+        const end = start + resultsPerPage;
+        const paginatedResults = allResults.slice(start, end);
+        populateTable(paginatedResults);
+    }
+
+    prevPageButton.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayCurrentPageResults();
+            updatePagination();
+        }
+    });
+
+    nextPageButton.addEventListener("click", () => {
+        const totalPages = Math.ceil(allResults.length / resultsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayCurrentPageResults();
+            updatePagination();
+        }
+    });
+
+    // Populate Table
     function populateTable(data) {
         const thead = resultsTable.querySelector("thead");
         const tbody = resultsTable.querySelector("tbody");
@@ -161,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Generate table headers
         const headers = Object.keys(data[0]);
         const headerRow = document.createElement("tr");
-        headers.forEach(header => {
+        headers.forEach((header) => {
             const th = document.createElement("th");
             th.textContent = header;
             headerRow.appendChild(th);
@@ -169,9 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
         thead.appendChild(headerRow);
 
         // Generate table rows
-        data.forEach(row => {
+        data.forEach((row) => {
             const tr = document.createElement("tr");
-            headers.forEach(header => {
+            headers.forEach((header) => {
                 const td = document.createElement("td");
                 td.textContent = row[header];
                 tr.appendChild(td);
@@ -180,13 +192,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Enable CSV Download
     function enableCsvDownload(data) {
         downloadCsvButton.style.display = "block";
         downloadCsvButton.addEventListener("click", () => {
             const headers = Object.keys(data[0]);
-            const rows = data.map(row => headers.map(header => row[header]));
+            const rows = data.map((row) => headers.map((header) => row[header]));
 
-            let csvContent = headers.join(",") + "\n" + rows.map(r => r.join(",")).join("\n");
+            let csvContent = headers.join(",") + "\n" + rows.map((r) => r.join(",")).join("\n");
 
             const blob = new Blob([csvContent], { type: "text/csv" });
             const url = URL.createObjectURL(blob);
@@ -200,34 +213,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-document.querySelectorAll('.example-tabs .tab').forEach(tab => {
-    tab.addEventListener('click', function () {
-        // Remove active class from all tabs and hide all contents
-        document.querySelectorAll('.example-tabs .tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-        // Add active class to the clicked tab and its content
-        this.classList.add('active');
-        document.getElementById(this.dataset.tab).classList.add('active');
-    });
-});
-
-// Click-to-insert functionality
-document.querySelectorAll('.tab-content code').forEach(code => {
-    code.addEventListener('click', () => {
-        const queryInput = document.getElementById('query-input');
-        queryInput.value = code.textContent.trim();
-
-        // Trigger input event
-        queryInput.dispatchEvent(new Event('input', { bubbles: true }));
-    });
-});
-
-document.querySelector('.accordion-header').addEventListener('click', function () {
-    const content = document.querySelector('.accordion-content');
-    const isVisible = content.style.display === 'block';
-    content.style.display = isVisible ? 'none' : 'block';
-    this.textContent = isVisible ? 'About the Query Builder ▼' : 'About the Query Builder ▲';
-});
-
