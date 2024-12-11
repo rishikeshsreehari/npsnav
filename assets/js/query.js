@@ -12,10 +12,30 @@ document.addEventListener("DOMContentLoaded", function () {
         tab.addEventListener("click", function () {
             tabs.forEach(t => t.classList.remove("active"));
             tabContents.forEach(content => content.style.display = "none");
-
+    
             this.classList.add("active");
             document.getElementById(this.dataset.tab).style.display = "block";
+    
+            // Show or hide buttons based on the active tab
+            if (this.dataset.tab === "table-view") {
+                downloadCsvButton.style.display = "block";
+                document.getElementById("copy-json").style.display = "none";
+            } else if (this.dataset.tab === "json-view") {
+                downloadCsvButton.style.display = "none";
+                document.getElementById("copy-json").style.display = "block";
+            }
         });
+    });
+
+    document.getElementById("copy-json").addEventListener("click", function () {
+        const jsonContent = resultsJson.textContent.trim();
+        if (jsonContent) {
+            navigator.clipboard.writeText(jsonContent).then(() => {
+                alert("JSON copied to clipboard!");
+            }).catch(err => {
+                console.error("Error copying JSON: ", err);
+            });
+        }
     });
 
     // Form submission logic

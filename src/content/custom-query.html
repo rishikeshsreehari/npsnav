@@ -27,10 +27,12 @@ LIMIT 10
     </form>
 
     <div id="query-results">
-        <h3>Query Results:</h3>
-        <div class="tabs">
-            <button class="tab active" data-tab="table-view">Table</button>
-            <button class="tab" data-tab="json-view">JSON</button>
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="table-view">Table</button>
+                <button class="tab" data-tab="json-view">JSON</button>
+            </div>
+            <button id="download-csv" style="display: none;">Download as .csv</button>
         </div>
         <div class="tab-content" id="table-view">
             <table id="results-table">
@@ -39,10 +41,15 @@ LIMIT 10
             </table>
         </div>
         <div class="tab-content" id="json-view" style="display: none;">
+            <div class="json-header">
+                <h3>JSON Results</h3>
+                <button id="copy-json" style="display: none;">Copy JSON</button>
+            </div>
             <pre id="results-json">JSON results will appear here...</pre>
         </div>
-        <button id="download-csv" style="display: none;">Download CSV</button>
+        
     </div>
+    
 </div>
 
 {% endblock %}
