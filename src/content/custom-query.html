@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}NPS Query Builder{% endblock %}
+{% block description %}Build and execute custom SQL queries to explore NPS fund data.{% endblock %}
+{% block keywords %}NPS, NAV, SQL Query Builder, Pension Funds, India{% endblock %}
+{% block og_title %}NPS Query Builder{% endblock %}
+{% block og_description %}Execute custom SQL queries to fetch NPS fund data interactively.{% endblock %}
+{% block og_url %}https://npsnav.in/query-builder{% endblock %}
+{% block canonical %}https://npsnav.in/query-builder{% endblock %}
+
+{% block content %}
+
+<div class="query-container">
+    <h2>Custom NPS Query Builder</h2>
+    <p>Enter a custom SQL <code>SELECT</code> query below to explore the NPS fund data:</p>
+
+    <form id="query-form">
+        <label for="query-input">SQL Query:</label>
+        <textarea id="query-input" name="query" rows="5" placeholder="e.g., SELECT * FROM fund_daily_values WHERE fund_id = 'SM001001';"></textarea>
+        <button type="submit" id="query-submit">Run Query</button>
+    </form>
+
+    <div id="query-results">
+        <h3>Query Results:</h3>
+        <pre id="results-display">Results will be displayed here...</pre>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+     <script src="/assets/js/query.js"></script>
+{% endblock %}
+
