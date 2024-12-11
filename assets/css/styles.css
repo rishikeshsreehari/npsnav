@@ -143,9 +143,12 @@ tbody tr td:first-child {
     color: #333;
 }
 
-table tr td:nth-child(2)::before {
+/* Adds ₹ to the second column in .funds-table on home; only to avoid affecting other tables */
+
+.funds-table table tr td:nth-child(2)::before {
     content: '₹';
-  }
+}
+
 
 .last-updated {
     margin-top: 1rem;
