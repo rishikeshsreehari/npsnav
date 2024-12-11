@@ -43,53 +43,111 @@ document.addEventListener("DOMContentLoaded", function () {
     // Form submission logic
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
-
+    
         const query = queryInput.value.trim();
-
+    
         if (!query) {
             alert("Please enter a valid SQL SELECT query.");
             return;
         }
-
+    
         if (!query.toUpperCase().startsWith("SELECT")) {
             alert("Only SELECT queries are allowed.");
             return;
         }
-
+    
         // Hide results and show spinner
         queryResults.style.display = "block";
         spinner.style.display = "block";
-        tabContents.forEach(content => (content.style.display = "none"));
+        document.querySelectorAll('.tab-content#table-view, .tab-content#json-view')
+            .forEach(content => (content.style.display = "none"));
         downloadCsvButton.style.display = "none";
-
+    
         try {
             const response = await fetch(
                 `https://npsnav-query.rishikeshsreehari.workers.dev/query?query=${encodeURIComponent(query)}`
             );
-
+    
             if (!response.ok) {
                 const errorData = await response.json();
                 resultsJson.textContent = `Error: ${errorData.error || "Unknown error occurred"}`;
                 spinner.style.display = "none";
                 return;
             }
-
+    
             const data = await response.json();
-
-            // Hide spinner, show tabs and results
+    
+            // Populate table results and switch to Table view by default
             spinner.style.display = "none";
-            document.querySelector(".tab.active").dataset.tab === "table-view"
-                ? document.getElementById("table-view").style.display = "block"
-                : document.getElementById("json-view").style.display = "block";
-
+            document.getElementById("table-view").style.display = "block";
+            document.querySelector(".tab[data-tab='table-view']").classList.add("active");
+    
             resultsJson.textContent = JSON.stringify(data, null, 2);
             populateTable(data);
             enableCsvDownload(data);
+    
         } catch (error) {
             spinner.style.display = "none";
             resultsJson.textContent = `Error: ${error.message}`;
         }
     });
+    
+    function resetToDefaultTab() {
+        // Ensure the Basic tab is reset and visible
+        const defaultTab = document.querySelector('.example-tabs .tab[data-tab="basic-examples"]');
+        const defaultContent = document.getElementById('basic-examples');
+    
+        // Reset all tabs and contents
+        document.querySelectorAll('.example-tabs .tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+            content.style.display = 'none'; // Hide all tab contents
+        });
+    
+        // Activate the Basic tab
+        defaultTab.classList.add('active');
+        defaultContent.classList.add('active');
+        defaultContent.style.display = 'block'; // Explicitly show Basic tab content
+    }
+    
+    // Run resetToDefaultTab() on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        resetToDefaultTab();
+    });
+    
+    // Tab switching logic for example tabs
+    document.querySelectorAll('.example-tabs .tab').forEach(tab => {
+        tab.addEventListener('click', function () {
+            // Remove active class from all tabs and hide all contents
+            document.querySelectorAll('.example-tabs .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+                content.style.display = 'none';
+            });
+    
+            // Add active class to the clicked tab and its content
+            this.classList.add('active');
+            const activeTabContent = document.getElementById(this.dataset.tab);
+            activeTabContent.classList.add('active');
+            activeTabContent.style.display = 'block'; // Show the active tab's content
+        });
+    });
+    
+    // Click-to-insert functionality for example queries
+    document.querySelectorAll('.tab-content code').forEach(code => {
+        code.addEventListener('click', () => {
+            const queryInput = document.getElementById('query-input');
+            queryInput.value = code.textContent.trim();
+    
+            // Trigger input event
+            queryInput.dispatchEvent(new Event('input', { bubbles: true }));
+    
+            // Reset to Basic tab when an example query is clicked
+            resetToDefaultTab();
+        });
+    });
+    
+    
 
     function populateTable(data) {
         const thead = resultsTable.querySelector("thead");
@@ -145,4 +203,27 @@ document.addEventListener("DOMContentLoaded", function () {
             URL.revokeObjectURL(url);
         });
     }
+});
+
+document.querySelectorAll('.example-tabs .tab').forEach(tab => {
+    tab.addEventListener('click', function () {
+        // Remove active class from all tabs and hide all contents
+        document.querySelectorAll('.example-tabs .tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        // Add active class to the clicked tab and its content
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+    });
+});
+
+// Click-to-insert functionality
+document.querySelectorAll('.tab-content code').forEach(code => {
+    code.addEventListener('click', () => {
+        const queryInput = document.getElementById('query-input');
+        queryInput.value = code.textContent.trim();
+
+        // Trigger input event
+        queryInput.dispatchEvent(new Event('input', { bubbles: true }));
+    });
 });

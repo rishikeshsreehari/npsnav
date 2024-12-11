@@ -11,11 +11,84 @@
 {% block content %}
 
 <div class="query-container">
-    <h2>Custom NPS Query Builder</h2>
-    <p>Enter a custom SQL <code>SELECT</code> query below to explore the NPS fund data:</p>
+    <h2>Custom NPS Data Query Builder</h2>
+
+    <div class="warning">
+        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier. Please use responsibly. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, try again after the limit resets.</p>
+    </div>
+
+    <div class="example-tabs">
+        <button class="tab active" data-tab="basic-examples">Basic</button>
+        <button class="tab" data-tab="date-filters">Date Filters</button>
+        <button class="tab" data-tab="advanced-examples">Advanced</button>
+        <button class="tab" data-tab="calculations">Calculations</button>
+    </div>
+    
+    <div class="tab-content active" id="basic-examples">
+        <code>SELECT * FROM fund_daily_values WHERE fund_id = 'SM001001' ORDER BY date DESC LIMIT 10</code>
+    </div>
+    
+    <div class="tab-content" id="date-filters">
+        <code>SELECT date, nav FROM fund_daily_values WHERE fund_id = 'SM002002' AND date BETWEEN '2024-01-01' AND '2024-06-30'</code>
+    </div>
+    
+    <div class="tab-content" id="advanced-examples">
+        <code>
+    SELECT 
+        f.fund_id,
+        f.date,
+        f.nav as fund_nav,
+        n.nav as nifty_nav
+    FROM fund_daily_values f
+    LEFT JOIN nifty_daily_values n ON f.date = n.date
+    WHERE f.fund_id = 'SM001001'
+    AND f.date >= '2024-01-01'
+    ORDER BY f.date DESC
+    LIMIT 10
+        </code>
+    </div>
+    
+    <div class="tab-content" id="calculations">
+        <code>
+    SELECT 
+        f.fund_id,
+        f.date,
+        f.nav as fund_nav,
+        n.nav as nifty_nav,
+        ROUND(((f.nav - LAG(f.nav) OVER (ORDER BY f.date)) / LAG(f.nav) OVER (ORDER BY f.date) * 100), 2) as daily_fund_return_pct,
+        ROUND(((n.nav - LAG(n.nav) OVER (ORDER BY f.date)) / LAG(n.nav) OVER (ORDER BY f.date) * 100), 2) as daily_nifty_return_pct
+    FROM fund_daily_values f
+    LEFT JOIN nifty_daily_values n ON f.date = n.date
+    WHERE f.fund_id = 'SM001001'
+    AND f.date >= '2024-01-01'
+    ORDER BY f.date DESC
+    LIMIT 10
+        </code>
+        <br><br>
+        <code>
+    SELECT 
+        f.date,
+        f.nav as current_fund_nav,
+        n.nav as current_nifty_nav,
+        ROUND(((f.nav / MIN(f.nav) OVER (ORDER BY f.date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW)) - 1) * 100, 2) as fund_30day_return_pct,
+        ROUND(((n.nav / MIN(n.nav) OVER (ORDER BY f.date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW)) - 1) * 100, 2) as nifty_30day_return_pct
+    FROM fund_daily_values f
+    LEFT JOIN nifty_daily_values n ON f.date = n.date
+    WHERE f.fund_id = 'SM001001'
+    AND f.date >= '2024-01-01'
+    ORDER BY f.date DESC
+    LIMIT 10
+        </code>
+    </div>
+    <p><small>Click a query to use it.</small></p>
+
+    
+    
+
+    
 
     <form id="query-form" method="POST" action="">
-        <label for="query-input">SQL Query:</label>
+        <label for="query-input">Enter your SQL query below (Only SELECT queries are allowed):</label>
         <textarea id="query-input" name="query" rows="5">
     SELECT *
     FROM fund_daily_values
