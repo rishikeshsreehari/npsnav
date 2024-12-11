@@ -79,7 +79,7 @@ async function getLatestFund(env, request) {
       ORDER BY date DESC LIMIT 1;
     `;
 
-    const result = await env.DB.prepare(query).bind(fundId).first();
+    const result = await env.DB_WRITE.prepare(query).bind(fundId).first();
     return new Response(JSON.stringify(result || { date: null, nav: null }), { 
       headers: corsHeaders() 
     });
@@ -99,7 +99,7 @@ async function getLatestNifty(env) {
       ORDER BY date DESC LIMIT 1;
     `;
 
-    const result = await env.DB.prepare(query).first();
+    const result = await env.DB_WRITE.prepare(query).first();
     return new Response(JSON.stringify(result || { date: null, nav: null }), { 
       headers: corsHeaders() 
     });
@@ -128,7 +128,7 @@ async function updateFund(env, request) {
       VALUES (?, ?, ?);
     `;
 
-    await env.DB.prepare(query).bind(fund_id, date, nav).run();
+    await env.DB_WRITE.prepare(query).bind(fund_id, date, nav).run();
     return new Response(JSON.stringify({ success: true }), { 
       headers: corsHeaders() 
     });
@@ -157,7 +157,7 @@ async function updateNifty(env, request) {
       VALUES (?, ?);
     `;
 
-    await env.DB.prepare(query).bind(date, nav).run();
+    await env.DB_WRITE.prepare(query).bind(date, nav).run();
     return new Response(JSON.stringify({ success: true }), { 
       headers: corsHeaders() 
     });
