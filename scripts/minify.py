@@ -25,10 +25,14 @@ def minify_css(file_path):
 def minify_js(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         js_content = f.read()
-    minified_js = jsmin(js_content)
+    
+    # Add space after function keywords to prevent minification issues
+    js_content = js_content.replace('function(', 'function (')
+    
+    minified_js = jsmin(js_content, quote_chars="'\"`")
+    
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(minified_js)
-    print(f"Minified JS: {file_path}")
 
 # Main function to iterate through the public folder
 def minify_public_folder(public_dir='public'):

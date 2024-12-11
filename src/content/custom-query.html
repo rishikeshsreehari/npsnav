@@ -14,17 +14,18 @@
     <h2>Custom NPS Query Builder</h2>
     <p>Enter a custom SQL <code>SELECT</code> query below to explore the NPS fund data:</p>
 
-    <form id="query-form">
+    <form id="query-form" method="POST" action="">
         <label for="query-input">SQL Query:</label>
         <textarea id="query-input" name="query" rows="5">
-SELECT *
-FROM fund_daily_values
-WHERE fund_id = 'SM001001'
-AND date > '2024-12-05'
-LIMIT 10
+    SELECT *
+    FROM fund_daily_values
+    WHERE fund_id = 'SM001001'
+    AND date > '2024-12-05'
+    LIMIT 10
         </textarea>
         <button type="submit" id="query-submit">Run Query</button>
     </form>
+    
 
     <div id="query-results" style="display: none;">
         <div class="tabs-container">
