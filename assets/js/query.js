@@ -110,10 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         defaultContent.style.display = 'block'; // Explicitly show Basic tab content
     }
     
-    // Run resetToDefaultTab() on page load
-    document.addEventListener("DOMContentLoaded", function () {
-        resetToDefaultTab();
-    });
+  
     
     // Tab switching logic for example tabs
     document.querySelectorAll('.example-tabs .tab').forEach(tab => {
@@ -143,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
             queryInput.dispatchEvent(new Event('input', { bubbles: true }));
     
             // Reset to Basic tab when an example query is clicked
-            resetToDefaultTab();
         });
     });
     

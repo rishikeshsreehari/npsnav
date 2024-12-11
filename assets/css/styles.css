@@ -931,3 +931,6 @@ pre {
     display: block;
 }
 
+.tab-content code {
+    cursor: pointer;
+}

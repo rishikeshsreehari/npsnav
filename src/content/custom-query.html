@@ -14,7 +14,53 @@
     <h2>Custom NPS Data Query Builder</h2>
 
     <div class="warning">
-        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier. Please use responsibly. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, try again after the limit resets.</p>
+        <p><strong>Important:</strong> This tool runs on Cloudflare's FREE tier. Please use responsibly. Abuse may cause the database to hit its limits, resulting in errors or empty responses. If you encounter issues, try again after the limit resets.Consider supporting</p>
+    </div>
+
+
+    
+    
+
+    
+
+    <form id="query-form" method="POST" action="">
+        <label for="query-input">Enter your SQL query below (Only SELECT queries are allowed):</label>
+        <textarea id="query-input" name="query" rows="5">
+    SELECT *
+    FROM fund_daily_values
+    WHERE fund_id = 'SM001001'
+    AND date > '2024-12-05'
+    LIMIT 10
+        </textarea>
+        <button type="submit" id="query-submit">Run Query</button>
+    </form>
+    
+
+    <div id="query-results" style="display: none;">
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="table-view">Table</button>
+                <button class="tab" data-tab="json-view">JSON</button>
+            </div>
+            <button id="download-csv" style="display: none;">Download as .csv</button>
+        </div>
+        <div id="spinner" style="display: none; text-align: center;">
+            <img src="/assets/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;">
+            <p>Query is processing...</p>
+        </div>
+        <div class="tab-content" id="table-view" style="display: none;">
+            <table id="results-table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="tab-content" id="json-view" style="display: none;">
+            <div class="json-header">
+                <h3>JSON Results</h3>
+                <button id="copy-json" style="display: none;">Copy JSON</button>
+            </div>
+            <pre id="results-json">JSON results will appear here...</pre>
+        </div>
     </div>
 
     <div class="example-tabs">
@@ -82,50 +128,6 @@
     </div>
     <p><small>Click a query to use it.</small></p>
 
-    
-    
-
-    
-
-    <form id="query-form" method="POST" action="">
-        <label for="query-input">Enter your SQL query below (Only SELECT queries are allowed):</label>
-        <textarea id="query-input" name="query" rows="5">
-    SELECT *
-    FROM fund_daily_values
-    WHERE fund_id = 'SM001001'
-    AND date > '2024-12-05'
-    LIMIT 10
-        </textarea>
-        <button type="submit" id="query-submit">Run Query</button>
-    </form>
-    
-
-    <div id="query-results" style="display: none;">
-        <div class="tabs-container">
-            <div class="tabs">
-                <button class="tab active" data-tab="table-view">Table</button>
-                <button class="tab" data-tab="json-view">JSON</button>
-            </div>
-            <button id="download-csv" style="display: none;">Download as .csv</button>
-        </div>
-        <div id="spinner" style="display: none; text-align: center;">
-            <img src="/assets/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;">
-            <p>Query is processing...</p>
-        </div>
-        <div class="tab-content" id="table-view" style="display: none;">
-            <table id="results-table">
-                <thead></thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <div class="tab-content" id="json-view" style="display: none;">
-            <div class="json-header">
-                <h3>JSON Results</h3>
-                <button id="copy-json" style="display: none;">Copy JSON</button>
-            </div>
-            <pre id="results-json">JSON results will appear here...</pre>
-        </div>
-    </div>
     
     
 </div>
