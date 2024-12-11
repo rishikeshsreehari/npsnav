@@ -19,8 +19,8 @@
         <textarea id="query-input" name="query" rows="5">
 SELECT *
 FROM fund_daily_values
-WHERE fund_id IN ('SM001001', 'SM002002')
-  AND date > '2024-12-05'
+WHERE fund_id = 'SM001001'
+AND date > '2024-12-05'
 LIMIT 10
         </textarea>
         <button type="submit" id="query-submit">Run Query</button>
