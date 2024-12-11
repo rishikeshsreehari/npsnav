@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("query-form");
     const queryInput = document.getElementById("query-input");
+    const queryResults = document.getElementById("query-results");
+    const spinner = document.getElementById("spinner");
     const resultsTable = document.getElementById("results-table");
     const resultsJson = document.getElementById("results-json");
     const downloadCsvButton = document.getElementById("download-csv");
@@ -12,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
         tab.addEventListener("click", function () {
             tabs.forEach(t => t.classList.remove("active"));
             tabContents.forEach(content => content.style.display = "none");
-    
+
             this.classList.add("active");
             document.getElementById(this.dataset.tab).style.display = "block";
-    
+
             // Show or hide buttons based on the active tab
             if (this.dataset.tab === "table-view") {
                 downloadCsvButton.style.display = "block";
@@ -45,14 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const query = queryInput.value.trim();
 
         if (!query) {
-            resultsJson.textContent = "Please enter a valid SQL SELECT query.";
+            alert("Please enter a valid SQL SELECT query.");
             return;
         }
 
         if (!query.toUpperCase().startsWith("SELECT")) {
-            resultsJson.textContent = "Only SELECT queries are allowed.";
+            alert("Only SELECT queries are allowed.");
             return;
         }
+
+        // Hide results and show spinner
+        queryResults.style.display = "block";
+        spinner.style.display = "block";
+        tabContents.forEach(content => (content.style.display = "none"));
+        downloadCsvButton.style.display = "none";
 
         try {
             const response = await fetch(
@@ -62,20 +70,23 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) {
                 const errorData = await response.json();
                 resultsJson.textContent = `Error: ${errorData.error || "Unknown error occurred"}`;
+                spinner.style.display = "none";
                 return;
             }
 
             const data = await response.json();
 
-            // Display JSON
+            // Hide spinner, show tabs and results
+            spinner.style.display = "none";
+            document.querySelector(".tab.active").dataset.tab === "table-view"
+                ? document.getElementById("table-view").style.display = "block"
+                : document.getElementById("json-view").style.display = "block";
+
             resultsJson.textContent = JSON.stringify(data, null, 2);
-
-            // Populate table
             populateTable(data);
-
-            // Enable CSV download
             enableCsvDownload(data);
         } catch (error) {
+            spinner.style.display = "none";
             resultsJson.textContent = `Error: ${error.message}`;
         }
     });
