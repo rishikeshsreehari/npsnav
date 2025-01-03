@@ -7,6 +7,9 @@ from collections import OrderedDict
 from datetime import datetime, timedelta
 import concurrent.futures
 
+# Global variable to ignore SSL errors
+IGNORE_SSL_ERRORS = 1  # Set to 1 to ignore SSL errors, 0 to enforce SSL checks
+
 DATE_FORMAT = '%m/%d/%Y'
 
 def download_and_extract_nav(date_str, url_variations):
@@ -19,7 +22,8 @@ def download_and_extract_nav(date_str, url_variations):
         print(f"Trying URL: {url}")
         
         try:
-            response = requests.get(url, timeout=10)
+            # Control SSL verification based on IGNORE_SSL_ERRORS
+            response = requests.get(url, timeout=10, verify=not IGNORE_SSL_ERRORS)
             
             if response.status_code == 200:
                 print(f"Successfully downloaded: {url}")
