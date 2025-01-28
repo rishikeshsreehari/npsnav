@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import concurrent.futures
 
 # Global variable to ignore SSL errors
-IGNORE_SSL_ERRORS = 1  # Set to 1 to ignore SSL errors, 0 to enforce SSL checks
+IGNORE_SSL_ERRORS = 0  # Set to 1 to ignore SSL errors, 0 to enforce SSL checks
 
 DATE_FORMAT = '%m/%d/%Y'
 
