@@ -1,13 +1,13 @@
 import os
-import htmlmin
+import minify_html
 from csscompressor import compress as compress_css
 from jsmin import jsmin
 
-# Function to minify HTML
-def minify_html(file_path):
+# Function to minify HTML using minify-html
+def minify_html_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         html_content = f.read()
-    minified_html = htmlmin.minify(html_content, remove_comments=True, remove_empty_space=True)
+    minified_html = minify_html.minify(html_content, minify_js=True, minify_css=True)
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(minified_html)
     print(f"Minified HTML: {file_path}")
@@ -36,7 +36,7 @@ def minify_public_folder(public_dir='public'):
         for file in files:
             file_path = os.path.join(root, file)
             if file.endswith('.html'):
-                minify_html(file_path)
+                minify_html_file(file_path)
             elif file.endswith('.css'):
                 minify_css(file_path)
             elif file.endswith('.js'):
