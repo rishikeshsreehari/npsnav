@@ -17,25 +17,32 @@ DIRECT_IP = "144.126.254.118"
 def download_and_extract_nav(date_str, url_variations):
     """
     Attempt to download and extract the NAV data for a given date using multiple URL variations.
+    First tries the domain URL, then falls back to direct IP if needed.
     Returns the extracted file name if successful, otherwise returns None.
     """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
-        'Host': 'npscra.nsdl.co.in'
+        'Host': 'npscra.nsdl.co.in'  # Note: This should be dynamic based on the URL being used
     }
 
     for variation in url_variations:
+        # First try the original domain URL
         domain_url = variation.format(date_str=date_str)
-        ip_url = domain_url.replace('npscra.nsdl.co.in', DIRECT_IP)
-        print(f"Trying URL: {ip_url}")
+        
+        # Update headers with the correct host
+        domain_headers = headers.copy()
+        domain_headers['Host'] = 'npscra.nsdl.co.in'
+        
+        print(f"Trying URL: {domain_url}")
         
         try:
-            response = requests.get(ip_url, headers=headers, verify=False, timeout=30)
+            # Try with the domain first
+            response = requests.get(domain_url, headers=domain_headers, verify=False, timeout=30)
             
             if response.status_code == 200:
-                print(f"Successfully downloaded from: {ip_url}")
+                print(f"Successfully downloaded from: {domain_url}")
                 try:
                     with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
                         for file_name in zip_ref.namelist():
@@ -44,15 +51,72 @@ def download_and_extract_nav(date_str, url_variations):
                                 print(f"Extracted: {file_name}")
                                 return file_name
                 except zipfile.BadZipFile:
-                    print(f"Invalid ZIP file received from {ip_url}")
+                    print(f"Invalid ZIP file received from {domain_url}")
             
             elif response.status_code == 404:
-                print(f"NAV file not available at {ip_url}")
+                # If domain URL fails, try direct IP as fallback
+                ip_url = domain_url.replace('npscra.nsdl.co.in', DIRECT_IP)
+                ip_headers = headers.copy()
+                ip_headers['Host'] = 'npscra.nsdl.co.in'  # Keep the original host header
+                
+                print(f"Domain URL not found. Trying IP fallback: {ip_url}")
+                
+                try:
+                    response = requests.get(ip_url, headers=ip_headers, verify=False, timeout=30)
+                    
+                    if response.status_code == 200:
+                        print(f"Successfully downloaded from fallback: {ip_url}")
+                        try:
+                            with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
+                                for file_name in zip_ref.namelist():
+                                    if file_name.endswith('.out'):
+                                        zip_ref.extract(file_name, os.getcwd())
+                                        print(f"Extracted: {file_name}")
+                                        return file_name
+                        except zipfile.BadZipFile:
+                            print(f"Invalid ZIP file received from {ip_url}")
+                    
+                    elif response.status_code == 404:
+                        print(f"NAV file not available at {ip_url}")
+                    else:
+                        print(f"Failed to download from fallback IP. Status code: {response.status_code}")
+                
+                except requests.RequestException as e:
+                    print(f"Error downloading from IP fallback {ip_url}: {e}")
             else:
-                print(f"Failed to download from {ip_url}. Status code: {response.status_code}")
+                print(f"Failed to download from domain URL. Status code: {response.status_code}")
         
         except requests.RequestException as e:
-            print(f"Error downloading from {ip_url}: {e}")
+            # If the domain URL request fails completely, try the IP
+            print(f"Error accessing domain {domain_url}: {e}")
+            ip_url = domain_url.replace('npscra.nsdl.co.in', DIRECT_IP)
+            ip_headers = headers.copy()
+            ip_headers['Host'] = 'npscra.nsdl.co.in'  # Keep the original host header
+            
+            print(f"Trying IP fallback: {ip_url}")
+            
+            try:
+                response = requests.get(ip_url, headers=ip_headers, verify=False, timeout=30)
+                
+                if response.status_code == 200:
+                    print(f"Successfully downloaded from fallback: {ip_url}")
+                    try:
+                        with zipfile.ZipFile(BytesIO(response.content)) as zip_ref:
+                            for file_name in zip_ref.namelist():
+                                if file_name.endswith('.out'):
+                                    zip_ref.extract(file_name, os.getcwd())
+                                    print(f"Extracted: {file_name}")
+                                    return file_name
+                    except zipfile.BadZipFile:
+                        print(f"Invalid ZIP file received from {ip_url}")
+                
+                elif response.status_code == 404:
+                    print(f"NAV file not available at {ip_url}")
+                else:
+                    print(f"Failed to download from fallback IP. Status code: {response.status_code}")
+            
+            except requests.RequestException as e:
+                print(f"Error downloading from IP fallback {ip_url}: {e}")
     
     return None
 
@@ -162,7 +226,13 @@ if __name__ == "__main__":
         "https://npscra.nsdl.co.in/download/NAV_file_{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV%20File%20{date_str}.zip",
         "https://npscra.nsdl.co.in/download/NAV%20FILE%20{date_str}.zip",
-        "https://npscra.nsdl.co.in/download/nav%20file%20{date_str}.zip"
+        "https://npscra.nsdl.co.in/download/nav%20file%20{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV_File{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV_FILE{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV_file{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV%20File{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/NAV%20FILE{date_str}.zip",
+        "https://npscra.nsdl.co.in/download/nav%20file{date_str}.zip"
     ]
     
     last_date = get_last_date_in_data()
