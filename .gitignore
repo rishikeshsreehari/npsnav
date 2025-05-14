@@ -3,7 +3,12 @@ public/
 .wrangler
 wrangler.toml
 node_modules
-data/nse_cookies.pkl
+
+# Ignore everything in data/
+data/*
+
+# Except this file
+!data/nifty.json
 
 
 # Byte-compiled / optimized / DLL files

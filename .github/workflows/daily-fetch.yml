@@ -30,6 +30,7 @@ jobs:
 
     - name: Run nifty.py
       run: python scripts/nifty.py
+      continue-on-error: true  # Allow the workflow to continue even if nifty.py fails
 
     - name: Run update_db.py
       env:
