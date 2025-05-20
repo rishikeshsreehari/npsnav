@@ -146,13 +146,20 @@ def generate_scheme_list_page(env, funds):
     print(f'Scheme list page generated at {output_path}')
 
 # Function to generate the changelog page
+# Function to generate the changelog page
 def generate_changelog_page(env, changelog):
     # Load the changelog template
     template = env.get_template('changelog.html')
     
-    # Render the page with the changelog data
+    # Get the latest version for the footer
+    latest_version = changelog[0]['version'] if changelog else "v1.0.0"
+    
+    # Render the page with the changelog data AND the version
     output_path = os.path.join('public', 'changelog.html')
-    rendered_content = template.render(CHANGELOG=changelog)
+    rendered_content = template.render(
+        CHANGELOG=changelog,
+        VERSION=latest_version  # Add this line to pass the version
+    )
     
     # Save the rendered content to the public directory
     with open(output_path, 'w', encoding='utf-8') as output_file:
