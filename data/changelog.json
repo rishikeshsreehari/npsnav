@@ -1,9 +1,13 @@
 [
   {
-    "version": "v1.6.6",
+    "version": "v1.7.0",
     "date": "2025-05-20",
     "changes": [
-      "Added Changelog"
+      "Added Changelog",
+      "Fixed footer year",
+      "Updated default title in base.html",
+      "Fixed fund links on home page",
+      "Added announcement banner provision"
     ]
   },
   {
@@ -11,7 +15,7 @@
     "date": "2025-05-19",
     "changes": [
       "Updated Google Sheet documentation for historical data",
-      "Updated Microsoft Excel documentation for historical data",
+      "Updated Microsoft Excel documentation for historical data"
     ]
   }
 ]
