@@ -52,7 +52,7 @@ def generate_table_rows(funds):
         
         row = f'''
         <tr>
-            <td><a href="funds/{scheme_code}.html">{scheme_name}</a></td>
+            <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
             <td>{nav}</td>
         '''
 
