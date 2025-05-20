@@ -76,25 +76,55 @@ def generate_historical_api_files():
             with open(file_path, 'r') as file:
                 historical_data = json.load(file)
             
-            # Prepare the historical data in the new format (with correct date formatting as dd-mm-yyyy)
-            historical_list = [
-                {
-                    "date": format_date(date, "%d-%m-%Y"),
-                    "nav": float(nav_value)
-                }
-                for date, nav_value in historical_data.items()
-            ]
+            # Handle both dictionary and list formats
+            historical_list = []
+            latest_date = None
             
-            # Find the latest date (the max date in the keys)
-            latest_date = max(historical_data.keys(), key=lambda d: datetime.strptime(d, "%m/%d/%Y"))
+            if isinstance(historical_data, dict):
+                # Handle dictionary format
+                historical_list = [
+                    {
+                        "date": format_date(date, "%d-%m-%Y"),
+                        "nav": float(nav_value)
+                    }
+                    for date, nav_value in historical_data.items()
+                ]
+                
+                # Find the latest date (the max date in the keys)
+                if historical_data:
+                    latest_date = max(historical_data.keys(), key=lambda d: datetime.strptime(d, "%m/%d/%Y"))
+                    latest_date = format_date(latest_date, "%d-%m-%Y")
             
+            elif isinstance(historical_data, list):
+                # Handle list format - assuming the list already contains date and nav
+                for item in historical_data:
+                    if isinstance(item, dict) and 'date' in item and 'nav' in item:
+                        # Format the date if needed
+                        formatted_date = format_date(item['date'], "%d-%m-%Y") if '/' in item['date'] else item['date']
+                        historical_list.append({
+                            "date": formatted_date,
+                            "nav": float(item['nav'])
+                        })
+                
+                # Find the latest date from the list
+                if historical_list:
+                    try:
+                        latest_date = max(item['date'] for item in historical_list)
+                    except:
+                        # Use the last item's date if there's an issue comparing dates
+                        latest_date = historical_list[-1]['date'] if historical_list else None
+            
+            # Use current date if no valid latest_date found
+            if not latest_date:
+                latest_date = datetime.now().strftime("%d-%m-%Y")
+                
             # Construct the full JSON structure
             output_data = {
                 "data": historical_list,
                 "metadata": {
                     "currency": "INR",
                     "dataType": "NAV",
-                    "lastUpdated": format_date(latest_date, "%d-%m-%Y")  # Format as dd-mm-yyyy
+                    "lastUpdated": latest_date  # Already formatted as dd-mm-yyyy
                 }
             }
             
@@ -103,7 +133,8 @@ def generate_historical_api_files():
             with open(output_file_path, 'w') as output_file:
                 json.dump(output_data, output_file, indent=4)
             
-            print(f"Generated {output_file_path} with last updated date: {format_date(latest_date, '%d-%m-%Y')}")
+            print(f"Generated {output_file_path} with last updated date: {latest_date}")
+
 
 # Main function to orchestrate both API text and detailed JSON file generation
 def create_api_files():
