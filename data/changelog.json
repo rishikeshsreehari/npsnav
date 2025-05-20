@@ -1,5 +1,12 @@
 [
   {
+    "version": "v1.7.1",
+    "date": "2025-05-20",
+    "changes": [
+      "Removed data.json from gitignore"
+    ]
+  },
+  {
     "version": "v1.7.0",
     "date": "2025-05-20",
     "changes": [
