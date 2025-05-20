@@ -9,6 +9,8 @@ data/*
 
 # Except this file
 !data/nifty.json
+!data/changelog.json
+
 
 
 # Byte-compiled / optimized / DLL files
