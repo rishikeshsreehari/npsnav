@@ -1,23 +1,19 @@
 {% extends 'base.html' %}
-
 {% block title %}How to Track NPS NAV on Microsoft Excel{% endblock %}
-{% block description %}Learn how to track the latest NAV of NPS funds in Microsoft Excel. Use our API to integrate NPS NAV data and calculate the value of your NPS portfolio on Excel.{% endblock %}
-{% block keywords %}NPS, NAV, National Pension Scheme, NPS API, NPS fund performance, pension funds, India, NPS NAV in Excel, financial planning, portfolio tracking{% endblock %}
+{% block description %}Learn how to track current and historical NAV of NPS funds in Microsoft Excel. Use our API to integrate NPS NAV data and calculate the value of your NPS portfolio on Excel.{% endblock %}
+{% block keywords %}NPS, NAV, National Pension Scheme, NPS API, NPS fund performance, pension funds, India, NPS NAV in Excel, financial planning, portfolio tracking, historical NAV{% endblock %}
 {% block og_title %}How to Track NPS NAV on Microsoft Excel{% endblock %}
-{% block og_description %}Learn to track NPS NAV in Microsoft Excel using a simple API call. Calculate the value of your NPS portfolio based on real-time NAV data with ease.{% endblock %}
+{% block og_description %}Learn to track current and historical NPS NAV in Microsoft Excel using simple API calls. Calculate the value of your NPS portfolio based on real-time and historical NAV data with ease.{% endblock %}
 {% block og_url %}https://npsnav.in/nps-nav-excel{% endblock %}
 {% block canonical %}https://npsnav.in/nps-nav-excel{% endblock %}
-
 {% block content %}
-
 <div class="doc-container">
-
     <!-- Main content area -->
     <div class="doc-content">
-        <section id="excel-guide">
-            <h2>How to Track NPS NAV on Microsoft Excel</h2>
-            <p>Tracking the latest NAV of your NPS fund in Microsoft Excel is simple. By using the <code>WEBSERVICE</code> function, you can pull real-time NAV data directly into your spreadsheet. Here’s how to do it:</p>
-
+        <section id="latest-nav-excel">
+            <h2>Access Latest NAV on Excel</h2>
+            <p>Tracking the latest NAV of your NPS fund in Microsoft Excel is simple. By using the <code>WEBSERVICE</code> function, you can pull real-time NAV data directly into your spreadsheet. Here's how to do it:</p>
+            
             <h3>Step 1: Use the <code>WEBSERVICE</code> Function</h3>
             <p>Microsoft Excel offers the <code>WEBSERVICE</code> function, which allows you to fetch external data using a URL. This feature is perfect for tracking NPS NAV data.</p>
             <pre><code>=WEBSERVICE("https://npsnav.in/api/SchemeCode")</code></pre>
@@ -25,27 +21,102 @@
             <p>List of all available NPS schemes can be accessed <a href="/nps-funds-list">here</a>.</p>
             <p><strong>Example:</strong></p>
             <pre><code>=WEBSERVICE("https://npsnav.in/api/SM001001")</code></pre>
-
+            
             <h3>Step 2: Calculate the Value of Your NPS Portfolio</h3>
             <p>Once you have the current NAV, you can calculate the value of your NPS portfolio by multiplying the NAV by the number of units you hold.</p>
-
             <p><strong>Example Calculation:</strong></p>
             <pre><code>=WEBSERVICE("https://npsnav.in/api/SchemeCode") * 268</code></pre>
             <p>Make sure you input the correct scheme code and the number of units you hold in that particular NPS fund.</p>
-
+            
             <h3>Step 3: Ensure You Choose the Right Fund</h3>
             <p>There are multiple NPS schemes under various tiers and schemes. Ensure that you choose the right fund as per your portfolio. You can find the complete list of scheme codes <a href="/nps-funds-list">here</a>.</p>
-
+            
             <h3>Example NPS Portfolio on Microsoft Excel</h3>
             <p>Below is an example screenshot of how a sample NPS portfolio looks on Microsoft Excel:</p>
             <img src="/assets/images/nps-nav-on-excel.png" alt="Microsoft Excel NPS NAV Example" class="responsive-image">
-
-            <p>Trouble tracking NPS NAV on Microsoft Excel? <a href="https://github.com/rishikeshsreehari/npsnav/issues/new">Create an issue</a> or <a href="mailto:contact@npsnav.in">contact us</a>.</p>
-
         </section>
 
+        <section id="historical-nav-excel">
+            <h2>Access Historical NAV Data on Excel</h2>
+            <p>Our historical API allows you to access past NAV values for any scheme. This is particularly useful for tracking performance over time and analyzing trends in fund values.</p>
+            
+            <h3>Using Power Query</h3>
+            <p>For Excel 2016 and newer, Power Query offers a powerful way to retrieve the complete NAV history for any scheme:</p>
+            
+            <h4>Step 1: Create a Power Query</h4>
+            <ul style="padding-left: 20px; margin-left: 0;">
+                <li>Go to Data tab → New Query → From Other Sources → Blank Query</li>
+                <li>In the Query Editor, click on View → Advanced Editor</li>
+                <li>Paste the following code:</li>
+            </ul>
+            
+            <pre><code>{% raw %}let
+            // EDIT THIS VALUE DIRECTLY WHEN YOU WANT TO CHANGE THE SCHEME
+            SchemeCode = "SM010001", // Change this to the scheme code you want
+            
+            // API call and processing
+            Source = Json.Document(Web.Contents("https://npsnav.in/api/historical/" & SchemeCode)),
+            data = Source[data],
+            #"Converted to Table" = Table.FromList(data, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+            #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"date", "nav"}, {"date", "nav"}),
+            
+            // Convert dates to proper date values for sorting
+            #"Added Custom" = Table.AddColumn(#"Expanded Column1", "SortableDate", each 
+                let
+                    parts = Text.Split([date], "-"),
+                    day = Number.From(parts{0}),
+                    month = Number.From(parts{1}),
+                    year = Number.From(parts{2})
+                in
+                    #date(year, month, day)
+            ),
+            
+            // Sort by the properly converted date (newest first)
+            #"Sorted Rows" = Table.Sort(#"Added Custom",{{"SortableDate", Order.Descending}}),
+            
+            // Remove the extra column we added just for sorting
+            #"Removed Columns" = Table.RemoveColumns(#"Sorted Rows",{"SortableDate"})
+        in
+            #"Removed Columns"{% endraw %}</code></pre>
+
+            <br>
+            
+            <h4>Step 2: Load and Use the Data</h4>
+            <p>Click Home → Close & Load to bring the data into your workbook. The query will return the complete history of NAV values for the specified scheme, sorted by date with the most recent values first.</p>
+            <p>To view a different scheme's history, simply edit the query and change the SchemeCode value at the top of the code. For displaying query, click on Data → Show Queries and double-click on the the query on the right pane.</p>
+            
+            <h4>Step 3: Analyze the Data</h4>
+
+            <img src="/assets/images/historical-nps-nav-excel.png" alt="NPS NAV Analysis in Microsoft Excel" class="responsive-image">
+
+            <p>With the complete NAV history loaded in Excel, you can now:</p>
+            <ul>
+                <li>Create charts to visualize performance trends</li>
+                <li>Calculate returns over specific periods</li>
+                <li>Compare with other schemes using multiple queries</li>
+                <li>Use Excel formulas to find NAVs for specific dates</li>
+            </ul>
+            
+            <p><a href="/assets/files/excel-nps-nav.xlsx" target="_blank">Download Sample File</a></p>
+
+            <h3>Understanding the Historical API Response</h3>
+            <p>The historical API returns data in JSON format with this structure:</p>
+            <pre><code>{% raw %}{
+        "data": [
+            { "date": "19-05-2025", "nav": 28.3000 },
+            { "date": "16-05-2025", "nav": 28.3329 },
+            ...
+        ],
+        "metadata": {
+            "currency": "INR",
+            "dataType": "NAV",
+            "lastUpdated": "19-05-2025"
+        }
+        }{% endraw %}</code></pre>
+            <p>Power Query handles this JSON structure automatically, extracting the date and NAV values for you.</p>
+        </section>
+
+        <p>Trouble tracking NPS NAV on Microsoft Excel? <a href="https://github.com/rishikeshsreehari/npsnav/issues/new">Create an issue</a> or <a href="mailto:contact@npsnav.in">contact us</a>.</p>
     </div>
-
 </div>
-
 {% endblock %}
