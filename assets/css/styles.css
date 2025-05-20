@@ -723,3 +723,50 @@ pre {
     margin-bottom: 8px;
     line-height: 1.5;
 }
+
+/* Header container */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Logo styles */
+.logo {
+    padding: 0 16px 15px;
+    /* Add any other existing styles */
+}
+
+/* Announcement container positioned in the center */
+.announcement-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 10px;
+}
+
+/* Announcement Banner Styles */
+.announcement-banner {
+    background-color: #ffde59;
+    color: #333;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 80%;
+}
+
+.announcement-icon {
+    font-size: 16px;
+}
+
+.announcement-text {
+    margin: 0;
+    font-weight: 500;
+}
