@@ -1,0 +1,20 @@
+[
+  {
+    "version": "v1.6.5",
+    "date": "2025-05-18",
+    "changes": [
+      "Added dark mode toggle",
+      "Fixed mobile navigation issues",
+      "Improved loading performance by 25%"
+    ]
+  },
+  {
+    "version": "v1.6.4",
+    "date": "2025-05-10",
+    "changes": [
+      "Added donation links",
+      "Updated disclaimer text",
+      "Fixed data synchronization bug"
+    ]
+  }
+]

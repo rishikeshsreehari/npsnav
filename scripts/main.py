@@ -10,8 +10,17 @@ def init_jinja_env():
 
 # Load the base data.json file
 def load_base_data():
-    with open('data/data.json', 'r') as file:
+    with open('data/data.json', 'r', encoding='utf-8') as file:
         return json.load(file)
+
+# Load the changelog data
+def load_changelog():
+    try:
+        with open('data/changelog.json', 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except Exception as e:
+        print(f"Error loading changelog: {e}")
+        return []
 
 # Helper function to handle null values and format NAV with two decimal places
 def format_value(value):
@@ -77,9 +86,10 @@ def generate_table_rows(funds):
     return rows
 
 # Render all HTML files in the content directory
-def render_html_files(env, funds):
+def render_html_files(env, funds, latest_version, changelog):
     table_rows = generate_table_rows(funds)
     nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
+    latest_changes = changelog[0] if changelog else None
 
     for root, dirs, files in os.walk('src/content'):
         for file in files:
@@ -92,18 +102,23 @@ def render_html_files(env, funds):
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
                 # Load and render the template
-                with open(file_path, 'r') as f:
+                with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
 
                 # Check if the file contains Jinja templating
                 if '{%' in content or '{{' in content:
                     template = env.from_string(content)
-                    rendered_content = template.render(TABLE_ROWS=table_rows, NAV_DATE=nav_date)
+                    rendered_content = template.render(
+                        TABLE_ROWS=table_rows, 
+                        NAV_DATE=nav_date,
+                        VERSION=latest_version,
+                        LATEST_CHANGES=latest_changes
+                    )
                 else:
                     rendered_content = content
 
                 # Save the rendered file
-                with open(output_path, 'w') as output_file:
+                with open(output_path, 'w', encoding='utf-8') as output_file:
                     output_file.write(rendered_content)
                 print(f'Rendered {output_path}')
 
@@ -125,10 +140,25 @@ def generate_scheme_list_page(env, funds):
     rendered_content = template.render(schemes=schemes)
 
     # Save the rendered content to the public directory
-    with open(output_path, 'w') as output_file:
+    with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write(rendered_content)
 
     print(f'Scheme list page generated at {output_path}')
+
+# Function to generate the changelog page
+def generate_changelog_page(env, changelog):
+    # Load the changelog template
+    template = env.get_template('changelog.html')
+    
+    # Render the page with the changelog data
+    output_path = os.path.join('public', 'changelog.html')
+    rendered_content = template.render(CHANGELOG=changelog)
+    
+    # Save the rendered content to the public directory
+    with open(output_path, 'w', encoding='utf-8') as output_file:
+        output_file.write(rendered_content)
+    
+    print(f'Changelog page generated at {output_path}')
 
 # Copy files to public directory
 def copy_files():
@@ -147,11 +177,18 @@ def build_site():
     env = init_jinja_env()
     funds = load_base_data()
     
+    # Load the changelog for use in templates
+    changelog = load_changelog()
+    latest_version = changelog[0]['version'] if changelog else "v1.0.0"
+    
     # Render all regular HTML files
-    render_html_files(env, funds)
+    render_html_files(env, funds, latest_version, changelog)
     
     # Generate the scheme list page
     generate_scheme_list_page(env, funds)
+    
+    # Generate the changelog page
+    generate_changelog_page(env, changelog)
     
     # Copy assets to the public directory
     copy_files()

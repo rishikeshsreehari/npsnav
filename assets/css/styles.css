@@ -674,3 +674,52 @@ pre {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance the shadow on focus for depth */
     outline: none; /* Remove default focus outline */
 }
+/* Changelog page styles */
+.changelog-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.changelog-intro {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.changelog-entry {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.changelog-entry:last-child {
+    border-bottom: none;
+}
+
+.changelog-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.changelog-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.changelog-date {
+    margin-left: 10px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.changelog-changes {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.changelog-changes li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}

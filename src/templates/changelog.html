@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container changelog-page">
+    <h1>Changelog</h1>
+    <p class="changelog-intro">A curated, chronologically ordered list of notable changes and fixes done to this website.</p>
+    
+    <div class="changelog-list">
+        {% for entry in CHANGELOG %}
+        <div class="changelog-entry">
+            <div class="changelog-header">
+                <h2>{{ entry.version }}</h2>
+                <span class="changelog-date">{{ entry.date }}</span>
+            </div>
+            <ul class="changelog-changes">
+                {% for change in entry.changes %}
+                <li>{{ change }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
