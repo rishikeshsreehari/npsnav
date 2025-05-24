@@ -770,3 +770,150 @@ header {
     margin: 0;
     font-weight: 500;
 }
+
+.investment-comparison {
+    margin: 25px 0;
+}
+
+.investment-comparison h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.returns-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 14px;
+    min-width: 700px;
+}
+
+.returns-table thead {
+    background-color: #f8f9fa;
+}
+
+.returns-table th {
+    padding: 12px 10px;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    color: #495057;
+    font-size: 13px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.returns-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.returns-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.period-cell {
+    font-weight: 600;
+    min-width: 60px;
+}
+
+.date-cell {
+    font-size: 13px;
+    color: #333;
+    min-width: 80px;
+}
+
+.value-cell {
+    font-weight: 500;
+    min-width: 100px;
+    font-family: 'Courier New', monospace;
+}
+
+.return-cell {
+    font-weight: 600;
+    min-width: 80px;
+    font-family: 'Courier New', monospace;
+}
+
+.return-cell.positive {
+    color: #28a745;
+}
+
+.return-cell.negative {
+    color: #dc3545;
+}
+
+.no-data {
+    color: #999;
+    font-style: italic;
+}
+
+.methodology-disclaimer-section {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #f9f9fa;
+    border-left: 4px solid #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.methodology-disclaimer-section p {
+    margin: 0 0 15px 0;
+}
+
+.methodology-disclaimer-section p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .returns-table {
+        font-size: 12px;
+    }
+    
+    .returns-table th,
+    .returns-table td {
+        padding: 8px 6px;
+    }
+    
+    .methodology-disclaimer-section {
+        font-size: 13px;
+        padding: 15px;
+    }
+    
+    .table-wrapper {
+        position: relative;
+    }
+    
+    .table-wrapper::after {
+        content: "← Swipe to see more →";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        color: #666;
+        font-style: italic;
+    }
+}

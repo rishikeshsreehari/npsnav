@@ -10,6 +10,18 @@ template = env.get_template('funds.html')
 with open('data/data.json', 'r') as f:
     funds_data = json.load(f)
 
+# Function to load Nifty data
+def load_nifty_data():
+    try:
+        with open('data/nifty.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Warning: nifty.json not found")
+        return {}
+
+# Load Nifty data once
+nifty_data = load_nifty_data()
+
 # Directory for generated HTML files
 output_dir = 'public/funds'
 os.makedirs(output_dir, exist_ok=True)
@@ -28,11 +40,12 @@ for fund in funds_data:
     nav_file = f'data/{scheme_code}.json'
     with open(nav_file, 'r') as nav_f:
         historical_navs = json.load(nav_f)
-        
-    
 
     # Transform the nav_data into an array of objects
     nav_data = [{"date": date, "nav": nav} for date, nav in historical_navs.items()]
+    
+    # Transform nifty data into array of objects
+    nifty_nav_data = [{"date": date, "nav": nav} for date, nav in nifty_data.items()]
     
     first_date = min(historical_navs.keys())
     last_date = max(historical_navs.keys())
@@ -43,6 +56,7 @@ for fund in funds_data:
         current_nav=current_nav,
         nav_date=nav_date,
         nav_data=nav_data,
+        nifty_data=nifty_nav_data,  # Added Nifty data
         returns={
             "1M": fund["1M"],
             "3M": fund["3M"],
@@ -54,7 +68,8 @@ for fund in funds_data:
         first_date=first_date,
         last_date=last_date,
         scheme_code=scheme_code  # scheme_code for canonical
-        )
+    )
+    
     # Write the rendered HTML to a file with UTF-8 encoding
     output_path = os.path.join(output_dir, f'{scheme_code}.html')
     with open(output_path, 'w', encoding='utf-8') as output_f:

@@ -6,14 +6,11 @@
 
 {% block keywords %}NPS, NAV, National Pension Scheme, Scheme Codes, NPS API, {{ scheme_name }}{% endblock %}
 
-
 {% block description %}
     {{ scheme_name }} historical returns and latest NAV. Access the latest NPS NAV data easily with a simple API for Google Sheets and Excel.
 {% endblock %}
 
 {% block canonical %}https://npsnav.in/funds/{{ scheme_code }}{% endblock %}
-
-
 
 {% block content %}
 <section class="fund-details">
@@ -43,10 +40,19 @@
         <canvas id="navChart"></canvas>
     </div>
     <span class="nav-date">Last updated on {{ nav_date }}</span>
+
+    <!-- Investment comparison table -->
+    <div id="investmentComparison" class="investment-comparison"></div>
+    
+    <!-- Combined methodology and disclaimer -->
+    <div id="methodology" class="methodology-disclaimer-section"></div>
 </section>
+
+
 
 <script>
     const navData = {{ nav_data | tojson }};
+    const niftyData = {{ nifty_data | tojson }};
     const returns = {{ returns | tojson }};
 </script>
 

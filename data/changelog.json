@@ -1,4 +1,12 @@
 [
+    {
+    "version": "v1.8.0",
+    "date": "2025-05-25",
+    "changes": [
+      "Added Fund vs Nifty 50 chart in individual fund pages",
+      "Added volunteer announcement banner",
+    ]
+  },
   {
     "version": "v1.7.2",
     "date": "2025-05-21",
