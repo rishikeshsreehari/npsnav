@@ -917,3 +917,34 @@ header {
         font-style: italic;
     }
 }
+
+/* Add this to your existing styles.css */
+
+/* Prevent table overflow by managing fund name width */
+.funds-table th:first-child, 
+.funds-table td:first-child {
+    max-width: 300px; /* Adjust based on your preference */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Show full name on hover */
+.funds-table td:first-child:hover {
+    overflow: visible;
+    white-space: normal;
+    position: relative;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Ensure table container doesn't overflow */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+}

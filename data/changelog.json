@@ -1,5 +1,15 @@
 [
-    {
+  {
+    "version": "v1.8.1",
+    "date": "2025-05-27",
+    "changes": [
+      "Home page fix for showing DSP Funds",
+      "Truncated fund names in home page cards",
+      "CSS fix to show 5Y return column in fund table"
+    ]
+  },
+  
+  {
     "version": "v1.8.0",
     "date": "2025-05-25",
     "changes": [
