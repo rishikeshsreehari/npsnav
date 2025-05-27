@@ -9,6 +9,37 @@ document.addEventListener("DOMContentLoaded", function() {
     let allFundsShown = false;
     let filterText = ''; // Variable to store the filter text
 
+    // Function to clean fund names by removing common prefixes
+    function cleanFundNames() {
+        const fundCells = document.querySelectorAll('#fundTableBody td:first-child a');
+        
+        fundCells.forEach(cell => {
+            let originalName = cell.textContent.trim();
+            let cleanName = originalName;
+            
+            // Only remove prefixes if they exist
+            const prefixesToRemove = [
+                /^NPS TRUST\s*-?\s*A\/C\s*-?\s*/i,
+                /^NPS TRUST A\/C\s*-?\s*/i,
+                /^NPS TRUST\s*-?\s*/i
+            ];
+            
+            // Try each prefix pattern
+            for (let pattern of prefixesToRemove) {
+                if (pattern.test(cleanName)) {
+                    cleanName = cleanName.replace(pattern, '').trim();
+                    break; // Stop after first match
+                }
+            }
+            
+            // Only update if we actually cleaned something
+            if (cleanName !== originalName && cleanName.length > 0) {
+                cell.textContent = cleanName;
+                // Store original name as title for full name on hover
+                cell.title = originalName;
+            }
+        });
+    }
    
     // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
@@ -30,50 +61,55 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to render the table based on the number of funds to show and filter text
     function renderTable() {
-    // Clear the table first
-    fundTable.innerHTML = '';
+        // Clear the table first
+        fundTable.innerHTML = '';
 
-    // Trim the filter text
-    const trimmedFilterText = filterText.trim();
+        // Trim the filter text
+        const trimmedFilterText = filterText.trim();
 
-    let filteredRows;
+        let filteredRows;
 
-    if (trimmedFilterText === '') {
-        // No filter text; show all funds (they're already sorted by 5Y returns)
-        filteredRows = rows;
-    } else {
-        // Apply search filter with fuzzy matching
-        filteredRows = rows.filter(row => {
-            const fundName = row.cells[0].innerText.trim();
-            return fuzzyMatch(fundName, filterText.trim());
-        });
-    }
+        if (trimmedFilterText === '') {
+            // No filter text; show all funds (they're already sorted by 5Y returns)
+            filteredRows = rows;
+        } else {
+            // Apply search filter with fuzzy matching
+            filteredRows = rows.filter(row => {
+                const fundName = row.cells[0].innerText.trim();
+                return fuzzyMatch(fundName, filterText.trim());
+            });
+        }
 
-    // Get the rows to display (limit to numFundsToShow unless showing all)
-    const rowsToDisplay = allFundsShown
-        ? filteredRows
-        : filteredRows.slice(0, numFundsToShow);
+        // Get the rows to display (limit to numFundsToShow unless showing all)
+        const rowsToDisplay = allFundsShown
+            ? filteredRows
+            : filteredRows.slice(0, numFundsToShow);
 
-    // Append the rows to the table
-    rowsToDisplay.forEach(row => fundTable.appendChild(row));
+        // Append the rows to the table
+        rowsToDisplay.forEach(row => fundTable.appendChild(row));
 
-    // Toggle the "Show All" button visibility
-    if (filteredRows.length > numFundsToShow && !allFundsShown) {
-        showAllButton.style.display = 'block';
-    } else {
-        showAllButton.style.display = 'none';
-    }
+        // Clean fund names AFTER adding rows to the table
+        setTimeout(() => {
+            cleanFundNames();
+        }, 0);
 
-    // If no rows match, display a message
-    if (filteredRows.length === 0) {
-        const noResultsRow = document.createElement('tr');
-        const noResultsCell = document.createElement('td');
-        noResultsCell.colSpan = headers.length;
-        noResultsCell.textContent = 'No matching funds found.';
-        noResultsCell.style.textAlign = 'center';
-        noResultsRow.appendChild(noResultsCell);
-        fundTable.appendChild(noResultsRow);
-    }
+        // Toggle the "Show All" button visibility
+        if (filteredRows.length > numFundsToShow && !allFundsShown) {
+            showAllButton.style.display = 'block';
+        } else {
+            showAllButton.style.display = 'none';
+        }
+
+        // If no rows match, display a message
+        if (filteredRows.length === 0) {
+            const noResultsRow = document.createElement('tr');
+            const noResultsCell = document.createElement('td');
+            noResultsCell.colSpan = headers.length;
+            noResultsCell.textContent = 'No matching funds found.';
+            noResultsCell.style.textAlign = 'center';
+            noResultsRow.appendChild(noResultsCell);
+            fundTable.appendChild(noResultsRow);
+        }
     }
 
     // Function to sort table
