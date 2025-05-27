@@ -1,0 +1,39 @@
+name: Auto Release from Changelog
+on:
+  push:
+    paths: ['data/changelog.json']
+    branches: ['main']  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Get version and changes
+        id: changelog
+        run: |
+          VERSION=$(jq -r '.[0].version' data/changelog.json)
+          DATE=$(jq -r '.[0].date' data/changelog.json)
+          CHANGES=$(jq -r '.[0].changes | map("- " + .) | join("\n")' data/changelog.json)
+          
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.version }}
+          release_name: "Release ${{ steps.changelog.outputs.version }}"
+          body: |
+            **Release Date:** ${{ steps.changelog.outputs.date }}
+            
+            **Changes:**
+            ${{ steps.changelog.outputs.changes }}
+          draft: false
+          prerelease: false
