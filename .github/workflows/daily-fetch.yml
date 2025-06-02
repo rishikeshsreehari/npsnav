@@ -1,5 +1,4 @@
 name: Scheduled NPS NAV Daily Fetch
-
 on:
   schedule:
     # Runs at 11:00 AM IST every day, actions run on UTC
@@ -11,33 +10,34 @@ on:
 jobs:
   fetch-and-build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
+      
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-
+        
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-
+        
     - name: Run fetch.py
       run: python scripts/fetch.py
-
+      
     - name: Run nifty.py
+      env:
+        NIFTY_ENDPOINT_URL: ${{ secrets.NIFTY_ENDPOINT_URL }}
       run: python scripts/nifty.py
       continue-on-error: true  # Allow the workflow to continue even if nifty.py fails
-
+      
     - name: Run update_db.py
       env:
         AUTH_TOKEN_NPSNAV_DBWORKER: ${{ secrets.AUTH_TOKEN_NPSNAV_DBWORKER }}
       run: python scripts/update_db.py
       continue-on-error: true  # Allow the workflow to continue even if update_db.py fails
-
+      
     - name: Commit and Push Changes
       run: |
         git config --global user.name "DailyUpdateBot"
