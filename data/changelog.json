@@ -1,5 +1,12 @@
 [
   {
+    "version": "v1.9.1",
+    "date": "2025-06-05",
+    "changes": [
+      "Imrpovements in footer text(disclaimer, info,etc)"
+    ]
+  },
+  {
     "version": "v1.9.0",
     "date": "2025-06-05",
     "changes": [
