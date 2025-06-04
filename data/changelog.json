@@ -1,5 +1,11 @@
 [
-  
+  {
+    "version": "v1.9.0",
+    "date": "2025-06-05",
+    "changes": [
+      "Updated missing data till 2015-01-01"
+    ]
+  },
   {
     "version": "v1.8.2",
     "date": "2025-05-27",
