@@ -1,0 +1,100 @@
+{
+  "version": "v1.8.2",
+  "entity": {
+    "type": "individual",
+    "role": "maintainer",
+    "name": "Rishikesh Sreehari",
+    "email": "hello@rishikeshs.com",
+    "phone": "",
+    "description": "Learning programming with a focus on documenting, preserving knowledge, and building open-source tools that promote open data.",
+    "webpageUrl": {
+      "url": "https://github.com/rishikeshsreehari",
+      "wellKnown": ""
+    }
+  },
+  "projects": [
+    {
+      "guid": "npsnav",
+      "name": "npsnav.in",
+      "description": "npsnav.in is an attempt to document the performances and NAV of all national pension scheme(NPS) funds in India along with providing a free API.",
+      "webpageUrl": {
+        "url": "https://github.com/rishikeshsreehari/npsnav"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/rishikeshsreehari/npsnav"
+      },
+      "licenses": ["spdx:AGPL-3.0"],
+      "tags": ["nps", "finance", "india", "open-data", "api", "nav", "pension"]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "upi",
+        "type": "payment-provider",
+        "address": "rishikeshsreehari@okhdfcbank",
+        "description": "Support via UPI (India only)."
+      },
+      {
+        "guid": "ko-fi",
+        "type": "other",
+        "url": "https://ko-fi.com/rishikeshs",
+        "description": "Support on Ko-fi"
+      },
+      {
+        "guid": "paypal",
+        "type": "payment-provider",
+        "url": "https://www.paypal.com/paypalme/RishikeshSreehari",
+        "description": "Support via PayPal"
+      }
+    ],
+    "plans": [
+      {
+        "guid": "donate-once",
+        "status": "active",
+        "name": "One-time support",
+        "description": "Support the project and the efforts behind it.",
+        "amount": 0,
+        "currency": "INR",
+        "frequency": "one-time",
+        "channels": ["upi", "ko-fi", "paypal"]
+      },
+      {
+        "guid": "dev-comp",
+        "status": "active",
+        "name": "Developer Compensation",
+        "description": "Help compensate the developer for ongoing maintenance, improvements, and responding to issues throughout the year.",
+        "amount": 15000,
+        "currency": "INR",
+        "frequency": "yearly",
+        "channels": ["upi", "ko-fi", "paypal"]
+      },
+      {
+        "guid": "infra-support",
+        "status": "active",
+        "name": "Infrastructure Support",
+        "description": "Covers Cloudflare Workers setup for the free API service(planned) and domain renewal. Approx ₹5000 (USD $60).",
+        "amount": 5000,
+        "currency": "INR",
+        "frequency": "yearly",
+        "channels": ["upi", "ko-fi", "paypal"]
+      }
+    ],
+    "history": [
+      {
+        "year": 2024,
+        "income": 10000,
+        "expenses": 999,
+        "currency": "INR",
+        "description": "Received donations after launch. Domain registration covered."
+      },
+      {
+        "year": 2025,
+        "income": 100,
+        "expenses": 999,
+        "currency": "INR",
+        "description": "Ongoing support."
+      }
+    ]
+  }
+}
