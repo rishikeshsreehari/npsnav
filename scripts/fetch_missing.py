@@ -20,7 +20,7 @@ DIRECT_IP = "144.126.254.118"
 # =============================================================================
 
 # MODE SELECTION: Choose between 'range' or 'specific'
-MODE = "specific"  # Options: "range" or "specific"
+MODE = "range"  # Options: "range" or "specific"
 
 # FOR RANGE MODE - will scan for missing dates between these dates
 RANGE_START_DATE = "01/01/2015"  # DD/MM/YYYY format - earliest date to check
@@ -42,7 +42,7 @@ if not os.path.exists('debug_files'):
     os.makedirs('debug_files')
 
 # Create log file with timestamp
-log_filename = f"logs/nav_update_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+log_filename = f"logs/missing_dates_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 
 class Logger:
     def __init__(self, log_file):
