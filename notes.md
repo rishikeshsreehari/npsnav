@@ -1,4 +1,7 @@
 
+17-04-2025 last available data for max life funds due to discontinuation.
+
+
 ## Usefull Commands
 
 wrangler d1 migrations apply npsnav --remote 
