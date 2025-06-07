@@ -70,8 +70,6 @@ nav ul li a {
     border: 1px solid #333; /* Keep the border */
 }
 
-
-
 .funds-table {
     padding: 1rem;
     max-width: 100%;
@@ -149,7 +147,6 @@ tbody tr td:first-child {
     content: '₹';
 }
 
-
 .last-updated {
     margin-top: 1rem;
     font-family: monospace;
@@ -165,7 +162,6 @@ tbody tr td:first-child {
 
 footer {
     background-color: #f5f5f5;
-    padding: 2rem;
     margin-top: 2rem;
     font-size: 0.9rem;
     line-height: 1.5;
@@ -193,33 +189,9 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.disclaimer, .contact-info, .contribute, .copyright, .license-info {
+.disclaimer, .contact-info, .contribute, .license-info {
     margin-bottom: 1rem;
 }
-
-.copyright {
-    font-size: 0.8rem;
-    text-align: center;
-    color: #666;
-}
-
-.hire-me {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #666;
-    margin-top: 10px;
-    text-align: center;
-    letter-spacing: 0.5px;
-}
-
-.hire-me a {
-    font-weight: bold;
-}
-
-.hire-me a:hover {
-    color: #0056b3;
-}
-
 
 .scroll-hint {
     display: none;
@@ -265,40 +237,6 @@ th.sorted-desc .sort-icon::after {
 
 #showAllButton:hover {
     background-color: #e0e0e0;
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .funds-table {
-        padding: 0.5rem;
-    }
-
-    table {
-        font-size: 0.8rem;
-    }
-
-    th, td {
-        padding: 0.4rem;
-        position: static;
-        min-width: 80px;
-    }
-
-    th:first-child, td:first-child {
-        min-width: 120px;
-    }
-
-    .scroll-hint {
-        display: block;
-    }
-
-    footer {
-        padding: 1rem;
-        font-size: 0.8rem;
-    }
 }
 
 /* Keeping the unused elements intact */
@@ -359,12 +297,6 @@ th.sorted-desc .sort-icon::after {
     position: relative;
     height: 60vh;
     width: 100%;
-}
-
-@media (max-width: 768px) {
-    .chart-container {
-        height: 50vh;
-    }
 }
 
 .fund-details {
@@ -429,64 +361,6 @@ th.sorted-desc .sort-icon::after {
     color: #dc3545;
 }
 
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .funds-table {
-        padding: 0.25rem;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    table {
-        font-size: 0.8rem;
-        width: auto; /* Allow table to expand beyond container width */
-        table-layout: fixed;
-    }
-
-    th, td {
-        padding: 0.5rem;
-    }
-
-    /* Ensure first column (fund names) is fully visible */
-    th:first-child, td:first-child {
-        min-width: 200px; /* Adjust this value as needed */
-        max-width: none;
-        white-space: normal; /* Allow text to wrap */
-        word-wrap: break-word;
-    }
-
-    /* Make other columns scrollable */
-    th:not(:first-child), td:not(:first-child) {
-        min-width: 100px; /* Adjust as needed */
-        white-space: nowrap;
-    }
-
-    .scroll-hint {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-}
-
-/* For extremely small screens */
-@media (max-width: 320px) {
-    table {
-        font-size: 0.75rem;
-    }
-
-    th, td {
-        padding: 0.4rem;
-    }
-
-    th:first-child, td:first-child {
-        min-width: 180px; /* Adjust if needed for very small screens */
-    }
-}
-
-
 /* Style for the logo */
 .logo-link {
     font-family: 'Arial', sans-serif; /* Choose a simple, clean font */
@@ -520,7 +394,6 @@ nav ul li a {
 nav ul li a:hover {
     color: #0073e6; /* Add hover effect to menu links */
 }
-
 
 /* Main container for the documentation page */
 .doc-container {
@@ -589,17 +462,6 @@ pre {
     overflow-x: auto;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .doc-container {
-        padding: 10px;
-    }
-
-    .doc-content {
-        padding: 10px 0;
-    }
-}
-
 /* Styling for the NPS funds table */
 .simple-table {
     width: 100%;
@@ -638,24 +500,15 @@ pre {
     padding: 5px;
 }
 
-
-
+/* Fixed donate button styles */
+/* Fixed donate button styles - Made larger */
 .donate {
-    display: block; /* Ensures the image behaves like a block-level element */
-    margin: 0 auto; /* Auto margins on both sides center the image */
-    max-width: 20%; /* Responsive width to fit its container */
-    min-height: auto;
-    height: auto; /* Maintains the aspect ratio */
-    cursor: pointer; /* Changes the cursor to suggest it's clickable */
-    margin-bottom: 1rem;
-
-}
-
-
-@media (max-width: 768px) {
-    .donate {
-        max-width: 50%; /* Set the width to 50% for smaller screens */
-    }
+    display: block;
+    margin: 0 auto 0.5rem auto;
+    width: 200px; /* Increased from 120px */
+    min-width: 160px; /* Increased from 100px */
+    height: auto;
+    cursor: pointer;
 }
 
 #filterInput {
@@ -674,6 +527,7 @@ pre {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance the shadow on focus for depth */
     outline: none; /* Remove default focus outline */
 }
+
 /* Changelog page styles */
 .changelog-page {
     max-width: 800px;
@@ -887,7 +741,191 @@ header {
     margin-bottom: 0;
 }
 
+/* Prevent table overflow by managing fund name width */
+.funds-table th:first-child, 
+.funds-table td:first-child {
+    max-width: 300px; /* Adjust based on your preference */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Show full name on hover */
+.funds-table td:first-child:hover {
+    overflow: visible;
+    white-space: normal;
+    position: relative;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Ensure table container doesn't overflow */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Footer improvements - consolidated and fixed */
+.donate-section {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-links {
+    margin: 1.5rem 0;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-links a {
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #333;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.license-info {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.footer-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Fixed hire-me and copyright styles */
+.hire-me {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.hire-me a {
+    font-weight: bold;
+}
+
+.hire-me a:hover {
+    color: #0056b3;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+    text-align: center;
+}
+
+/* Ensure copyright paragraphs have no extra margin */
+.copyright p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .funds-table {
+        padding: 0.25rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        font-size: 0.8rem;
+        width: auto; /* Allow table to expand beyond container width */
+        table-layout: fixed;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+
+    /* Ensure first column (fund names) is fully visible */
+    th:first-child, td:first-child {
+        min-width: 200px; /* Adjust this value as needed */
+        max-width: none;
+        white-space: normal; /* Allow text to wrap */
+        word-wrap: break-word;
+    }
+
+    /* Make other columns scrollable */
+    th:not(:first-child), td:not(:first-child) {
+        min-width: 100px; /* Adjust as needed */
+        white-space: nowrap;
+    }
+
+    .scroll-hint {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .chart-container {
+        height: 50vh;
+    }
+
+    .doc-container {
+        padding: 10px;
+    }
+
+    .doc-content {
+        padding: 10px 0;
+    }
+
+    .donate {
+        width: 180px;
+        min-width: 150px;
+    }
+
+    .donate-section {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .footer-credits {
+        gap: 0.3rem;
+    }
+    
+    .hire-me {
+        font-size: 0.8rem;
+    }
+    
+    .copyright {
+        font-size: 0.75rem;
+    }
+
     .returns-table {
         font-size: 12px;
     }
@@ -918,33 +956,39 @@ header {
     }
 }
 
-/* Add this to your existing styles.css */
+/* For extremely small screens */
+@media (max-width: 320px) {
+    table {
+        font-size: 0.75rem;
+    }
 
-/* Prevent table overflow by managing fund name width */
-.funds-table th:first-child, 
-.funds-table td:first-child {
-    max-width: 300px; /* Adjust based on your preference */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    th, td {
+        padding: 0.4rem;
+    }
+
+    th:first-child, td:first-child {
+        min-width: 180px; /* Adjust if needed for very small screens */
+    }
 }
 
-/* Show full name on hover */
-.funds-table td:first-child:hover {
-    overflow: visible;
-    white-space: normal;
-    position: relative;
-    z-index: 1000;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+
+.crypto-donations {
+  font-size: 0.7em; /* Much smaller text */
 }
 
-/* Ensure table container doesn't overflow */
-.table-container {
-    overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
+.crypto-line {
+  margin-bottom: 4px; /* Reduced space between lines */
+  cursor: pointer;
+}
+
+.crypto-line code {
+  background-color: #e2e2e2; /* More grey background */
+  padding: 2px 6px; /* Smaller padding */
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em; /* Smaller code text */
+}
+
+.crypto-line:hover code {
+  background-color: #c0c0c0; /* Darker grey on hover */
 }

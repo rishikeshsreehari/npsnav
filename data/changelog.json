@@ -1,5 +1,14 @@
 [
   {
+    "version": "v1.9.2",
+    "date": "2025-06-08",
+    "changes": [
+      "Imrpovements in footer design",
+      "Added footer links for GitHub, Community, and Stats",
+      "Added crypto donation addresses in footer"
+    ]
+  },
+  {
     "version": "v1.9.1",
     "date": "2025-06-05",
     "changes": [

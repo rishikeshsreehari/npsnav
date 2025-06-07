@@ -173,3 +173,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initial rendering of the table
     renderTable();
 });
+

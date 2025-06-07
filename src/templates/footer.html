@@ -1,31 +1,84 @@
-<footer>     
-    <div class="disclaimer">         
-        <h3>Disclaimer</h3>         
-        <p>The information provided on this website is sourced from daily updates by <a href="https://www.npscra.nsdl.co.in/nav-search.php" target="_blank">Protean eGov Technologies Limited</a> (formerly NSDL e-Governance Infrastructure Limited). All data belongs to respective government agencies - we claim no ownership - and is provided for personal use only. Commercial use is strictly prohibited. We make no representations or warranties regarding accuracy, completeness, or reliability. Any reliance on this information is at your own risk. We disclaim liability for any direct, indirect, or consequential damages arising from use of this website or data. By accessing this site, you acknowledge these terms and confirm personal use only.</p>     
-    </div>     
-    
-    <div class="contact-info">         
-        <p>Encountered an issue with the website or have a feature request? Please <a href="https://github.com/rishikeshsreehari/npsnav/issues/new" target="_blank">create an issue </a> on Github or <a href="mailto:contact@npsnav.in">email us.</a></p>     
-    </div>          
-    
-    <div class="contribute">         
-        <p>Want to contribute? Check out the <a href="https://github.com/rishikeshsreehari/npsnav" target="_blank">GitHub repository</a>.</p>     
-    </div>      
+<footer>
+    <div class="disclaimer">
+        <h3>Disclaimer</h3>
+        <p>
+            The information provided on this website is sourced from daily updates by
+            <a href="https://www.npscra.nsdl.co.in/nav-search.php" target="_blank">Protean eGov Technologies Limited</a>
+            (formerly NSDL e-Governance Infrastructure Limited). All data belongs to respective government agencies - we claim no ownership - and is provided for personal use only. Commercial use is strictly prohibited. We make no representations or warranties regarding accuracy, completeness, or reliability. Any reliance on this information is at your own risk. We disclaim liability for any direct, indirect, or consequential damages arising from use of this website or data. By accessing this site, you acknowledge these terms and confirm personal use only.
+        </p>
+    </div>
 
-    <div class="license-info">         
-        <p> Project <a href="https://github.com/rishikeshsreehari/npsnav/tree/main" target="_blank">code</a> is open-source (<a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0</a>) and all <a href="https://github.com/rishikeshsreehari/npsnav/tree/main/data" target="_blank">data</a> and <a href="https://npsnav.goatcounter.com" target="_blank">stats</a> are publicly accessible.</p>     
-    </div> 
-    
-    <a href="https://upime.com/donate?upi_id=rishikeshsreehari%40okhdfcbank&name=Rishikesh%20Sreehari" target="_blank"><img src="/assets/images/upi.svg" alt="Microsoft Excel NPS NAV Example" class="donate"></a>      
-    
-    <a href="https://ko-fi.com/rishikeshs" target="_blank"><img src="/assets/images/kofi_button_black.png" alt="Microsoft Excel NPS NAV Example" class="donate"></a>      
-    
-    
-    <div class="copyright">         
-        <p class="hire-me">Have an idea or project in mind? <a href="https://rishikeshs.com/contact" target="_blank">Let's work together!</a></p>         
-        <br>
-        <p>&copy; 2025 | Made by <a href="https://rishikeshs.com" target="_blank">Rishikesh</a> | <a href="/changelog" title="View changelog">{{ VERSION }}</a></p> 
-    </div>      
+    <div class="contact-info">
+        <p>
+            Encountered an issue with the website or have a feature request? Please
+            <a href="https://github.com/rishikeshsreehari/npsnav/issues/new" target="_blank">create an issue</a>
+            on Github or
+            <a href="mailto:contact@npsnav.in">email us.</a>
+        </p>
+    </div>
+
+    <div class="donate-section">
+        <a href="https://upime.com/donate?upi_id=rishikeshsreehari%40okhdfcbank&name=Rishikesh%20Sreehari" target="_blank">
+            <img src="/assets/images/upi.svg" alt="Donate via UPI" class="donate">
+        </a>
+        <a href="https://ko-fi.com/rishikeshs" target="_blank">
+            <img src="/assets/images/kofi_button_black.png" alt="Buy me a coffee" class="donate">
+        </a>
+    </div>
+
+    <div class="crypto-donations">
+        <div class="crypto-line" data-addr="14SXDGhFWiHToVSpxYuLVW5tSnESiqFjd2">
+            <strong>BTC:</strong> <code>14SXDGhFWiHToVSpxYuLVW5tSnESiqFjd2</code>
+        </div>
+        <div class="crypto-line" data-addr="0x38f924efad4395708c113c43593de0d5fa1a1e6d">
+            <strong>ETH:</strong> <code>0x38f924efad4395708c113c43593de0d5fa1a1e6d</code>
+        </div>
+        <div class="crypto-line" data-addr="7xxg9ah3kJ4sZ2RnYp3KMNuVmYKWKcryptKn5bQU2Uge">
+            <strong>SOL:</strong> <code>7xxg9ah3kJ4sZ2RnYp3KMNuVmYKWKcryptKn5bQU2Uge</code>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="https://npsnav.goatcounter.com" target="_blank">Stats</a> •
+        <a href="https://github.com/rishikeshsreehari/npsnav" target="_blank">GitHub</a> •
+        <a href="https://t.me/npsnav" target="_blank">Community</a>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="license-info">
+            Project code is open-source (<a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL 3.0</a>)
+        </p>
+        <div class="footer-credits">
+            <p class="hire-me">
+                Have an idea or project?
+                <a href="https://rishikeshs.com/contact" target="_blank">Let's work together!</a>
+            </p>
+            <p class="copyright">
+                &copy; 2025 | Made by
+                <a href="https://rishikeshs.com" target="_blank">Rishikesh</a> |
+                <a href="/changelog" title="View changelog">{{ VERSION }}</a>
+            </p>
+        </div>
+    </div>
 </footer>
 
-{% include 'analytics.html' %} 
+<script>
+document.onclick=e=>{
+  const c=e.target.closest?.('.crypto-line');
+  if(c){
+    const code=c.querySelector('code');
+    const addr=code.dataset.orig||(code.dataset.orig=code.textContent);
+    navigator.clipboard.writeText(addr);
+    code.style.backgroundColor='#404040';
+    code.style.color='white';
+    code.textContent='Copied!';
+    setTimeout(()=>{
+      code.style.backgroundColor='';
+      code.style.color='';
+      code.textContent=addr;
+    },800);
+  }
+};
+</script>
+
+{% include 'analytics.html' %}
