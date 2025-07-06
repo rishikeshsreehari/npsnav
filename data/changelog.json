@@ -1,9 +1,19 @@
 [
+
+  {
+    "version": "v1.2.0",
+    "date": "2025-07-07",
+    "changes": [
+      "Improved logic relying on NPS Trust for data updates",
+      "Updated disclaimer text in footer to credit NPS Trust"
+    ]
+  },
+
   {
     "version": "v1.9.2",
     "date": "2025-06-08",
     "changes": [
-      "Imrpovements in footer design",
+      "Improvements in footer design",
       "Added footer links for GitHub, Community, and Stats",
       "Added crypto donation addresses in footer"
     ]
