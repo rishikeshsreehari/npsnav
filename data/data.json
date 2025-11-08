@@ -1038,5 +1038,173 @@
         "Scheme Code": "SM003017",
         "Scheme Name": "NPS TRUST A/C - LIC PENSION FUND - UPS CG SCHEME",
         "NAV": "10.1916"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+        "Scheme Code": "SM001018",
+        "Scheme Name": "NPS TRUST A/C - SBI PENSION FUND - UPS POOL CG SCHEME",
+        "NAV": "10.3027"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+        "Scheme Code": "SM001019",
+        "Scheme Name": "NPS TRUST A/C - SBI NPS JEEVAN SWARNA RETIREMENT YOJANA - LIFE\u2019S GOLDEN PLAN - TIER I",
+        "NAV": "10.0477"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM001",
+        "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+        "Scheme Code": "SM001020",
+        "Scheme Name": "NPS TRUST A/C - SBI NPS AKSHAY DHARA RETIREMENT YOJANA-HAPPY RETIREMENT PLAN ",
+        "NAV": "10.023"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI Pension Fund Limited.",
+        "Scheme Code": "SM002018",
+        "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME - UPS POOL CG SCHEME",
+        "NAV": "10.2379"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI Pension Fund Limited.",
+        "Scheme Code": "SM002019",
+        "Scheme Name": "NPS TRUST A/C - UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER I",
+        "NAV": "10.0382"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI Pension Fund Limited.",
+        "Scheme Code": "SM002020",
+        "Scheme Name": "NPS TRUST A/C - UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER II",
+        "NAV": "10.0"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI Pension Fund Limited.",
+        "Scheme Code": "SM002021",
+        "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME - TIER I",
+        "NAV": "10.0359"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM002",
+        "PFM Name": "UTI Pension Fund Limited.",
+        "Scheme Code": "SM002022",
+        "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME TIER II",
+        "NAV": "10.0"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC Pension Fund Ltd.",
+        "Scheme Code": "SM003018",
+        "Scheme Name": "NPS TRUST A/C - LIC PENSION FUND - UPS POOL CG SCHEME",
+        "NAV": "10.0903"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC Pension Fund Ltd.",
+        "Scheme Code": "SM003019",
+        "Scheme Name": "NPS TRUST A/C - LIC PFL NPS SMART BALANCE - TIER I",
+        "NAV": "10.0301"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM005",
+        "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+        "Scheme Code": "SM005011",
+        "Scheme Name": "NPS TRUST A/C - KOTAK NPS KUBER EQUITY FUND - TIER I",
+        "NAV": "9.9613"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+        "Scheme Code": "SM007011",
+        "Scheme Name": "NPS TRUST A/C - ICICI NPS MY FAMILY MY FUTURE (INMFMF) - TIER I",
+        "NAV": "10.0063"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM007",
+        "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+        "Scheme Code": "SM007012",
+        "Scheme Name": "NPS TRUST A/C - ICICI PF NPS DYNAMIC REALLOCATION ENHANCED ACCUMULATION MODEL PLAN (ICICI NPS DREAM) - TIER I",
+        "NAV": "10.0038"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC Pension Fund Management Limited",
+        "Scheme Code": "SM008011",
+        "Scheme Name": "NPS TRUST A/C - HDFC PF NPS SURAKSHIT INCOME FUND - TIER I",
+        "NAV": "10.0399"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC Pension Fund Management Limited",
+        "Scheme Code": "SM008012",
+        "Scheme Name": "NPS TRUST A/C - HDFC PF NPS SURAKSHIT INCOME FUND - TIER II",
+        "NAV": "10.0"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM008",
+        "PFM Name": "HDFC Pension Fund Management Limited",
+        "Scheme Code": "SM008013",
+        "Scheme Name": "NPS TRUST A/C - HDFC PF NPS EQUITY ADVANTAGE FUND - TIER I",
+        "NAV": "10.0006"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM010",
+        "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+        "Scheme Code": "SM010010",
+        "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE RETIREMENT EQUITY FUND - NPS - TIER I",
+        "NAV": "10.0377"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM010",
+        "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+        "Scheme Code": "SM010011",
+        "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE FUTURE FUND - NPS - TIER I",
+        "NAV": "10.0264"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM011",
+        "PFM Name": "Tata Pension Fund Management Private Limited",
+        "Scheme Code": "SM011009",
+        "Scheme Name": "NPS TRUST A/C - TATA PENSION FUND NPS SMART RETIREMENT FUND - TIER I",
+        "NAV": "9.9295"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013009",
+        "Scheme Name": "NPS TRUST A/C - AXIS NPS GOLDEN YEARS FUND - GROWTH - TIER I",
+        "NAV": "9.9514"
+    },
+    {
+        "Date": "11/07/2025",
+        "PFM Code": "PFM014",
+        "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+        "Scheme Code": "SM014009",
+        "Scheme Name": "NPS TRUST A/C - DSP NPS LONG TERM EQUITY FUND - TIER I",
+        "NAV": "10.103"
     }
 ]
