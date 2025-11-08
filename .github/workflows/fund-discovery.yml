@@ -1,0 +1,63 @@
+name: Monthly NPS Fund Discovery Check
+on:
+  schedule:
+    # Runs on the 5th of every month at 10:00 AM IST (04:30 UTC)
+    - cron: '30 04 5 * *'
+  workflow_dispatch:  # Enables manual triggering
+
+jobs:
+  discover-funds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Run fund discovery
+        run: python scripts/discover_new_funds.py
+      
+      - name: Check if new funds were found
+        id: check_new_funds
+        run: |
+          if [ -f "data/missing_funds.json" ]; then
+            echo "new_funds=true" >> $GITHUB_OUTPUT
+          else
+            echo "new_funds=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and Push if new funds found
+        if: steps.check_new_funds.outputs.new_funds == 'true'
+        run: |
+          git config --global user.name "FundDiscoveryBot"
+          git config --global user.email "bot@npsnav.in"
+          git add data/missing_funds.json
+          git commit -m "Found new NPS funds - manual review needed"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create Issue if new funds found
+        if: steps.check_new_funds.outputs.new_funds == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('data/missing_funds.json', 'utf8'));
+            const fundsList = report.new_combinations.map(f => 
+              `- ${f['PFM Code']}/${f['Scheme Code']}: ${f['Scheme Name']}`
+            ).join('\n');
+            
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🔔 ${report.summary.new_combinations_count} New NPS Funds Discovered`,
+              body: `Found ${report.summary.new_combinations_count} new funds on ${report.timestamp}:\n\n${fundsList}\n\n**Action needed:**\n1. Review data/missing_funds.json\n2. Add funds to data.json manually or run add script\n3. Run fetch_nav.py to backfill historical data`
+            });
