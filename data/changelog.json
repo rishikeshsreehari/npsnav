@@ -1,5 +1,17 @@
 [
 
+
+  {
+    "version": "v1.2.1",
+    "date": "2025-11-08",
+    "changes": [
+      "Added monthly NPS fund discovery workflow",
+      "Added new funds launched on 01-10-2025 to fund list",
+      "Backfilled data for new funds from launch date to present"
+    ]
+  },
+
+
   {
     "version": "v1.2.0",
     "date": "2025-07-07",
