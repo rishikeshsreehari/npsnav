@@ -11,7 +11,7 @@ data/*
 !data/nifty.json
 !data/changelog.json
 !data/data.json
-
+!data/missing_funds.json
 
 
 
