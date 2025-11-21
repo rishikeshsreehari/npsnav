@@ -25,7 +25,10 @@ if __name__ == "__main__":
         print(f"Error: Directory '{DIRECTORY}' not found. Please run 'make build' first.")
         exit(1)
 
-    with socketserver.TCPServer(("", PORT), CleanUrlHandler) as httpd:
+    class ReusableTCPServer(socketserver.TCPServer):
+        allow_reuse_address = True
+
+    with ReusableTCPServer(("", PORT), CleanUrlHandler) as httpd:
         print(f"Serving at http://localhost:{PORT}")
         try:
             httpd.serve_forever()
