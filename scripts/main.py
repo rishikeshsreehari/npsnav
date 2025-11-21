@@ -41,17 +41,53 @@ def convert_date_format(date_str):
     except ValueError:
         return date_str
 
+# Normalize PFM names to handle variations
+def normalize_pfm_name(name):
+    if not name:
+        return ""
+    name_upper = name.upper().strip()
+    if "SBI" in name_upper:
+        return "SBI Pension Funds"
+    if "LIC" in name_upper:
+        return "LIC Pension Fund"
+    if "UTI" in name_upper:
+        return "UTI Pension Fund"
+    if "HDFC" in name_upper:
+        return "HDFC Pension Management"
+    if "ICICI" in name_upper:
+        return "ICICI Prudential Pension Fund"
+    if "KOTAK" in name_upper:
+        return "Kotak Mahindra Pension Fund"
+    if "ADITYA BIRLA" in name_upper:
+        return "Aditya Birla Sun Life Pension Fund"
+    if "TATA" in name_upper:
+        return "Tata Pension Management"
+    if "MAX LIFE" in name_upper:
+        return "Max Life Pension Fund"
+    if "AXIS" in name_upper:
+        return "Axis Pension Fund"
+    if "DSP" in name_upper:
+        return "DSP Pension Fund Managers"
+    return name.strip()
+
 # Generate table rows for all funds
 def generate_table_rows(funds):
     rows = ""
+    pfm_names = set()
+    
     for fund in funds:
         scheme_name = fund['Scheme Name']
         scheme_code = fund['Scheme Code']
+        raw_pfm_name = fund.get('PFM Name', '')
+        pfm_name = normalize_pfm_name(raw_pfm_name)
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
         
+        if pfm_name:
+            pfm_names.add(pfm_name)
+        
         row = f'''
-        <tr>
+        <tr data-pfm="{pfm_name}">
             <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
             <td>{nav}</td>
         '''
@@ -83,11 +119,12 @@ def generate_table_rows(funds):
         
         row += '</tr>'
         rows += row
-    return rows
+        
+    return rows, sorted(list(pfm_names))
 
 # Render all HTML files in the content directory
 def render_html_files(env, funds, latest_version, changelog):
-    table_rows = generate_table_rows(funds)
+    table_rows, pfm_options = generate_table_rows(funds)
     nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
     latest_changes = changelog[0] if changelog else None
 
@@ -110,6 +147,7 @@ def render_html_files(env, funds, latest_version, changelog):
                     template = env.from_string(content)
                     rendered_content = template.render(
                         TABLE_ROWS=table_rows, 
+                        PFM_OPTIONS=pfm_options,
                         NAV_DATE=nav_date,
                         VERSION=latest_version,
                         LATEST_CHANGES=latest_changes
@@ -145,7 +183,6 @@ def generate_scheme_list_page(env, funds):
 
     print(f'Scheme list page generated at {output_path}')
 
-# Function to generate the changelog page
 # Function to generate the changelog page
 def generate_changelog_page(env, changelog):
     # Load the changelog template

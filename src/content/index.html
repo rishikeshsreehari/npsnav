@@ -12,15 +12,27 @@
 
 <section class="hero">
     <h1>Latest NAV and Historical Performance of NPS Funds</h1>
-    <p class="subheading">Stay up to date with the latest NAVs and track the top-performing National Pension Scheme (NPS) funds in India.</p>
-    <p>Use our <strong>FREE API</strong> to easily integrate the latest NPS fund NAVs directly into <a href="/nps-nav-sheets/">Google Sheets</a>, <a href="/nps-nav-excel/"> Microsoft Excel</a>, or other financial planning tools.</p>
-    <p>Access our <a href="/nps-api#detailed-api">Detailed API</a> for comprehensive fund performance data and our <a href="/nps-api#historical-api">Historical API</a> to track past NAV values.</p>
+    <p class="subheading">Stay up to date with the latest NAVs and track the top-performing National Pension Scheme
+        (NPS) funds in India.</p>
+    <p>Use our <strong>FREE API</strong> to easily integrate the latest NPS fund NAVs directly into <a
+            href="/nps-nav-sheets/">Google Sheets</a>, <a href="/nps-nav-excel/"> Microsoft Excel</a>, or other
+        financial planning tools.</p>
+    <p>Access our <a href="/nps-api#detailed-api">Detailed API</a> for comprehensive fund performance data and our <a
+            href="/nps-api#historical-api">Historical API</a> to track past NAV values.</p>
     <a href="/nps-api/" class="cta-button">Explore API</a>
     <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
 </section>
 
 <section id="funds" class="funds-table">
-    <input type="text" id="filterInput" placeholder="Search by Name">
+    <div class="filter-container">
+        <input type="text" id="filterInput" placeholder="Search by Name">
+        <select id="pfmFilter">
+            <option value="">All PFMs</option>
+            {% for pfm in PFM_OPTIONS %}
+            <option value="{{ pfm }}">{{ pfm }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <p class="scroll-hint">Swipe to see more →</p>
     <div class="table-container">
         <table id="fundTable">
