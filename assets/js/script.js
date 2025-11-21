@@ -4,12 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const showAllButton = document.getElementById("showAllButton");
     const filterInput = document.getElementById("filterInput");
     const pfmFilter = document.getElementById("pfmFilter");
+    const tierFilter = document.getElementById("tierFilter");
     let rows = Array.from(fundTable.rows);
 
     let numFundsToShow = 10; // Number of funds to show initially
     let allFundsShown = false;
     let filterText = ''; // Variable to store the filter text
     let selectedPfm = ''; // Variable to store selected PFM
+    let selectedTier = ''; // Variable to store selected Tier
 
     // Function to clean fund names by removing common prefixes
     function cleanFundNames() {
@@ -75,6 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedPfm) {
             filteredRows = filteredRows.filter(row => {
                 return row.getAttribute('data-pfm') === selectedPfm;
+            });
+        }
+
+        // Apply Tier filter
+        if (selectedTier) {
+            filteredRows = filteredRows.filter(row => {
+                return row.getAttribute('data-tier') === selectedTier;
             });
         }
 
@@ -175,6 +184,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pfmFilter) {
         pfmFilter.addEventListener("change", function () {
             selectedPfm = this.value;
+            allFundsShown = false;
+            renderTable();
+        });
+    }
+
+    // Add event listener for Tier filter
+    if (tierFilter) {
+        tierFilter.addEventListener("change", function () {
+            selectedTier = this.value;
             allFundsShown = false;
             renderTable();
         });

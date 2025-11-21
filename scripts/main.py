@@ -70,6 +70,17 @@ def normalize_pfm_name(name):
         return "DSP Pension Fund Managers"
     return name.strip()
 
+# Extract tier information from scheme name
+def extract_tier(scheme_name):
+    if not scheme_name:
+        return ""
+    scheme_upper = scheme_name.upper()
+    if "TIER II" in scheme_upper or "TIER-II" in scheme_upper or "TIER 2" in scheme_upper:
+        return "Tier II"
+    elif "TIER I" in scheme_upper or "TIER-I" in scheme_upper or "TIER 1" in scheme_upper:
+        return "Tier I"
+    return ""
+
 # Generate table rows for all funds
 def generate_table_rows(funds):
     rows = ""
@@ -80,6 +91,7 @@ def generate_table_rows(funds):
         scheme_code = fund['Scheme Code']
         raw_pfm_name = fund.get('PFM Name', '')
         pfm_name = normalize_pfm_name(raw_pfm_name)
+        tier = extract_tier(scheme_name)
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
         
@@ -87,7 +99,7 @@ def generate_table_rows(funds):
             pfm_names.add(pfm_name)
         
         row = f'''
-        <tr data-pfm="{pfm_name}">
+        <tr data-pfm="{pfm_name}" data-tier="{tier}">
             <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
             <td>{nav}</td>
         '''
