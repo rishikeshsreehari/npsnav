@@ -1,4 +1,4 @@
-.PHONY: install build serve clean dev
+.PHONY: install build serve clean dev deploy update
 
 # Install dependencies
 install:
@@ -18,3 +18,13 @@ clean:
 
 # Default development flow: build and serve
 dev: build serve
+
+# Deploy to Cloudflare
+deploy:
+	npx wrangler pages deploy public
+
+# Update content: fetch new data, build, and deploy
+update:
+	uv run scripts/fetch.py
+	$(MAKE) build
+	$(MAKE) deploy
