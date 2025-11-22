@@ -1,6 +1,45 @@
 import os
 import shutil
 import json
+import re
+from datetime import datetime
+from jinja2 import Environment, FileSystemLoader
+
+# Initialize Jinja2 environment
+def init_jinja_env():
+    return Environment(loader=FileSystemLoader('src/templates'))
+
+# Load the base data.json file
+def load_base_data():
+    with open('data/data.json', 'r', encoding='utf-8') as file:
+        return json.load(file)
+
+# Load the changelog data
+def load_changelog():
+    try:
+        with open('data/changelog.json', 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except Exception as e:
+        print(f"Error loading changelog: {e}")
+        return []
+
+# Helper function to handle null values and format NAV with two decimal places
+def format_value(value):
+    if value is None or value == "null":
+        return '-'
+    return f'{float(value):.2f}%'
+
+# Helper function to format NAV with two decimal places without a percentage symbol
+def format_nav(nav):
+    if nav is None or nav == "null":
+        return '-'
+    return f'{float(nav):.2f}'
+
+# Convert date from mm/dd/yyyy to dd-mm-yyyy format
+import os
+import shutil
+import json
+import re
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
@@ -41,18 +80,138 @@ def convert_date_format(date_str):
     except ValueError:
         return date_str
 
+# Normalize PFM names to handle variations
+def normalize_pfm_name(name):
+    if not name:
+        return ""
+    name_upper = name.upper().strip()
+    if "SBI" in name_upper:
+        return "SBI Pension Funds"
+    if "LIC" in name_upper:
+        return "LIC Pension Fund"
+    if "UTI" in name_upper:
+        return "UTI Pension Fund"
+    if "HDFC" in name_upper:
+        return "HDFC Pension Management"
+    if "ICICI" in name_upper:
+        return "ICICI Prudential Pension Fund"
+    if "KOTAK" in name_upper:
+        return "Kotak Mahindra Pension Fund"
+    if "ADITYA BIRLA" in name_upper:
+        return "Aditya Birla Sun Life Pension Fund"
+    if "TATA" in name_upper:
+        return "Tata Pension Management"
+    if "MAX LIFE" in name_upper:
+        return "Max Life Pension Fund"
+    if "AXIS" in name_upper:
+        return "Axis Pension Fund"
+    if "DSP" in name_upper:
+        return "DSP Pension Fund Managers"
+    return name.strip()
+
+# Extract tier information from scheme name
+def extract_tier(scheme_name):
+    if not scheme_name:
+        return ""
+    scheme_upper = scheme_name.upper()
+    if "TIER II" in scheme_upper or "TIER-II" in scheme_upper or "TIER 2" in scheme_upper:
+        return "Tier II"
+    elif "TIER I" in scheme_upper or "TIER-I" in scheme_upper or "TIER 1" in scheme_upper:
+        return "Tier I"
+    return "Unknown"
+
+# Extract scheme type (A, E, C, G, etc.)
+def extract_scheme_type(scheme_name):
+    if not scheme_name:
+        return "Unknown"
+    
+    scheme_upper = scheme_name.upper()
+    
+    # Check for specific scheme types
+    if "SCHEME A" in scheme_upper:
+        return "Scheme A"
+    if "SCHEME E" in scheme_upper:
+        return "Scheme E"
+    if "SCHEME C" in scheme_upper:
+        return "Scheme C"
+    if "SCHEME G" in scheme_upper:
+        return "Scheme G"
+    if "CORPORATE CG" in scheme_upper:
+        return "Corporate CG"
+    
+    return "Unknown"
+
+# Shorten scheme name by removing redundant phrases
+def shorten_scheme_name(name):
+    if not name:
+        return ""
+    
+    phrases_to_remove = [
+        "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGEMENT LIMITED",
+        "PENSION FUND MANAGEMENT LTD",
+        "PENSION MANAGEMENT COMPANY LIMITED",
+        "PENSION MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGERS PRIVATE LIMITED",
+        "PENSION FUND MANAGERS PVT LTD",
+        "RETIREMENT SOLUTIONS LIMITED",
+        "RETIREMENT SOLUTIONS LTD",
+        "RETIREMENT SOLUTIONS",
+        "PENSION FUNDS",
+        "PENSION FUND",
+        "MANAGEMENT LIMITED",
+        "MANAGEMENT LTD",
+        "COMPANY LIMITED",
+        "COMPANY LTD",
+        "PRIVATE LIMITED",
+        "PVT LTD",
+        "LIMITED",
+        "LTD"
+    ]
+    
+    cleaned_name = name
+    
+    # Remove NPS TRUST prefixes first
+    nps_pattern = re.compile(r"^NPS TRUST\s*-?\s*A/C\s*-?\s*|^NPS TRUST\s*-?\s*", re.IGNORECASE)
+    cleaned_name = nps_pattern.sub("", cleaned_name)
+
+    for phrase in phrases_to_remove:
+        pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+        cleaned_name = pattern.sub("", cleaned_name)
+        
+    return " ".join(cleaned_name.split())
+
 # Generate table rows for all funds
 def generate_table_rows(funds):
     rows = ""
+    pfm_names = set()
+    scheme_types = set()
+    
     for fund in funds:
         scheme_name = fund['Scheme Name']
         scheme_code = fund['Scheme Code']
+        raw_pfm_name = fund.get('PFM Name', '')
+        pfm_name = normalize_pfm_name(raw_pfm_name)
+        if not pfm_name:
+            pfm_name = "Unknown"
+            
+        tier = extract_tier(scheme_name)
+        scheme_type = extract_scheme_type(scheme_name)
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
         
+        short_scheme_name = shorten_scheme_name(scheme_name)
+        
+        if pfm_name:
+            pfm_names.add(pfm_name)
+        
+        if scheme_type and scheme_type != "Unknown":
+            scheme_types.add(scheme_type)
+        
         row = f'''
-        <tr>
-            <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
+        <tr data-pfm="{pfm_name}" data-tier="{tier}" data-scheme-type="{scheme_type}">
+            <td><a href="funds/{scheme_code}" class="scheme-link" data-full-name="{scheme_name}" data-short-name="{short_scheme_name}">{short_scheme_name}</a></td>
             <td>{nav}</td>
         '''
 
@@ -83,11 +242,12 @@ def generate_table_rows(funds):
         
         row += '</tr>'
         rows += row
-    return rows
+        
+    return rows, sorted(list(pfm_names)), sorted(list(scheme_types))
 
 # Render all HTML files in the content directory
 def render_html_files(env, funds, latest_version, changelog):
-    table_rows = generate_table_rows(funds)
+    table_rows, pfm_options, scheme_type_options = generate_table_rows(funds)
     nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
     latest_changes = changelog[0] if changelog else None
 
@@ -110,6 +270,8 @@ def render_html_files(env, funds, latest_version, changelog):
                     template = env.from_string(content)
                     rendered_content = template.render(
                         TABLE_ROWS=table_rows, 
+                        PFM_OPTIONS=pfm_options,
+                        SCHEME_TYPE_OPTIONS=scheme_type_options,
                         NAV_DATE=nav_date,
                         VERSION=latest_version,
                         LATEST_CHANGES=latest_changes
@@ -145,7 +307,6 @@ def generate_scheme_list_page(env, funds):
 
     print(f'Scheme list page generated at {output_path}')
 
-# Function to generate the changelog page
 # Function to generate the changelog page
 def generate_changelog_page(env, changelog):
     # Load the changelog template
