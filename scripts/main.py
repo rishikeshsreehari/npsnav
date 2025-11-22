@@ -79,7 +79,7 @@ def extract_tier(scheme_name):
         return "Tier II"
     elif "TIER I" in scheme_upper or "TIER-I" in scheme_upper or "TIER 1" in scheme_upper:
         return "Tier I"
-    return ""
+    return "Unknown"
 
 # Generate table rows for all funds
 def generate_table_rows(funds):
