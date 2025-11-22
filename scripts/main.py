@@ -240,6 +240,8 @@ def generate_table_rows(funds):
             # Append the table cell with the appropriate CSS class
             row += f'<td class="{css_class}">{formatted_value}</td>'
         
+        # Add NAV Date at the end
+        row += f'<td>{convert_date_format(fund["Date"])}</td>'
         row += '</tr>'
         rows += row
         
