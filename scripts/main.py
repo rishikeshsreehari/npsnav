@@ -112,6 +112,11 @@ def shorten_scheme_name(name):
     ]
     
     cleaned_name = name
+    
+    # Remove NPS TRUST prefixes first
+    nps_pattern = re.compile(r"^NPS TRUST\s*-?\s*A/C\s*-?\s*|^NPS TRUST\s*-?\s*", re.IGNORECASE)
+    cleaned_name = nps_pattern.sub("", cleaned_name)
+
     for phrase in phrases_to_remove:
         pattern = re.compile(re.escape(phrase), re.IGNORECASE)
         cleaned_name = pattern.sub("", cleaned_name)
@@ -139,7 +144,7 @@ def generate_table_rows(funds):
         
         row = f'''
         <tr data-pfm="{pfm_name}" data-tier="{tier}">
-            <td><a href="funds/{scheme_code}" title="{scheme_name}">{short_scheme_name}</a></td>
+            <td><a href="funds/{scheme_code}" class="scheme-link" data-full-name="{scheme_name}" data-short-name="{short_scheme_name}">{short_scheme_name}</a></td>
             <td>{nav}</td>
         '''
 

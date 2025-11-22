@@ -13,38 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedPfm = ''; // Variable to store selected PFM
     let selectedTier = ''; // Variable to store selected Tier
 
-    // Function to clean fund names by removing common prefixes
-    function cleanFundNames() {
-        const fundCells = document.querySelectorAll('#fundTableBody td:first-child a');
-
-        fundCells.forEach(cell => {
-            let originalName = cell.textContent.trim();
-            let cleanName = originalName;
-
-            // Only remove prefixes if they exist
-            const prefixesToRemove = [
-                /^NPS TRUST\s*-?\s*A\/C\s*-?\s*/i,
-                /^NPS TRUST A\/C\s*-?\s*/i,
-                /^NPS TRUST\s*-?\s*/i
-            ];
-
-            // Try each prefix pattern
-            for (let pattern of prefixesToRemove) {
-                if (pattern.test(cleanName)) {
-                    cleanName = cleanName.replace(pattern, '').trim();
-                    break; // Stop after first match
-                }
-            }
-
-            // Only update if we actually cleaned something
-            if (cleanName !== originalName && cleanName.length > 0) {
-                cell.textContent = cleanName;
-                // Store original name as title for full name on hover
-                cell.title = originalName;
-            }
-        });
-    }
-
     // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
         fundName = fundName.toLowerCase();
@@ -102,11 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Append the rows to the table
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
-
-        // Clean fund names AFTER adding rows to the table
-        setTimeout(() => {
-            cleanFundNames();
-        }, 0);
 
         // Toggle the "Show All" button visibility
         if (filteredRows.length > numFundsToShow && !allFundsShown) {
@@ -197,6 +160,19 @@ document.addEventListener("DOMContentLoaded", function () {
             renderTable();
         });
     }
+
+    // Hover effect for scheme names
+    document.addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('scheme-link')) {
+            e.target.textContent = e.target.dataset.fullName;
+        }
+    });
+
+    document.addEventListener('mouseout', function (e) {
+        if (e.target.classList.contains('scheme-link')) {
+            e.target.textContent = e.target.dataset.shortName;
+        }
+    });
 
     // Default sort by 5Y column (index 9) in descending order
     const fiveYearHeader = headers[9]; // Adjust the index if needed
