@@ -1,46 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const fundTable = document.getElementById("fundTableBody");
     const headers = document.querySelectorAll("#fundTable th");
     const showAllButton = document.getElementById("showAllButton");
     const filterInput = document.getElementById("filterInput");
+    const pfmFilter = document.getElementById("pfmFilter");
+    const tierFilter = document.getElementById("tierFilter");
+    const schemeTypeFilter = document.getElementById("schemeTypeFilter");
     let rows = Array.from(fundTable.rows);
 
     let numFundsToShow = 10; // Number of funds to show initially
     let allFundsShown = false;
     let filterText = ''; // Variable to store the filter text
+    let selectedPfm = ''; // Variable to store selected PFM
+    let selectedTier = ''; // Variable to store selected Tier
+    let selectedSchemeType = ''; // Variable to store selected Scheme Type
 
-    // Function to clean fund names by removing common prefixes
-    function cleanFundNames() {
-        const fundCells = document.querySelectorAll('#fundTableBody td:first-child a');
-        
-        fundCells.forEach(cell => {
-            let originalName = cell.textContent.trim();
-            let cleanName = originalName;
-            
-            // Only remove prefixes if they exist
-            const prefixesToRemove = [
-                /^NPS TRUST\s*-?\s*A\/C\s*-?\s*/i,
-                /^NPS TRUST A\/C\s*-?\s*/i,
-                /^NPS TRUST\s*-?\s*/i
-            ];
-            
-            // Try each prefix pattern
-            for (let pattern of prefixesToRemove) {
-                if (pattern.test(cleanName)) {
-                    cleanName = cleanName.replace(pattern, '').trim();
-                    break; // Stop after first match
-                }
-            }
-            
-            // Only update if we actually cleaned something
-            if (cleanName !== originalName && cleanName.length > 0) {
-                cell.textContent = cleanName;
-                // Store original name as title for full name on hover
-                cell.title = originalName;
-            }
-        });
-    }
-   
     // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
         fundName = fundName.toLowerCase();
@@ -67,16 +41,34 @@ document.addEventListener("DOMContentLoaded", function() {
         // Trim the filter text
         const trimmedFilterText = filterText.trim();
 
-        let filteredRows;
+        let filteredRows = rows;
 
-        if (trimmedFilterText === '') {
-            // No filter text; show all funds (they're already sorted by 5Y returns)
-            filteredRows = rows;
-        } else {
-            // Apply search filter with fuzzy matching
-            filteredRows = rows.filter(row => {
+        // Apply PFM filter
+        if (selectedPfm) {
+            filteredRows = filteredRows.filter(row => {
+                return row.getAttribute('data-pfm') === selectedPfm;
+            });
+        }
+
+        // Apply Tier filter
+        if (selectedTier) {
+            filteredRows = filteredRows.filter(row => {
+                return row.getAttribute('data-tier') === selectedTier;
+            });
+        }
+
+        // Apply Scheme Type filter
+        if (selectedSchemeType) {
+            filteredRows = filteredRows.filter(row => {
+                return row.getAttribute('data-scheme-type') === selectedSchemeType;
+            });
+        }
+
+        // Apply search filter
+        if (trimmedFilterText !== '') {
+            filteredRows = filteredRows.filter(row => {
                 const fundName = row.cells[0].innerText.trim();
-                return fuzzyMatch(fundName, filterText.trim());
+                return fuzzyMatch(fundName, trimmedFilterText);
             });
         }
 
@@ -87,11 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Append the rows to the table
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
-
-        // Clean fund names AFTER adding rows to the table
-        setTimeout(() => {
-            cleanFundNames();
-        }, 0);
 
         // Toggle the "Show All" button visibility
         if (filteredRows.length > numFundsToShow && !allFundsShown) {
@@ -138,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add click event to each header for sorting
     headers.forEach((header, index) => {
         header.classList.add('sortable');
-        header.addEventListener("click", function() {
+        header.addEventListener("click", function () {
             const isNumeric = index !== 0; // Assume all columns except the first are numeric
             const isAscending = !this.classList.contains("sorted-asc");
 
@@ -153,16 +140,56 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Add event listener for "Show All" button
-    showAllButton.addEventListener("click", function() {
+    showAllButton.addEventListener("click", function () {
         allFundsShown = true;
         renderTable();
     });
 
     // Add event listener for filter input
-    filterInput.addEventListener("input", function() {
+    filterInput.addEventListener("input", function () {
         filterText = this.value;
         allFundsShown = false; // Reset to show limited rows when filtering
         renderTable();
+    });
+
+    // Add event listener for PFM filter
+    if (pfmFilter) {
+        pfmFilter.addEventListener("change", function () {
+            selectedPfm = this.value;
+            allFundsShown = false;
+            renderTable();
+        });
+    }
+
+    // Add event listener for Tier filter
+    if (tierFilter) {
+        tierFilter.addEventListener("change", function () {
+            selectedTier = this.value;
+            allFundsShown = false;
+            renderTable();
+        });
+    }
+
+    // Add event listener for Scheme Type filter
+    if (schemeTypeFilter) {
+        schemeTypeFilter.addEventListener("change", function () {
+            selectedSchemeType = this.value;
+            allFundsShown = false;
+            renderTable();
+        });
+    }
+
+    // Hover effect for scheme names
+    document.addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('scheme-link')) {
+            e.target.textContent = e.target.dataset.fullName;
+        }
+    });
+
+    document.addEventListener('mouseout', function (e) {
+        if (e.target.classList.contains('scheme-link')) {
+            e.target.textContent = e.target.dataset.shortName;
+        }
     });
 
     // Default sort by 5Y column (index 9) in descending order
