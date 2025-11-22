@@ -1,6 +1,7 @@
 import os
 import shutil
 import json
+import re
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
@@ -81,6 +82,31 @@ def extract_tier(scheme_name):
         return "Tier I"
     return "Unknown"
 
+# Shorten scheme name by removing redundant phrases
+def shorten_scheme_name(name):
+    if not name:
+        return ""
+    
+    phrases_to_remove = [
+        "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT LIMITED",
+        "PENSION MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGERS PRIVATE LIMITED",
+        "PENSION FUNDS",
+        "PENSION FUND",
+        "MANAGEMENT LIMITED",
+        "COMPANY LIMITED",
+        "PRIVATE LIMITED",
+        "LIMITED"
+    ]
+    
+    cleaned_name = name
+    for phrase in phrases_to_remove:
+        pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+        cleaned_name = pattern.sub("", cleaned_name)
+        
+    return " ".join(cleaned_name.split())
+
 # Generate table rows for all funds
 def generate_table_rows(funds):
     rows = ""
@@ -95,12 +121,14 @@ def generate_table_rows(funds):
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
         
+        short_scheme_name = shorten_scheme_name(scheme_name)
+        
         if pfm_name:
             pfm_names.add(pfm_name)
         
         row = f'''
         <tr data-pfm="{pfm_name}" data-tier="{tier}">
-            <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
+            <td><a href="funds/{scheme_code}" title="{scheme_name}">{short_scheme_name}</a></td>
             <td>{nav}</td>
         '''
 
