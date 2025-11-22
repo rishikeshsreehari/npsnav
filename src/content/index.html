@@ -42,6 +42,12 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
             <option value="Tier II">Tier II</option>
             <option value="Unknown">Unknown</option>
         </select>
+        <select id="schemeTypeFilter">
+            <option value="">All Schemes</option>
+            {% for scheme in SCHEME_TYPE_OPTIONS %}
+            <option value="{{ scheme }}">{{ scheme }}</option>
+            {% endfor %}
+        </select>
     </div>
     <p class="scroll-hint">Swipe to see more →</p>
     <div class="table-container">

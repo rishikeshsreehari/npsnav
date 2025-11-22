@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const filterInput = document.getElementById("filterInput");
     const pfmFilter = document.getElementById("pfmFilter");
     const tierFilter = document.getElementById("tierFilter");
+    const schemeTypeFilter = document.getElementById("schemeTypeFilter");
     let rows = Array.from(fundTable.rows);
 
     let numFundsToShow = 10; // Number of funds to show initially
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let filterText = ''; // Variable to store the filter text
     let selectedPfm = ''; // Variable to store selected PFM
     let selectedTier = ''; // Variable to store selected Tier
+    let selectedSchemeType = ''; // Variable to store selected Scheme Type
 
     // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
@@ -52,6 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedTier) {
             filteredRows = filteredRows.filter(row => {
                 return row.getAttribute('data-tier') === selectedTier;
+            });
+        }
+
+        // Apply Scheme Type filter
+        if (selectedSchemeType) {
+            filteredRows = filteredRows.filter(row => {
+                return row.getAttribute('data-scheme-type') === selectedSchemeType;
             });
         }
 
@@ -156,6 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (tierFilter) {
         tierFilter.addEventListener("change", function () {
             selectedTier = this.value;
+            allFundsShown = false;
+            renderTable();
+        });
+    }
+
+    // Add event listener for Scheme Type filter
+    if (schemeTypeFilter) {
+        schemeTypeFilter.addEventListener("change", function () {
+            selectedSchemeType = this.value;
             allFundsShown = false;
             renderTable();
         });
