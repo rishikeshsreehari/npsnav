@@ -89,15 +89,26 @@ def shorten_scheme_name(name):
     
     phrases_to_remove = [
         "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT COMPANY LTD",
         "PENSION FUND MANAGEMENT LIMITED",
+        "PENSION FUND MANAGEMENT LTD",
         "PENSION MANAGEMENT COMPANY LIMITED",
+        "PENSION MANAGEMENT COMPANY LTD",
         "PENSION FUND MANAGERS PRIVATE LIMITED",
+        "PENSION FUND MANAGERS PVT LTD",
+        "RETIREMENT SOLUTIONS LIMITED",
+        "RETIREMENT SOLUTIONS LTD",
+        "RETIREMENT SOLUTIONS",
         "PENSION FUNDS",
         "PENSION FUND",
         "MANAGEMENT LIMITED",
+        "MANAGEMENT LTD",
         "COMPANY LIMITED",
+        "COMPANY LTD",
         "PRIVATE LIMITED",
-        "LIMITED"
+        "PVT LTD",
+        "LIMITED",
+        "LTD"
     ]
     
     cleaned_name = name
