@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block title %}National Pension Scheme(NPS) Fund Performance and Latest NAV API{% endblock %}
 {% block description %}Explore the latest NAVs of all NPS funds in India. Track and analyze the top-performing National
 Pension Scheme funds. Use our simple API to track NPS NAVs directly in your Google Sheets for easier financial
@@ -12,19 +11,30 @@ pension funds, investment, financial planning, NPS NAV Excel{% endblock %}
 Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets effortlessly.{% endblock %}
 {% block og_url %}https://npsnav.in{% endblock %}
 {% block canonical %}https://npsnav.in{% endblock %}
+
 {% block content %}
 
 <section class="hero">
     <h1>Latest NAV and Historical Performance of NPS Funds</h1>
-    <p class="subheading">Stay up to date with the latest NAVs and track the top-performing National Pension Scheme
-        (NPS) funds in India.</p>
-    <p>Use our <strong>FREE API</strong> to easily integrate the latest NPS fund NAVs directly into <a
-            href="/nps-nav-sheets/">Google Sheets</a>, <a href="/nps-nav-excel/"> Microsoft Excel</a>, or other
-        financial planning tools.</p>
-    <p>Access our <a href="/nps-api#detailed-api">Detailed API</a> for comprehensive fund performance data and our <a
-            href="/nps-api#historical-api">Historical API</a> to track past NAV values.</p>
-    <a href="/nps-api/" class="cta-button">Explore API</a>
-    <p class="last-updated">Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span></p>
+    <p class="subheading">Stay up to date with the latest NAVs and track the top-performing National Pension Scheme (NPS) funds in India.</p>
+
+    <p>
+        Use our <strong>FREE API</strong> to easily integrate the latest NPS fund NAVs directly into 
+        <a href="/nps-nav-sheets">Google Sheets</a>, 
+        <a href="/nps-nav-excel">Microsoft Excel</a>, 
+        or other financial planning tools.
+    </p>
+
+    <p>
+        Access our <a href="/nps-api#detailed-api">Detailed API</a> for comprehensive fund performance data 
+        and our <a href="/nps-api#historical-api">Historical API</a> to track past NAV values.
+    </p>
+
+    <a href="/nps-api" class="cta-button">Explore API</a>
+
+    <p class="last-updated">
+        Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span>
+    </p>
 </section>
 
 <section id="funds" class="funds-table">
@@ -50,6 +60,7 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
         </select>
     </div>
     <p class="scroll-hint">Swipe to see more →</p>
+
     <div class="table-container">
         <table id="fundTable">
             <thead>
@@ -66,11 +77,14 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
                     <th>5Y <span class="sort-icon"></span></th>
                 </tr>
             </thead>
+
             <tbody id="fundTableBody">
-                {{ TABLE_ROWS }} <!-- Placeholder for dynamic table rows -->
+                {{ TABLE_ROWS }}
             </tbody>
         </table>
+
         <button id="showAllButton" style="display: none;">Show All</button>
     </div>
 </section>
+
 {% endblock %}
