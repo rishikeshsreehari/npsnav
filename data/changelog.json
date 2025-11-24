@@ -1,6 +1,13 @@
 [
 
 
+    {
+    "version": "v1.2.2",
+    "date": "2025-11-24",
+    "changes": [
+      "Added filters on home page"
+    ]},
+
   {
     "version": "v1.2.1",
     "date": "2025-11-08",
