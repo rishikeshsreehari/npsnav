@@ -2,6 +2,7 @@
 public/
 .wrangler
 wrangler.toml
+
 node_modules
 
 # Ignore everything in data for local

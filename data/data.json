@@ -109,7 +109,15 @@
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001013",
         "Scheme Name": "SBI PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -181,7 +189,15 @@
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002010",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - CORPORATE CG",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -237,7 +253,15 @@
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002013",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -365,7 +389,15 @@
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003013",
         "Scheme Name": "LIC PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -453,7 +485,15 @@
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005009",
         "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -477,7 +517,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007007",
         "Scheme Name": "NPS TRUST A/C-ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -533,7 +581,15 @@
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007009",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -557,7 +613,15 @@
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008007",
         "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME - NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -613,7 +677,15 @@
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008009",
         "Scheme Name": "HDFC PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -693,7 +765,15 @@
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010008",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER II",
-        "NAV": "10.0000"
+        "NAV": "10.0000",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": "0.00",
+        "6M": "0.00",
+        "1Y": "0.00",
+        "3Y": "0.00",
+        "5Y": "0.00"
     },
     {
         "Date": "11/21/2025",
@@ -1085,7 +1165,15 @@
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002020",
         "Scheme Name": "NPS TRUST A/C - UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER II",
-        "NAV": "10.0"
+        "NAV": "10.0",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": null,
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "11/21/2025",
@@ -1101,7 +1189,15 @@
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002022",
         "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME TIER II",
-        "NAV": "10.0"
+        "NAV": "10.0",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": null,
+        "3M": null,
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "11/21/2025",
@@ -1157,7 +1253,15 @@
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008012",
         "Scheme Name": "NPS TRUST A/C - HDFC PF NPS SURAKSHIT INCOME FUND - TIER II",
-        "NAV": "10.0"
+        "NAV": "10.0",
+        "1D": "0.00",
+        "7D": "0.00",
+        "1M": "0.00",
+        "3M": null,
+        "6M": null,
+        "1Y": null,
+        "3Y": null,
+        "5Y": null
     },
     {
         "Date": "11/21/2025",

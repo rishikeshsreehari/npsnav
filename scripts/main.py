@@ -1,19 +1,22 @@
 import os
 import shutil
 import json
+import re
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
 
-# Initialize Jinja2 environment
+
 def init_jinja_env():
     return Environment(loader=FileSystemLoader('src/templates'))
 
-# Load the base data.json file
+# ---------------------------------------------------------
+# Data loaders
+# ---------------------------------------------------------
+
 def load_base_data():
     with open('data/data.json', 'r', encoding='utf-8') as file:
         return json.load(file)
 
-# Load the changelog data
 def load_changelog():
     try:
         with open('data/changelog.json', 'r', encoding='utf-8') as file:
@@ -22,37 +25,248 @@ def load_changelog():
         print(f"Error loading changelog: {e}")
         return []
 
-# Helper function to handle null values and format NAV with two decimal places
+# ---------------------------------------------------------
+# Formatting helpers
+# ---------------------------------------------------------
+
 def format_value(value):
-    if value is None or value == "null":
+    """Handle null values and format % returns to two decimal places."""
+    if value is None or value == "null" or value == "":
         return '-'
     return f'{float(value):.2f}%'
 
-# Helper function to format NAV with two decimal places without a percentage symbol
 def format_nav(nav):
-    if nav is None or nav == "null":
+    """Format NAV with two decimal places (no % sign)."""
+    if nav is None or nav == "null" or nav == "":
         return '-'
     return f'{float(nav):.2f}'
 
-# Convert date from mm/dd/yyyy to dd-mm-yyyy format
 def convert_date_format(date_str):
+    """Convert mm/dd/yyyy to dd-mm-yyyy, else return as-is."""
     try:
         return datetime.strptime(date_str, "%m/%d/%Y").strftime("%d-%m-%Y")
     except ValueError:
         return date_str
 
-# Generate table rows for all funds
+# ---------------------------------------------------------
+# Normalisation helpers
+# ---------------------------------------------------------
+
+def normalize_pfm_name(name):
+    if not name:
+        return ""
+    name_upper = name.upper().strip()
+    if "SBI" in name_upper:
+        return "SBI Pension Funds"
+    if "LIC" in name_upper:
+        return "LIC Pension Fund"
+    if "UTI" in name_upper:
+        return "UTI Pension Fund"
+    if "HDFC" in name_upper:
+        return "HDFC Pension Management"
+    if "ICICI" in name_upper:
+        return "ICICI Prudential Pension Fund"
+    if "KOTAK" in name_upper:
+        return "Kotak Mahindra Pension Fund"
+    if "ADITYA BIRLA" in name_upper:
+        return "Aditya Birla Sun Life Pension Fund"
+    if "TATA" in name_upper:
+        return "Tata Pension Management"
+    if "MAX LIFE" in name_upper:
+        return "Max Life Pension Fund"
+    if "AXIS" in name_upper:
+        return "Axis Pension Fund"
+    if "DSP" in name_upper:
+        return "DSP Pension Fund Managers"
+    return name.strip()
+
+def extract_tier(scheme_name):
+    if not scheme_name:
+        return ""
+    scheme_upper = scheme_name.upper()
+    if "TIER II" in scheme_upper or "TIER-II" in scheme_upper or "TIER 2" in scheme_upper:
+        return "Tier II"
+    elif "TIER I" in scheme_upper or "TIER-I" in scheme_upper or "TIER 1" in scheme_upper:
+        return "Tier I"
+    return "Unknown"
+
+# ---------------------------------------------------------
+# MSF classification (used inside scheme type)
+# ---------------------------------------------------------
+
+# List/set of MSF scheme codes – added manually
+MSF_SCHEMES = {
+    # SBI
+    "SM001019",  # SBI NPS JEEVAN SWARNA RETIREMENT YOJANA - LIFE'S GOLDEN PLAN - TIER I
+    "SM001020",  # SBI NPS AKSHAY DHARA RETIREMENT YOJANA - HAPPY RETIREMENT PLAN
+    
+    # UTI
+    "SM002019",  # UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER I
+    "SM002020",  # UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER II
+    "SM002021",  # UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME - TIER I
+    "SM002022",  # UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME - TIER II
+    
+    # LIC
+    "SM003019",  # LIC PFL NPS SMART BALANCE - TIER I
+    "SM003020", # LIC PFL NPS GROWTH PLUS - TIER I
+    
+    
+    # KOTAK
+    "SM005011",  # KOTAK NPS KUBER EQUITY FUND - TIER I
+    
+    # ICICI
+    "SM007011",  # ICICI NPS MY FAMILY MY FUTURE (INMFMF) - TIER I
+    "SM007012",  # ICICI PF NPS DYNAMIC REALLOCATION ENHANCED ACCUMULATION MODEL PLAN
+    
+    # HDFC (New Additions)
+    "SM008011",  # HDFC PF NPS SURAKSHIT INCOME FUND - TIER I
+    "SM008012",  # HDFC PF NPS SURAKSHIT INCOME FUND - TIER II
+    "SM008013",  # HDFC PF NPS EQUITY ADVANTAGE FUND - TIER I
+    
+    # ABSL (New Additions)
+    "SM010010",  # ABSLPF SECURE RETIREMENT EQUITY FUND - NPS - TIER I
+    "SM010011",  # ABSLPF SECURE FUTURE FUND - NPS - TIER I
+    
+    # TATA (New Addition)
+    "SM011009",  # TATA PENSION FUND NPS SMART RETIREMENT FUND - TIER I
+    
+    # AXIS (New Addition)
+    "SM013009",  # AXIS NPS GOLDEN YEARS FUND - GROWTH - TIER I
+    
+    # DSP (New Addition)
+    "SM014009",  # DSP NPS LONG TERM EQUITY FUND - TIER I
+    
+    
+}
+
+def extract_scheme_type(scheme_name, scheme_code):
+    """
+    Classify scheme type into specific categories:
+    Returns: 'Scheme A', 'Scheme C', 'Scheme E', 'Scheme G', 'MSF', 'Corporate', or 'Others'
+    """
+    # 1. Check MSF Code first
+    if scheme_code in MSF_SCHEMES:
+        return "MSF"
+
+    if not scheme_name:
+        return "Others"
+    
+    name_upper = scheme_name.upper()
+    
+    # 2. Check Corporate (Handles "CORPORATE CG", "CORPORATE-CG", "CORPORATE  CG")
+    # Using Regex to handle hyphens and spaces flexibly
+    if re.search(r"CORPORATE[\s-]*CG", name_upper):
+        return "Corporate"
+
+    # 3. Check Standard Schemes (Handles "SCHEME A", "SCHEME-A")
+    if re.search(r"SCHEME[\s-]*A", name_upper):
+        return "Scheme A"
+    if re.search(r"SCHEME[\s-]*E", name_upper):
+        return "Scheme E"
+    if re.search(r"SCHEME[\s-]*C", name_upper):
+        return "Scheme C"
+    if re.search(r"SCHEME[\s-]*G", name_upper):
+        return "Scheme G"
+    
+    # 4. Fallback
+    return "Others"
+
+def shorten_scheme_name(name):
+    if not name:
+        return ""
+    
+    phrases_to_remove = [
+        "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGEMENT LIMITED",
+        "PENSION FUND MANAGEMENT LTD",
+        "PENSION MANAGEMENT COMPANY LIMITED",
+        "PENSION MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGERS PRIVATE LIMITED",
+        "PENSION FUND MANAGERS PVT LTD",
+        "RETIREMENT SOLUTIONS LIMITED",
+        "RETIREMENT SOLUTIONS LTD",
+        "RETIREMENT SOLUTIONS",
+        "PENSION FUNDS",
+        "PENSION FUND",
+        "MANAGEMENT LIMITED",
+        "MANAGEMENT LTD",
+        "COMPANY LIMITED",
+        "COMPANY LTD",
+        "PRIVATE LIMITED",
+        "PVT LTD",
+        "LIMITED",
+        "LTD"
+    ]
+    
+    cleaned_name = name
+    
+    # Remove NPS TRUST prefixes first
+    nps_pattern = re.compile(r"^NPS TRUST\s*-?\s*A/C\s*-?\s*|^NPS TRUST\s*-?\s*", re.IGNORECASE)
+    cleaned_name = nps_pattern.sub("", cleaned_name)
+
+    for phrase in phrases_to_remove:
+        pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+        cleaned_name = pattern.sub("", cleaned_name)
+        
+    return " ".join(cleaned_name.split())
+
+# ---------------------------------------------------------
+# Scheme type ordering
+# ---------------------------------------------------------
+
+SCHEME_TYPE_ORDER = {
+    "Scheme A": 1,
+    "Scheme C": 2,
+    "Scheme E": 3,
+    "Scheme G": 4,
+    "MSF": 5,
+    "Corporate": 6,
+    "Others": 7,
+}
+
+def sort_scheme_types(types):
+    """Sort scheme types in custom order."""
+    return sorted(types, key=lambda t: SCHEME_TYPE_ORDER.get(t, 999))
+
+# ---------------------------------------------------------
+# Table generation
+# ---------------------------------------------------------
+
 def generate_table_rows(funds):
     rows = ""
+    pfm_names = set()
+    scheme_types = set()
+    
     for fund in funds:
         scheme_name = fund['Scheme Name']
         scheme_code = fund['Scheme Code']
+        raw_pfm_name = fund.get('PFM Name', '')
+        pfm_name = normalize_pfm_name(raw_pfm_name)
+        if not pfm_name:
+            pfm_name = "Unknown"
+            
+        tier = extract_tier(scheme_name)
+        
+        # New robust regex-based extraction
+        scheme_type = extract_scheme_type(scheme_name, scheme_code)
+
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
         
+        short_scheme_name = shorten_scheme_name(scheme_name)
+        
+        if pfm_name:
+            pfm_names.add(pfm_name)
+        
+        if scheme_type:
+            scheme_types.add(scheme_type)
+        
+        # Use the exact 'scheme_type' string for the data attribute
+        # This allows the JS filter to work with "Corporate", "Scheme A", etc.
         row = f'''
-        <tr>
-            <td><a href="funds/{scheme_code}">{scheme_name}</a></td>
+        <tr data-pfm="{pfm_name}" data-tier="{tier}" data-scheme-type="{scheme_type}">
+            <td><a href="funds/{scheme_code}" class="scheme-link" data-full-name="{scheme_name}" data-short-name="{short_scheme_name}">{short_scheme_name}</a></td>
             <td>{nav}</td>
         '''
 
@@ -75,19 +289,21 @@ def generate_table_rows(funds):
                     else:
                         css_class = 'zero'
                 except ValueError:
-                    # Handle cases where value is not a valid number
                     css_class = 'null'
             
-            # Append the table cell with the appropriate CSS class
             row += f'<td class="{css_class}">{formatted_value}</td>'
         
         row += '</tr>'
         rows += row
-    return rows
+        
+    return rows, sorted(list(pfm_names)), sort_scheme_types(list(scheme_types))
 
-# Render all HTML files in the content directory
+# ---------------------------------------------------------
+# Rendering / pages
+# ---------------------------------------------------------
+
 def render_html_files(env, funds, latest_version, changelog):
-    table_rows = generate_table_rows(funds)
+    table_rows, pfm_options, scheme_type_options = generate_table_rows(funds)
     nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
     latest_changes = changelog[0] if changelog else None
 
@@ -110,6 +326,8 @@ def render_html_files(env, funds, latest_version, changelog):
                     template = env.from_string(content)
                     rendered_content = template.render(
                         TABLE_ROWS=table_rows, 
+                        PFM_OPTIONS=pfm_options,
+                        SCHEME_TYPE_OPTIONS=scheme_type_options,
                         NAV_DATE=nav_date,
                         VERSION=latest_version,
                         LATEST_CHANGES=latest_changes
@@ -146,7 +364,6 @@ def generate_scheme_list_page(env, funds):
     print(f'Scheme list page generated at {output_path}')
 
 # Function to generate the changelog page
-# Function to generate the changelog page
 def generate_changelog_page(env, changelog):
     # Load the changelog template
     template = env.get_template('changelog.html')
@@ -158,7 +375,7 @@ def generate_changelog_page(env, changelog):
     output_path = os.path.join('public', 'changelog.html')
     rendered_content = template.render(
         CHANGELOG=changelog,
-        VERSION=latest_version  # Add this line to pass the version
+        VERSION=latest_version
     )
     
     # Save the rendered content to the public directory
@@ -167,7 +384,10 @@ def generate_changelog_page(env, changelog):
     
     print(f'Changelog page generated at {output_path}')
 
-# Copy files to public directory
+# ---------------------------------------------------------
+# Static assets
+# ---------------------------------------------------------
+
 def copy_files():
     # Check and copy assets directory
     if os.path.exists('assets'):
@@ -179,7 +399,10 @@ def copy_files():
         shutil.copy('_redirects', 'public/_redirects')
         print("_redirects file has been copied.")
 
-# Main function to orchestrate the build process
+# ---------------------------------------------------------
+# Orchestration
+# ---------------------------------------------------------
+
 def build_site():
     env = init_jinja_env()
     funds = load_base_data()
