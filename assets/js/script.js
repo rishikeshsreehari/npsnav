@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedTier = ''; // Variable to store selected Tier
     let selectedSchemeType = ''; // Variable to store selected Scheme Type
 
+    // Auto-focus by default on search box in Desktop only ---
+    // This prevents the keyboard from popping up automatically on mobile devices
+    if (window.innerWidth > 768 && filterInput) {
+        filterInput.focus();
+    }
+
     // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
         fundName = fundName.toLowerCase();
@@ -193,11 +199,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Default sort by 5Y column (index 9) in descending order
-    const fiveYearHeader = headers[9]; // Adjust the index if needed
-    fiveYearHeader.classList.add("sorted-desc");
-    sortTable(9, true, false);
-
-    // Initial rendering of the table
-    renderTable();
+    // Ensure index 9 exists before trying to sort it
+    if (headers[9]) {
+        const fiveYearHeader = headers[9];
+        fiveYearHeader.classList.add("sorted-desc");
+        sortTable(9, true, false);
+    } else {
+        // Fallback: Just render the table if 5Y column doesn't exist
+        renderTable();
+    }
 });
-
