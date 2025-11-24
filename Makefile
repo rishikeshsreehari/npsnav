@@ -8,6 +8,12 @@ install:
 build:
 	uv run scripts/build.py
 
+# Build the site quickly without full build
+quick:
+	uv run scripts/main.py
+
+
+
 # Serve the site locally
 serve:
 	uv run scripts/serve_local.py
