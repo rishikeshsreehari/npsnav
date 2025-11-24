@@ -1310,5 +1310,13 @@
         "Scheme Code": "SM014009",
         "Scheme Name": "NPS TRUST A/C - DSP NPS LONG TERM EQUITY FUND - TIER I",
         "NAV": "10.057"
+    },
+    {
+        "Date": "01/01/2024",
+        "PFM Code": "PFM003",
+        "PFM Name": "LIC Pension Fund Ltd.",
+        "Scheme Code": "SM003020",
+        "Scheme Name": "NPS TRUST A/C - LIC PFL NPS GROWTH PLUS - TIER I",
+        "NAV": "0"
     }
 ]
