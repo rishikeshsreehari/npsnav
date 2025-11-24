@@ -511,23 +511,6 @@ pre {
     cursor: pointer;
 }
 
-#filterInput {
-    width: 50%;
-    padding: 0.75rem; /* Slightly larger padding for a more comfortable feel */
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ccc; /* Lighten the border for a softer look */
-    border-radius: 6px; /* Slightly increase the border radius for smoother corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a light shadow for depth */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus state */
-}
-
-#filterInput:focus {
-    border-color: #2b2c2c; /* Change the border color on focus */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance the shadow on focus for depth */
-    outline: none; /* Remove default focus outline */
-}
-
 /* Changelog page styles */
 .changelog-page {
     max-width: 800px;
@@ -991,4 +974,91 @@ header {
 
 .crypto-line:hover code {
   background-color: #c0c0c0; /* Darker grey on hover */
+}
+
+/* --- SEARCH & FILTER SECTION --- */
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem; /* Tighter gap for the filter row */
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+/* 1. The Search Bar - The "Hero" Element */
+#filterInput {
+    flex: 1 1 100%; /* Full width top row */
+    width: 100%;
+    height: 50px; /* Tall height */
+    padding: 0 1.2rem;
+    font-size: 1.1rem; /* Larger text than filters */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* Slightly stronger shadow */
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+#filterInput:focus {
+    border-color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. The Dropdowns - The "Secondary" Elements */
+.filter-container select {
+    flex: 1; 
+    min-width: 160px; /* Reduced min-width so they fit better */
+    height: 38px; /* Much shorter than search bar */
+    padding: 0 2rem 0 0.8rem; /* Compact padding */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #555; /* Slightly softer text color */
+    border: 1px solid #ddd; /* Softer border */
+    border-radius: 6px; /* Slightly tighter radius */
+    background-color: #f9f9f9; /* Subtle off-white to distinguish from search */
+    
+    /* Custom Arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.6em auto;
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+.filter-container select:hover {
+    border-color: #bbb;
+    background-color: #fff; /* Brighten on hover */
+}
+
+.filter-container select:focus {
+    border-color: #333;
+    background-color: #fff;
+    outline: none;
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .filter-container {
+        gap: 0.5rem;
+    }
+    
+    #filterInput {
+        height: 48px; /* Slightly smaller on mobile but still big */
+    }
+
+    /* On mobile, stack dropdowns but keep them compact */
+    .filter-container select {
+        width: 100%;
+        min-width: 100%;
+        height: 40px; /* A touch taller on mobile for fingers */
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
 }
