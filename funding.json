@@ -23,7 +23,7 @@
       "repositoryUrl": {
         "url": "https://github.com/rishikeshsreehari/npsnav"
       },
-      "licenses": ["spdx:AGPL-3.0"],
+      "licenses": ["spdx:AGPL-3.0", "spdx:CC-BY-NC-4.0"],
       "tags": ["nps", "finance", "india", "open-data", "api", "nav", "pension"]
     }
   ],

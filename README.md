@@ -134,4 +134,14 @@ Some existing bugs and enhancements can be viewed in the [issues section](https:
 
 ## License
 
-This project is open-source and licensed under the **AGPL-3.0 License**. See the [LICENSE](LICENSE) file for more details.
+This project uses a dual-license model:
+
+- **Code** is open-source and licensed under the **AGPL-3.0 License**.  
+  See the [LICENSE](LICENSE) file for details.
+
+- **Dataset** (files in the `/data` directory) is licensed under the  
+  **Creative Commons Attribution–NonCommercial 4.0 License (CC BY-NC 4.0)**.  
+  See the [DATA_LICENSE](DATA_LICENSE) file for usage terms.
+
+Personal, educational, and non-commercial use of the dataset is permitted.  
+Commercial use is prohibited without prior written permission.
