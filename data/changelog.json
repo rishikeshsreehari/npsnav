@@ -1,5 +1,13 @@
 [
 
+     {
+    "version": "v1.2.3",
+    "date": "2025-11-25",
+    "changes": [
+      "Added CC BY-NC 4.0 license for dataset",
+      "Updated disclaimer to reflect license change and prohibit unauthorized commercial use"
+    ]},
+
 
     {
     "version": "v1.2.2",
