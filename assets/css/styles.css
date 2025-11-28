@@ -1059,3 +1059,35 @@ header {
         width: auto;
     }
 }
+
+/* --- API Navigation Styles on nps0api.html --- */
+.api-nav {
+    margin: 25px 0 35px;
+}
+
+.api-nav dl {
+    margin: 10px 0;
+}
+
+.api-nav dt {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.api-nav dt a {
+    color: #333;
+    text-decoration: none;
+}
+
+.api-nav dt a:hover {
+    text-decoration: underline;
+}
+
+.api-nav dd {
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
