@@ -19,6 +19,7 @@ class CleanUrlHandler(http.server.SimpleHTTPRequestHandler):
         
         return super().do_GET()
 
+
 if __name__ == "__main__":
     # Ensure we are serving from the correct directory context
     if not os.path.exists(DIRECTORY):
@@ -28,9 +29,24 @@ if __name__ == "__main__":
     class ReusableTCPServer(socketserver.TCPServer):
         allow_reuse_address = True
 
-    with ReusableTCPServer(("", PORT), CleanUrlHandler) as httpd:
-        print(f"Serving at http://localhost:{PORT}")
-        try:
-            httpd.serve_forever()
-        except KeyboardInterrupt:
-            print("\nServer stopped.")
+    # Try default port first
+    port = PORT
+    try:
+        httpd = ReusableTCPServer(("", port), CleanUrlHandler)
+    except OSError:
+        # Default port busy — pick any free port automatically
+        import socket
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(("", 0))       # 0 = any free port
+            port = s.getsockname()[1]
+
+        httpd = ReusableTCPServer(("", port), CleanUrlHandler)
+
+    print(f"Serving at http://localhost:{port}")
+
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServer stopped.")
+
+
