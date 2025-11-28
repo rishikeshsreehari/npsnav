@@ -1,6 +1,15 @@
 [
 
-     {
+  {
+    "version": "v1.3.0",
+    "date": "2025-11-28",
+    "changes": [
+      "Added latest api endpoint with all funds data"
+    ]},
+   
+  
+  
+  {
     "version": "v1.2.3",
     "date": "2025-11-25",
     "changes": [
