@@ -4,3 +4,10 @@
 
 # Redirect for historical API to serve .json files
 /api/historical/:scheme_id  /api/historical/:scheme_id.json  200
+
+# Redirect for latest API to serve .json files
+/api/latest   /api/latest.json   200
+
+# Redirect for latest-min API to serve .json files
+/api/latest-min   /api/latest-min.json   200
+
