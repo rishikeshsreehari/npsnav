@@ -135,6 +135,76 @@ def generate_historical_api_files():
             
             print(f"Generated {output_file_path} with last updated date: {latest_date}")
 
+# Function to generate latest.json summarizing all funds
+def generate_latest_json(funds):
+    latest_data = []
+    last_updated_value = None
+
+    for fund in funds:
+        f = fund.copy()
+
+        # Determine the correct date field
+        date_value = f.get("Date") or f.get("Last Updated")
+        formatted_date = format_date(date_value, "%d-%m-%Y")
+
+        # Set Last Updated (does NOT remove original Date)
+        f["Last Updated"] = formatted_date
+
+        last_updated_value = formatted_date
+        latest_data.append(f)
+
+    output = {
+        "data": latest_data,
+        "metadata": {
+            "currency": "INR",
+            "dataType": "NAV",
+            "count": len(latest_data),
+            "lastUpdated": last_updated_value
+        }
+    }
+
+    os.makedirs("public/api", exist_ok=True)
+
+    with open("public/api/latest.json", "w") as f:
+        json.dump(output, f, indent=4)
+
+    print("Generated public/api/latest.json")
+
+
+# Function to generate latest-min.json summarizing all funds in compact form
+def generate_latest_min_json(funds):
+    min_data = []
+    last_updated_value = None
+
+    for fund in funds:
+        date_value = fund.get("Date") or fund.get("Last Updated")
+        formatted_date = format_date(date_value, "%d-%m-%Y")
+        last_updated_value = formatted_date
+
+        # Minimal format: [scheme_code, nav_float]
+        min_data.append([
+            fund["Scheme Code"],
+            float(fund["NAV"])
+        ])
+
+    output = {
+        "data": min_data,
+        "metadata": {
+            "currency": "INR",
+            "dataType": "NAV",
+            "count": len(min_data),
+            "lastUpdated": last_updated_value
+        }
+    }
+
+    os.makedirs("public/api", exist_ok=True)
+
+    with open("public/api/latest-min.json", "w") as f:
+        json.dump(output, f, indent=4)
+
+    print("Generated public/api/latest-min.json")
+
+
 
 # Main function to orchestrate both API text and detailed JSON file generation
 def create_api_files():
@@ -148,6 +218,12 @@ def create_api_files():
     
     # Generate historical json files
     generate_historical_api_files()
+    
+    # Generate latest.json
+    generate_latest_json(funds)
+    
+    # Generate latest-min.json
+    generate_latest_min_json(funds)
     
     print("All API files (text and JSON) have been generated successfully.")
 
