@@ -23,5 +23,4 @@ def render_compare_page(funds):
     print(f"Generated {out_path}")
 
 if __name__ == "__main__":
-    funds = load_funds()
-    render_compare_page(funds)
+    render_compare_page(load_funds())

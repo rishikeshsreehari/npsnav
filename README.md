@@ -1,4 +1,3 @@
-
 # NPSNAV.in
 
 **NPSNAV.in** is a website that tracks the **Latest NAV and Historical Performance of NPS Funds** in India. It provides up-to-date insights into the National Pension Scheme (NPS) fund performances, including the latest Net Asset Value (NAV) and historical returns, with an easy-to-use API for Google Sheets, Microsoft Excel, and other financial planning tools.
@@ -145,3 +144,35 @@ This project uses a dual-license model:
 
 Personal, educational, and non-commercial use of the dataset is permitted.  
 Commercial use is prohibited without prior written permission.
+
+## Compare Multiple Funds
+
+A new static page lets you select multiple NPS funds and compare their key metrics side-by-side.
+
+- Page: `public/compare.html` (generated during build)
+- Data source: Detailed API files at `public/api/detailed/{scheme_code}`
+
+### How it works
+- The page lists all funds with checkboxes.
+- Click “Compare Selected Funds” to render comparison cards showing NAV, 1Y, 3Y, 5Y.
+- If a fund’s detailed JSON is missing, that card is skipped gracefully.
+
+### Local Testing
+1. Fetch and build data:
+   ```
+   python3 scripts/fetch.py
+   python3 scripts/api.py
+   python3 scripts/build.py
+   ```
+2. Serve the site:
+   ```
+   python3 -m http.server -d public 8000
+   ```
+3. Open:
+   - http://localhost:8000/compare.html
+   - Select multiple funds and click “Compare Selected Funds”
+
+### Development Notes
+- Source template: `src/templates/compare.html`
+- Build step: `scripts/compare_page.py` (renders the template with Jinja2)
+- Pipeline: `scripts/build.py` includes `compare_page.py`

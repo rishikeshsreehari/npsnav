@@ -1,112 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Compare Pension Funds</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'head.html' %}
+    <title>Compare Pension Funds | NPSNAV.in</title>
     <style>
       table { border-collapse: collapse; width: 100%; }
-      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-      th { background: #f6f6f6; }
+      th, td { border: 1px solid #e5e7eb; padding: 8px; text-align: left; }
+      th { background: #f9fafb; }
       .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 16px; }
-      .card { border: 1px solid #ddd; border-radius: 8px; padding: 12px; }
+      .card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; background: #fff; }
       .title { font-weight: 600; margin-bottom: 8px; }
-      .meta { font-size: 0.9em; color: #555; margin-bottom: 6px; }
+      .meta { font-size: 0.9em; color: #6b7280; margin-bottom: 6px; }
       .row { display: flex; justify-content: space-between; margin: 4px 0; }
+      .actions { margin-top: 12px; display: flex; gap: 8px; }
+      .btn { padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 6px; background: #f3f4f6; cursor: pointer; }
+      .btn-primary { background: #2563eb; color: #fff; border-color: #2563eb; }
     </style>
   </head>
-  <body>
-    <h1>Compare Pension Funds</h1>
+  <body class="bg-gray-50 text-gray-900">
+    {% include 'header.html' %}
 
-    <form id="compare-form">
-      <table>
-        <thead>
-          <tr>
-            <th>Checkbox</th>
-            <th>Scheme Name</th>
-            <th>PFM</th>
-            <th>NAV</th>
-            <th>1Y</th>
-            <th>3Y</th>
-            <th>5Y</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for fund in funds %}
-          <tr>
-            <td><input type="checkbox" name="selected_funds" value="{{ fund['Scheme Code'] }}"></td>
-            <td>{{ fund['Scheme Name'] }}</td>
-            <td>{{ fund['PFM Name'] }}</td>
-            <td>{{ fund['NAV'] }}</td>
-            <td>{{ fund['1Y'] }}</td>
-            <td>{{ fund['3Y'] }}</td>
-            <td>{{ fund['5Y'] }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <button type="submit">Compare Selected Funds</button>
-    </form>
+    <main class="container mx-auto px-4 py-6">
+      <h1 class="text-2xl font-semibold mb-4">Compare Pension Funds</h1>
 
-    <h2>Selected Funds Comparison</h2>
-    <div id="comparison" class="grid" aria-live="polite"></div>
+      <form id="compare-form">
+        <div class="overflow-x-auto bg-white rounded-lg shadow">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th>Checkbox</th>
+                <th>Scheme Name</th>
+                <th>PFM</th>
+                <th>NAV</th>
+                <th>1Y</th>
+                <th>3Y</th>
+                <th>5Y</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fund in funds %}
+              <tr>
+                <td><input type="checkbox" name="selected_funds" value="{{ fund['Scheme Code'] }}"></td>
+                <td>{{ fund['Scheme Name'] }}</td>
+                <td>{{ fund['PFM Name'] }}</td>
+                <td>{{ fund['NAV'] }}</td>
+                <td>{{ fund['1Y'] }}</td>
+                <td>{{ fund['3Y'] }}</td>
+                <td>{{ fund['5Y'] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Compare Selected Funds</button>
+          <button type="button" id="clear-btn" class="btn">Clear Selection</button>
+        </div>
+      </form>
+
+      <section class="mt-6">
+        <h2 class="text-xl font-semibold mb-2">Selected Funds Comparison</h2>
+        <div id="comparison" class="grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
 
     <script>
-      // Dados carregados no build pelo Jinja2
-      const allFunds = [
-        {% for fund in funds %}
-        {
-          scheme_code: "{{ fund['Scheme Code'] }}",
-          scheme_name: "{{ fund['Scheme Name'] }}",
-          pfm_name: "{{ fund['PFM Name'] }}",
-          nav: "{{ fund['NAV'] }}",
-          return_1y: "{{ fund['1Y'] }}",
-          return_3y: "{{ fund['3Y'] }}",
-          return_5y: "{{ fund['5Y'] }}"
-        }{% if not loop.last %},{% endif %}
-        {% endfor %}
-      ];
-
       const form = document.getElementById('compare-form');
       const comparisonEl = document.getElementById('comparison');
+      const clearBtn = document.getElementById('clear-btn');
 
-      async function fetchDetails(codes) {
-        const results = await Promise.all(
-          codes.map(async (code) => {
-            const r = await fetch(`/api/detailed/${code}`);
-            if (!r.ok) return null;
-            const j = await r.json();
-            return {
-              scheme_code: j['Scheme Code'],
-              scheme_name: j['Scheme Name'],
-              pfm_name: j['PFM Name'],
-              nav: j['NAV'],
-              return_1y: j['1Y'],
-              return_3y: j['3Y'],
-              return_5y: j['5Y'],
-            };
-          })
-        );
-        return results.filter(Boolean);
+      async function fetchDetails(code) {
+        try {
+          const r = await fetch(`/api/detailed/${code}`);
+          if (!r.ok) return null;
+          const j = await r.json();
+          return {
+            scheme_code: j['Scheme Code'],
+            scheme_name: j['Scheme Name'],
+            pfm_name: j['PFM Name'],
+            nav: j['NAV'],
+            return_1y: j['1Y'],
+            return_3y: j['3Y'],
+            return_5y: j['5Y'],
+          };
+        } catch {
+          return null;
+        }
       }
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const checked = Array.from(form.querySelectorAll('input[name="selected_funds"]:checked')).map(i => i.value);
 
-        const details = await fetchDetails(checked); // usa API detalhada
-        comparisonEl.innerHTML = details.length
-          ? details.map(f => `
-            <div class="card">
-              <div class="title">${f.scheme_name}</div>
-              <div class="meta">PFM: ${f.pfm_name} | Code: ${f.scheme_code}</div>
-              <div class="row"><span>NAV</span><strong>${f.nav}</strong></div>
-              <div class="row"><span>1Y</span><strong>${f.return_1y}</strong></div>
-              <div class="row"><span>3Y</span><strong>${f.return_3y}</strong></div>
-              <div class="row"><span>5Y</span><strong>${f.return_5y}</strong></div>
-            </div>
-          `).join('')
-          : '<p>No funds selected.</p>';
+        if (checked.length === 0) {
+          comparisonEl.innerHTML = '<p>No funds selected.</p>';
+          return;
+        }
+
+        const details = (await Promise.all(checked.map(fetchDetails))).filter(Boolean);
+
+        if (details.length === 0) {
+          comparisonEl.innerHTML = '<p>Could not load details for selected funds.</p>';
+          return;
+        }
+
+        comparisonEl.innerHTML = details.map(f => `
+          <div class="card">
+            <div class="title">${f.scheme_name}</div>
+            <div class="meta">PFM: ${f.pfm_name} | Code: ${f.scheme_code}</div>
+            <div class="row"><span>NAV</span><strong>${f.nav}</strong></div>
+            <div class="row"><span>1Y</span><strong>${f.return_1y}</strong></div>
+            <div class="row"><span>3Y</span><strong>${f.return_3y}</strong></div>
+            <div class="row"><span>5Y</span><strong>${f.return_5y}</strong></div>
+          </div>
+        `).join('');
+      });
+
+      clearBtn.addEventListener('click', () => {
+        form.querySelectorAll('input[name="selected_funds"]').forEach(i => (i.checked = false));
+        comparisonEl.innerHTML = '';
       });
     </script>
   </body>
