@@ -3,61 +3,106 @@
 {% block title %}Compare Pension Funds | NPSNAV.in{% endblock %}
 
 {% block content %}
-  <div class="container mx-auto px-4 py-6">
-    <h1 class="text-2xl font-semibold mb-4">Compare Pension Funds</h1>
+<div class="container mx-auto px-4 sm:px-4 md:px-6 lg:px-8 py-6">
+  <h1 class="text-2xl font-semibold mb-4">Compare Pension Funds</h1>
 
-    <form id="compare-form">
-      <div class="overflow-x-auto bg-white rounded-lg shadow">
-        <table class="min-w-full">
-          <thead class="bg-gray-50">
-            <tr>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Select</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Scheme Name</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">PFM</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">NAV</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">1Y</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">3Y</th>
-              <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">5Y</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            {% for fund in funds %}
-            <tr class="bg-white">
-              <td class="px-4 py-2">
-                <input type="checkbox" name="selected_funds" value="{{ fund['Scheme Code'] }}">
-              </td>
-              <td class="px-4 py-2">{{ fund['Scheme Name'] }}</td>
-              <td class="px-4 py-2">{{ fund['PFM Name'] }}</td>
-              <td class="px-4 py-2">{{ fund['NAV'] }}</td>
-              <td class="px-4 py-2">{{ fund['1Y'] }}</td>
-              <td class="px-4 py-2">{{ fund['3Y'] }}</td>
-              <td class="px-4 py-2">{{ fund['5Y'] }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="mt-3 flex gap-2">
-        <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white">Compare Selected Funds</button>
-        <button type="button" id="clear-btn" class="px-4 py-2 rounded border">Clear</button>
-      </div>
-    </form>
-
-    <section class="mt-6">
-      <h2 class="text-xl font-semibold mb-2">Selected Funds Comparison</h2>
-      <div id="comparison" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" aria-live="polite"></div>
-    </section>
+  <!-- Info / Tooltip -->
+  <div class="mb-4 text-sm text-gray-700">
+    Select multiple funds to compare key metrics side-by-side and view a combined trend chart. Use the search to filter lists. Data shown is from the latest build.
   </div>
+
+  <!-- Selected Funds -->
+  <div class="mb-4 bg-white rounded-lg shadow p-3">
+    <h2 class="text-lg font-semibold mb-2">Selected funds</h2>
+    <div id="selected-list" class="flex flex-wrap gap-2"></div>
+  </div>
+
+  <!-- Search -->
+  <div class="mb-4">
+    <input id="search-input" type="text" placeholder="Search funds by name or PFM..." class="w-full max-w-lg border rounded px-3 py-2" />
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto bg-white rounded-lg shadow">
+    <table class="min-w-full">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700 w-16">Select</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">Scheme Name</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">PFM</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">NAV</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">1Y</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">3Y</th>
+          <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">5Y</th>
+        </tr>
+      </thead>
+      <tbody id="funds-tbody" class="divide-y divide-gray-200">
+        {% for fund in funds %}
+        <tr>
+          <td class="px-3 py-2">
+            <input type="checkbox" class="fund-checkbox" value="{{ fund['Scheme Code'] }}">
+          </td>
+          <td class="px-3 py-2">{{ fund['Scheme Name'] }}</td>
+          <td class="px-3 py-2">{{ fund['PFM Name'] }}</td>
+          <td class="px-3 py-2">{{ fund['NAV'] }}</td>
+          <td class="px-3 py-2">{{ fund['1Y'] if fund['1Y'] else '-' }}</td>
+          <td class="px-3 py-2">{{ fund['3Y'] if fund['3Y'] else '-' }}</td>
+          <td class="px-3 py-2">{{ fund['5Y'] if fund['5Y'] else '-' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Actions -->
+  <div class="mt-3 flex gap-2">
+    <button id="compare-btn" class="px-4 py-2 rounded bg-blue-600 text-white">Compare Selected Funds</button>
+    <button id="clear-btn" class="px-4 py-2 rounded border">Clear</button>
+  </div>
+
+  <!-- Comparison Table -->
+  <section class="mt-6">
+    <h2 class="text-xl font-semibold mb-2">Tabular Comparison</h2>
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+      <table class="min-w-full">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">Fund</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">PFM</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">NAV</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">1Y</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">3Y</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">5Y</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">Vs Nifty (1Y)</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">Vs Nifty (3Y)</th>
+            <th class="px-3 py-2 text-left text-sm font-medium text-gray-700">Vs Nifty (5Y)</th>
+          </tr>
+        </thead>
+        <tbody id="compare-tbody" class="divide-y divide-gray-200"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Chart -->
+  <section class="mt-6">
+    <h2 class="text-xl font-semibold mb-2">Trend Comparison</h2>
+    <div class="bg-white rounded-lg shadow p-3">
+      <!-- altura fixa via estilo inline para evitar expansão -->
+      <div style="height: 360px;">
+        <canvas id="compare-chart"></canvas>
+      </div>
+      <p class="text-sm text-gray-600 mt-2">Trend built from historical NAV of selected funds. If a fund has limited history, its line may be shorter.</p>
+    </div>
+  </section>
+</div>
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
-  const form = document.getElementById('compare-form');
-  const comparisonEl = document.getElementById('comparison');
-  const clearBtn = document.getElementById('clear-btn');
+  const fmt = (v) => (v === null || v === undefined || v === '' || v === 'None' ? '-' : v);
 
-  // Embute os dados essenciais no build (sem fetch)
+  // Dados essenciais para busca/compare (injetados pelo build)
   const ALL_FUNDS = [
     {% for fund in funds %}
     {
@@ -65,36 +110,199 @@
       name: `{{ fund['Scheme Name']|e }}`,
       pfm: `{{ fund['PFM Name']|e }}`,
       nav: `{{ fund['NAV'] }}`,
-      y1: `{{ fund['1Y'] }}`,
-      y3: `{{ fund['3Y'] }}`,
-      y5: `{{ fund['5Y'] }}`
+      y1: `{{ fund['1Y'] if fund['1Y'] else '' }}`,
+      y3: `{{ fund['3Y'] if fund['3Y'] else '' }}`,
+      y5: `{{ fund['5Y'] if fund['5Y'] else '' }}`
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ];
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const checked = Array.from(form.querySelectorAll('input[name="selected_funds"]:checked')).map(i => i.value);
+  const tbody = document.getElementById('funds-tbody');
+  const compareTbody = document.getElementById('compare-tbody');
+  const selectedList = document.getElementById('selected-list');
+  const searchInput = document.getElementById('search-input');
+  const compareBtn = document.getElementById('compare-btn');
+  const clearBtn = document.getElementById('clear-btn');
 
-    const details = ALL_FUNDS.filter(f => checked.includes(f.code));
+  // Busca/filtragem
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase();
+    Array.from(tbody.querySelectorAll('tr')).forEach((tr) => {
+      const name = tr.children[1].textContent.toLowerCase();
+      const pfm = tr.children[2].textContent.toLowerCase();
+      tr.style.display = (name.includes(q) || pfm.includes(q)) ? '' : 'none';
+    });
+  });
 
-    comparisonEl.innerHTML = details.length
-      ? details.map(f => `
-        <div class="bg-white rounded-lg shadow p-4">
-          <div class="font-semibold mb-1">${f.name}</div>
-          <div class="text-sm text-gray-600 mb-2">PFM: ${f.pfm} • Code: ${f.code}</div>
-          <div class="flex justify-between py-1"><span>NAV</span><strong>${f.nav}</strong></div>
-          <div class="flex justify-between py-1"><span>1Y</span><strong>${f.y1}</strong></div>
-          <div class="flex justify-between py-1"><span>3Y</span><strong>${f.y3}</strong></div>
-          <div class="flex justify-between py-1"><span>5Y</span><strong>${f.y5}</strong></div>
-        </div>
-      `).join('')
-      : '<p class="text-gray-600">No funds selected.</p>';
+  function updateSelectedTop() {
+    const checkedCodes = Array.from(document.querySelectorAll('.fund-checkbox:checked')).map(i => i.value);
+    selectedList.innerHTML = checkedCodes.length
+      ? checkedCodes.map(code => {
+          const f = ALL_FUNDS.find(x => x.code === code);
+          return `<span class="inline-flex items-center gap-2 px-2 py-1 border rounded text-sm">
+            ${f ? f.name : code}
+            <button class="text-red-600" data-unselect="${code}" title="Remove">x</button>
+          </span>`;
+        }).join('')
+      : '<span class="text-gray-600 text-sm">No funds selected.</span>';
+
+    // Unselect handler
+    selectedList.querySelectorAll('button[data-unselect]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.dataset.unselect;
+        const chk = document.querySelector(`.fund-checkbox[value="${code}"]`);
+        if (chk) chk.checked = false;
+        updateSelectedTop();
+      });
+    });
+  }
+
+  document.querySelectorAll('.fund-checkbox').forEach(chk => {
+    chk.addEventListener('change', updateSelectedTop);
+  });
+
+  // limita a série aos últimos N pontos
+  const MAX_POINTS = 180; // ~6 meses
+
+  async function loadHistory(code) {
+    try {
+      const r = await fetch(`/api/historical/${code}.json`);
+      if (!r.ok) return [];
+      const j = await r.json();
+
+      let arr = [];
+      if (Array.isArray(j)) arr = j;
+      else if (Array.isArray(j.data)) arr = j.data;
+      else if (Array.isArray(j.history)) arr = j.history;
+      else if (j && typeof j === 'object') {
+        arr = Object.keys(j).map(k => ({ date: k, nav: j[k] }));
+      }
+
+      // ordena por data e pega os últimos MAX_POINTS
+      arr.sort((a, b) => new Date(a.date) - new Date(b.date));
+      return arr.slice(-MAX_POINTS);
+    } catch {
+      return [];
+    }
+  }
+
+  function randomColor() {
+    const c = Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    return '#' + c;
+  }
+
+  async function buildChart(codes) {
+    if (typeof Chart === 'undefined') {
+      console.warn('Chart.js not loaded, skipping chart render.');
+      return;
+    }
+
+    const datasets = [];
+    let labels = [];
+
+    for (const code of codes) {
+      const hist = await loadHistory(code);
+      if (!hist || hist.length === 0) continue;
+
+      // Usa as datas da primeira série como labels base
+      if (labels.length === 0) {
+        labels = hist.map(h => String(h.date));
+      }
+
+      // Mapeia série alinhando por label
+      const dateToNav = new Map(hist.map(h => [String(h.date), Number(h.nav)]));
+      const series = labels.map(d => {
+        const v = dateToNav.get(d);
+        return Number.isFinite(v) ? v : null;
+      });
+
+      datasets.push({
+        label: code,
+        data: series,
+        borderColor: randomColor(),
+        pointRadius: 0,
+        borderWidth: 2,
+        fill: false,
+        tension: 0.2,
+        spanGaps: true
+      });
+    }
+
+    const canvas = document.getElementById('compare-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (window.compareChart) window.compareChart.destroy();
+
+    window.compareChart = new Chart(ctx, {
+      type: 'line',
+      data: { labels, datasets },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true, // respeita altura do container
+        animation: false,          // remove animações para reduzir lag
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 12 } },
+          decimation: { enabled: true, algorithm: 'lttb' } // downsample automático
+        },
+        interaction: { mode: 'nearest', intersect: false },
+        scales: {
+          x: {
+            ticks: { autoSkip: true, maxTicksLimit: 8 },
+            grid: { display: false }
+          },
+          y: {
+            ticks: { maxTicksLimit: 6 },
+            grid: { color: 'rgba(0,0,0,0.05)' }
+          }
+        }
+      }
+    });
+  }
+
+  // Evita interferência de scripts globais que esperam elementos específicos
+  document.addEventListener('DOMContentLoaded', () => {
+    // Se algum script global usa table.rows, garanta que só execute quando a tabela existir
+    const table = document.querySelector('#funds-tbody');
+    if (!table) {
+      console.warn('Compare: funds table body not found; skipping global table handlers.');
+    }
+  });
+
+  function buildComparisonTable(codes) {
+    const rows = codes.map(code => {
+      const f = ALL_FUNDS.find(x => x.code === code);
+      return `<tr>
+        <td class="px-3 py-2">${fmt(f?.name)}</td>
+        <td class="px-3 py-2">${fmt(f?.pfm)}</td>
+        <td class="px-3 py-2">${fmt(f?.nav)}</td>
+        <td class="px-3 py-2">${fmt(f?.y1)}</td>
+        <td class="px-3 py-2">${fmt(f?.y3)}</td>
+        <td class="px-3 py-2">${fmt(f?.y5)}</td>
+        <td class="px-3 py-2">-</td>
+        <td class="px-3 py-2">-</td>
+        <td class="px-3 py-2">-</td>
+      </tr>`;
+    }).join('');
+    compareTbody.innerHTML = rows || '<tr><td colspan="9" class="px-3 py-2 text-gray-600">No funds selected.</td></tr>';
+  }
+
+  compareBtn.addEventListener('click', async () => {
+    const codes = Array.from(document.querySelectorAll('.fund-checkbox:checked')).map(i => i.value);
+    updateSelectedTop();
+    buildComparisonTable(codes);
+    await buildChart(codes);
+    // Scroll suave até as comparações
+    document.getElementById('compare-chart').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   clearBtn.addEventListener('click', () => {
-    form.querySelectorAll('input[name="selected_funds"]').forEach(i => (i.checked = false));
-    comparisonEl.innerHTML = '';
+    document.querySelectorAll('.fund-checkbox').forEach(i => (i.checked = false));
+    updateSelectedTop();
+    compareTbody.innerHTML = '';
+    if (window.compareChart) window.compareChart.destroy();
   });
+
+  // Inicializa selecionados
+  updateSelectedTop();
 </script>
 {% endblock %}

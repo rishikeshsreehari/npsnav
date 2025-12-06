@@ -10,12 +10,12 @@ def run_script(script_path):
 
 if __name__ == "__main__":
     scripts = [
-        'scripts/fetch.py',        # gera data/data.json
+        # 'scripts/fetch.py',       
         'scripts/calculate.py',
         'scripts/main.py',
-        'scripts/api.py',          # gera public/api/*
+        'scripts/api.py',            # gera public/api/*
         'scripts/funds.py',
-        'scripts/compare_page.py', # gera public/compare.html
+        'scripts/compare_page.py',   # gera public/compare.html
         'scripts/minify.py',
         'scripts/robots-sitemap.py'
     ]

@@ -125,11 +125,49 @@ GitHub Actions trigger `fetch.py` every day at **11 AM** and **11 PM IST**. This
 
 The site is hosted on Cloudflare Pages. The stats are collected using GoatCounter and can be viewed [here](https://npsnav.goatcounter.com/). Please note that these stats do not include API calls.
 
+## Local Development
+
+Use Make commands to build and serve the site locally.
+
+```bash
+make build
+make serve
+# open http://localhost:8000
+```
+
+Notes:
+- Do not run `scripts/fetch.py` locally; data fetching is handled by GitHub Actions daily.
+- The build reads from pre-fetched data and generates static assets in `public/`.
+
+## Compare Page
+
+The Compare page allows selecting multiple funds to view:
+- A searchable table (filter by fund name or PFM).
+- A “Selected funds” list at the top for quick review and unselect.
+- A tabular comparison of NAV and returns (1Y/3Y/5Y).
+- A trend chart built from historical NAV for selected funds.
+
+How to test:
+1) `make build`
+2) `make serve`
+3) Open `http://localhost:8000/compare.html`
+4) Use the search box, select funds via checkboxes, then click “Compare Selected Funds”.
+
+Implementation details:
+- Template extends `base.html` to ensure consistent CSS/JS across pages.
+- Chart uses Chart.js with decimation and fixed height for performance.
+- Missing returns show as “-” if history is insufficient or not computed yet.
+- Benchmark columns “Vs Nifty (1Y/3Y/5Y)” are placeholders and will be wired when benchmark data is exposed in the build output.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request to contribute.
 
 Some existing bugs and enhancements can be viewed in the [issues section](https://github.com/rishikeshsreehari/npsnav/issues).
+
+- Keep templates aligned with `base.html` and existing UX patterns from `funds.html` and the home page.
+- Avoid adding `fetch.py` to local build steps; CI runs it automatically.
+- Validate changes locally with `make build` and `make serve` before opening a PR.
 
 ## License
 
