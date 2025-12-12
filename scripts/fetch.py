@@ -59,20 +59,27 @@ def get_pfm_scheme_mappings():
     
     return {}, {}, {}
 
-def get_last_date_for_scheme(scheme_code):
-    """Get the last date available for a specific scheme"""
+def get_existing_dates(scheme_code):
+    """Get a set of all dates already present for a specific scheme"""
     scheme_file = os.path.join('data', f"{scheme_code}.json")
+    existing_dates = set()
+    
     if os.path.exists(scheme_file):
         try:
             with open(scheme_file, 'r') as f:
                 scheme_data = json.load(f)
             if scheme_data:
-                # Get the most recent date (files are sorted in reverse chronological order)
-                latest_date_str = list(scheme_data.keys())[0]
-                return datetime.strptime(latest_date_str, DATE_FORMAT)
+                # Convert string dates to datetime objects for comparison
+                for date_str in scheme_data.keys():
+                    try:
+                        dt = datetime.strptime(date_str, DATE_FORMAT)
+                        existing_dates.add(dt)
+                    except ValueError:
+                        continue
         except Exception as e:
-            logger.warning(f"Could not get last date for {scheme_code}: {e}")
-    return None
+            logger.warning(f"Could not read existing dates for {scheme_code}: {e}")
+            
+    return existing_dates
 
 def try_read_file_alternative(file_content):
     """Try to read file with different approaches - TSV, CSV, or Excel"""
@@ -241,8 +248,8 @@ def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
             logger.warning(f"File is empty for {pfm_code}/{scheme_code}")
             return []
         
-        # Get existing data to avoid duplicates
-        last_date = get_last_date_for_scheme(scheme_code)
+        # Get existing dates to prevent duplicates but allow backfill
+        existing_dates = get_existing_dates(scheme_code)
         
         pfm_name = pfm_names.get(pfm_code, "Unknown PFM")
         scheme_name = scheme_names.get(scheme_code, "Unknown Scheme")
@@ -312,8 +319,9 @@ def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
                 if not formatted_date or not current_date:
                     continue
                 
-                # Skip if we already have this date or newer
-                if last_date and current_date <= last_date:
+                # FIX: Check if we specifically have this date, rather than if it's older than the latest
+                # This allows backfilling of missing historical dates
+                if current_date in existing_dates:
                     continue
                 
                 # Parse NAV value
@@ -332,6 +340,9 @@ def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
                     "NAV": nav_value
                 }
                 data_list.append(scheme_data)
+                
+                # Add to set to prevent duplicates within the same run/file
+                existing_dates.add(current_date)
                 new_records_count += 1
                 
             except Exception as e:
