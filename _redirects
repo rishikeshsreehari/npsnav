@@ -11,3 +11,8 @@
 # Redirect for latest-min API to serve .json files
 /api/latest-min   /api/latest-min.json   200
 
+# Redirect for schemes API to serve scheme.json file
+/api/schemes   /api/schemes.json   200
+
+# Redirect for /openapi to serve openapi.json file
+/openapi   /openapi.json   200
