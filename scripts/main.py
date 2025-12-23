@@ -398,6 +398,11 @@ def copy_files():
     if os.path.exists('_redirects'):
         shutil.copy('_redirects', 'public/_redirects')
         print("_redirects file has been copied.")
+        
+    # Check and copy openapi.json file
+    if os.path.exists('openapi.json'):
+        shutil.copy('openapi.json', 'public/openapi.json')
+        print("openapi.json file has been copied.")
 
 # ---------------------------------------------------------
 # Orchestration
