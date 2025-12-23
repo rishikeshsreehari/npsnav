@@ -60,7 +60,6 @@ nav ul li a {
     text-decoration: none;
     border-radius: 0.25rem; /* Slightly rounded corners */
     border: 1px solid #333; /* Consistent with button color */
-    margin-top: 1.5rem; /* Add margin to the top for spacing */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1090,4 +1089,236 @@ header {
     color: #555;
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+/* --- NPSNAV Swagger UI Overrides --- */
+
+/* 1. Hide the bulky header elements, server selector, and the "default" tag header */
+.swagger-ui .scheme-container, 
+.swagger-ui .servers,
+.swagger-ui .opblock-tag-section > h4,
+.swagger-ui .opblock-tag {
+    display: none !important;
+}
+
+/* 2. Fix Code Block Visibility (Dark mode for JSON/Code) */
+.swagger-ui .model-box,
+.swagger-ui .microlight,
+.swagger-ui pre {
+    background: #2d2d2d !important; /* Dark grey for contrast */
+    color: #f8f8f2 !important;     /* Off-white text */
+    padding: 15px !important;
+    border-radius: 4px !important;
+    border: none !important;
+}
+
+/* 3. Style the API GET blocks to match your site's green */
+.swagger-ui .opblock.opblock-get {
+    border: 1px solid #ddd !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    margin-bottom: 12px !important;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+    background: #16A085 !important; /* Your positive green from existing CSS */
+    border-radius: 3px !important;
+    font-weight: bold !important;
+}
+
+/* 4. Match site typography and button styles */
+.swagger-ui .info .title, 
+.swagger-ui .info p, 
+.swagger-ui .opblock-summary-path {
+    font-family: 'Arial', sans-serif !important;
+}
+
+.swagger-ui .btn.execute {
+    background-color: #333 !important; /* Matches your .cta-button */
+    color: #fff !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.swagger-ui .btn.execute:hover {
+    background-color: #16A085 !important;
+}
+
+/* 5. Clean up info section badges */
+.swagger-ui .info .version, 
+.swagger-ui .info .oas {
+    color: #666 !important;
+    background: #f5f5f5 !important;
+    padding: 4px 8px !important;
+    border: 1px solid #ddd !important;
+}
+
+
+
+/* --- Hero SEO & Layout --- */
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    letter-spacing: -0.01em;
+}
+
+.hero .subheading {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.5;
+}
+
+/* Subtle link styling for SEO keywords */
+.hero .subheading a {
+    color: #333;
+    text-decoration: underline;
+    text-decoration-color: #ddd;
+    font-weight: 500;
+}
+
+.hero .subheading a:hover {
+    text-decoration-color: #333;
+}
+
+/* Button Grouping */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 2rem 0 1rem 0;
+}
+
+/* Primary Button: Playground */
+.playground-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid #333 !important;
+}
+
+/* Secondary Button: Documentation */
+.secondary-cta {
+    background-color: #fff !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+}
+
+.secondary-cta:hover {
+    background-color: #f9f9f9 !important;
+    border-color: #333 !important;
+}
+
+/* Meta Data (Tiny Text) */
+.meta-info {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #535353;
+   
+    letter-spacing: 0.05em;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive Stack */
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-actions .cta-button {
+        width: 100%;
+        max-width: 280px;
+      
+    }
+
+    .playground-btn {
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    /* Stack buttons vertically and center them */
+    .hero-actions {
+        flex-direction: column; 
+        align-items: center;    /* Centers children horizontally in a column */
+        gap: 15px;
+        width: 100%;
+    }
+    
+    /* Ensure buttons take up consistent width and center their own content */
+    .hero-actions .cta-button {
+        width: 100%;            /* Full width of the container */
+        max-width: 280px;       /* Prevents buttons from being too wide on tablets */
+        display: flex;          /* Allows internal centering */
+        justify-content: center; /* Centers the text/icon inside the button */
+        margin: 0 auto;         /* Safety centering */
+    }
+
+    .hero .subheading {
+        padding: 0 10px;        /* Prevents text from hitting screen edges */
+    }
+}
+
+/* --- Documentation Page Refinements --- */
+
+.doc-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 20px;
+}
+
+/* Ensure the title doesn't wrap awkwardly */
+.doc-header-actions h1 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+/* Compact version of the playground button for the docs page */
+.playground-btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1.2rem;
+    background-color: #333;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.playground-btn-small:hover {
+    background-color: #16A085; /* Site's signature green */
+    text-decoration: none;
+}
+
+.playground-btn-small:active {
+    transform: translateY(1px);
+}
+
+/* Mobile Responsiveness for Docs Header */
+@media (max-width: 768px) {
+    .doc-header-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .playground-btn-small {
+        width: 100%;
+        justify-content: center;
+    }
 }

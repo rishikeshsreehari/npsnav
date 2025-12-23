@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}NPSNAV API Playground{% endblock %}
+{% block description %}Interactive console to test the NPSNAV public API endpoints.{% endblock %}
+{% block canonical %}https://npsnav.in/api/{% endblock %}
+
+{% block content %}
+<div class="doc-container">
+    <div id="swagger-ui"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+<script>
+window.onload = () => {
+  SwaggerUIBundle({
+    url: "https://npsnav.in/openapi.json",
+    dom_id: "#swagger-ui",
+    deepLinking: true,
+    docExpansion: 'list',       // Expands the list by default
+    defaultModelsExpandDepth: -1, // Hides the complex Models section
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    layout: "BaseLayout"
+  });
+};
+</script>
+{% endblock %}
