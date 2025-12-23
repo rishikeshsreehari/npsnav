@@ -1,14 +1,19 @@
 [
 
-  
   {
-    "version": "v1.3.1",
-    "date": "2025-12-23",
-    "changes": [
-      "Added Schemes API end point with scheme code mapping",
-      "Added openapi.json file for API documentation"
-    ]},
-   
+  "version": "v1.4.0",
+  "date": "2025-12-23",
+  "changes": [
+    "Launched Interactive API Playground (Swagger UI) for real-time testing",
+    "Added Schemes API end point with scheme code mapping",
+    "Added openapi.json file for API documentation",
+    "Standardized API metadata and response headers",
+    "Redesigned hero section on home page",
+    "Added header with navigation links"
+  ]
+  },
+  
+
 
 
 
