@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "NPSNAV Public API",
-    "description": "Public API for accessing Net Asset Values (NAVs) of India's National Pension Scheme (NPS) funds.\n\nNo authentication required.\nUnlimited usage.\nDesigned for Google Sheets, Microsoft Excel, and financial dashboards.",
+    "description": "Public API for accessing Net Asset Values (NAVs) of India's National Pension Scheme (NPS) funds.\n\nNo authentication required.\nUnlimited non-commercial usage.\nDesigned for Google Sheets, Microsoft Excel, and personal financial dashboards.",
     "version": "1.1.0"
   },
   "servers": [
@@ -14,11 +14,11 @@
   "paths": {
     "/api/schemes": {
       "get": {
-        "summary": "Schemes API (Discovery)",
+        "summary": "All Schemes API",
         "description": "Returns the list of all available NPS scheme codes and scheme names.\n\nUse this endpoint to discover valid `scheme_code` values before calling other APIs.",
         "responses": {
           "200": {
-            "description": "List of NPS schemes",
+            "description": "List of all NPS schemes",
             "content": {
               "application/json": {
                 "schema": {
@@ -52,7 +52,7 @@
 
     "/api/{scheme_code}": {
       "get": {
-        "summary": "Simple NAV API (Plain Text)",
+        "summary": "Latest NAV API",
         "description": "Returns the raw NAV value as plain text for a single NPS fund.\n\nIdeal for spreadsheet functions like IMPORTDATA (Google Sheets) and WEBSERVICE (Excel).",
         "parameters": [
           {
@@ -83,7 +83,7 @@
 
     "/api/latest": {
       "get": {
-        "summary": "Latest NAV for All Funds (Detailed)",
+        "summary": "Latest NAV of All Funds (Detailed)",
         "description": "Returns the most recent NAV values for all NPS funds with PFM details and last updated date.",
         "responses": {
           "200": {
@@ -127,7 +127,7 @@
 
     "/api/latest-min": {
       "get": {
-        "summary": "Latest NAV for All Funds (Minimal)",
+        "summary": "Latest NAV of All Funds (Minimal)",
         "description": "Lightweight endpoint returning only Scheme Code and NAV for all funds.",
         "responses": {
           "200": {
@@ -165,7 +165,7 @@
 
     "/api/detailed/{scheme_code}": {
       "get": {
-        "summary": "Detailed Fund Data (With Returns)",
+        "summary": "Detailed All Funds Data",
         "description": "Returns NAV along with 1D to 5Y return percentages for a specific NPS fund.",
         "parameters": [
           {
@@ -211,7 +211,7 @@
 
     "/api/historical/{scheme_code}": {
       "get": {
-        "summary": "Historical NAV Data",
+        "summary": "Historical Fund NAV Data",
         "description": "Returns historical daily NAV values for a specific NPS fund.",
         "parameters": [
           {
