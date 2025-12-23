@@ -203,11 +203,43 @@ def generate_latest_min_json(funds):
         json.dump(output, f, indent=4)
 
     print("Generated public/api/latest-min.json")
+    
+# Function to generate schemes.json (scheme code + scheme name only)
+def generate_schemes_json(funds):
+    schemes = []
+    last_updated_value = None
+
+    for fund in funds:
+        schemes.append([
+            fund["Scheme Code"],
+            fund["Scheme Name"]
+        ])
+
+        # Track last updated date (best effort)
+        date_value = fund.get("Date") or fund.get("Last Updated")
+        if date_value:
+            last_updated_value = format_date(date_value, "%d-%m-%Y")
+
+    output = {
+        "data": schemes,
+        "metadata": {
+            "count": len(schemes),
+            "lastUpdated": last_updated_value
+        }
+    }
+
+    os.makedirs("public/api", exist_ok=True)
+
+    with open("public/api/schemes.json", "w") as f:
+        json.dump(output, f, indent=4)
+
+    print("Generated public/api/schemes.json")
 
 
 
 # Main function to orchestrate both API text and detailed JSON file generation
 def create_api_files():
+    
     funds = load_base_data()
     
     # Generate plain text HTML files with NAV only
@@ -224,6 +256,9 @@ def create_api_files():
     
     # Generate latest-min.json
     generate_latest_min_json(funds)
+    
+    # Generate schemes.json
+    generate_schemes_json(funds)
     
     print("All API files (text and JSON) have been generated successfully.")
 
