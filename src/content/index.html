@@ -14,28 +14,35 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
 
 {% block content %}
 
+
 <section class="hero">
-    <h1>Latest NAV and Historical Performance of NPS Funds</h1>
-    <p class="subheading">Stay up to date with the latest NAVs and track the top-performing National Pension Scheme (NPS) funds in India.</p>
-
-    <p>
-        Use our <strong>FREE API</strong> to easily integrate the latest NPS fund NAVs directly into 
+    <h1>India's NPS Fund Database & API</h1>
+    <p class="subheading">
+        Access the <strong>latest NPS NAV</strong> and complete historical data for FREE. 
+        Easily integrate live fund values into 
         <a href="/nps-nav-sheets">Google Sheets</a>, 
-        <a href="/nps-nav-excel">Microsoft Excel</a>, 
-        or other financial planning tools.
+        <a href="/nps-nav-excel">Excel</a>, or other tools.
     </p>
 
-    <p>
-        Access our <a href="/nps-api#detailed-api">Detailed API</a> for comprehensive fund performance data 
-        and our <a href="/nps-api#historical-api">Historical API</a> to track past NAV values.
-    </p>
+    <div class="hero-actions">
+        <a href="/nps-api" class="cta-button secondary-cta">
+            Documentation
+        </a>
 
-    <a href="/nps-api" class="cta-button">Explore API</a>
+        <a href="/api" class="cta-button playground-btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            API Playground
+        </a>
+    </div>
 
-    <p class="last-updated">
-        Last updated on: <span id="lastUpdated">{{ NAV_DATE }}</span>
-    </p>
+    <div class="meta-info">
+        Free for non-commercial use • NAV updated: <span id="lastUpdated">{{ NAV_DATE }}</span>
+    </div>
 </section>
+
 
 <section id="funds" class="funds-table">
    
