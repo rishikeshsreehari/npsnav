@@ -1,13 +1,14 @@
 [
 
-    {
-  "version": "v1.4.0",
-  "date": "2026-02-02",
-  "changes": [
-    "Launched Interactive API Playground (Swagger UI) for real-time testing"
-  ]
+  {
+    "version": "v1.4.1",
+    "date": "2026-02-02",
+    "changes": [
+      "Added support for index page filters via URL query parameters",
+      "Enabled real-time URL synchronization with table filters for easier sharing and bookmarking",
+      "Added support for browser back/forward navigation to restore filter states"
+    ]
   },
-  
 
 
   {
