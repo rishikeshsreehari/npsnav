@@ -8,69 +8,82 @@ document.addEventListener("DOMContentLoaded", function () {
     const schemeTypeFilter = document.getElementById("schemeTypeFilter");
     let rows = Array.from(fundTable.rows);
 
-    let numFundsToShow = 10; // Number of funds to show initially
+    let numFundsToShow = 10;
     let allFundsShown = false;
-    let filterText = ''; // Variable to store the filter text
-    let selectedPfm = ''; // Variable to store selected PFM
-    let selectedTier = ''; // Variable to store selected Tier
-    let selectedSchemeType = ''; // Variable to store selected Scheme Type
+    let filterText = '';
+    let selectedPfm = '';
+    let selectedTier = '';
+    let selectedSchemeType = '';
 
-    // Auto-focus by default on search box in Desktop only ---
-    // This prevents the keyboard from popping up automatically on mobile devices
+    // --- NEW: URL Sync Functions ---
+
+    // Function to update the browser URL based on current filter variables
+    function updateURL() {
+        const params = new URLSearchParams();
+        if (filterText) params.set('q', filterText);
+        if (selectedPfm) params.set('pfm', selectedPfm);
+        if (selectedTier) params.set('tier', selectedTier);
+        if (selectedSchemeType) params.set('scheme', selectedSchemeType);
+
+        const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
+        window.history.pushState({}, '', newUrl);
+    }
+
+    // Function to load filters from the URL query parameters
+    function applyFiltersFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        
+        filterText = params.get('q') || '';
+        selectedPfm = params.get('pfm') || '';
+        selectedTier = params.get('tier') || '';
+        selectedSchemeType = params.get('scheme') || '';
+
+        // Update the UI elements to match the URL
+        if (filterInput) filterInput.value = filterText;
+        if (pfmFilter) pfmFilter.value = selectedPfm;
+        if (tierFilter) tierFilter.value = selectedTier;
+        if (schemeTypeFilter) schemeTypeFilter.value = selectedSchemeType;
+
+        renderTable();
+    }
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', applyFiltersFromURL);
+
+    // --- END NEW Logic ---
+
     if (window.innerWidth > 768 && filterInput) {
         filterInput.focus();
     }
 
-    // Simple fuzzy match function
     function fuzzyMatch(fundName, filterText) {
         fundName = fundName.toLowerCase();
         filterText = filterText.toLowerCase();
-
         let fundIndex = 0;
         let filterIndex = 0;
-
         while (fundIndex < fundName.length && filterIndex < filterText.length) {
             if (fundName[fundIndex] === filterText[filterIndex]) {
                 filterIndex++;
             }
             fundIndex++;
         }
-
         return filterIndex === filterText.length;
     }
 
-    // Function to render the table based on the number of funds to show and filter text
     function renderTable() {
-        // Clear the table first
         fundTable.innerHTML = '';
-
-        // Trim the filter text
         const trimmedFilterText = filterText.trim();
-
         let filteredRows = rows;
 
-        // Apply PFM filter
         if (selectedPfm) {
-            filteredRows = filteredRows.filter(row => {
-                return row.getAttribute('data-pfm') === selectedPfm;
-            });
+            filteredRows = filteredRows.filter(row => row.getAttribute('data-pfm') === selectedPfm);
         }
-
-        // Apply Tier filter
         if (selectedTier) {
-            filteredRows = filteredRows.filter(row => {
-                return row.getAttribute('data-tier') === selectedTier;
-            });
+            filteredRows = filteredRows.filter(row => row.getAttribute('data-tier') === selectedTier);
         }
-
-        // Apply Scheme Type filter
         if (selectedSchemeType) {
-            filteredRows = filteredRows.filter(row => {
-                return row.getAttribute('data-scheme-type') === selectedSchemeType;
-            });
+            filteredRows = filteredRows.filter(row => row.getAttribute('data-scheme-type') === selectedSchemeType);
         }
-
-        // Apply search filter
         if (trimmedFilterText !== '') {
             filteredRows = filteredRows.filter(row => {
                 const fundName = row.cells[0].innerText.trim();
@@ -78,22 +91,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Get the rows to display (limit to numFundsToShow unless showing all)
-        const rowsToDisplay = allFundsShown
-            ? filteredRows
-            : filteredRows.slice(0, numFundsToShow);
-
-        // Append the rows to the table
+        const rowsToDisplay = allFundsShown ? filteredRows : filteredRows.slice(0, numFundsToShow);
         rowsToDisplay.forEach(row => fundTable.appendChild(row));
 
-        // Toggle the "Show All" button visibility
         if (filteredRows.length > numFundsToShow && !allFundsShown) {
             showAllButton.style.display = 'block';
         } else {
             showAllButton.style.display = 'none';
         }
 
-        // If no rows match, display a message
         if (filteredRows.length === 0) {
             const noResultsRow = document.createElement('tr');
             const noResultsCell = document.createElement('td');
@@ -105,13 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to sort table
     function sortTable(columnIndex, isNumeric, ascending) {
         rows.sort((a, b) => {
             let aText = a.cells[columnIndex].innerText.trim();
             let bText = b.cells[columnIndex].innerText.trim();
-
-            // Handle "-" values explicitly: treat them as a special case
             if (aText === '-') aText = ascending ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
             if (bText === '-') bText = ascending ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
 
@@ -123,89 +126,68 @@ document.addEventListener("DOMContentLoaded", function () {
                 return ascending ? aText.localeCompare(bText) : bText.localeCompare(aText);
             }
         });
-
-        // Re-render the table after sorting
         renderTable();
     }
 
-    // Add click event to each header for sorting
     headers.forEach((header, index) => {
         header.classList.add('sortable');
         header.addEventListener("click", function () {
-            const isNumeric = index !== 0; // Assume all columns except the first are numeric
+            const isNumeric = index !== 0;
             const isAscending = !this.classList.contains("sorted-asc");
-
-            // Remove sorting classes from all headers
             headers.forEach(h => h.classList.remove("sorted-asc", "sorted-desc"));
-
-            // Add appropriate sorting class to clicked header
             this.classList.add(isAscending ? "sorted-asc" : "sorted-desc");
-
             sortTable(index, isNumeric, isAscending);
         });
     });
 
-    // Add event listener for "Show All" button
     showAllButton.addEventListener("click", function () {
         allFundsShown = true;
         renderTable();
     });
 
-    // Add event listener for filter input
     filterInput.addEventListener("input", function () {
         filterText = this.value;
-        allFundsShown = false; // Reset to show limited rows when filtering
+        allFundsShown = false;
         renderTable();
+        updateURL(); // Sync to URL
     });
 
-    // Add event listener for PFM filter
     if (pfmFilter) {
         pfmFilter.addEventListener("change", function () {
             selectedPfm = this.value;
             allFundsShown = false;
             renderTable();
+            updateURL(); // Sync to URL
         });
     }
 
-    // Add event listener for Tier filter
     if (tierFilter) {
         tierFilter.addEventListener("change", function () {
             selectedTier = this.value;
             allFundsShown = false;
             renderTable();
+            updateURL(); // Sync to URL
         });
     }
 
-    // Add event listener for Scheme Type filter
     if (schemeTypeFilter) {
         schemeTypeFilter.addEventListener("change", function () {
             selectedSchemeType = this.value;
             allFundsShown = false;
             renderTable();
+            updateURL(); // Sync to URL
         });
     }
 
-    // Hover effect for scheme names
-    document.addEventListener('mouseover', function (e) {
-        if (e.target.classList.contains('scheme-link')) {
-            e.target.textContent = e.target.dataset.fullName;
-        }
-    });
-
-    document.addEventListener('mouseout', function (e) {
-        if (e.target.classList.contains('scheme-link')) {
-            e.target.textContent = e.target.dataset.shortName;
-        }
-    });
-
-    // Default sort by 5Y column (index 9) in descending order
-    // Ensure index 9 exists before trying to sort it
+    // Default Sort and Initial Render
     if (headers[9]) {
         const fiveYearHeader = headers[9];
         fiveYearHeader.classList.add("sorted-desc");
         sortTable(9, true, false);
     } else {
-        // Fallback: Just render the table if 5Y column doesn't exist
         renderTable();
     }
+
+    // Initialize filters from URL on page load
+    applyFiltersFromURL();
 });

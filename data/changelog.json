@@ -1,5 +1,15 @@
 [
 
+    {
+  "version": "v1.4.0",
+  "date": "2026-02-02",
+  "changes": [
+    "Launched Interactive API Playground (Swagger UI) for real-time testing"
+  ]
+  },
+  
+
+
   {
   "version": "v1.4.0",
   "date": "2025-12-23",
