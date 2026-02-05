@@ -1,23 +1,30 @@
-def categorize_fund(fund):
-    """Categorizes a fund based on its attributes."""
-    if "Tax Saver" in fund['name']:
-        return "Tax Saver"
-    elif "Central Government" in fund['name']:
-        return "Central Government"
-    elif "State Government" in fund['name']:
-        return "State Government"
-    # Add additional conditions for other categories as needed
-    return "Others"
+# Existing import statements
+import json
 
-def build_fund_data(funds):
-    """Builds fund data with improved categorization."""
+def categorize_funds(fund_list):
     categorized_funds = {
         "Tax Saver": [],
         "Central Government": [],
         "State Government": [],
-        "Others": [],
+        "Others": []
     }
-    for fund in funds:
-        category = categorize_fund(fund)
-        categorized_funds[category].append(fund)
+    
+    for fund in fund_list:
+        if "Tax Saver" in fund["name"]:
+            categorized_funds["Tax Saver"].append(fund)
+        elif "Central" in fund["name"]:
+            categorized_funds["Central Government"].append(fund)
+        elif "State" in fund["name"]:
+            categorized_funds["State Government"].append(fund)
+        else:
+            categorized_funds["Others"].append(fund)
+
     return categorized_funds
+
+def main():
+    # Load fund data from JSON or any other source
+    with open('data/funds.json') as f:
+        fund_list = json.load(f)
+
+    categorized_funds = categorize_funds(fund_list)
+    # Save or process categorized funds as needed
