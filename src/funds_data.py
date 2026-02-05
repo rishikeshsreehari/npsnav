@@ -1,7 +1,9 @@
-def get_fund_data():
-    # Fetches fund data from the source
-    return [
-        {'name': 'Fund A', 'type': 'Tax Saver'},
-        {'name': 'Fund B', 'type': 'Central Government'},
-        # Add more fund data as needed
-    ]
+# Sample data structure for NPS funds
+# Add fund examples for each category to test the new logic
+
+funds = [
+    {'name': 'Fund A', 'type': 'Tax Saver'},
+    {'name': 'Fund B', 'type': 'Central Government'},
+    {'name': 'Fund C', 'type': 'State Government'},
+    {'name': 'Fund D', 'type': 'Other'},  # This should go to 'Others'
+]
