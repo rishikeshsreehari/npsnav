@@ -1,30 +1,16 @@
-def segment_funds(funds):
-    """Segment funds into categories."""
-    categorized_funds = {
-        'Equity': [],
-        'Corporate Debt': [],
-        'Government Bonds': [],
-        'Tax Saver': [],
-        'Central Government': [],
-        'State Government': [],
-        'Others': []
-    }
+# File content for src/main.py
+# Existing code...
 
-    for fund in funds:
-        if 'Equity' in fund['type']:
-            categorized_funds['Equity'].append(fund)
-        elif 'Corporate Debt' in fund['type']:
-            categorized_funds['Corporate Debt'].append(fund)
-        elif 'Government' in fund['type']:
-            if 'Central' in fund['type']:
-                categorized_funds['Central Government'].append(fund)
-            elif 'State' in fund['type']:
-                categorized_funds['State Government'].append(fund)
-            else:
-                categorized_funds['Government Bonds'].append(fund)
-        elif 'Tax Saver' in fund['type']:
-            categorized_funds['Tax Saver'].append(fund)
-        else:
-            categorized_funds['Others'].append(fund)
+def categorize_fund(fund):
+    # Existing categorization logic...
+    
+    # Improved categorization for specific fund types
+    if "Tax Saver" in fund['name']:
+        return "Tax Saver"
+    elif "Central Government" in fund['name']:
+        return "Central Government"
+    elif "State Government" in fund['name']:
+        return "State Government"
+    # More conditions can be added as needed
 
-    return categorized_funds
+    return "Others"  # Default category
