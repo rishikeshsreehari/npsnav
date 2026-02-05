@@ -24,7 +24,7 @@ BASE_URL = "https://npstrust.org.in/scheme-wise-nav-report-excel"
 
 # --- CONFIGURATION ---
 # '60' retrieves the last 5 years (60 months) of data in one shot.
-BACKFILL_MONTHS = '60' 
+BACKFILL_MONTHS = '2' 
 
 def get_pfm_scheme_mappings():
     """Extract PFM and Scheme mappings from existing data.json"""
@@ -321,7 +321,7 @@ def save_latest_data(new_data):
         logger.error(f"Error saving latest data: {e}")
 
 if __name__ == "__main__":
-    logger.info("Starting DEEP BACKFILL (Last 60 Months) with Stealth Mode...")
+    logger.info("Starting DEEP BACKFILL ...")
     
     pfm_scheme_mappings, pfm_names, scheme_names = get_pfm_scheme_mappings()
     if not pfm_scheme_mappings:
