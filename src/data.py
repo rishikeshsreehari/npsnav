@@ -1,8 +1,11 @@
-def fetch_fund_types():
+def load_funds():
+    # Simulated loading of fund data
     return [
-        {"type": "Tax Saver", "name": "NPS Tax Saver Fund"},
-        {"type": "Central Government", "name": "NPS Central Fund"},
-        {"type": "State Government", "name": "NPS State Fund"},
-        {"type": "Equity", "name": "NPS Equity Fund"},
-        # additional fund types can be added here
+        {'name': 'Fund A', 'type': 'Tax Saver'},
+        {'name': 'Fund B', 'type': 'Central Government'},
+        {'name': 'Fund C', 'type': 'State Government'},
+        {'name': 'Fund D', 'type': 'Equity'}
     ]
+
+def get_funds():
+    return load_funds()
