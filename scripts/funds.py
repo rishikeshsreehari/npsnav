@@ -35,12 +35,23 @@ for fund in funds_data:
     nav_date = fund['Date']
     
     print(f"Processing fund: {scheme_name} (Scheme Code: {scheme_code})")
-
+    
     # Load the individual fund JSON for historic NAVs
     nav_file = f'data/{scheme_code}.json'
+    
+    # ADD THIS SAFETY CHECK
+    if not os.path.exists(nav_file):
+        print(f"Warning: {nav_file} not found. Skipping {scheme_name}")
+        continue
+    
     with open(nav_file, 'r') as nav_f:
         historical_navs = json.load(nav_f)
-
+    
+    # Skip if historical data is empty
+    if not historical_navs:
+        print(f"Warning: No historical data for {scheme_name}. Skipping.")
+        continue
+    
     # Transform the nav_data into an array of objects
     nav_data = [{"date": date, "nav": nav} for date, nav in historical_navs.items()]
     
@@ -49,7 +60,7 @@ for fund in funds_data:
     
     first_date = min(historical_navs.keys())
     last_date = max(historical_navs.keys())
-   
+    
     rendered_html = template.render(
         scheme_name=scheme_name,
         pfm_name=pfm_name,
