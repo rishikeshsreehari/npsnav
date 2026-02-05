@@ -1,14 +1,19 @@
 def categorize_funds(funds):
-    categories = {'Tax Saver': [], 'Central Government': [], 'State Government': [], 'Others': []}
-
+    categorized = {
+        'Tax Saver': [],
+        'Central Government': [],
+        'State Government': [],
+        'Others': []
+    }
+    
     for fund in funds:
         if fund['type'] == 'Tax Saver':
-            categories['Tax Saver'].append(fund)
+            categorized['Tax Saver'].append(fund)
         elif fund['type'] == 'Central Government':
-            categories['Central Government'].append(fund)
+            categorized['Central Government'].append(fund)
         elif fund['type'] == 'State Government':
-            categories['State Government'].append(fund)
+            categorized['State Government'].append(fund)
         else:
-            categories['Others'].append(fund)
-
-    return categories
+            categorized['Others'].append(fund)
+    
+    return categorized
