@@ -1,19 +1,21 @@
-def categorize_schemes(schemes):
-    categorized = {
+# src/main.py
+
+def categorize_funds(all_funds):
+    categorized_funds = {
         'Tax Saver': [],
         'Central Government': [],
         'State Government': [],
         'Others': []
     }
-
-    for scheme in schemes:
-        if 'Tax Saver' in scheme.name:
-            categorized['Tax Saver'].append(scheme)
-        elif 'Central Government' in scheme.name:
-            categorized['Central Government'].append(scheme)
-        elif 'State Government' in scheme.name:
-            categorized['State Government'].append(scheme)
+    
+    for fund in all_funds:
+        if 'tax' in fund['name'].lower():
+            categorized_funds['Tax Saver'].append(fund)
+        elif 'central' in fund['name'].lower():
+            categorized_funds['Central Government'].append(fund)
+        elif 'state' in fund['name'].lower():
+            categorized_funds['State Government'].append(fund)
         else:
-            categorized['Others'].append(scheme)
+            categorized_funds['Others'].append(fund)
 
-    return categorized
+    return categorized_funds
