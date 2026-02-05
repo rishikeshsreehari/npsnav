@@ -6,7 +6,6 @@ on:
     # Runs at 11:00 PM IST every day, actions run on UTC
     - cron: '30 17 * * *'
   workflow_dispatch:  # Enables manual triggering
-
 jobs:
   fetch-and-build:
     runs-on: ubuntu-latest
@@ -42,8 +41,27 @@ jobs:
       run: |
         git config --global user.name "DailyUpdateBot"
         git config --global user.email "bot@npsnav.in"
-        git add .
-        git commit -m "Daily NAV update by bot" || echo "No changes to commit"
-        git push
+        
+        # Show what changed
+        echo "Git status before adding:"
+        git status
+        
+        # Force add the normally-ignored SM*.json files
+        git add --force data/SM*.json
+        
+        # Add the normally-tracked files
+        git add data/data.json data/nifty.json data/changelog.json data/missing_funds.json
+        
+        # Show what will be committed
+        echo "Files staged for commit:"
+        git diff --staged --name-only
+        
+        # Commit and push
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Daily NAV update - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
