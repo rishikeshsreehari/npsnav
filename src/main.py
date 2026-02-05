@@ -1,21 +1,33 @@
-# src/main.py
+import json
 
-def categorize_funds(all_funds):
-    categorized_funds = {
+def categorize_funds(funds):
+    categorized = {
         'Tax Saver': [],
         'Central Government': [],
         'State Government': [],
         'Others': []
     }
     
-    for fund in all_funds:
-        if 'tax' in fund['name'].lower():
-            categorized_funds['Tax Saver'].append(fund)
-        elif 'central' in fund['name'].lower():
-            categorized_funds['Central Government'].append(fund)
-        elif 'state' in fund['name'].lower():
-            categorized_funds['State Government'].append(fund)
+    for fund in funds:
+        if fund['type'] == 'Tax Saver':
+            categorized['Tax Saver'].append(fund)
+        elif fund['type'] == 'Central Government':
+            categorized['Central Government'].append(fund)
+        elif fund['type'] == 'State Government':
+            categorized['State Government'].append(fund)
         else:
-            categorized_funds['Others'].append(fund)
+            categorized['Others'].append(fund)
+    
+    return categorized
 
-    return categorized_funds
+def load_funds(filepath):
+    with open(filepath) as f:
+        return json.load(f)
+
+def main():
+    funds = load_funds('data/funds.json')
+    categorized_funds = categorize_funds(funds)
+    # More logic to display the categorized funds on the home page
+
+if __name__ == "__main__":
+    main()
