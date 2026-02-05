@@ -1,26 +1,31 @@
-# Main script responsible for building the fund categories
-# Enhanced segmentation logic to improve fund classification
+import json
 
-def categorize_fund(fund):
-    """Categorize funds based on scheme characteristics."""
-    if fund['type'] == 'Tax Saver':
-        return 'Tax Saver'
-    elif fund['type'] == 'Central Government':
-        return 'Central Government'
-    elif fund['type'] == 'State Government':
-        return 'State Government'
-    # Add additional checks for other fund types as needed
-    return 'Others'  # Default classification
-
-def build_fund_data(funds):
-    """Builds categorized fund data."""
-    categorized_funds = {
-        'Tax Saver': [],
-        'Central Government': [],
-        'State Government': [],
-        'Others': []
+def categorize_funds(funds):
+    categorized = {
+        "Tax Saver": [],
+        "Central Government": [],
+        "State Government": [],
+        "Others": []
     }
+    
     for fund in funds:
-        category = categorize_fund(fund)
-        categorized_funds[category].append(fund)
-    return categorized_funds
+        if fund['type'] == 'Tax Saver':
+            categorized["Tax Saver"].append(fund)
+        elif fund['type'] == 'Central Government':
+            categorized["Central Government"].append(fund)
+        elif fund['type'] == 'State Government':
+            categorized["State Government"].append(fund)
+        else:
+            categorized["Others"].append(fund)
+    
+    return categorized
+
+def build_site():
+    with open('data/funds.json') as f:
+        funds = json.load(f)
+    
+    categorized_funds = categorize_funds(funds)
+    # Additional logic to build the site with categorized_funds
+
+if __name__ == "__main__":
+    build_site()
