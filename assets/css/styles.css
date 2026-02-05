@@ -1441,3 +1441,46 @@ transition: color 0.2s ease;
 .github-link:hover .github-icon {
 color: #333;
 }
+
+/* --- Announcement Banner Styles --- */
+.announcement-bar {
+    width: 100%;
+    margin-top: 10px;        /* Spacing from the nav menu */
+    padding-top: 10px;       /* Spacing inside the bar */
+    border-top: 1px solid #ddd; /* Matches your site's existing borders */
+    text-align: center;
+}
+
+.announcement-bar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;             /* Matches your site text color */
+    font-size: 0.9rem;
+    transition: opacity 0.2s ease;
+}
+
+.announcement-bar a:hover {
+    opacity: 0.75;           /* Subtle fade on hover */
+}
+
+/* The "NEW" Badge */
+.announcement-bar .badge {
+    background-color: #333;  /* Matches your .cta-button */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 3px;      /* Minimal rounded corners */
+    letter-spacing: 0.5px;
+}
+
+.announcement-bar .text {
+    font-weight: 500;
+}
+
+.announcement-bar .arrow {
+    font-family: monospace;  /* Matches your technical/code aesthetic */
+}
