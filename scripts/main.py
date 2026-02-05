@@ -142,7 +142,7 @@ MSF_SCHEMES = {
 def extract_scheme_type(scheme_name, scheme_code):
     """
     Classify scheme type into specific categories:
-    Returns: 'Scheme A', 'Scheme C', 'Scheme E', 'Scheme G', 'MSF', 'Corporate', or 'Others'
+    Returns: 'Scheme A', 'Scheme C', 'Scheme E', 'Scheme G', 'MSF', 'Corporate', 'Vatsalya', or 'Others'
     """
     # 1. Check MSF Code first
     if scheme_code in MSF_SCHEMES:
@@ -157,7 +157,10 @@ def extract_scheme_type(scheme_name, scheme_code):
     # Using Regex to handle hyphens and spaces flexibly
     if re.search(r"CORPORATE[\s-]*CG", name_upper):
         return "Corporate"
-
+    
+    if "VATSALYA" in name_upper:
+        return "Vatsalya"
+    
     # 3. Check Standard Schemes (Handles "SCHEME A", "SCHEME-A")
     if re.search(r"SCHEME[\s-]*A", name_upper):
         return "Scheme A"
@@ -222,7 +225,8 @@ SCHEME_TYPE_ORDER = {
     "Scheme G": 4,
     "MSF": 5,
     "Corporate": 6,
-    "Others": 7,
+    "Vatsalya": 7,
+    "Others": 8,
 }
 
 def sort_scheme_types(types):
