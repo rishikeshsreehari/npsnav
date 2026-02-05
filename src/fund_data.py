@@ -1,6 +1,8 @@
-funds = [
-    {'name': 'Fund A', 'type': 'Tax Saver'},
-    {'name': 'Fund B', 'type': 'Central Government'},
-    {'name': 'Fund C', 'type': 'State Government'},
-    # Additional fund data...
-]
+def fetch_fund_data():
+    # Simulated function to fetch fund data
+    return [
+        {'name': 'Fund A', 'type': 'Central Government'},
+        {'name': 'Fund B', 'type': 'Tax Saver'},
+        {'name': 'Fund C', 'type': 'State Government'},
+        {'name': 'Fund D', 'type': 'Equity'},
+    ]
