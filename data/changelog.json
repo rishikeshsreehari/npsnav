@@ -1,5 +1,12 @@
 [
-
+  
+  {
+    "version": "v1.4.2",
+    "date": "2026-02-05",
+    "changes": [
+      "Added newly launched NPS Vatsalya funds to the dataset"
+    ]
+  },
   {
     "version": "v1.4.1",
     "date": "2026-02-02",
