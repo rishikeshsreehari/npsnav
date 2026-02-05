@@ -1,30 +1,25 @@
-# Existing import statements
-import json
+# Existing imports and code
 
-def categorize_funds(fund_list):
-    categorized_funds = {
-        "Tax Saver": [],
-        "Central Government": [],
-        "State Government": [],
-        "Others": []
-    }
-    
-    for fund in fund_list:
-        if "Tax Saver" in fund["name"]:
-            categorized_funds["Tax Saver"].append(fund)
-        elif "Central" in fund["name"]:
-            categorized_funds["Central Government"].append(fund)
-        elif "State" in fund["name"]:
-            categorized_funds["State Government"].append(fund)
-        else:
-            categorized_funds["Others"].append(fund)
+def categorize_fund(fund):
+    if fund['type'] == 'Tax Saver':
+        return 'Tax Saver'
+    elif fund['type'] == 'Central Government':
+        return 'Central Government'
+    elif fund['type'] == 'State Government':
+        return 'State Government'
+    # Add other specific types here
+    else:
+        return 'Others'
+
+def build_fund_list():
+    funds = fetch_funds()
+    categorized_funds = {}
+    for fund in funds:
+        category = categorize_fund(fund)
+        if category not in categorized_funds:
+            categorized_funds[category] = []
+        categorized_funds[category].append(fund)
 
     return categorized_funds
 
-def main():
-    # Load fund data from JSON or any other source
-    with open('data/funds.json') as f:
-        fund_list = json.load(f)
-
-    categorized_funds = categorize_funds(fund_list)
-    # Save or process categorized funds as needed
+# Continue with existing logic to render the homepage
