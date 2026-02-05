@@ -1,19 +1,20 @@
-def categorize_funds(funds):
-    categorized = {
+def categorize_funds(fund):
+    if fund['type'] == 'Tax Saver':
+        return 'Tax Saver'
+    elif fund['type'] in ['Central Government', 'State Government']:
+        return 'Government'
+    # Add more categories as needed
+    else:
+        return 'Others'
+
+def build_funds():
+    funds = fetch_funds()
+    categorized_funds = {
         'Tax Saver': [],
-        'Central Government': [],
-        'State Government': [],
+        'Government': [],
         'Others': []
     }
-    
     for fund in funds:
-        if fund['type'] == 'Tax Saver':
-            categorized['Tax Saver'].append(fund)
-        elif fund['type'] == 'Central Government':
-            categorized['Central Government'].append(fund)
-        elif fund['type'] == 'State Government':
-            categorized['State Government'].append(fund)
-        else:
-            categorized['Others'].append(fund)
-    
-    return categorized
+        category = categorize_funds(fund)
+        categorized_funds[category].append(fund)
+    return categorized_funds
