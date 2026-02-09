@@ -1,37 +1,23 @@
-# Main categorization logic for NPS funds
-
-# Existing categories
-categories = {
-    "Equity": [],
-    "Corporate Bond": [],
-    "Government Bond": [],
-    "Mixed": [],
-    "Others": []
-}
-
-# New categories to improve segmentation
-tax_saver_funds = []
-central_gov_funds = []
-state_gov_funds = []
-
-# Process each fund
-for fund in all_funds:
-    if fund.is_tax_saver():
-        tax_saver_funds.append(fund)
-    elif fund.is_central_government():
-        central_gov_funds.append(fund)
-    elif fund.is_state_government():
-        state_gov_funds.append(fund)
-    elif fund.is_equity():
-        categories["Equity"].append(fund)
-    elif fund.is_corporate_bond():
-        categories["Corporate Bond"].append(fund)
-    elif fund.is_government_bond():
-        categories["Government Bond"].append(fund)
+def categorize_scheme(scheme_code):
+    # Define specific categories for proper filtering
+    if scheme_code.startswith("SM") or scheme_code.startswith("CG"):
+        return "Central Government"
+    elif scheme_code.startswith("ST"):
+        return "State Government"
+    elif scheme_code.startswith("TS"):
+        return "Tax Saver"
     else:
-        categories["Others"].append(fund)
+        return "Others"
 
-# Add new categories to the main categories
-categories["Tax Saver"] = tax_saver_funds
-categories["Central Government"] = central_gov_funds
-categories["State Government"] = state_gov_funds
+def build_fund_data():
+    # Existing logic to fetch and process funds
+    fund_data = fetch_funds()
+    categorized_funds = {}
+    
+    for fund in fund_data:
+        category = categorize_scheme(fund['scheme_code'])
+        if category not in categorized_funds:
+            categorized_funds[category] = []
+        categorized_funds[category].append(fund)
+    
+    return categorized_funds
