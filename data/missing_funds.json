@@ -1,70 +1,628 @@
 {
-    "timestamp": "2026-02-05T05:35:46.741694",
+    "timestamp": "2026-04-05T05:57:15.090899",
     "summary": {
-        "total_funds_found": 136,
-        "existing_in_your_data": 144,
-        "new_combinations_count": 10
+        "total_funds_found": 239,
+        "existing_in_your_data": 154,
+        "new_combinations_count": 103
     },
     "new_combinations": [
         {
             "PFM Code": "PFM001",
             "PFM Name": "SBI Pension Funds Pvt. Ltd.",
-            "Scheme Code": "SM001021",
-            "Scheme Name": "NPS TRUST - A/C SBI PENSION FUNDS - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM001022",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001025",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001023",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001026",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001024",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001027",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001028",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001029",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001030",
+            "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001032",
+            "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT"
+        },
+        {
+            "PFM Code": "PFM001",
+            "PFM Name": "SBI Pension Funds Pvt. Ltd.",
+            "Scheme Code": "SM001031",
+            "Scheme Name": "NPS TRUST - A/C SBI PENSION FUNDS - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM002",
             "PFM Name": "UTI Pension Fund Limited.",
-            "Scheme Code": "SM002023",
-            "Scheme Name": "NPS TRUST - A/C UTI PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM002024",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002025",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002026",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002027",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002028",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002029",
+            "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002030",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002031",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002032",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002033",
+            "Scheme Name": "NPS TRUST - A/C UTI PENSION FUND - NPS VATSALYA SCHEME POP"
+        },
+        {
+            "PFM Code": "PFM002",
+            "PFM Name": "UTI Pension Fund Limited.",
+            "Scheme Code": "SM002034",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND - NPS LITE SCHEME GOVT. PATTERN DIRECT"
         },
         {
             "PFM Code": "PFM003",
             "PFM Name": "LIC Pension Fund Ltd.",
-            "Scheme Code": "SM003021",
-            "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM003022",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003023",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003024",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003025",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003026",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003027",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003028",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003029",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003030",
+            "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003031",
+            "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND - NPS VATSALYA SCHEME POP"
+        },
+        {
+            "PFM Code": "PFM003",
+            "PFM Name": "LIC Pension Fund Ltd.",
+            "Scheme Code": "SM003032",
+            "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT"
         },
         {
             "PFM Code": "PFM005",
             "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
-            "Scheme Code": "SM005012",
-            "Scheme Name": "NPS TRUST - A/C KOTAK MAHINDRA PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM005013",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005014",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005015",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005016",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005017",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005018",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005019",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005020",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005021",
+            "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM005",
+            "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
+            "Scheme Code": "SM005022",
+            "Scheme Name": "NPS TRUST - A/C KOTAK MAHINDRA PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM007",
             "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
-            "Scheme Code": "SM007013",
-            "Scheme Name": "NPS TRUST - A/C ICICI PRUDENTIAL PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM007015",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007016",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007017",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007018",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007019",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007020",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007021",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007022",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007023",
+            "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM007",
+            "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
+            "Scheme Code": "SM007024",
+            "Scheme Name": "NPS TRUST - A/C ICICI PRUDENTIAL PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM008",
             "PFM Name": "HDFC Pension Fund Management Limited",
-            "Scheme Code": "SM008014",
-            "Scheme Name": "NPS TRUST - A/C HDFC PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM008015",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008016",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008017",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008018",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008019",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008020",
+            "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008021",
+            "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008022",
+            "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008023",
+            "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM008",
+            "PFM Name": "HDFC Pension Fund Management Limited",
+            "Scheme Code": "SM008024",
+            "Scheme Name": "NPS TRUST - A/C HDFC PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM010",
             "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
-            "Scheme Code": "SM010012",
-            "Scheme Name": "NPS TRUST - A/C ADITYA BIRLA SUNLIFE PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM010013",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010014",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010015",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010016",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010017",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010018",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010019",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010020",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010021",
+            "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM010",
+            "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
+            "Scheme Code": "SM010022",
+            "Scheme Name": "NPS TRUST - A/C ADITYA BIRLA SUNLIFE PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM011",
             "PFM Name": "Tata Pension Fund Management Private Limited",
-            "Scheme Code": "SM011010",
-            "Scheme Name": "NPS TRUST - A/C TATA PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM011011",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011014",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011012",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011015",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011013",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011016",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011017",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011018",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011019",
+            "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM011",
+            "PFM Name": "Tata Pension Fund Management Private Limited",
+            "Scheme Code": "SM011020",
+            "Scheme Name": "NPS TRUST - A/C TATA PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM013",
             "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
-            "Scheme Code": "SM013010",
-            "Scheme Name": "NPS TRUST - A/C AXIS PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM013011",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013012",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013013",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013014",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013015",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013016",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013017",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013018",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013019",
+            "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM013",
+            "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+            "Scheme Code": "SM013020",
+            "Scheme Name": "NPS TRUST - A/C AXIS PENSION FUND - NPS VATSALYA SCHEME POP"
         },
         {
             "PFM Code": "PFM014",
             "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
-            "Scheme Code": "SM014010",
-            "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME"
+            "Scheme Code": "SM014011",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014012",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014013",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I GS"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014014",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014015",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014016",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014017",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014018",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014019",
+            "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II DIRECT"
+        },
+        {
+            "PFM Code": "PFM014",
+            "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
+            "Scheme Code": "SM014020",
+            "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME POP"
         }
     ]
 }
