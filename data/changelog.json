@@ -1,5 +1,14 @@
 [
-  
+  {
+    "version": "v1.5.0",
+    "date": "2026-04-13",
+    "changes": [
+      "Added 110+ new fund variants following Multiple NAV Framework launch",
+      "Backfilled historical data for Direct and Government Subscriber (GS) variants from April 1, 2026",
+      "Added variant filter to easily compare Regular, Direct, and GS schemes",
+      "Increased mid-day fetch at 3:00 PM IST for faster NAV updates"
+    ]
+  },
   {
     "version": "v1.4.2",
     "date": "2026-02-05",

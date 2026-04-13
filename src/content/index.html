@@ -48,7 +48,7 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
    
 
     <div class="filter-container">
-        <input type="text" id="filterInput" placeholder="Search by Fund Name">
+        <input type="text" id="filterInput" placeholder="Search by Fund Name (Press / to focus)">
         <select id="pfmFilter">
             <option value="">All PFMs</option>
             {% for pfm in PFM_OPTIONS %}
@@ -65,6 +65,12 @@ Pension Scheme funds and use our API to monitor NPS NAVs in your Google Sheets e
             <option value="">All Schemes</option>
             {% for scheme in SCHEME_TYPE_OPTIONS %}
             <option value="{{ scheme }}">{{ scheme }}</option>
+            {% endfor %}
+        </select>
+        <select id="variantFilter">
+            <option value="">All Variants</option>
+            {% for variant in VARIANT_OPTIONS %}
+            <option value="{{ variant }}">{{ variant }}</option>
             {% endfor %}
         </select>
     </div>

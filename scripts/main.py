@@ -90,6 +90,28 @@ def extract_tier(scheme_name):
         return "Tier I"
     return "Unknown"
 
+def extract_variant(scheme_name):
+    """Extract scheme variant (Direct, Regular POP, Government Subscriber, or Regular)."""
+    if not scheme_name:
+        return "Regular"
+
+    name_upper = scheme_name.upper()
+
+    # Check for Direct schemes
+    if "DIRECT" in name_upper:
+        return "Direct"
+
+    # Check for POP (Point of Presence - Regular retail schemes)
+    if " POP" in name_upper or name_upper.endswith("POP"):
+        return "Regular (POP)"
+
+    # Check for Government Subscriber schemes
+    if " GS " in name_upper or name_upper.endswith(" GS") or "GOVT SUBSCRIBER" in name_upper:
+        return "Government Subscriber"
+
+    # Default to Regular
+    return "Regular"
+
 # ---------------------------------------------------------
 # MSF classification (used inside scheme type)
 # ---------------------------------------------------------
@@ -241,7 +263,8 @@ def generate_table_rows(funds):
     rows = ""
     pfm_names = set()
     scheme_types = set()
-    
+    variants = set()
+
     for fund in funds:
         scheme_name = fund['Scheme Name']
         scheme_code = fund['Scheme Code']
@@ -249,27 +272,33 @@ def generate_table_rows(funds):
         pfm_name = normalize_pfm_name(raw_pfm_name)
         if not pfm_name:
             pfm_name = "Unknown"
-            
+
         tier = extract_tier(scheme_name)
-        
+
         # New robust regex-based extraction
         scheme_type = extract_scheme_type(scheme_name, scheme_code)
 
+        # Extract variant (Direct, Regular POP, Government Subscriber, Regular)
+        variant = extract_variant(scheme_name)
+
         nav_value = fund['NAV']
         nav = format_nav(nav_value)
-        
+
         short_scheme_name = shorten_scheme_name(scheme_name)
-        
+
         if pfm_name:
             pfm_names.add(pfm_name)
-        
+
         if scheme_type:
             scheme_types.add(scheme_type)
+
+        if variant:
+            variants.add(variant)
         
         # Use the exact 'scheme_type' string for the data attribute
         # This allows the JS filter to work with "Corporate", "Scheme A", etc.
         row = f'''
-        <tr data-pfm="{pfm_name}" data-tier="{tier}" data-scheme-type="{scheme_type}">
+        <tr data-pfm="{pfm_name}" data-tier="{tier}" data-scheme-type="{scheme_type}" data-variant="{variant}">
             <td><a href="funds/{scheme_code}" class="scheme-link" data-full-name="{scheme_name}" data-short-name="{short_scheme_name}">{short_scheme_name}</a></td>
             <td>{nav}</td>
         '''
@@ -299,15 +328,19 @@ def generate_table_rows(funds):
         
         row += '</tr>'
         rows += row
-        
-    return rows, sorted(list(pfm_names)), sort_scheme_types(list(scheme_types))
+
+    # Sort variants with Direct first (most relevant for users)
+    variant_order = {"Direct": 1, "Regular (POP)": 2, "Regular": 3, "Government Subscriber": 4}
+    sorted_variants = sorted(list(variants), key=lambda v: variant_order.get(v, 999))
+
+    return rows, sorted(list(pfm_names)), sort_scheme_types(list(scheme_types)), sorted_variants
 
 # ---------------------------------------------------------
 # Rendering / pages
 # ---------------------------------------------------------
 
 def render_html_files(env, funds, latest_version, changelog):
-    table_rows, pfm_options, scheme_type_options = generate_table_rows(funds)
+    table_rows, pfm_options, scheme_type_options, variant_options = generate_table_rows(funds)
     nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
     latest_changes = changelog[0] if changelog else None
 
@@ -329,9 +362,10 @@ def render_html_files(env, funds, latest_version, changelog):
                 if '{%' in content or '{{' in content:
                     template = env.from_string(content)
                     rendered_content = template.render(
-                        TABLE_ROWS=table_rows, 
+                        TABLE_ROWS=table_rows,
                         PFM_OPTIONS=pfm_options,
                         SCHEME_TYPE_OPTIONS=scheme_type_options,
+                        VARIANT_OPTIONS=variant_options,
                         NAV_DATE=nav_date,
                         VERSION=latest_version,
                         LATEST_CHANGES=latest_changes
