@@ -2,8 +2,15 @@ name: Scheduled NPS NAV Daily Fetch
 on:
   schedule:
     # Runs at 11:00 AM IST every day, actions run on UTC
+    # Note: While SEBI mandates PFMs publish by 10 AM IST, NPS Trust aggregates
+    # data from all PFMs before updating their site. Kept at 11 AM to ensure
+    # NPS Trust has completed aggregation and published the data.
     - cron: '30 05 * * *'
+    # Runs at 3:00 PM IST every day, actions run on UTC
+    # Mid-day fetch to catch any corrections or late updates after morning publish
+    - cron: '30 09 * * *'
     # Runs at 11:00 PM IST every day, actions run on UTC
+    # Catches domestic instrument NAVs published by end of day
     - cron: '30 17 * * *'
   workflow_dispatch:  # Enables manual triggering
 jobs:
