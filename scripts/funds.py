@@ -1,6 +1,48 @@
 import json
 import os
+import re
 from jinja2 import Environment, FileSystemLoader
+
+def shorten_scheme_name(name):
+    """Remove verbose prefixes and company name suffixes from scheme names."""
+    if not name:
+        return ""
+
+    phrases_to_remove = [
+        "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGEMENT LIMITED",
+        "PENSION FUND MANAGEMENT LTD",
+        "PENSION MANAGEMENT COMPANY LIMITED",
+        "PENSION MANAGEMENT COMPANY LTD",
+        "PENSION FUND MANAGERS PRIVATE LIMITED",
+        "PENSION FUND MANAGERS PVT LTD",
+        "RETIREMENT SOLUTIONS LIMITED",
+        "RETIREMENT SOLUTIONS LTD",
+        "RETIREMENT SOLUTIONS",
+        "PENSION FUNDS",
+        "PENSION FUND",
+        "MANAGEMENT LIMITED",
+        "MANAGEMENT LTD",
+        "COMPANY LIMITED",
+        "COMPANY LTD",
+        "PRIVATE LIMITED",
+        "PVT LTD",
+        "LIMITED",
+        "LTD"
+    ]
+
+    cleaned_name = name
+
+    # Remove NPS TRUST prefixes first
+    nps_pattern = re.compile(r"^NPS TRUST\s*-?\s*A/C\s*-?\s*|^NPS TRUST\s*-?\s*", re.IGNORECASE)
+    cleaned_name = nps_pattern.sub("", cleaned_name)
+
+    for phrase in phrases_to_remove:
+        pattern = re.compile(re.escape(phrase), re.IGNORECASE)
+        cleaned_name = pattern.sub("", cleaned_name)
+
+    return " ".join(cleaned_name.split())
 
 # Load the templates
 env = Environment(loader=FileSystemLoader('src/templates'))
@@ -29,7 +71,7 @@ os.makedirs(output_dir, exist_ok=True)
 # Loop through each fund in data.json
 for fund in funds_data:
     scheme_code = fund['Scheme Code']
-    scheme_name = fund['Scheme Name'].upper()
+    scheme_name = shorten_scheme_name(fund['Scheme Name']).upper()
     pfm_name = fund['PFM Name']
     current_nav = round(float(fund['NAV']), 2)
     nav_date = fund['Date']

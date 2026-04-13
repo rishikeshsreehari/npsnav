@@ -353,7 +353,7 @@ def generate_scheme_list_page(env, funds):
     schemes = []
     for fund in funds:
         schemes.append({
-            'Scheme_Name': fund['Scheme Name'],
+            'Scheme_Name': shorten_scheme_name(fund['Scheme Name']),
             'Scheme_Code': fund['Scheme Code'],
         })
 
