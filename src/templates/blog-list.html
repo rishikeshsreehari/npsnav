@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - NPSNAV.in{% endblock %}
+{% block description %}Updates, insights, and announcements about NPS funds, NAV tracking, and pension planning in India.{% endblock %}
+{% block canonical %}https://npsnav.in/blog{% endblock %}
+
+{% block content %}
+<section class="blog-listing">
+    <header class="blog-header">
+        <h1>Blog</h1>
+        <p class="subheading">Updates and insights about NPS funds and pension planning</p>
+    </header>
+
+    <div class="posts-list">
+        {% for post in posts %}
+        <article class="post-preview">
+            <h2 class="post-title">
+                <a href="/blog/{{ post.slug }}">{{ post.title }}</a>
+            </h2>
+            <div class="post-meta">
+                <time datetime="{{ post.date }}">{{ post.date_formatted }}</time>
+            </div>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <a href="/blog/{{ post.slug }}" class="read-more">Read more →</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

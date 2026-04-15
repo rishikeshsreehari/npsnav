@@ -1,5 +1,15 @@
 [
   {
+    "version": "v1.5.1",
+    "date": "2026-04-15",
+    "changes": [
+      "Fixed: DIRECT and Government Subscriber (GS) schemes now visible in API and website",
+      "Added 103 DIRECT/GS scheme variants to main dataset (were previously in pending state)",
+      "Total schemes increased from 154 to 257 across all PFMs",
+      "All API endpoints now include DIRECT variants for comparison with Regular plans"
+    ]
+  },
+  {
     "version": "v1.5.0",
     "date": "2026-04-13",
     "changes": [
