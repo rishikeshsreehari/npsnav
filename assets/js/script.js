@@ -79,6 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function fuzzyMatch(fundName, filterText) {
         fundName = fundName.toLowerCase();
         filterText = filterText.toLowerCase();
+
+        // For short queries (<=5 chars) or common words, use exact substring match
+        // to avoid false positives like "direct" matching "ADITYA BIRLA"
+        if (filterText.length <= 5 || ['direct', 'gs', 'pop', 'tier'].includes(filterText)) {
+            return fundName.includes(filterText);
+        }
+
+        // For longer queries, use fuzzy matching for flexibility
         let fundIndex = 0;
         let filterIndex = 0;
         while (fundIndex < fundName.length && filterIndex < filterText.length) {
@@ -190,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const countDiv = document.createElement('div');
             countDiv.className = 'result-count';
             countDiv.style.cssText = 'margin: 10px 0; font-size: 14px; color: #666;';
-            countDiv.textContent = `Showing ${showing} of ${total} funds`;
+            countDiv.textContent = 'Showing ' + showing + ' of ' + total + ' funds';
 
             const tableContainer = document.querySelector('.table-container');
             tableContainer.insertBefore(countDiv, tableContainer.firstChild);

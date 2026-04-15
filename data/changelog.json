@@ -6,7 +6,9 @@
       "Fixed: DIRECT and Government Subscriber (GS) schemes now visible in API and website",
       "Added 103 DIRECT/GS scheme variants to main dataset (were previously in pending state)",
       "Total schemes increased from 154 to 257 across all PFMs",
-      "All API endpoints now include DIRECT variants for comparison with Regular plans"
+      "All API endpoints now include DIRECT variants for comparison with Regular plans",
+      "Fixed search filter: searching \"direct\" now only shows DIRECT schemes (not fuzzy-matched results)",
+      "Fixed result count display spacing (\"86of 86funds\" → \"Showing 86 of 86 funds\")"
     ]
   },
   {
@@ -35,50 +37,40 @@
       "Added support for browser back/forward navigation to restore filter states"
     ]
   },
-
-
   {
-  "version": "v1.4.0",
-  "date": "2025-12-23",
-  "changes": [
-    "Launched Interactive API Playground (Swagger UI) for real-time testing",
-    "Added Schemes API end point with scheme code mapping",
-    "Added openapi.json file for API documentation",
-    "Standardized API metadata and response headers",
-    "Redesigned hero section on home page",
-    "Added header with navigation links"
-  ]
+    "version": "v1.4.0",
+    "date": "2025-12-23",
+    "changes": [
+      "Launched Interactive API Playground (Swagger UI) for real-time testing",
+      "Added Schemes API end point with scheme code mapping",
+      "Added openapi.json file for API documentation",
+      "Standardized API metadata and response headers",
+      "Redesigned hero section on home page",
+      "Added header with navigation links"
+    ]
   },
-  
-
-
-
-
   {
     "version": "v1.3.0",
     "date": "2025-11-28",
     "changes": [
       "Added latest api endpoint with all funds data"
-    ]},
-   
-  
-  
+    ]
+  },
   {
     "version": "v1.2.3",
     "date": "2025-11-25",
     "changes": [
       "Added CC BY-NC 4.0 license for dataset",
       "Updated disclaimer to reflect license change and prohibit unauthorized commercial use"
-    ]},
-
-
-    {
+    ]
+  },
+  {
     "version": "v1.2.2",
     "date": "2025-11-24",
     "changes": [
       "Added filters on home page"
-    ]},
-
+    ]
+  },
   {
     "version": "v1.2.1",
     "date": "2025-11-08",
@@ -88,8 +80,6 @@
       "Backfilled data for new funds from launch date to present"
     ]
   },
-
-
   {
     "version": "v1.2.0",
     "date": "2025-07-07",
@@ -98,7 +88,6 @@
       "Updated disclaimer text in footer to credit NPS Trust"
     ]
   },
-
   {
     "version": "v1.9.2",
     "date": "2025-06-08",
