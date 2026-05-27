@@ -1,5 +1,7 @@
 # NPSNAV.in
 
+[![Scheduled NPS NAV Daily Fetch](https://github.com/rishikeshsreehari/npsnav/actions/workflows/daily-fetch.yml/badge.svg)](https://github.com/rishikeshsreehari/npsnav/actions/workflows/daily-fetch.yml)
+
 **NPSNAV.in** is a website that tracks the **Latest NAV and Historical Performance of NPS Funds** in India.  
 It provides up-to-date insights into the National Pension Scheme (NPS) fund performances, including:
 
