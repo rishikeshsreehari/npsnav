@@ -1,102 +1,102 @@
 [
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001001",
         "Scheme Name": "SBI PENSION FUND SCHEME - CENTRAL GOVT",
-        "NAV": "49.7879"
+        "NAV": "50.003"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001002",
         "Scheme Name": "SBI PENSION FUND SCHEME - STATE GOVT",
-        "NAV": "42.8082"
+        "NAV": "42.9828"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001003",
-        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER I",
-        "NAV": "55.2099"
+        "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER I DIRECT",
+        "NAV": "55.8711"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001004",
-        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER I",
-        "NAV": "46.0691"
+        "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER I DIRECT",
+        "NAV": "46.162"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001006",
-        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER II",
-        "NAV": "51.1502"
+        "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "51.8594"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001009",
-        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "40.4482"
+        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT",
+        "NAV": "40.6571"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001010",
         "Scheme Name": "SBI PENSION FUNDS PVT LTD SCHEME - CORPORATE-CG",
-        "NAV": "31.6945"
+        "NAV": "31.8213"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001015",
         "Scheme Name": "NPS Trust-A/C SBI Pension Fund Scheme-APY Fund Scheme",
-        "NAV": "12.5377"
+        "NAV": "12.5918"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001005",
-        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER I",
-        "NAV": "41.4351"
+        "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER I GS",
+        "NAV": "41.5797"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001007",
         "Scheme Name": "SBI PENSION FUND SCHEME C - TIER II",
-        "NAV": "41.0887"
+        "NAV": "41.1239"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001008",
-        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER II",
-        "NAV": "39.8736"
+        "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER II DIRECT",
+        "NAV": "40.0119"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001011",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "24.1525"
+        "NAV": "24.2431"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001012",
@@ -120,68 +120,68 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001014",
         "Scheme Name": "NPS TRUST A/C-SBI PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.0038"
+        "NAV": "14.0854"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001016",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
-        "NAV": "11.146"
+        "NAV": "11.2027"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002001",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- CENTRAL GOVT",
-        "NAV": "48.5273"
+        "NAV": "48.7338"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002002",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- STATE GOVT",
-        "NAV": "43.1957"
+        "NAV": "43.3779"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002003",
-        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME E - TIER I",
-        "NAV": "69.2079"
+        "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME E - TIER I DIRECT",
+        "NAV": "70.2418"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002004",
-        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME C - TIER I",
-        "NAV": "40.7121"
+        "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME C - TIER I DIRECT",
+        "NAV": "40.7934"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002006",
-        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME E - TIER II",
-        "NAV": "55.5061"
+        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "56.3242"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002009",
-        "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "40.0092"
+        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND - NPS LITE SCHEME GOVT. PATTERN DIRECT",
+        "NAV": "40.2286"
     },
     {
         "Date": "06/27/2025",
@@ -200,47 +200,47 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002015",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - APY FUND SCHEME",
-        "NAV": "12.8078"
+        "NAV": "12.8616"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002005",
-        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME G - TIER I",
-        "NAV": "37.0466"
+        "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME G - TIER I GS",
+        "NAV": "37.1761"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002007",
         "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME C - TIER II",
-        "NAV": "38.7483"
+        "NAV": "38.7846"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002008",
-        "Scheme Name": "UTI RETIREMENT SOLUTIONS  SCHEME G - TIER II",
-        "NAV": "38.1168"
+        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME G - TIER II DIRECT",
+        "NAV": "38.2449"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002011",
         "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "24.8035"
+        "NAV": "24.9092"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002012",
@@ -264,119 +264,119 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002014",
         "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.3234"
+        "NAV": "14.3779"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002016",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - NPS TIER- II COMPOSITE",
-        "NAV": "11.2528"
+        "NAV": "11.2901"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003001",
         "Scheme Name": "LIC PENSION FUND SCHEME - CENTRAL GOVT",
-        "NAV": "48.6992"
+        "NAV": "48.8855"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003002",
         "Scheme Name": "LIC PENSION FUND SCHEME - STATE GOVT",
-        "NAV": "43.3377"
+        "NAV": "43.5015"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003003",
-        "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "40.1648"
+        "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT",
+        "NAV": "40.3618"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003004",
         "Scheme Name": "LIC PENSION FUND LIMITED SCHEME - CORPORATE-CG",
-        "NAV": "32.0234"
+        "NAV": "32.1431"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003006",
-        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER I",
-        "NAV": "29.475"
+        "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER I DIRECT",
+        "NAV": "29.531"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003009",
         "Scheme Name": "LIC PENSION FUND SCHEME C - TIER II",
-        "NAV": "27.9908"
+        "NAV": "28.0164"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003010",
-        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER II",
-        "NAV": "31.6158"
+        "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER II DIRECT",
+        "NAV": "31.6998"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003015",
         "Scheme Name": "NPS Trust-A/C LIC Pension Fund Scheme-APY Fund Scheme",
-        "NAV": "12.7855"
+        "NAV": "12.8322"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003005",
-        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER I",
-        "NAV": "43.758"
+        "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER I DIRECT",
+        "NAV": "44.2832"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003007",
-        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER I",
-        "NAV": "30.9614"
+        "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER I DIRECT",
+        "NAV": "31.0474"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003008",
-        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER II",
-        "NAV": "36.3726"
+        "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "36.8083"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003011",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
-        "NAV": "24.8211"
+        "NAV": "24.9158"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003012",
@@ -400,39 +400,39 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003014",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.9898"
+        "NAV": "15.0524"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003016",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - NPS TIER - II COMPOSITE SCHEME",
-        "NAV": "11.0583"
+        "NAV": "11.0993"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005005",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER II",
-        "NAV": "38.1913"
+        "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER II DIRECT",
+        "NAV": "38.279"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005007",
         "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
-        "NAV": "34.8732"
+        "NAV": "35.0071"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005008",
@@ -440,44 +440,44 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005001",
         "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER I",
-        "NAV": "65.6317"
+        "NAV": "66.3407"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005002",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER I",
-        "NAV": "44.0964"
+        "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER I DIRECT",
+        "NAV": "44.1757"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005003",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER I",
-        "NAV": "37.6019"
+        "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER I GS",
+        "NAV": "37.7206"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005004",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER II",
-        "NAV": "57.7323"
+        "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "58.4053"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005006",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER II",
-        "NAV": "34.7765"
+        "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER II DIRECT",
+        "NAV": "34.887"
     },
     {
         "Date": "06/27/2025",
@@ -496,20 +496,20 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005010",
         "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.9378"
+        "NAV": "15.002"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007005",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER II",
-        "NAV": "42.4096"
+        "NAV": "42.4423"
     },
     {
         "Date": "06/27/2025",
@@ -528,7 +528,7 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007008",
@@ -536,44 +536,44 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007001",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I",
-        "NAV": "72.5558"
+        "NAV": "73.6299"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007002",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I",
-        "NAV": "45.8512"
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I DIRECT",
+        "NAV": "45.9368"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007003",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I",
-        "NAV": "38.147"
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I GS",
+        "NAV": "38.2564"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007004",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II",
-        "NAV": "57.2848"
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "58.1764"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007006",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER II",
-        "NAV": "36.7512"
+        "NAV": "36.8297"
     },
     {
         "Date": "06/27/2025",
@@ -592,20 +592,20 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007010",
         "Scheme Name": "ICICI PRUDENTIAL PENSION FUNDS SCHEME TAX SAVER TIER II",
-        "NAV": "14.944"
+        "NAV": "15.0006"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008005",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER II",
-        "NAV": "28.3752"
+        "NAV": "28.4113"
     },
     {
         "Date": "06/27/2025",
@@ -624,7 +624,7 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008008",
@@ -632,44 +632,44 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008001",
         "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER I",
-        "NAV": "52.5833"
+        "NAV": "53.233"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008002",
-        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER I",
-        "NAV": "30.4702"
+        "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT",
+        "NAV": "30.5298"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008003",
-        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER I",
-        "NAV": "28.2957"
+        "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I GS",
+        "NAV": "28.3903"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008004",
-        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER II",
-        "NAV": "45.5219"
+        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT",
+        "NAV": "46.1484"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008006",
-        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER II",
-        "NAV": "28.8788"
+        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT",
+        "NAV": "28.965"
     },
     {
         "Date": "06/27/2025",
@@ -688,39 +688,39 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008010",
         "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LTD SCHEME TAX SAVER TIER II",
-        "NAV": "14.5047"
+        "NAV": "14.5581"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010001",
         "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I",
-        "NAV": "28.0087"
+        "NAV": "28.3353"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010002",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I",
-        "NAV": "20.3519"
+        "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I DIRECT",
+        "NAV": "20.3902"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010003",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I",
-        "NAV": "19.2843"
+        "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I GS",
+        "NAV": "19.3449"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010004",
@@ -728,36 +728,36 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010006",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II",
-        "NAV": "19.5776"
+        "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II DIRECT",
+        "NAV": "19.6167"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010009",
         "Scheme Name": "ADITYA BIRLA SUN LIFE PENSION FUND SCHEME TAX SAVER TIER II",
-        "NAV": "14.9883"
+        "NAV": "15.0552"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010005",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II",
-        "NAV": "28.3587"
+        "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II DIRECT",
+        "NAV": "28.7224"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010007",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II",
-        "NAV": "18.5432"
+        "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II DIRECT",
+        "NAV": "18.6031"
     },
     {
         "Date": "06/27/2025",
@@ -776,55 +776,55 @@
         "5Y": "0.00"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011005",
-        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME E - TIER II",
-        "NAV": "15.4397"
+        "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II DIRECT",
+        "NAV": "15.6506"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011007",
-        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME G - TIER II",
-        "NAV": "12.8825"
+        "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II DIRECT",
+        "NAV": "12.9248"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011008",
         "Scheme Name": "TATA PENSION MANAGEMENT LIMITED TAX SAVER - TIER II",
-        "NAV": "12.9635"
+        "NAV": "13.0443"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011001",
-        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME E - TIER I",
-        "NAV": "15.538"
+        "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I DIRECT",
+        "NAV": "15.7544"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011002",
-        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME C - TIER I",
-        "NAV": "13.0275"
+        "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I DIRECT",
+        "NAV": "13.0565"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011003",
-        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME G - TIER I",
-        "NAV": "12.8212"
+        "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I GS",
+        "NAV": "12.8632"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011004",
@@ -832,12 +832,12 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011006",
         "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME C - TIER II",
-        "NAV": "13.0728"
+        "NAV": "13.0924"
     },
     {
         "Date": "04/17/2025",
@@ -968,55 +968,55 @@
         "5Y": null
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013005",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
-        "NAV": "14.2592"
+        "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT",
+        "NAV": "14.4339"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013007",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
-        "NAV": "12.6618"
+        "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT",
+        "NAV": "12.7048"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013008",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME TAX SAVER - TIER II",
-        "NAV": "11.8016"
+        "NAV": "11.8429"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013001",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
-        "NAV": "13.9164"
+        "NAV": "14.0712"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013002",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
-        "NAV": "13.0471"
+        "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT",
+        "NAV": "13.075"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013003",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
-        "NAV": "12.7348"
+        "NAV": "12.761"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013004",
@@ -1024,63 +1024,63 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013006",
         "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
-        "NAV": "12.8336"
+        "NAV": "12.8434"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014005",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II POP",
-        "NAV": "11.6384"
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II DIRECT",
+        "NAV": "11.7485"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014007",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II POP",
-        "NAV": "11.7575"
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II DIRECT",
+        "NAV": "11.7909"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014008",
         "Scheme Name": "NPS TRUST A/C - DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME TAX SAVER - TIER II",
-        "NAV": "11.5808"
+        "NAV": "11.5872"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014001",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I POP",
-        "NAV": "12.073"
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I DIRECT",
+        "NAV": "12.1941"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014002",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I POP",
-        "NAV": "12.0226"
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I DIRECT",
+        "NAV": "12.0451"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014003",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I POP",
-        "NAV": "11.6801"
+        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I GS",
+        "NAV": "11.7225"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014004",
@@ -1088,1115 +1088,1115 @@
         "NAV": "10.0"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014006",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER II POP",
-        "NAV": "12.1887"
+        "NAV": "12.2001"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001017",
         "Scheme Name": "NPS TRUST A/C - SBI PENSION FUND - UPS CG SCHEME",
-        "NAV": "10.4159"
+        "NAV": "10.4566"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002017",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME - UPS CG SCHEME",
-        "NAV": "10.3704"
+        "NAV": "10.4163"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003017",
         "Scheme Name": "NPS TRUST A/C - LIC PENSION FUND - UPS CG SCHEME",
-        "NAV": "10.183"
+        "NAV": "10.2217"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001018",
         "Scheme Name": "NPS TRUST A/C - SBI PENSION FUND - UPS POOL CG SCHEME",
-        "NAV": "10.2813"
+        "NAV": "10.3227"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001019",
         "Scheme Name": "NPS TRUST A/C - SBI NPS JEEVAN SWARNA RETIREMENT YOJANA - LIFE\u2019S GOLDEN PLAN - TIER I",
-        "NAV": "9.7457"
+        "NAV": "9.8643"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001020",
         "Scheme Name": "NPS TRUST A/C - SBI NPS AKSHAY DHARA RETIREMENT YOJANA-HAPPY RETIREMENT PLAN ",
-        "NAV": "10.0387"
+        "NAV": "10.1028"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002018",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME - UPS POOL CG SCHEME",
-        "NAV": "10.4083"
+        "NAV": "10.4491"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002019",
         "Scheme Name": "NPS TRUST A/C - UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER I",
-        "NAV": "9.646"
+        "NAV": "9.8412"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002020",
         "Scheme Name": "NPS TRUST A/C - UTI PF WEALTH BUILDER NPS EQUITY SCHEME - TIER II",
-        "NAV": "10.2681"
+        "NAV": "10.2735"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002021",
         "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME - TIER I",
-        "NAV": "10.0031"
+        "NAV": "10.0974"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002022",
         "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME TIER II",
-        "NAV": "10.2665"
+        "NAV": "10.2719"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003018",
         "Scheme Name": "NPS TRUST A/C - LIC PENSION FUND - UPS POOL CG SCHEME",
-        "NAV": "10.2691"
+        "NAV": "10.3062"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003019",
         "Scheme Name": "NPS TRUST A/C - LIC PFL NPS SMART BALANCE - TIER I",
-        "NAV": "9.5189"
+        "NAV": "9.5907"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005011",
         "Scheme Name": "NPS TRUST A/C - KOTAK NPS KUBER EQUITY FUND - TIER I",
-        "NAV": "9.3796"
+        "NAV": "9.4853"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007011",
         "Scheme Name": "NPS TRUST A/C - ICICI NPS MY FAMILY MY FUTURE (INMFMF) - TIER I",
-        "NAV": "9.7498"
+        "NAV": "9.8747"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007012",
         "Scheme Name": "NPS TRUST A/C - ICICI PF NPS DYNAMIC REALLOCATION ENHANCED ACCUMULATION MODEL PLAN (ICICI NPS DREAM) - TIER I",
-        "NAV": "9.5232"
+        "NAV": "9.6716"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008011",
         "Scheme Name": "NPS TRUST A/C - HDFC PF NPS SURAKSHIT INCOME FUND - TIER I",
-        "NAV": "9.6109"
+        "NAV": "9.6785"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008012",
         "Scheme Name": "NPS TRUST A/C - HDFC PF NPS SURAKSHIT INCOME FUND - TIER II",
-        "NAV": "10.0986"
+        "NAV": "10.1245"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008013",
         "Scheme Name": "NPS TRUST A/C - HDFC PF NPS EQUITY ADVANTAGE FUND - TIER I",
-        "NAV": "9.4726"
+        "NAV": "9.5613"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010010",
         "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE RETIREMENT EQUITY FUND - NPS - TIER I",
-        "NAV": "10.0095"
+        "NAV": "10.128"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010011",
         "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE FUTURE FUND - NPS - TIER I",
-        "NAV": "10.1543"
+        "NAV": "10.2128"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011009",
         "Scheme Name": "NPS TRUST A/C - TATA PENSION FUND NPS SMART RETIREMENT FUND - TIER I",
-        "NAV": "9.4244"
+        "NAV": "9.536"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013009",
         "Scheme Name": "NPS TRUST A/C - AXIS NPS GOLDEN YEARS FUND - GROWTH - TIER I",
-        "NAV": "9.4517"
+        "NAV": "9.5281"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014009",
         "Scheme Name": "NPS TRUST A/C - DSP NPS LONG TERM EQUITY FUND - TIER I",
-        "NAV": "9.2443"
+        "NAV": "9.3195"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003020",
         "Scheme Name": "NPS TRUST A/C - LIC PFL NPS GROWTH PLUS - TIER I",
-        "NAV": "9.3597"
+        "NAV": "9.4541"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001021",
-        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUNDS - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.7994"
+        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUNDS - NPS VATSALYA SCHEME POP",
+        "NAV": "9.8885"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002023",
-        "Scheme Name": "NPS TRUST - A/C UTI PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.6525"
+        "Scheme Name": "NPS TRUST - A/C UTI PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.7354"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003021",
-        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.8422"
+        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.9047"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005012",
-        "Scheme Name": "NPS TRUST - A/C KOTAK MAHINDRA PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.4614"
+        "Scheme Name": "NPS TRUST - A/C KOTAK MAHINDRA PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.532"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007013",
-        "Scheme Name": "NPS TRUST - A/C ICICI PRUDENTIAL PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.7807"
+        "Scheme Name": "NPS TRUST - A/C ICICI PRUDENTIAL PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.8716"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008014",
-        "Scheme Name": "NPS TRUST - A/C HDFC PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.8131"
+        "Scheme Name": "NPS TRUST - A/C HDFC PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.8634"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010012",
-        "Scheme Name": "NPS TRUST - A/C ADITYA BIRLA SUNLIFE PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.6697"
+        "Scheme Name": "NPS TRUST - A/C ADITYA BIRLA SUNLIFE PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.7545"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011010",
-        "Scheme Name": "NPS TRUST - A/C TATA PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.7943"
+        "Scheme Name": "NPS TRUST - A/C TATA PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.8751"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013010",
-        "Scheme Name": "NPS TRUST - A/C AXIS PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.5366"
+        "Scheme Name": "NPS TRUST - A/C AXIS PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.5984"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014010",
-        "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME DIRECT",
-        "NAV": "9.3917"
+        "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME POP",
+        "NAV": "9.4479"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001022",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "55.2776"
+        "NAV": "55.8806"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001025",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "55.2686"
+        "NAV": "55.8711"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001023",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER I GS",
-        "NAV": "46.1255"
+        "NAV": "46.1699"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001026",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER I DIRECT",
-        "NAV": "46.118"
+        "NAV": "46.162"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001024",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER I GS",
-        "NAV": "41.4859"
+        "NAV": "41.5797"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001027",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER I DIRECT",
-        "NAV": "41.4791"
+        "NAV": "41.5726"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001028",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "51.2045"
+        "NAV": "51.8594"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001029",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "41.1324"
+        "NAV": "41.1684"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001030",
         "Scheme Name": "NPS TRUST A/C SBI PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "39.916"
+        "NAV": "40.0119"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001032",
         "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT",
-        "NAV": "40.4912"
+        "NAV": "40.6571"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM001",
         "PFM Name": "SBI Pension Funds Pvt. Ltd.",
         "Scheme Code": "SM001031",
         "Scheme Name": "NPS TRUST - A/C SBI PENSION FUNDS - NPS VATSALYA SCHEME POP",
-        "NAV": "9.789"
+        "NAV": "9.8885"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002024",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "69.2947"
+        "NAV": "70.2558"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002025",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME C - TIER I GS",
-        "NAV": "40.7631"
+        "NAV": "40.8015"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002026",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME G - TIER I GS",
-        "NAV": "37.093"
+        "NAV": "37.1761"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002027",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "69.2815"
+        "NAV": "70.2418"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002028",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME C - TIER I DIRECT",
-        "NAV": "40.7553"
+        "NAV": "40.7934"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002029",
         "Scheme Name": "NPS TRUST A/C - UTI PENSION FUND SCHEME G - TIER I DIRECT",
-        "NAV": "37.0859"
+        "NAV": "37.1687"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002030",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "55.5651"
+        "NAV": "56.3242"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002031",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "38.7895"
+        "NAV": "38.8265"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002032",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "38.1573"
+        "NAV": "38.2449"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002033",
         "Scheme Name": "NPS TRUST - A/C UTI PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.6425"
+        "NAV": "9.7354"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM002",
         "PFM Name": "UTI Pension Fund Limited.",
         "Scheme Code": "SM002034",
         "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND - NPS LITE SCHEME GOVT. PATTERN DIRECT",
-        "NAV": "40.0517"
+        "NAV": "40.2286"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003022",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "43.8129"
+        "NAV": "44.2921"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003023",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER I GS",
-        "NAV": "29.512"
+        "NAV": "29.5369"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003024",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER I GS",
-        "NAV": "31.0002"
+        "NAV": "31.0536"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003025",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "43.8045"
+        "NAV": "44.2832"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003026",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER I DIRECT",
-        "NAV": "29.5063"
+        "NAV": "29.531"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003027",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER I DIRECT",
-        "NAV": "30.9943"
+        "NAV": "31.0474"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003028",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "36.4112"
+        "NAV": "36.8083"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003029",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "28.0205"
+        "NAV": "28.0467"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003030",
         "Scheme Name": "NPS TRUST A/C LIC PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "31.6494"
+        "NAV": "31.6998"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003031",
         "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.8317"
+        "NAV": "9.9047"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM003",
         "PFM Name": "LIC Pension Fund Ltd.",
         "Scheme Code": "SM003032",
         "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN DIRECT",
-        "NAV": "40.2074"
+        "NAV": "40.3618"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005013",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "65.7061"
+        "NAV": "66.4174"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005014",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER I GS",
-        "NAV": "44.1464"
+        "NAV": "44.179"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005015",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER I GS",
-        "NAV": "37.6446"
+        "NAV": "37.7206"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005016",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "65.7014"
+        "NAV": "66.4125"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005017",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER I DIRECT",
-        "NAV": "44.1433"
+        "NAV": "44.1757"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005018",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER I DIRECT",
-        "NAV": "37.6419"
+        "NAV": "37.7178"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005019",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "57.7936"
+        "NAV": "58.4053"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005020",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "38.2319"
+        "NAV": "38.279"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005021",
         "Scheme Name": "NPS TRUST A/C KOTAK PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "34.8134"
+        "NAV": "34.887"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM005",
         "PFM Name": "Kotak Mahindra Pension Fund Ltd.",
         "Scheme Code": "SM005022",
         "Scheme Name": "NPS TRUST - A/C KOTAK MAHINDRA PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.4513"
+        "NAV": "9.532"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007015",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "72.6398"
+        "NAV": "73.7169"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007016",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I GS",
-        "NAV": "45.9043"
+        "NAV": "45.9414"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007017",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I GS",
-        "NAV": "38.1912"
+        "NAV": "38.2564"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007018",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "72.6329"
+        "NAV": "73.7096"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007019",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I DIRECT",
-        "NAV": "45.8999"
+        "NAV": "45.9368"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007020",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I DIRECT",
-        "NAV": "38.1876"
+        "NAV": "38.2526"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007021",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "57.3457"
+        "NAV": "58.1764"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007022",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "42.4547"
+        "NAV": "42.4882"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007023",
         "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "36.7902"
+        "NAV": "36.8695"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM007",
         "PFM Name": "ICICI Prudential Pension Fund Management Co. Ltd.",
         "Scheme Code": "SM007024",
         "Scheme Name": "NPS TRUST - A/C ICICI PRUDENTIAL PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.7703"
+        "NAV": "9.8716"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008015",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I GS",
-        "NAV": "52.642"
+        "NAV": "53.2936"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008016",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I GS",
-        "NAV": "30.5042"
+        "NAV": "30.5315"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008017",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I GS",
-        "NAV": "28.3273"
+        "NAV": "28.3903"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008018",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I DIRECT",
-        "NAV": "52.6392"
+        "NAV": "53.2907"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008019",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT",
-        "NAV": "30.5026"
+        "NAV": "30.5298"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008020",
         "Scheme Name": "NPS TRUST A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I DIRECT",
-        "NAV": "28.3258"
+        "NAV": "28.3888"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008021",
         "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT",
-        "NAV": "45.5703"
+        "NAV": "46.1484"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008022",
         "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II DIRECT",
-        "NAV": "28.4054"
+        "NAV": "28.4421"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008023",
         "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT",
-        "NAV": "28.9095"
+        "NAV": "28.965"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM008",
         "PFM Name": "HDFC Pension Fund Management Limited",
         "Scheme Code": "SM008024",
         "Scheme Name": "NPS TRUST - A/C HDFC PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.8027"
+        "NAV": "9.8634"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010013",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I GS",
-        "NAV": "28.0404"
+        "NAV": "28.3681"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010014",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I GS",
-        "NAV": "20.3749"
+        "NAV": "20.3917"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010015",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I GS",
-        "NAV": "19.3062"
+        "NAV": "19.3449"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010016",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I DIRECT",
-        "NAV": "28.0384"
+        "NAV": "28.366"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010017",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I DIRECT",
-        "NAV": "20.3735"
+        "NAV": "20.3902"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010018",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I DIRECT",
-        "NAV": "19.3048"
+        "NAV": "19.3435"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010019",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II DIRECT",
-        "NAV": "28.3888"
+        "NAV": "28.7224"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010020",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II DIRECT",
-        "NAV": "19.5984"
+        "NAV": "19.6167"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010021",
         "Scheme Name": "NPS TRUST A/C ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II DIRECT",
-        "NAV": "18.5629"
+        "NAV": "18.6031"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM010",
         "PFM Name": "Aditya Birla Sunlife Pension Fund management Limited",
         "Scheme Code": "SM010022",
         "Scheme Name": "NPS TRUST - A/C ADITYA BIRLA SUNLIFE PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.6594"
+        "NAV": "9.7545"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011011",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I GS",
-        "NAV": "15.5556"
+        "NAV": "15.7555"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011014",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I DIRECT",
-        "NAV": "15.5545"
+        "NAV": "15.7544"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011012",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I GS",
-        "NAV": "13.0424"
+        "NAV": "13.0575"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011015",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I DIRECT",
-        "NAV": "13.0415"
+        "NAV": "13.0565"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011013",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I GS",
-        "NAV": "12.8359"
+        "NAV": "12.8632"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011016",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I DIRECT",
-        "NAV": "12.835"
+        "NAV": "12.8623"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011017",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II DIRECT",
-        "NAV": "15.456"
+        "NAV": "15.6506"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011018",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER II DIRECT",
-        "NAV": "13.0867"
+        "NAV": "13.1066"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011019",
         "Scheme Name": "NPS TRUST A/C TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II DIRECT",
-        "NAV": "12.8962"
+        "NAV": "12.9248"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM011",
         "PFM Name": "Tata Pension Fund Management Private Limited",
         "Scheme Code": "SM011020",
         "Scheme Name": "NPS TRUST - A/C TATA PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.784"
+        "NAV": "9.8751"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013011",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I GS",
-        "NAV": "13.9325"
+        "NAV": "14.0879"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013012",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I GS",
-        "NAV": "13.0622"
+        "NAV": "13.0763"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013013",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I GS",
-        "NAV": "12.7495"
+        "NAV": "12.7761"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013014",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I DIRECT",
-        "NAV": "13.9312"
+        "NAV": "14.0865"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013015",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I DIRECT",
-        "NAV": "13.061"
+        "NAV": "13.075"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013016",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I DIRECT",
-        "NAV": "12.7483"
+        "NAV": "12.7748"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013017",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II DIRECT",
-        "NAV": "14.2743"
+        "NAV": "14.4339"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013018",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II DIRECT",
-        "NAV": "12.8473"
+        "NAV": "12.8573"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013019",
         "Scheme Name": "NPS TRUST A/C AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II DIRECT",
-        "NAV": "12.6753"
+        "NAV": "12.7048"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013020",
         "Scheme Name": "NPS TRUST - A/C AXIS PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.5265"
+        "NAV": "9.5984"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014011",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I GS",
-        "NAV": "12.0866"
+        "NAV": "12.195"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014012",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I GS",
-        "NAV": "12.0362"
+        "NAV": "12.046"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014013",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I GS",
-        "NAV": "11.6933"
+        "NAV": "11.7225"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014014",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER I DIRECT",
-        "NAV": "12.0858"
+        "NAV": "12.1941"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014015",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER I DIRECT",
-        "NAV": "12.0354"
+        "NAV": "12.0451"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014016",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER I DIRECT",
-        "NAV": "11.6925"
+        "NAV": "11.7216"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014017",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME E - TIER II DIRECT",
-        "NAV": "11.6508"
+        "NAV": "11.7485"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014018",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME C - TIER II DIRECT",
-        "NAV": "12.2016"
+        "NAV": "12.2133"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014019",
         "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME G - TIER II DIRECT",
-        "NAV": "11.77"
+        "NAV": "11.7909"
     },
     {
-        "Date": "06/12/2026",
+        "Date": "06/15/2026",
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014020",
         "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME POP",
-        "NAV": "9.3817"
+        "NAV": "9.4479"
     }
 ]
