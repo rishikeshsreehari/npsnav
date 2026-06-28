@@ -1,5 +1,14 @@
 [
   {
+    "version": "v1.5.2",
+    "date": "2026-06-28",
+    "changes": [
+      "Added Tata Pension and Axis NPS Swasthya funds with historical NAV data",
+      "Fixed date formatting on individual fund pages for Indian users",
+      "Cleaned up the footer design and improved access to project links, support options, and legal information"
+    ]
+  },
+  {
     "version": "v1.5.1",
     "date": "2026-04-15",
     "changes": [

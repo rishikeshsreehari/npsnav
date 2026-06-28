@@ -2198,5 +2198,21 @@
         "Scheme Code": "SM014020",
         "Scheme Name": "NPS TRUST - A/C DSP PENSION FUND - NPS VATSALYA SCHEME POP",
         "NAV": "9.5576"
+    },
+    {
+        "Date": "06/25/2026",
+        "PFM Code": "PFM011",
+        "PFM Name": "Tata Pension Fund Management Private Limited",
+        "Scheme Code": "SM011021",
+        "Scheme Name": "NPS TRUST A/C - TATA PENSION NPS SWASTHYA FUND",
+        "NAV": "10.0987"
+    },
+    {
+        "Date": "06/25/2026",
+        "PFM Code": "PFM013",
+        "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
+        "Scheme Code": "SM013021",
+        "Scheme Name": "NPS TRUST - A/C AXIS NPS SWASTHYA TOP-UP PLUS",
+        "NAV": "10.1357"
     }
 ]
