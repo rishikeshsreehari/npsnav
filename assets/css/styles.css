@@ -754,12 +754,61 @@ header {
 }
 
 /* Footer improvements - consolidated and fixed */
-.donate-section {
+.contact-info,
+.support-section {
     margin: 1.5rem 0;
+}
+
+.contact-info h3,
+.support-section h3 {
+    margin: 0 0 0.25rem;
+    color: #333;
+}
+
+.contact-info p,
+.support-section > p {
+    margin: 0;
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 0.8rem;
+}
+
+.footer-actions a {
+    padding: 0.45rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #444;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.footer-actions a:hover {
+    border-color: #999;
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+}
+
+.donate-section {
+    margin: 1rem 0;
     display: flex;
     justify-content: center;
     gap: 1rem;
     align-items: center;
+}
+
+.support-section .donate {
+    width: 150px;
+    min-width: 0;
+    margin: 0;
 }
 
 .footer-links {
@@ -890,8 +939,12 @@ header {
     }
 
     footer {
-        padding: 1rem;
         font-size: 0.8rem;
+    }
+
+    .footer-content {
+        width: min(100% - 1rem, 760px);
+        padding: 1.25rem 0 1rem;
     }
 
     .chart-container {
@@ -912,8 +965,23 @@ header {
     }
 
     .donate-section {
-        flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.65rem;
+    }
+
+    .support-section .donate {
+        width: 130px;
+    }
+
+    .crypto-line {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    .crypto-line code {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     
     .footer-credits {
@@ -976,6 +1044,20 @@ header {
 
 .crypto-donations {
   font-size: 0.7em; /* Much smaller text */
+  max-width: 560px;
+  margin: 0.75rem auto 0;
+}
+
+.crypto-donations h4 {
+  margin: 0 0 0.25rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.crypto-help {
+  margin-bottom: 0.75rem !important;
+  color: #777;
+  font-size: 0.9rem;
 }
 
 .crypto-line {
@@ -1674,6 +1756,51 @@ color: #333;
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    width: min(100% - 2rem, 760px);
+    margin: 0 auto;
+    padding: 2rem 0 1.5rem;
+}
+
+footer .disclaimer {
+    margin: 0 0 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    background: #fafafa;
+    text-align: left;
+}
+
+footer .disclaimer h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+footer .disclaimer p {
+    margin-bottom: 0;
+}
+
+footer .license-info {
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        width: min(100% - 1rem, 760px);
+        padding: 1.25rem 0 1rem;
+    }
+
+    footer .disclaimer {
+        padding: 1rem;
+    }
+
+    footer .license-info {
+        white-space: normal;
+    }
 }
 
 .back-link {
