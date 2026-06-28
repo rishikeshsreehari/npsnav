@@ -1,4 +1,11 @@
 let navChart;
+
+function formatIndianDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    return `${day}-${month}-${date.getFullYear()}`;
+}
+
 const parsedData = navData.map(item => {
     const [month, day, year] = item.date.split('/');
     return {
@@ -307,7 +314,7 @@ function initChart() {
                         intersect: false,
                         callbacks: {
                             title: function(tooltipItems) {
-                                return tooltipItems[0].raw.x.toLocaleDateString();
+                                return formatIndianDate(tooltipItems[0].raw.x);
                             },
                             label: function(context) {
                                 const originalValue = context.raw.originalValue;
@@ -434,8 +441,8 @@ function filterData(range) {
 
     // Update methodology and disclaimer
     if (matchedFundData.length > 0) {
-        const startDate = matchedFundData[0].x.toLocaleDateString();
-        const endDate = matchedFundData[matchedFundData.length - 1].x.toLocaleDateString();
+        const startDate = formatIndianDate(matchedFundData[0].x);
+        const endDate = formatIndianDate(matchedFundData[matchedFundData.length - 1].x);
         updateMethodologyAndDisclaimer(startDate, endDate);
         updateInvestmentComparison(matchedFundData, matchedNiftyData, range);
     }

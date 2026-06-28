@@ -1,7 +1,15 @@
 import json
 import os
 import re
+from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
+
+def format_display_date(date_str):
+    """Convert the stored MM/DD/YYYY date to DD-MM-YYYY for display."""
+    try:
+        return datetime.strptime(date_str, "%m/%d/%Y").strftime("%d-%m-%Y")
+    except (TypeError, ValueError):
+        return date_str
 
 def shorten_scheme_name(name):
     """Remove verbose prefixes and company name suffixes from scheme names."""
@@ -74,7 +82,7 @@ for fund in funds_data:
     scheme_name = shorten_scheme_name(fund['Scheme Name']).upper()
     pfm_name = fund['PFM Name']
     current_nav = round(float(fund['NAV']), 2)
-    nav_date = fund['Date']
+    nav_date = format_display_date(fund['Date'])
     
     print(f"Processing fund: {scheme_name} (Scheme Code: {scheme_code})")
     
