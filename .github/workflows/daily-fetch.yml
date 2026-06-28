@@ -57,7 +57,7 @@ jobs:
         git add --force data/SM*.json
         
         # Add the normally-tracked files
-        git add data/data.json data/nifty.json data/changelog.json data/missing_funds.json
+        git add data/data.json data/nifty.json data/changelog.json
         
         # Show what will be committed
         echo "Files staged for commit:"
