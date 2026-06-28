@@ -778,6 +778,18 @@ header {
     color: #333;
 }
 
+.footer-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.footer-github-icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+}
+
 .footer-bottom {
     border-top: 1px solid #e0e0e0;
     padding-top: 1.5rem;
