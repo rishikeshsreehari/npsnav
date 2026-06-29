@@ -1,0 +1,87 @@
+{
+    "timestamp": "2026-06-29T22:38:42.255373",
+    "summary": {
+        "new_schemes_added": 0,
+        "name_fixes": 0,
+        "dead_schemes_count": 19
+    },
+    "new_schemes": [],
+    "dead_schemes": [
+        {
+            "Scheme Code": "SM001013",
+            "Scheme Name": "SBI PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM002010",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - CORPORATE CG"
+        },
+        {
+            "Scheme Code": "SM002013",
+            "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM003013",
+            "Scheme Name": "LIC PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM005009",
+            "Scheme Name": "KOTAK PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM007007",
+            "Scheme Name": "NPS TRUST A/C-ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED- NPS LITE SCHEME - GOVT. PATTERN"
+        },
+        {
+            "Scheme Code": "SM007009",
+            "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM008007",
+            "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME - NPS LITE SCHEME - GOVT. PATTERN"
+        },
+        {
+            "Scheme Code": "SM008009",
+            "Scheme Name": "HDFC PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM010008",
+            "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME A - TIER II"
+        },
+        {
+            "Scheme Code": "SM012005",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II"
+        },
+        {
+            "Scheme Code": "SM012007",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II"
+        },
+        {
+            "Scheme Code": "SM012008",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED TAX SAVER TIER II"
+        },
+        {
+            "Scheme Code": "SM012001",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I"
+        },
+        {
+            "Scheme Code": "SM012002",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I"
+        },
+        {
+            "Scheme Code": "SM012003",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I"
+        },
+        {
+            "Scheme Code": "SM012004",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I"
+        },
+        {
+            "Scheme Code": "SM012006",
+            "Scheme Name": "MAX LIFE PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II"
+        },
+        {
+            "Scheme Code": "SM007014",
+            "Scheme Name": "NPS TRUST A/C - ICICI PF NPS SWASTHYA EQUITY PLUS"
+        }
+    ]
+}

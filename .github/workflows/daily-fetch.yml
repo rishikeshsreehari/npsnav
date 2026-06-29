@@ -30,7 +30,27 @@ jobs:
         pip install -r requirements.txt
         
     - name: Run fetch.py
+      id: fetch
       run: python scripts/fetch.py
+      continue-on-error: true
+
+    - name: Create issue if both NAV sources failed
+      if: steps.fetch.outcome == 'failure'
+      uses: actions/github-script@v9
+      with:
+        script: |
+          const now = new Date().toISOString();
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `🚨 NAV fetch failed — both Protean and NPS Trust unavailable (${now.slice(0,10)})`,
+            labels: ['bug'],
+            body: `Both NAV data sources returned no data during the scheduled fetch.\n\n**Run:** ${context.runId}\n**Time:** ${now}\n\nPlease check:\n- https://www.npscra.proteantech.in (Protean ZIP endpoint)\n- https://npstrust.org.in/nav-report-excel (NPS Trust full dump)\n\nIf both are temporarily down, the next scheduled fetch will retry automatically.`
+          });
+
+    - name: Fail job if fetch failed
+      if: steps.fetch.outcome == 'failure'
+      run: exit 1
       
     - name: Run nifty.py
       env:

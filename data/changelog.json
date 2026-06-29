@@ -1,5 +1,15 @@
 [
   {
+    "version": "v1.5.3",
+    "date": "2026-06-29",
+    "changes": [
+      "Fixed: corrupted NAV data for old Regular (POP) schemes between June 15–24, 2026, caused by a silent remapping bug in the NPS Trust per-scheme endpoint",
+      "Backfilled correct historical NAV data for affected schemes using the Protean eGov data source",
+      "Switched daily fetch to dual-source: Protean ZIP (primary) + NPS Trust full dump (cross-validation) — eliminates the remapping issue permanently",
+      "Fetch now automatically backfills any missing trading days on each run"
+    ]
+  },
+  {
     "version": "v1.5.2",
     "date": "2026-06-28",
     "changes": [
