@@ -20,7 +20,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001003",
-        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER I",
         "NAV": "56.5081"
     },
     {
@@ -28,7 +28,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001004",
-        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER I",
         "NAV": "46.5165"
     },
     {
@@ -36,7 +36,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001006",
-        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME E - TIER II",
         "NAV": "52.4178"
     },
     {
@@ -44,7 +44,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001009",
-        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN POP",
+        "Scheme Name": "NPS TRUST A/C-SBI PENSION FUNDS PRIVATE LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
         "NAV": "41.1176"
     },
     {
@@ -60,7 +60,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001015",
-        "Scheme Name": "NPS TRUST - A/C SBI PENSION FUND SCHEME - APY FUND SCHEME",
+        "Scheme Name": "NPS Trust-A/C SBI Pension Fund Scheme-APY Fund Scheme",
         "NAV": "12.7432"
     },
     {
@@ -68,7 +68,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001005",
-        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER I",
         "NAV": "42.3531"
     },
     {
@@ -76,7 +76,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001007",
-        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME C - TIER II",
         "NAV": "41.4979"
     },
     {
@@ -84,7 +84,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001008",
-        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "SBI PENSION FUND SCHEME G - TIER II",
         "NAV": "40.7345"
     },
     {
@@ -132,7 +132,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002001",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - CENTRAL GOVT",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- CENTRAL GOVT",
         "NAV": "49.3993"
     },
     {
@@ -140,7 +140,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002002",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - STATE GOVT",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME- STATE GOVT",
         "NAV": "43.9639"
     },
     {
@@ -148,7 +148,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002003",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME E - TIER I",
         "NAV": "71.233"
     },
     {
@@ -156,7 +156,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002004",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME C - TIER I",
         "NAV": "41.1452"
     },
     {
@@ -164,7 +164,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002006",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME E - TIER II",
         "NAV": "57.2711"
     },
     {
@@ -172,7 +172,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002009",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND - NPS LITE SCHEME GOVT. PATTERN POP",
+        "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
         "NAV": "40.7679"
     },
     {
@@ -196,7 +196,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002005",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME G - TIER I",
         "NAV": "37.83"
     },
     {
@@ -204,7 +204,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002007",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS SCHEME C - TIER II",
         "NAV": "39.1429"
     },
     {
@@ -212,7 +212,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002008",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS  SCHEME G - TIER II",
         "NAV": "38.9294"
     },
     {
@@ -220,7 +220,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002011",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME - ATAL PENSION YOJANA (APY)",
+        "Scheme Name": "NPS TRUST - A/C UTI RETIREMENT SOLUTIONS LTD. SCHEME - ATAL PENSION YOJANA (APY)",
         "NAV": "25.2438"
     },
     {
@@ -228,7 +228,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002012",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME A - TIER I",
+        "Scheme Name": "UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME A - TIER I",
         "NAV": "10.0"
     },
     {
@@ -244,7 +244,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002014",
-        "Scheme Name": "NPS TRUST- A/C - UTI PENSION FUND SCHEME TAX SAVER - TIER II",
+        "Scheme Name": "NPS TRUST A/C-UTI RETIREMENT SOLUTIONS PENSION FUND SCHEME TAX SAVER TIER II",
         "NAV": "14.5739"
     },
     {
@@ -276,7 +276,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003003",
-        "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN POP",
+        "Scheme Name": "NPS TRUST A/C-LIC PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
         "NAV": "40.8439"
     },
     {
@@ -292,7 +292,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003006",
-        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER I",
         "NAV": "29.7475"
     },
     {
@@ -300,7 +300,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003009",
-        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME C - TIER II",
         "NAV": "28.2462"
     },
     {
@@ -308,7 +308,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003010",
-        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER II",
         "NAV": "32.2796"
     },
     {
@@ -316,7 +316,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003015",
-        "Scheme Name": "NPS TRUST - A/C LIC PENSION FUND SCHEME - APY FUND SCHEME",
+        "Scheme Name": "NPS Trust-A/C LIC Pension Fund Scheme-APY Fund Scheme",
         "NAV": "12.994"
     },
     {
@@ -324,7 +324,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003005",
-        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER I",
         "NAV": "44.5775"
     },
     {
@@ -332,7 +332,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003007",
-        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME G - TIER I",
         "NAV": "31.616"
     },
     {
@@ -340,7 +340,7 @@
         "PFM Code": "PFM003",
         "PFM Name": "LIC PENSION FUND LIMITED",
         "Scheme Code": "SM003008",
-        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "LIC PENSION FUND SCHEME E - TIER II",
         "NAV": "37.0604"
     },
     {
@@ -388,7 +388,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005005",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER II",
         "NAV": "38.5364"
     },
     {
@@ -396,7 +396,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005007",
-        "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN POP",
+        "Scheme Name": "NPS TRUST A/C-KOTAK MAHINDRA PENSION FUND LIMITED- NPS LITE SCHEME - GOVT. PATTERN",
         "NAV": "35.5412"
     },
     {
@@ -412,7 +412,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005001",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER I",
         "NAV": "67.1995"
     },
     {
@@ -420,7 +420,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005002",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME C - TIER I",
         "NAV": "44.5002"
     },
     {
@@ -428,7 +428,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005003",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER I",
         "NAV": "38.4492"
     },
     {
@@ -436,7 +436,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005004",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME E - TIER II",
         "NAV": "59.0841"
     },
     {
@@ -444,7 +444,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005006",
-        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "KOTAK PENSION FUND SCHEME G - TIER II",
         "NAV": "35.5838"
     },
     {
@@ -468,7 +468,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007005",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER II",
         "NAV": "42.7936"
     },
     {
@@ -492,7 +492,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007001",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I",
         "NAV": "74.2499"
     },
     {
@@ -500,7 +500,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007002",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I",
         "NAV": "46.2687"
     },
     {
@@ -508,7 +508,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007003",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I",
         "NAV": "38.9142"
     },
     {
@@ -516,7 +516,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007004",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER II",
         "NAV": "58.6377"
     },
     {
@@ -524,7 +524,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007006",
-        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER II",
         "NAV": "37.45"
     },
     {
@@ -548,7 +548,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008005",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER II",
         "NAV": "28.6716"
     },
     {
@@ -564,7 +564,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008008",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME A - TIER I",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME A - TIER I",
         "NAV": "10.0"
     },
     {
@@ -572,7 +572,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008001",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER I",
         "NAV": "53.8051"
     },
     {
@@ -580,7 +580,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008002",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME C - TIER I",
         "NAV": "30.7803"
     },
     {
@@ -588,7 +588,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008003",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER I",
         "NAV": "28.9588"
     },
     {
@@ -596,7 +596,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008004",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME E - TIER II",
         "NAV": "46.5819"
     },
     {
@@ -604,7 +604,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008006",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II POP",
+        "Scheme Name": "HDFC PENSION MANAGEMENT COMPANY LIMITED SCHEME G - TIER II",
         "NAV": "29.5321"
     },
     {
@@ -620,7 +620,7 @@
         "PFM Code": "PFM008",
         "PFM Name": "HDFC PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM008010",
-        "Scheme Name": "NPS TRUST- A/C HDFC PENSION FUND MANAGEMENT LIMITED SCHEME TAX SAVER - TIER II",
+        "Scheme Name": "NPS TRUST A/C-HDFC PENSION MANAGEMENT COMPANY LTD SCHEME TAX SAVER TIER II",
         "NAV": "14.7057"
     },
     {
@@ -628,7 +628,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010001",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER I",
         "NAV": "28.5565"
     },
     {
@@ -636,7 +636,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010002",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER I",
         "NAV": "20.5442"
     },
     {
@@ -644,7 +644,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010003",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER I",
         "NAV": "19.6589"
     },
     {
@@ -660,7 +660,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010006",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME C - TIER II",
         "NAV": "19.7611"
     },
     {
@@ -676,7 +676,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010005",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME E - TIER II",
         "NAV": "28.8996"
     },
     {
@@ -684,7 +684,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010007",
-        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II POP",
+        "Scheme Name": "ADITYA BIRLA SUNLIFE PENSION FUND SCHEME G - TIER II",
         "NAV": "18.9184"
     },
     {
@@ -700,7 +700,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011005",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER II POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME E - TIER II",
         "NAV": "15.812"
     },
     {
@@ -708,7 +708,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011007",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER II POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME G - TIER II",
         "NAV": "13.1559"
     },
     {
@@ -716,7 +716,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011008",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED TAX SAVER - TIER II",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED TAX SAVER - TIER II",
         "NAV": "13.2225"
     },
     {
@@ -724,7 +724,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011001",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME E - TIER I POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME E - TIER I",
         "NAV": "15.9139"
     },
     {
@@ -732,7 +732,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011002",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER I POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME C - TIER I",
         "NAV": "13.1544"
     },
     {
@@ -740,7 +740,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011003",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME G - TIER I POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME G - TIER I",
         "NAV": "13.0532"
     },
     {
@@ -748,7 +748,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011004",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME A - TIER I",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME A - TIER I",
         "NAV": "10.0"
     },
     {
@@ -756,7 +756,7 @@
         "PFM Code": "PFM011",
         "PFM Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "Scheme Code": "SM011006",
-        "Scheme Name": "TATA PENSION FUND MANAGEMENT PRIVATE LIMITED SCHEME C - TIER II POP",
+        "Scheme Name": "TATA PENSION MANAGEMENT LIMITED SCHEME C - TIER II",
         "NAV": "13.2116"
     },
     {
@@ -892,7 +892,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013005",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER II",
         "NAV": "14.65"
     },
     {
@@ -900,7 +900,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013007",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER II",
         "NAV": "12.8633"
     },
     {
@@ -916,7 +916,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013001",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME E - TIER I",
         "NAV": "14.222"
     },
     {
@@ -924,7 +924,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013002",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER I",
         "NAV": "13.1833"
     },
     {
@@ -932,7 +932,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013003",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME G - TIER I",
         "NAV": "12.9933"
     },
     {
@@ -948,7 +948,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013006",
-        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II POP",
+        "Scheme Name": "AXIS PENSION FUND MANAGEMENT LIMITED SCHEME C - TIER II",
         "NAV": "12.9638"
     },
     {
@@ -972,7 +972,7 @@
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014008",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME TAX SAVER TIER II",
+        "Scheme Name": "NPS TRUST A/C - DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME TAX SAVER - TIER II",
         "NAV": "11.6253"
     },
     {
@@ -1004,7 +1004,7 @@
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014004",
-        "Scheme Name": "NPS TRUST A/C DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME A - TIER I",
+        "Scheme Name": "NPS TRUST A/C - DSP PENSION FUND MANAGERS PRIVATE LIMITED SCHEME A - TIER I",
         "NAV": "10.0"
     },
     {
@@ -1044,7 +1044,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001018",
-        "Scheme Name": "NPS TRUST A/C - SBI PENSION FUND UPS POOL CG SCHEME",
+        "Scheme Name": "NPS TRUST A/C - SBI PENSION FUND - UPS POOL CG SCHEME",
         "NAV": "10.4437"
     },
     {
@@ -1052,7 +1052,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001019",
-        "Scheme Name": "NPS TRUST A/C - SBI PF NPS JEEVAN SWARNA RETIREMENT YOJANA - LIFES GOLDEN PLAN - TIER I",
+        "Scheme Name": "NPS TRUST A/C - SBI NPS JEEVAN SWARNA RETIREMENT YOJANA - LIFE\u2019S GOLDEN PLAN - TIER I",
         "NAV": "9.9705"
     },
     {
@@ -1060,7 +1060,7 @@
         "PFM Code": "PFM001",
         "PFM Name": "SBI PENSION FUNDS PRIVATE LIMITED",
         "Scheme Code": "SM001020",
-        "Scheme Name": "NPS TRUST A/C - SBI PF NPS AKSHAY DHARA RETIREMENT YOJANA-HAPPY RETIREMENT PLAN - TIER I",
+        "Scheme Name": "NPS TRUST A/C - SBI NPS AKSHAY DHARA RETIREMENT YOJANA-HAPPY RETIREMENT PLAN",
         "NAV": "10.2043"
     },
     {
@@ -1100,7 +1100,7 @@
         "PFM Code": "PFM002",
         "PFM Name": "UTI PENSION FUND LIMITED",
         "Scheme Code": "SM002022",
-        "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME - TIER II",
+        "Scheme Name": "NPS TRUST A/C - UTI PF DYNAMIC ASSET ALLOCATOR NPS SCHEME TIER II",
         "NAV": "10.3281"
     },
     {
@@ -1124,7 +1124,7 @@
         "PFM Code": "PFM005",
         "PFM Name": "KOTAK MAHINDRA PENSION FUND LIMITED",
         "Scheme Code": "SM005011",
-        "Scheme Name": "NPS TRUST A/C - KOTAK PF NPS KUBER EQUITY FUND - TIER I",
+        "Scheme Name": "NPS TRUST A/C - KOTAK NPS KUBER EQUITY FUND - TIER I",
         "NAV": "9.5956"
     },
     {
@@ -1180,7 +1180,7 @@
         "PFM Code": "PFM010",
         "PFM Name": "ADITYA BIRLA SUNLIFE PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM010011",
-        "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE FUTURE - NPS - TIER I",
+        "Scheme Name": "NPS TRUST A/C - ABSLPF SECURE FUTURE FUND - NPS - TIER I",
         "NAV": "10.3169"
     },
     {
@@ -1196,7 +1196,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013009",
-        "Scheme Name": "NPS TRUST A/C - AXIS PF NPS GOLDEN YEARS FUND - GROWTH - TIER I",
+        "Scheme Name": "NPS TRUST A/C - AXIS NPS GOLDEN YEARS FUND - GROWTH - TIER I",
         "NAV": "9.6426"
     },
     {
@@ -1204,7 +1204,7 @@
         "PFM Code": "PFM014",
         "PFM Name": "DSP PENSION FUND MANAGERS PRIVATE LIMITED",
         "Scheme Code": "SM014009",
-        "Scheme Name": "NPS TRUST A/C - DSP PF NPS LONG TERM EQUITY FUND - TIER I",
+        "Scheme Name": "NPS TRUST A/C - DSP NPS LONG TERM EQUITY FUND - TIER I",
         "NAV": "9.3835"
     },
     {
@@ -1652,7 +1652,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007016",
-        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I GS",
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I GS",
         "NAV": "46.3291"
     },
     {
@@ -1660,7 +1660,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007017",
-        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I GS",
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I GS",
         "NAV": "38.965"
     },
     {
@@ -1676,7 +1676,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007019",
-        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I DIRECT",
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME C - TIER I DIRECT",
         "NAV": "46.3235"
     },
     {
@@ -1684,7 +1684,7 @@
         "PFM Code": "PFM007",
         "PFM Name": "ICICI PRUDENTIAL PENSION FUNDS MANAGEMENT COMPANY LIMITED",
         "Scheme Code": "SM007020",
-        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I DIRECT",
+        "Scheme Name": "NPS TRUST A/C ICICI PRUDENTIAL PENSION FUND  SCHEME G - TIER I DIRECT",
         "NAV": "38.9603"
     },
     {
@@ -2132,7 +2132,7 @@
         "PFM Code": "PFM013",
         "PFM Name": "AXIS PENSION FUND MANAGEMENT LIMITED",
         "Scheme Code": "SM013021",
-        "Scheme Name": "NPS TRUST - A/C AXIS NPS SWASTHYATOP-UP PLUS",
+        "Scheme Name": "NPS TRUST - A/C AXIS NPS SWASTHYA TOP-UP PLUS",
         "NAV": "10.1428"
     },
     {
