@@ -38,6 +38,7 @@
 
     <div class="chart-container">
         <canvas id="navChart"></canvas>
+        <div id="chartLoadingMessage" class="chart-loading-message" style="display: none;">Fetching historical data&hellip;</div>
     </div>
     <span class="nav-date">Last updated on {{ nav_date }}</span>
 
@@ -51,6 +52,7 @@
 
 
 <script>
+    const schemeCode = {{ scheme_code | tojson }};
     const navData = {{ nav_data | tojson }};
     const niftyData = {{ nifty_data | tojson }};
     const returns = {{ returns | tojson }};

@@ -6,24 +6,86 @@ function formatIndianDate(date) {
     return `${day}-${month}-${date.getFullYear()}`;
 }
 
-const parsedData = navData.map(item => {
+// Canonical join key so inline (mm/dd/yyyy) and API-fetched (dd-mm-yyyy) records match by date
+function dateKey(date) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+}
+
+// Parses the inline-embedded window: [{date: "mm/dd/yyyy", nav: "12.34"}]
+function parseInlinePair(item) {
     const [month, day, year] = item.date.split('/');
-    return {
-        x: new Date(year, month - 1, day),
-        y: parseFloat(item.nav),
-        dateStr: item.date
-    };
-}).sort((a, b) => a.x - b.x);
+    const x = new Date(year, month - 1, day);
+    return { x, y: parseFloat(item.nav), dateStr: dateKey(x) };
+}
+
+// Parses /api/historical/{code}.json entries: [{date: "dd-mm-yyyy", nav: 12.34}]
+function parseApiPair(item) {
+    const [day, month, year] = item.date.split('-');
+    const x = new Date(year, month - 1, day);
+    return { x, y: parseFloat(item.nav), dateStr: dateKey(x) };
+}
+
+const parsedData = navData.map(parseInlinePair).sort((a, b) => a.x - b.x);
 
 // Parse Nifty data
-const parsedNiftyData = niftyData.map(item => {
-    const [month, day, year] = item.date.split('/');
-    return {
-        x: new Date(year, month - 1, day),
-        y: parseFloat(item.nav),
-        dateStr: item.date
-    };
-}).sort((a, b) => a.x - b.x);
+const parsedNiftyData = niftyData.map(parseInlinePair).sort((a, b) => a.x - b.x);
+
+// Lazily-loaded full history (beyond the inline ~1Y window).
+// Nifty's full series is one shared, small file reused by every fund page, so it's
+// prefetched quietly in the background. Each fund's own full series is scheme-specific
+// and much larger, so it's only fetched on demand when a 3Y/5Y/ALL chart button is clicked.
+let fullParsedData = null;
+let fullParsedNiftyData = null;
+let fullFundDataPromise = null;
+let fullNiftyDataPromise = null;
+
+function setChartLoadingMessage(show) {
+    const el = document.getElementById('chartLoadingMessage');
+    if (el) el.style.display = show ? '' : 'none';
+}
+
+async function ensureFullNiftyData() {
+    if (fullParsedNiftyData) return;
+    if (fullNiftyDataPromise) return fullNiftyDataPromise;
+
+    fullNiftyDataPromise = (async () => {
+        try {
+            const res = await fetch('/api/historical/nifty.json');
+            const json = await res.json();
+            fullParsedNiftyData = json.data.map(parseApiPair).sort((a, b) => a.x - b.x);
+        } catch (e) {
+            console.error('Failed to fetch full Nifty data:', e);
+            fullParsedNiftyData = parsedNiftyData; // fall back to the inline window
+        }
+    })();
+
+    return fullNiftyDataPromise;
+}
+
+async function ensureFullFundData() {
+    if (fullParsedData) return;
+    if (fullFundDataPromise) return fullFundDataPromise;
+
+    fullFundDataPromise = (async () => {
+        setChartLoadingMessage(true);
+        try {
+            const res = await fetch(`/api/historical/${schemeCode}.json`);
+            const json = await res.json();
+            fullParsedData = json.data.map(parseApiPair).sort((a, b) => a.x - b.x);
+        } catch (e) {
+            console.error('Failed to fetch full historical data:', e);
+            fullParsedData = parsedData; // fall back to the inline window
+        } finally {
+            setChartLoadingMessage(false);
+        }
+    })();
+
+    return fullFundDataPromise;
+}
+
+// Kick off the small shared Nifty prefetch right away; the larger per-scheme
+// fund series stays lazy until a long-range button is actually clicked.
+ensureFullNiftyData();
 
 // Function to get matching dates between fund and nifty data
 function getMatchingData(fundData, niftyData) {
@@ -66,11 +128,16 @@ function formatINR(amount) {
 }
 
 // Function to update investment comparison with table format
-// Function to update investment comparison with table format
-function updateInvestmentComparison(matchedFundData, matchedNiftyData, selectedRange) {
+async function updateInvestmentComparison(matchedFundData, matchedNiftyData, selectedRange) {
     const comparisonElement = document.getElementById('investmentComparison');
     if (!comparisonElement || matchedFundData.length === 0) return;
-    
+
+    // Nifty's full series is small and shared across all fund pages, so it's safe to wait
+    // for here; the fund's own full series is only loaded if the chart already fetched it
+    await ensureFullNiftyData();
+    const niftyDataForPeriods = fullParsedNiftyData || parsedNiftyData;
+    const fundDataForPeriods = fullParsedData || parsedData;
+
     const periods = ['1M', '3M', '6M', '1Y', '3Y', '5Y', 'ALL'];
     let tableHtml = '<div class="investment-returns">';
     tableHtml += '<h4>NPS vs Nifty Returns for a ₹10,000 Investment</h4>';
@@ -100,8 +167,8 @@ function updateInvestmentComparison(matchedFundData, matchedNiftyData, selectedR
             const currentDate = new Date();
             let startDate = period === 'ALL' ? new Date(0) : getStartDateForPeriod(period, currentDate);
             
-            const filteredFundData = parsedData.filter(item => item.x >= startDate);
-            const filteredNiftyData = parsedNiftyData.filter(item => item.x >= startDate);
+            const filteredFundData = fundDataForPeriods.filter(item => item.x >= startDate);
+            const filteredNiftyData = niftyDataForPeriods.filter(item => item.x >= startDate);
             const { fundData: periodMatchedFundData, niftyData: periodMatchedNiftyData } = getMatchingData(filteredFundData, filteredNiftyData);
             
             if (periodMatchedFundData.length > 0) {
@@ -160,8 +227,8 @@ function updateInvestmentComparison(matchedFundData, matchedNiftyData, selectedR
             // Calculate corresponding Nifty return for the same period
             const currentDate = new Date();
             const startDate = getStartDateForPeriod(period, currentDate);
-            const filteredNiftyData = parsedNiftyData.filter(item => item.x >= startDate);
-            
+            const filteredNiftyData = niftyDataForPeriods.filter(item => item.x >= startDate);
+
             let niftyReturn = 0;
             let investedOnDate = 'N/A';
             
@@ -331,8 +398,10 @@ function initChart() {
             }
         });
 
-        const firstDate = new Date(Math.min(...parsedData.map(item => item.x)));
-        const lastDate = new Date(Math.max(...parsedData.map(item => item.x)));
+        // Use the true full-history bounds (not just the inline ~1Y window) to decide button visibility
+        const timeframeContainer = document.querySelector('.timeframe-buttons');
+        const [firstMonth, firstDay, firstYear] = timeframeContainer.dataset.firstDate.split('/');
+        const firstDate = new Date(firstYear, firstMonth - 1, firstDay);
         const currentDate = new Date();
         
         const buttonsToHide = [];
@@ -390,7 +459,16 @@ function getTimeUnit(range) {
     }
 }
 
-function filterData(range) {
+const LONG_RANGES = ['3Y', '5Y', 'ALL'];
+
+async function filterData(range) {
+    // Timeframes beyond the inline ~1Y window need the full per-scheme history
+    if (LONG_RANGES.includes(range)) {
+        await ensureFullFundData();
+    }
+    const fundSource = LONG_RANGES.includes(range) ? fullParsedData : parsedData;
+    const niftySource = fullParsedNiftyData || parsedNiftyData;
+
     const currentDate = new Date();
     let startDate;
 
@@ -419,12 +497,12 @@ function filterData(range) {
     }
 
     // Filter both datasets to the selected time range
-    const filteredFundData = parsedData.filter(item => item.x >= startDate);
-    const filteredNiftyData = parsedNiftyData.filter(item => item.x >= startDate);
-    
+    const filteredFundData = fundSource.filter(item => item.x >= startDate);
+    const filteredNiftyData = niftySource.filter(item => item.x >= startDate);
+
     // Get matching data for the filtered period
     const { fundData: matchedFundData, niftyData: matchedNiftyData } = getMatchingData(filteredFundData, filteredNiftyData);
-    
+
     // Normalize the matched data
     const normalizedFundData = normalizeData(matchedFundData);
     const normalizedNiftyData = normalizeData(matchedNiftyData);

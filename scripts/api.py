@@ -67,8 +67,9 @@ def generate_historical_api_files():
         os.makedirs(api_historical_folder)
     
     # Loop through each file in the data folder, ignoring 'data.json'
+    # 'nifty.json' is included so it gets its own historical API file (public/api/historical/nifty.json)
     for filename in os.listdir(data_folder):
-        if filename.endswith('.json') and filename not in ('data.json', 'nifty.json', 'changelog.json', 'missing_funds.json'):  # Skip 'data and nifty json'
+        if filename.endswith('.json') and filename not in ('data.json', 'changelog.json', 'missing_funds.json'):
             scheme_code = filename.replace('.json', '')
             file_path = os.path.join(data_folder, filename)
             

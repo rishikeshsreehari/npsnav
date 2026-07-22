@@ -1,8 +1,11 @@
 import json
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from jinja2 import Environment, FileSystemLoader
+
+# Inline chart data covers this window; older data is lazy-fetched from the historical API on demand
+INLINE_WINDOW_DAYS = 370
 
 def format_display_date(date_str):
     """Convert the stored MM/DD/YYYY date to DD-MM-YYYY for display."""
@@ -96,20 +99,32 @@ for fund in funds_data:
     
     with open(nav_file, 'r') as nav_f:
         historical_navs = json.load(nav_f)
-    
+
     # Skip if historical data is empty
     if not historical_navs:
         print(f"Warning: No historical data for {scheme_name}. Skipping.")
         continue
-    
-    # Transform the nav_data into an array of objects
-    nav_data = [{"date": date, "nav": nav} for date, nav in historical_navs.items()]
-    
-    # Transform nifty data into array of objects
-    nifty_nav_data = [{"date": date, "nav": nav} for date, nav in nifty_data.items()]
-    
-    first_date = min(historical_navs.keys())
-    last_date = max(historical_navs.keys())
+
+    # True first/last dates require chronological (not lexicographic) comparison,
+    # since keys spanning multiple years don't sort correctly as mm/dd/yyyy strings
+    parsed_dates = {date: datetime.strptime(date, "%m/%d/%Y") for date in historical_navs}
+    first_date = min(parsed_dates, key=parsed_dates.get)
+    last_date = max(parsed_dates, key=parsed_dates.get)
+    cutoff = parsed_dates[last_date] - timedelta(days=INLINE_WINDOW_DAYS)
+
+    # Only inline a recent window for fast initial chart render; full history is
+    # fetched lazily from /api/historical/{scheme_code}.json for longer timeframes
+    nav_data = [
+        {"date": date, "nav": nav}
+        for date, nav in historical_navs.items()
+        if parsed_dates[date] >= cutoff
+    ]
+
+    nifty_nav_data = [
+        {"date": date, "nav": nav}
+        for date, nav in nifty_data.items()
+        if datetime.strptime(date, "%m/%d/%Y") >= cutoff
+    ]
     
     rendered_html = template.render(
         scheme_name=scheme_name,

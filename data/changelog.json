@@ -1,5 +1,15 @@
 [
   {
+    "version": "v1.5.4",
+    "date": "2026-07-23",
+    "changes": [
+      "Backfilled complete historical NAV data for all funds, all the way back to each scheme's actual inception (as far back as 2008 for the oldest schemes) — fixes truncated history on GS/Direct/POP variant schemes and a few schemes with small interior gaps",
+      "Fixed the API and homepage 'last updated' date sometimes showing a stale date instead of the most recent one across all funds",
+      "Added a historical API endpoint for Nifty 50 data (/api/historical/nifty.json)",
+      "Improved fund page load speed — historical chart data beyond 1 year is now fetched on demand instead of being embedded in every page"
+    ]
+  },
+  {
     "version": "v1.5.3",
     "date": "2026-06-29",
     "changes": [
