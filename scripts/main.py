@@ -341,7 +341,7 @@ def generate_table_rows(funds):
 
 def render_html_files(env, funds, latest_version, changelog):
     table_rows, pfm_options, scheme_type_options, variant_options = generate_table_rows(funds)
-    nav_date = convert_date_format(funds[0]['Date']) if funds else "N/A"
+    nav_date = convert_date_format(max(funds, key=lambda f: datetime.strptime(f['Date'], "%m/%d/%Y"))['Date']) if funds else "N/A"
     latest_changes = changelog[0] if changelog else None
 
     for root, dirs, files in os.walk('src/content'):

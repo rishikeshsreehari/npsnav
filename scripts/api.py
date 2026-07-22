@@ -150,7 +150,8 @@ def generate_latest_json(funds):
         # Set Last Updated (does NOT remove original Date)
         f["Last Updated"] = formatted_date
 
-        last_updated_value = formatted_date
+        if last_updated_value is None or datetime.strptime(formatted_date, "%d-%m-%Y") > datetime.strptime(last_updated_value, "%d-%m-%Y"):
+            last_updated_value = formatted_date
         latest_data.append(f)
 
     output = {
@@ -179,7 +180,8 @@ def generate_latest_min_json(funds):
     for fund in funds:
         date_value = fund.get("Date") or fund.get("Last Updated")
         formatted_date = format_date(date_value, "%d-%m-%Y")
-        last_updated_value = formatted_date
+        if last_updated_value is None or datetime.strptime(formatted_date, "%d-%m-%Y") > datetime.strptime(last_updated_value, "%d-%m-%Y"):
+            last_updated_value = formatted_date
 
         # Minimal format: [scheme_code, nav_float]
         min_data.append([
@@ -215,10 +217,12 @@ def generate_schemes_json(funds):
             fund["Scheme Name"]
         ])
 
-        # Track last updated date (best effort)
+        # Track the most recent date across all funds
         date_value = fund.get("Date") or fund.get("Last Updated")
         if date_value:
-            last_updated_value = format_date(date_value, "%d-%m-%Y")
+            formatted_date = format_date(date_value, "%d-%m-%Y")
+            if last_updated_value is None or datetime.strptime(formatted_date, "%d-%m-%Y") > datetime.strptime(last_updated_value, "%d-%m-%Y"):
+                last_updated_value = formatted_date
 
     output = {
         "data": schemes,
