@@ -1543,7 +1543,28 @@ color: #333;
 .github-link {
 display: inline-flex;
 align-items: center;
+gap: 5px;
 line-height: 1;
+}
+.github-link-chip {
+padding: 4px 9px;
+border: 1px solid #ddd;
+border-radius: 999px;
+transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.github-link-chip:hover {
+border-color: #aaa;
+background-color: #f5f5f5;
+}
+.github-stars {
+font-size: 0.78rem;
+font-weight: 600;
+letter-spacing: 0;
+text-transform: none;
+color: #888;
+}
+.github-link-chip:hover .github-stars {
+color: #333;
 }
 .github-icon {
 width: 18px;

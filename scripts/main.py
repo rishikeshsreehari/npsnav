@@ -2,8 +2,38 @@ import os
 import shutil
 import json
 import re
+import urllib.request
+import urllib.error
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
+
+GITHUB_REPO = "rishikeshsreehari/npsnav"
+GITHUB_STARS_CACHE = "data/github_stars.json"
+
+
+def get_github_stars():
+    """Fetch the repo's star count for display in the header/footer.
+
+    Falls back to the last cached value on failure (e.g. rate limiting)
+    so a flaky GitHub API call never breaks the build.
+    """
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{GITHUB_REPO}",
+            headers={"Accept": "application/vnd.github+json", "User-Agent": "npsnav-build"}
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            stars = json.load(response)["stargazers_count"]
+        with open(GITHUB_STARS_CACHE, "w") as f:
+            json.dump({"count": stars}, f)
+        return stars
+    except (urllib.error.URLError, KeyError, ValueError, TimeoutError) as e:
+        print(f"Warning: could not fetch GitHub star count ({e}), using cached value")
+        try:
+            with open(GITHUB_STARS_CACHE, "r") as f:
+                return json.load(f)["count"]
+        except (FileNotFoundError, KeyError, ValueError):
+            return None
 
 
 def init_jinja_env():
@@ -448,6 +478,7 @@ def copy_files():
 
 def build_site():
     env = init_jinja_env()
+    env.globals['GITHUB_STARS'] = get_github_stars()
     funds = load_base_data()
     
     # Load the changelog for use in templates

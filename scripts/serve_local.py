@@ -12,11 +12,14 @@ class CleanUrlHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Check if the path ends with a slash or has no extension
         if not self.path.endswith('/') and '.' not in os.path.basename(self.path):
-            # Try to find a corresponding .html file
-            html_path = self.translate_path(self.path) + ".html"
-            if os.path.exists(html_path):
-                self.path += ".html"
-        
+            # Try a corresponding .html file (page routes), then .json
+            # (mirrors the /api/.../:id -> :id.json rules in _redirects)
+            for ext in ('.html', '.json'):
+                candidate = self.translate_path(self.path) + ext
+                if os.path.exists(candidate):
+                    self.path += ext
+                    break
+
         return super().do_GET()
 
 

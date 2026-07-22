@@ -50,7 +50,7 @@ async function ensureFullNiftyData() {
 
     fullNiftyDataPromise = (async () => {
         try {
-            const res = await fetch('/api/historical/nifty.json');
+            const res = await fetch('/api/historical/nifty');
             const json = await res.json();
             fullParsedNiftyData = json.data.map(parseApiPair).sort((a, b) => a.x - b.x);
         } catch (e) {
@@ -69,7 +69,7 @@ async function ensureFullFundData() {
     fullFundDataPromise = (async () => {
         setChartLoadingMessage(true);
         try {
-            const res = await fetch(`/api/historical/${schemeCode}.json`);
+            const res = await fetch(`/api/historical/${schemeCode}`);
             const json = await res.json();
             fullParsedData = json.data.map(parseApiPair).sort((a, b) => a.x - b.x);
         } catch (e) {

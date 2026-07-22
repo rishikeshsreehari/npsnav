@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update sort icon for active column
             const icon = this.querySelector('.sort-icon');
             if (icon) {
-                icon.textContent = isAscending ? ' ▲' : ' ▼';
+                icon.textContent = isAscending ? ' \u25B2' : ' \u25BC';
             }
 
             sortTable(index, isNumeric, isAscending);
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const fiveYearHeader = headers[9];
         fiveYearHeader.classList.add("sorted-desc");
         const icon = fiveYearHeader.querySelector('.sort-icon');
-        if (icon) icon.textContent = ' ▼';
+        if (icon) icon.textContent = ' \u25BC';
         sortTable(9, true, false);
     } else {
         renderTable();

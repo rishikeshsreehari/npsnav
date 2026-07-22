@@ -57,6 +57,15 @@ def shorten_scheme_name(name):
 
 # Load the templates
 env = Environment(loader=FileSystemLoader('src/templates'))
+
+# main.py runs earlier in the build and writes this cache after fetching from GitHub;
+# reuse it here instead of hitting the API again
+try:
+    with open('data/github_stars.json', 'r') as f:
+        env.globals['GITHUB_STARS'] = json.load(f)['count']
+except (FileNotFoundError, KeyError, ValueError):
+    env.globals['GITHUB_STARS'] = None
+
 template = env.get_template('funds.html')
 
 # Load the data.json file
