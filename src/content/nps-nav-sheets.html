@@ -26,6 +26,15 @@
             <p><strong>Example:</strong></p>
             <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001")</code></pre>
 
+            <div class="doc-note">
+                <h3>Note: Google Sheets Troubleshooting</h3>
+                <p>If Google Sheets shows a <strong>&ldquo;Could not fetch URL&rdquo;</strong> error even though the API URL works in your browser, try adding a dummy query parameter to force Google Sheets to fetch the URL again:</p>
+                <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001?refresh=1")</code></pre>
+                <p>The <code>refresh=1</code> parameter does not change the NAV data returned by NPSNAV. It simply makes Google Sheets treat the request as a new URL, which can help resolve occasional <code>IMPORTDATA</code> caching or fetch issues.</p>
+                <p>If the problem happens again later, you can change the value, for example:</p>
+                <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001?refresh=2")</code></pre>
+            </div>
+
             <h3>Step 2: Calculate the Value of Your NPS Portfolio</h3>
             <p>Once you have the current NAV, you can calculate the value of your NPS portfolio by multiplying the NAV by the number of units you hold.</p>
 

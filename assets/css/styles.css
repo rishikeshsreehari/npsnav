@@ -444,6 +444,26 @@ nav ul li a:hover {
     color: #555;
 }
 
+.doc-note {
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin: 16px 0;
+    padding: 14px 16px;
+}
+
+.doc-note h3,
+.doc-note h4 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.doc-note p:last-child,
+.doc-note pre:last-child {
+    margin-bottom: 0;
+}
+
 .doc-content ul {
     list-style-type: disc;
     padding-left: 20px;

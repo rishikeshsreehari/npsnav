@@ -50,6 +50,20 @@ Example:
 https://npsnav.in/api/SM001001
 ```
 
+Google Sheets example:
+
+```excel
+=IMPORTDATA("https://npsnav.in/api/SM001001")
+```
+
+Note: If Google Sheets shows a "Could not fetch URL" error even though the API URL works in your browser, add a dummy query parameter to force Google Sheets to fetch the URL again:
+
+```excel
+=IMPORTDATA("https://npsnav.in/api/SM001001?refresh=1")
+```
+
+The `refresh=1` parameter does not change the NAV data returned by NPSNAV. If the problem happens again later, change the value, for example `refresh=2`.
+
 Returns:
 
 ```

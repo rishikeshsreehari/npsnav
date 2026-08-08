@@ -117,6 +117,21 @@
             <div class="integration-block">
                 <strong>Google Sheets (using <code>IMPORTDATA</code>):</strong>
                 <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001")</code></pre>
+                <div class="doc-note">
+                    <h4>Note: Google Sheets troubleshooting</h4>
+                    <p>
+                        If Google Sheets shows a <strong>&ldquo;Could not fetch URL&rdquo;</strong> error even though the API URL
+                        works in your browser, add a dummy query parameter to force Google Sheets to fetch the URL again:
+                    </p>
+                    <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001?refresh=1")</code></pre>
+                    <p>
+                        The <code>refresh=1</code> parameter does not change the NAV data returned by NPSNAV. It simply
+                        makes Google Sheets treat the request as a new URL, which can help resolve occasional
+                        <code>IMPORTDATA</code> caching or fetch issues. If the problem happens again later, change the
+                        value, for example:
+                    </p>
+                    <pre><code>=IMPORTDATA("https://npsnav.in/api/SM001001?refresh=2")</code></pre>
+                </div>
                 <p><small><a href="/nps-nav-sheets">Full Google Sheets Guide &rarr;</a></small></p>
             </div>
 
