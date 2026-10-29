@@ -12,6 +12,11 @@ import tempfile
 import time
 import logging
 
+try:
+    from .nav_validation import compare_nav_sources, group_records_by_date
+except ImportError:
+    from nav_validation import compare_nav_sources, group_records_by_date
+
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -229,10 +234,12 @@ def fetch_and_fix_from_dump():
     """
     Primary daily NAV fetch using dual-source cross-validation:
     1. Protean ZIP (primary)  — 273 schemes, date-specific, historically correct
-    2. NPS Trust full dump (secondary) — 262 schemes, cross-check only
+    2. NPS Trust full dump (secondary) — 262 schemes, cross-check and gap fill
 
-    If both sources agree on a NAV → save with confidence.
-    If they disagree → log a warning (Protean value is used; NPS Trust remapping is a known issue).
+    NAVs are cross-validated only when both scheme code and date match.
+    If same-date values disagree, log a warning and use Protean.
+    Different-date NPS Trust values are ignored when Protean supplied that scheme.
+    NPS Trust is used only for schemes missing from the Protean response.
     Also detects and repairs corrupted entries (stored NAV != source NAV for same date).
     Returns list of records for save_latest_data.
     """
@@ -256,54 +263,53 @@ def fetch_and_fix_from_dump():
         else:
             logger.debug(f"Protean: no file for {candidate.strftime('%d-%m-%Y')}")
 
-    # Flatten to most recent date for cross-validation (NPS Trust only has today)
-    if protean_by_date:
-        latest_protean_date = max(protean_by_date.keys(), key=lambda d: datetime.strptime(d, DATE_FORMAT))
-        protean = protean_by_date[latest_protean_date]
-    else:
-        protean = {}
+    if not protean_by_date:
         logger.warning("Protean: no data found in last 30 days")
 
     # --- Source 2: NPS Trust full dump ---
     logger.info("Fetching daily NAVs from NPS Trust full dump...")
     nps = _fetch_nps_trust()
 
-    if not protean and not nps:
+    if not protean_by_date and not nps:
         logger.error("Both sources unavailable — skipping daily fetch")
         sys.exit(2)
 
-    # --- Cross-validate ---
-    mismatches = []
-    for sc in set(protean) & set(nps):
-        p_nav, n_nav = protean[sc]['nav'], nps[sc]['nav']
-        if abs(float(p_nav) - float(n_nav)) > 0.0001:
-            mismatches.append((sc, p_nav, n_nav))
+    # --- Cross-validate records only when both scheme code and date match ---
+    comparison = compare_nav_sources(protean_by_date, nps)
+    mismatches = comparison['mismatches']
+    shared_count = comparison['shared_count']
+    different_date_count = len(comparison['different_date_schemes'])
 
-    if protean and nps:
+    if protean_by_date and nps:
         if mismatches:
-            logger.warning(f"NAV mismatch between Protean and NPS Trust for {len(mismatches)} schemes:")
-            for sc, p, n in mismatches:
-                logger.warning(f"  {sc}: Protean={p}, NPS Trust={n} — using Protean value")
+            logger.warning(
+                f"NAV mismatch for {len(mismatches)} of {shared_count} same-date records:"
+            )
+            for scheme_code, date, p_nav, n_nav in mismatches[:20]:
+                logger.warning(
+                    f"  {scheme_code} on {date}: Protean={p_nav}, "
+                    f"NPS Trust={n_nav} — using Protean value"
+                )
+            if len(mismatches) > 20:
+                logger.warning(f"  ...and {len(mismatches) - 20} additional mismatches")
+        elif shared_count:
+            logger.info(f"Cross-validation passed: {shared_count} same-date records match perfectly")
         else:
-            logger.info(f"Cross-validation passed: {len(set(protean) & set(nps))} schemes match perfectly")
-    elif not protean:
+            logger.info("No same-date records available for cross-validation")
+
+        if different_date_count:
+            logger.info(
+                f"Ignored NPS Trust values for {different_date_count} schemes because source dates differ"
+            )
+    elif not protean_by_date:
         logger.info("Protean unavailable — using NPS Trust as sole source (no cross-validation)")
     elif not nps:
         logger.info("NPS Trust unavailable — using Protean as sole source (no cross-validation)")
 
-    # Build list of (date, scheme_data) to save — all Protean dates + NPS Trust for latest
-    # NPS Trust fills in schemes not in Protean for the latest date only
-    dates_to_save = {}  # date_str -> {scheme_code -> info}
-    for date_str, schemes in protean_by_date.items():
-        dates_to_save[date_str] = dict(schemes)
-    # Merge NPS Trust into latest date (covers schemes Protean dropped)
-    if nps:
-        latest_nps_date = next(iter(nps.values()))['date']
-        if latest_nps_date not in dates_to_save:
-            dates_to_save[latest_nps_date] = {}
-        for sc, info in nps.items():
-            if sc not in dates_to_save[latest_nps_date]:
-                dates_to_save[latest_nps_date][sc] = info  # NPS only for schemes not in Protean
+    # Group every record by its own date. NPS Trust is a fallback only for schemes
+    # that Protean did not return anywhere in this run.
+    dates_to_save = group_records_by_date(protean_by_date, nps)
+
     if not dates_to_save:
         logger.warning("No data from either source — nothing to save")
         return []

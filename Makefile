@@ -1,8 +1,12 @@
-.PHONY: install build serve clean dev deploy update
+.PHONY: install test build serve clean dev deploy update
 
 # Install dependencies
 install:
 	uv sync
+
+# Run unit tests
+test:
+	python3 -m unittest discover -s scripts/tests -v
 
 # Build the static site
 build:
