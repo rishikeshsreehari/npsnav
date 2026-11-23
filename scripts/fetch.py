@@ -13,9 +13,9 @@ import time
 import logging
 
 try:
-    from .nav_validation import compare_nav_sources, group_records_by_date
+    from .nav_validation import compare_nav_sources, filter_rows_for_scheme, group_records_by_date
 except ImportError:
-    from nav_validation import compare_nav_sources, group_records_by_date
+    from nav_validation import compare_nav_sources, filter_rows_for_scheme, group_records_by_date
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -32,6 +32,8 @@ PROTEAN_URL = "https://www.npscra.proteantech.in/download/NAV_File_{date_str}.zi
 # NPS Trust started silently remapping old POP codes to DIRECT on the per-scheme endpoint
 # around this date. Entries on/after this date in old POP JSON files are corrupted.
 CORRUPTION_START_DATE = '06/15/2026'
+# Re-scan Protean this many days before the newest stored date on every run
+PROTEAN_RECHECK_DAYS = 7
 
 
 def sync_schemes_from_dump():
@@ -193,6 +195,7 @@ def _fetch_protean(dt):
                     'date': cols[0].strip(),       # already MM/DD/YYYY
                     'pfm_name': cols[2].strip(),
                     'scheme_name': cols[4].strip(),
+                    'source': 'protean',
                 }
         return data
     except Exception as e:
@@ -221,7 +224,8 @@ def _fetch_nps_trust():
                 nav_f = str(float(nav))
                 dt = datetime.strptime(date_raw, '%Y-%m-%d')
                 formatted_date = dt.strftime(DATE_FORMAT)
-                data[sc] = {'nav': nav_f, 'date': formatted_date, 'pfm_name': pfm_name, 'scheme_name': scheme_name}
+                data[sc] = {'nav': nav_f, 'date': formatted_date, 'pfm_name': pfm_name,
+                            'scheme_name': scheme_name, 'source': 'nps_trust'}
             except (ValueError, Exception):
                 pass
         return data
@@ -238,24 +242,28 @@ def fetch_and_fix_from_dump():
 
     NAVs are cross-validated only when both scheme code and date match.
     If same-date values disagree, log a warning and use Protean.
-    Different-date NPS Trust values are ignored when Protean supplied that scheme.
-    NPS Trust is used only for schemes missing from the Protean response.
-    Also detects and repairs corrupted entries (stored NAV != source NAV for same date).
+    NPS Trust fills schemes missing from Protean, and dates newer than Protean's
+    latest for a scheme (Protean's daily ZIP often lags NPS Trust by days).
+    If a stored NAV differs from Protean for the same date, that date is overwritten
+    with Protean's value. NPS Trust never overwrites an already-stored date.
     Returns list of records for save_latest_data.
     """
     today = datetime.now()
 
-    # --- Source 1: Protean (fetch ALL missing trading days, not just the latest) ---
-    # Find the most recent date we already have across all scheme files
+    # --- Source 1: Protean (fetch missing trading days, plus a recheck window) ---
+    # Scan back past the newest stored date by PROTEAN_RECHECK_DAYS. NPS Trust can put
+    # us ahead of Protean, and Protean files often appear days late; without this window
+    # those late files (and Protean-only schemes on those dates) would never be fetched.
     logger.info("Fetching daily NAVs from Protean...")
     last_stored = _get_last_stored_date()
+    scan_floor = (last_stored.date() - timedelta(days=PROTEAN_RECHECK_DAYS)) if last_stored else None
     protean_by_date = {}  # date_str -> {scheme_code -> info}
     for days_back in range(30):  # scan up to 30 days back
         candidate = today - timedelta(days=days_back)
+        if scan_floor and candidate.date() < scan_floor:
+            break
         if candidate.weekday() >= 5:  # skip weekends
             continue
-        if last_stored and candidate <= last_stored:
-            break  # already have everything up to here
         result = _fetch_protean(candidate)
         if result:
             protean_by_date[candidate.strftime(DATE_FORMAT)] = result
@@ -264,7 +272,7 @@ def fetch_and_fix_from_dump():
             logger.debug(f"Protean: no file for {candidate.strftime('%d-%m-%Y')}")
 
     if not protean_by_date:
-        logger.warning("Protean: no data found in last 30 days")
+        logger.warning("Protean: no data found in lookback window")
 
     # --- Source 2: NPS Trust full dump ---
     logger.info("Fetching daily NAVs from NPS Trust full dump...")
@@ -299,15 +307,16 @@ def fetch_and_fix_from_dump():
 
         if different_date_count:
             logger.info(
-                f"Ignored NPS Trust values for {different_date_count} schemes because source dates differ"
+                f"NPS Trust dates differ from Protean for {different_date_count} schemes "
+                f"(newer NPS dates are saved, older ones ignored)"
             )
     elif not protean_by_date:
         logger.info("Protean unavailable — using NPS Trust as sole source (no cross-validation)")
     elif not nps:
         logger.info("NPS Trust unavailable — using Protean as sole source (no cross-validation)")
 
-    # Group every record by its own date. NPS Trust is a fallback only for schemes
-    # that Protean did not return anywhere in this run.
+    # Group every record by its own date. Protean wins on overlapping dates; NPS Trust
+    # supplies schemes Protean lacks and dates newer than Protean's latest.
     dates_to_save = group_records_by_date(protean_by_date, nps)
 
     if not dates_to_save:
@@ -317,7 +326,6 @@ def fetch_and_fix_from_dump():
     # --- Save to scheme JSON files ---
     new_records = []
     fixes = 0
-    corruption_cutoff = datetime.strptime(CORRUPTION_START_DATE, DATE_FORMAT)
 
     for date_str, schemes in sorted(dates_to_save.items(), key=lambda x: datetime.strptime(x[0], DATE_FORMAT)):
         for scheme_code, info in schemes.items():
@@ -342,13 +350,21 @@ def fetch_and_fix_from_dump():
             if formatted_date in scheme_data:
                 if scheme_data[formatted_date] == nav_val:
                     continue  # Already correct
+                if info.get('source') != 'protean':
+                    # Only Protean (authoritative, date-specific) may correct stored values
+                    logger.warning(
+                        f"Not overwriting {scheme_code} on {formatted_date} with NPS Trust value: "
+                        f"stored={scheme_data[formatted_date]}, nps_trust={nav_val}"
+                    )
+                    continue
 
-                # Wrong value — remove corrupted entries from cutoff date onwards
-                corrupted = [d for d in list(scheme_data.keys())
-                             if datetime.strptime(d, DATE_FORMAT) >= corruption_cutoff]
-                for d in corrupted:
-                    del scheme_data[d]
-                logger.info(f"Fixed {scheme_code}: removed {len(corrupted)} corrupted entries (>= {CORRUPTION_START_DATE})")
+                # Stored value differs from source for this date — overwrite just this date.
+                # (Previously this wiped every entry since CORRUPTION_START_DATE, which is
+                # unsafe now that NPS Trust values can later be superseded by Protean.)
+                logger.warning(
+                    f"Correcting {scheme_code} on {formatted_date}: "
+                    f"stored={scheme_data[formatted_date]}, source={nav_val}"
+                )
                 fixes += 1
 
             scheme_data[formatted_date] = nav_val
@@ -633,6 +649,12 @@ def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
             pfm_name_col = 3
         if scheme_name_col is None and len(df.columns) > 5:
             scheme_name_col = 5
+
+        # Per-scheme endpoint returns DIRECT rows for old POP codes; keep only ours
+        df = filter_rows_for_scheme(df, scheme_code)
+        if df.empty:
+            logger.warning(f"No rows for {scheme_code} itself in per-scheme response")
+            return []
         
         # Try to get names from the data if available
         if not df.empty:

@@ -12,6 +12,11 @@ import time
 import logging
 import random
 
+try:
+    from .nav_validation import filter_rows_for_scheme
+except ImportError:
+    from nav_validation import filter_rows_for_scheme
+
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -168,7 +173,11 @@ def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
         
         if date_col is None: date_col = 1 if len(df.columns) > 1 else 0
         if nav_col is None: nav_col = 6 if len(df.columns) > 6 else len(df.columns) - 1
-        
+
+        # NPS Trust's per-scheme endpoint returns the DIRECT variant's rows for old
+        # POP codes (from Apr 2026 onwards). Keep only rows for the requested scheme.
+        df = filter_rows_for_scheme(df, scheme_code)
+
         for index, row in df.iterrows():
             try:
                 if len(row) <= max(date_col, nav_col): continue

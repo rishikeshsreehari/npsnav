@@ -1,8 +1,10 @@
 """Pure helpers for reconciling NAV records from multiple sources."""
 
+from datetime import datetime
 from decimal import Decimal
 
 
+DATE_FORMAT = "%m/%d/%Y"
 NAV_TOLERANCE = Decimal("0.0001")
 
 
@@ -53,23 +55,51 @@ def compare_nav_sources(protean_by_date, nps_records, tolerance=NAV_TOLERANCE):
     }
 
 
+def filter_rows_for_scheme(df, scheme_code):
+    """Keep only rows whose SCHEME ID matches scheme_code.
+
+    NPS Trust's per-scheme endpoint returns the DIRECT variant's rows for old POP
+    codes (from Apr 2026 onwards), so the requested code can't be trusted blindly.
+    DataFrames without a SCHEME ID column are returned unchanged.
+    """
+    for col in df.columns:
+        if str(col).strip().lower() == "scheme id":
+            return df[df[col].astype(str).str.strip() == scheme_code]
+    return df
+
+
+def _parse_date(date_str):
+    return datetime.strptime(date_str, DATE_FORMAT)
+
+
 def group_records_by_date(protean_by_date, nps_records):
-    """Group trusted records by date, using NPS only for Protean-missing schemes."""
+    """Group trusted records by date.
+
+    Protean is authoritative for any (scheme, date) it covers. NPS Trust is used
+    for schemes Protean did not return, and for dates strictly newer than the
+    latest Protean date for that scheme (Protean often lags NPS Trust by days).
+    NPS values for dates at or before Protean's latest are ignored.
+    """
     grouped = {}
-    protean_scheme_codes = set()
+    protean_latest = {}
 
     for schemes in protean_by_date.values():
         for scheme_code, info in schemes.items():
-            protean_scheme_codes.add(scheme_code)
             record_date = info.get("date")
-            if record_date:
-                grouped.setdefault(record_date, {})[scheme_code] = info
+            if not record_date:
+                continue
+            grouped.setdefault(record_date, {})[scheme_code] = info
+            parsed = _parse_date(record_date)
+            if scheme_code not in protean_latest or parsed > protean_latest[scheme_code]:
+                protean_latest[scheme_code] = parsed
 
     for scheme_code, info in nps_records.items():
-        if scheme_code in protean_scheme_codes:
-            continue
         record_date = info.get("date")
-        if record_date:
-            grouped.setdefault(record_date, {})[scheme_code] = info
+        if not record_date:
+            continue
+        latest = protean_latest.get(scheme_code)
+        if latest is not None and _parse_date(record_date) <= latest:
+            continue
+        grouped.setdefault(record_date, {})[scheme_code] = info
 
     return grouped
