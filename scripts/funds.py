@@ -4,6 +4,8 @@ import re
 from datetime import datetime, timedelta
 from jinja2 import Environment, FileSystemLoader
 
+from main import normalize_pfm_name
+
 # Inline chart data covers this window; older data is lazy-fetched from the historical API on demand
 INLINE_WINDOW_DAYS = 370
 
@@ -21,6 +23,7 @@ def shorten_scheme_name(name):
 
     phrases_to_remove = [
         "PENSION FUND MANAGEMENT COMPANY LIMITED",
+        "PENSION FUND MANAGEMENT PRIVATE LIMITED",
         "PENSION FUND MANAGEMENT COMPANY LTD",
         "PENSION FUND MANAGEMENT LIMITED",
         "PENSION FUND MANAGEMENT LTD",
@@ -92,7 +95,8 @@ os.makedirs(output_dir, exist_ok=True)
 for fund in funds_data:
     scheme_code = fund['Scheme Code']
     scheme_name = shorten_scheme_name(fund['Scheme Name']).upper()
-    pfm_name = fund['PFM Name']
+    # Raw PFM names vary in casing/wording by source; show the same name as the homepage
+    pfm_name = normalize_pfm_name(fund['PFM Name'])
     current_nav = round(float(fund['NAV']), 2)
     nav_date = format_display_date(fund['Date'])
     

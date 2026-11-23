@@ -1,5 +1,16 @@
 [
   {
+    "version": "v1.5.5",
+    "date": "2026-11-24",
+    "changes": [
+      "Fixed scheme names flip-flopping between daily updates: names now come consistently from Protean (CRA), so the old scheme codes show correctly as Regular (POP) in the Variant filter (84 POP, 84 Direct, 84 Regular, 30 GS)",
+      "Scheme names now use each Pension Fund's current name (e.g. UTI Pension Fund instead of UTI Retirement Solutions); scheme codes and URLs are unchanged",
+      "Fixed NAVs being skipped when Protean's daily file lags NPS Trust, and backfilled the missing Nov 18 and Nov 20 NAVs",
+      "A corrected NAV for the latest date now updates the homepage and latest APIs, not just the historical data",
+      "Hardened the daily fetch against blank or malformed rows in the source files"
+    ]
+  },
+  {
     "version": "v1.5.4",
     "date": "2026-07-23",
     "changes": [

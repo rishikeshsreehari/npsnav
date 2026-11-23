@@ -13,9 +13,9 @@ import time
 import logging
 
 try:
-    from .nav_validation import compare_nav_sources, filter_rows_for_scheme, group_records_by_date
+    from .nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, pick_protean_member
 except ImportError:
-    from nav_validation import compare_nav_sources, filter_rows_for_scheme, group_records_by_date
+    from nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, pick_protean_member
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -39,7 +39,6 @@ PROTEAN_RECHECK_DAYS = 7
 def sync_schemes_from_dump():
     """
     Hit the full NAV dump, compare against data.json, and:
-    - Fix wrong scheme names
     - Auto-add new schemes (so they get backfilled in this same run)
     - Log new and dead schemes to missing_funds.json
     Returns True if data.json was modified.
@@ -67,14 +66,14 @@ def sync_schemes_from_dump():
     # Build dump map: scheme_code -> {name, pfm_name, nav, date}
     dump = {}
     for _, row in df.iterrows():
-        code = str(row.get('SCHEME ID', '')).strip()
+        code = clean_cell(row.get('SCHEME ID'))
         if not code:
             continue
         dump[code] = {
-            'name': str(row.get('SCHEME NAME', '')).strip(),
-            'pfm_name': str(row.get('PFM NAME', '')).strip(),
-            'nav': str(row.get('NAV VALUE', '')).strip(),
-            'date': str(row.get('DATE OF NAV', '')).strip(),
+            'name': clean_cell(row.get('SCHEME NAME')),
+            'pfm_name': clean_cell(row.get('PFM NAME')),
+            'nav': parse_nav(row.get('NAV VALUE')),
+            'date': clean_cell(row.get('DATE OF NAV')),
         }
 
     # Load existing data.json
@@ -88,10 +87,9 @@ def sync_schemes_from_dump():
     our_map = {d['Scheme Code']: d for d in data}
 
     new_schemes = []
-    name_fixes = 0
     dead_schemes = []
 
-    # Fix name mismatches and collect new schemes
+    # Collect new schemes
     for code, info in dump.items():
         if code not in our_map:
             # New scheme — derive PFM code from scheme code (SM008025 -> PFM008)
@@ -100,8 +98,13 @@ def sync_schemes_from_dump():
             try:
                 dt = datetime.strptime(info['date'], '%Y-%m-%d')
                 formatted_date = dt.strftime(DATE_FORMAT)
-            except Exception:
-                formatted_date = datetime.now().strftime(DATE_FORMAT)
+            except ValueError:
+                formatted_date = None
+            if not info['nav'] or not formatted_date or not info['name']:
+                # Don't add a scheme from a blank/malformed row; it will be picked up
+                # on a later run once the dump has a complete row for it.
+                logger.warning(f"Skipping new scheme {code}: incomplete dump row {info}")
+                continue
 
             new_entry = {
                 "Date": formatted_date,
@@ -115,24 +118,18 @@ def sync_schemes_from_dump():
             our_map[code] = new_entry
             new_schemes.append(new_entry)
             logger.info(f"Auto-added new scheme: {code} - {info['name']}")
-        else:
-            # Fix name if mismatch
-            if our_map[code]['Scheme Name'].strip() != info['name']:
-                logger.info(f"Fixing name for {code}: '{our_map[code]['Scheme Name']}' -> '{info['name']}'")
-                our_map[code]['Scheme Name'] = info['name']
-                name_fixes += 1
+        # Existing schemes are NOT renamed from the dump: its names are stale (no POP
+        # suffix, pre-rename PFM names). Names come from Protean via apply_protean_names().
 
     # Find dead schemes (in ours but not in dump)
     for code, entry in our_map.items():
         if code not in dump:
             dead_schemes.append({'Scheme Code': code, 'Scheme Name': entry['Scheme Name']})
 
-    modified = new_schemes or name_fixes > 0
-
-    if modified:
+    if new_schemes:
         with open(data_file, 'w') as f:
             json.dump(list(our_map.values()), f, indent=4)
-        logger.info(f"data.json updated: {len(new_schemes)} new schemes added, {name_fixes} names fixed")
+        logger.info(f"data.json updated: {len(new_schemes)} new schemes added")
 
     # Write missing_funds.json
     if new_schemes or dead_schemes:
@@ -140,7 +137,6 @@ def sync_schemes_from_dump():
             "timestamp": datetime.now().isoformat(),
             "summary": {
                 "new_schemes_added": len(new_schemes),
-                "name_fixes": name_fixes,
                 "dead_schemes_count": len(dead_schemes),
             },
             "new_schemes": new_schemes,
@@ -150,7 +146,7 @@ def sync_schemes_from_dump():
             json.dump(missing_data, f, indent=4)
         logger.info(f"missing_funds.json updated: {len(new_schemes)} new, {len(dead_schemes)} dead")
 
-    logger.info(f"Sync complete: {len(new_schemes)} new, {name_fixes} name fixes, {len(dead_schemes)} dead")
+    logger.info(f"Sync complete: {len(new_schemes)} new, {len(dead_schemes)} dead")
     return new_schemes
 
 def _get_last_stored_date():
@@ -183,20 +179,23 @@ def _fetch_protean(dt):
             return {}
         import zipfile as zf
         z = zf.ZipFile(BytesIO(r.content))
-        out_file = next(f for f in z.namelist() if f.endswith('.out'))
+        out_file = pick_protean_member(z.namelist())
+        if not out_file:
+            logger.warning(f"Protean {date_str}: no .out file in ZIP ({z.namelist()})")
+            return {}
         lines = z.open(out_file).read().decode('utf-8', errors='ignore').strip().split('\n')
         data = {}
         for line in lines:
-            cols = line.strip().split(',')
-            if len(cols) == 6:
-                sc = cols[3].strip()
-                data[sc] = {
-                    'nav': str(float(cols[5].strip())),
-                    'date': cols[0].strip(),       # already MM/DD/YYYY
-                    'pfm_name': cols[2].strip(),
-                    'scheme_name': cols[4].strip(),
-                    'source': 'protean',
-                }
+            if not line.strip():
+                continue
+            record = parse_protean_line(line)
+            if not record:
+                # Skip just this line; one bad row must not discard the whole day's file
+                logger.warning(f"Protean {date_str}: skipping malformed line: {line.strip()[:120]}")
+                continue
+            code = record.pop('code')
+            record['source'] = 'protean'
+            data[code] = record
         return data
     except Exception as e:
         logger.warning(f"Protean fetch failed for {dt.strftime('%d-%m-%Y')}: {e}")
@@ -213,21 +212,19 @@ def _fetch_nps_trust():
         df = pd.read_csv(StringIO(r.content.decode('utf-8', errors='ignore')), sep='\t')
         data = {}
         for _, row in df.iterrows():
-            sc = str(row.get('SCHEME ID', '')).strip()
-            nav = str(row.get('NAV VALUE', '')).strip()
-            date_raw = str(row.get('DATE OF NAV', '')).strip()
-            pfm_name = str(row.get('PFM NAME', '')).strip()
-            scheme_name = str(row.get('SCHEME NAME', '')).strip()
+            sc = clean_cell(row.get('SCHEME ID'))
+            nav = parse_nav(row.get('NAV VALUE'))
+            date_raw = clean_cell(row.get('DATE OF NAV'))
+            pfm_name = clean_cell(row.get('PFM NAME'))
+            scheme_name = clean_cell(row.get('SCHEME NAME'))
             if not sc or not nav:
                 continue
             try:
-                nav_f = str(float(nav))
-                dt = datetime.strptime(date_raw, '%Y-%m-%d')
-                formatted_date = dt.strftime(DATE_FORMAT)
-                data[sc] = {'nav': nav_f, 'date': formatted_date, 'pfm_name': pfm_name,
-                            'scheme_name': scheme_name, 'source': 'nps_trust'}
-            except (ValueError, Exception):
-                pass
+                formatted_date = datetime.strptime(date_raw, '%Y-%m-%d').strftime(DATE_FORMAT)
+            except ValueError:
+                continue
+            data[sc] = {'nav': nav, 'date': formatted_date, 'pfm_name': pfm_name,
+                        'scheme_name': scheme_name, 'source': 'nps_trust'}
         return data
     except Exception as e:
         logger.warning(f"NPS Trust dump fetch failed: {e}")
@@ -246,7 +243,7 @@ def fetch_and_fix_from_dump():
     latest for a scheme (Protean's daily ZIP often lags NPS Trust by days).
     If a stored NAV differs from Protean for the same date, that date is overwritten
     with Protean's value. NPS Trust never overwrites an already-stored date.
-    Returns list of records for save_latest_data.
+    Returns (records for save_latest_data, newest Protean file's records, NPS Trust records).
     """
     today = datetime.now()
 
@@ -273,6 +270,13 @@ def fetch_and_fix_from_dump():
 
     if not protean_by_date:
         logger.warning("Protean: no data found in lookback window")
+
+    # Names are taken only from the NEWEST Protean file: older files (pre-April 2026)
+    # lack the POP/DIRECT/GS variant suffixes.
+    newest_protean = (
+        protean_by_date[max(protean_by_date, key=lambda d: datetime.strptime(d, DATE_FORMAT))]
+        if protean_by_date else {}
+    )
 
     # --- Source 2: NPS Trust full dump ---
     logger.info("Fetching daily NAVs from NPS Trust full dump...")
@@ -321,7 +325,7 @@ def fetch_and_fix_from_dump():
 
     if not dates_to_save:
         logger.warning("No data from either source — nothing to save")
-        return []
+        return [], newest_protean, nps
 
     # --- Save to scheme JSON files ---
     new_records = []
@@ -384,7 +388,28 @@ def fetch_and_fix_from_dump():
             })
 
     logger.info(f"Daily fetch complete: {len(new_records)} records saved, {fixes} fixes, {len(mismatches)} source mismatches")
-    return new_records
+    return new_records, newest_protean, nps
+
+
+def sync_names_from_protean(newest_protean, nps_records):
+    """Set Scheme/PFM names in data.json from the newest Protean file (see apply_protean_names)."""
+    if not newest_protean:
+        logger.info("Name sync skipped: no Protean data this run (names left unchanged)")
+        return
+    data_file = "data/data.json"
+    with open(data_file) as f:
+        data = json.load(f)
+    changes = apply_protean_names(data, newest_protean, nps_records)
+    if not changes:
+        logger.info("Name sync: all names already match Protean")
+        return
+    for code, field, old, new in changes[:30]:
+        logger.info(f"Name sync {code} {field}: '{old}' -> '{new}'")
+    if len(changes) > 30:
+        logger.info(f"  ...and {len(changes) - 30} more name changes")
+    with open(data_file, 'w') as f:
+        json.dump(data, f, indent=4)
+    logger.info(f"Name sync: {len(changes)} name fields updated from Protean")
 
 
 def get_pfm_scheme_mappings():
@@ -781,15 +806,9 @@ def save_latest_data(new_data):
             with open(root_file, 'r') as json_file:
                 existing_data = json.load(json_file)
         
-        all_data = existing_data + new_data
-        latest_records = {}
-        
-        for record in all_data:
-            key = (record["PFM Code"], record["Scheme Code"])
-            if key not in latest_records or datetime.strptime(record["Date"], DATE_FORMAT) > datetime.strptime(latest_records[key]["Date"], DATE_FORMAT):
-                latest_records[key] = record
-        
-        latest_data = list(latest_records.values())
+        # Ties go to new_data so a same-date correction (e.g. Protean fixing an
+        # NPS Trust value) reaches data.json, not just the scheme file.
+        latest_data = merge_latest_records(existing_data, new_data)
         
         with open(root_file, 'w') as json_file:
             json.dump(latest_data, json_file, indent=4)
@@ -821,11 +840,14 @@ if __name__ == "__main__":
 
     # Step 2: Fetch today's NAVs from full dump (1 request, correct for all schemes)
     # Also repairs any corrupted entries caused by per-scheme endpoint remapping
-    daily_records = fetch_and_fix_from_dump()
+    daily_records, newest_protean, nps_records = fetch_and_fix_from_dump()
 
     if daily_records:
         save_latest_data(daily_records)
         logger.info(f"Saved {len(daily_records)} daily NAV records")
+
+    # Step 2b: Canonical scheme/PFM names from the newest Protean file
+    sync_names_from_protean(newest_protean, nps_records)
 
     # Step 3: Backfill history for newly discovered schemes via per-scheme endpoint
     backfill_data = []

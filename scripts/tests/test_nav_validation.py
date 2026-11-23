@@ -3,9 +3,16 @@ import unittest
 import pandas as pd
 
 from scripts.nav_validation import (
+    apply_protean_names,
+    choose_scheme_name,
+    parse_protean_line,
+    pick_protean_member,
+    clean_cell,
     compare_nav_sources,
     filter_rows_for_scheme,
     group_records_by_date,
+    merge_latest_records,
+    parse_nav,
 )
 
 
@@ -193,6 +200,154 @@ class FilterRowsForSchemeTests(unittest.TestCase):
         df = pd.DataFrame({"DATE OF NAV": ["2026-11-18"], "NAV VALUE": [1.0]})
 
         self.assertIs(filter_rows_for_scheme(df, "SM001003"), df)
+
+
+class BlankCellTests(unittest.TestCase):
+    def test_clean_cell_maps_blanks_to_empty(self):
+        for value in (None, float("nan"), "", "  ", "nan", "NaN", "None"):
+            self.assertEqual(clean_cell(value), "", repr(value))
+
+    def test_clean_cell_keeps_real_values(self):
+        self.assertEqual(clean_cell("  SM001003 "), "SM001003")
+        self.assertEqual(clean_cell(12.5), "12.5")
+
+    def test_parse_nav_rejects_blank_and_invalid(self):
+        for value in (None, float("nan"), "", "nan", "abc", "0", "-1.5", "inf"):
+            self.assertIsNone(parse_nav(value), repr(value))
+
+    def test_parse_nav_normalizes_valid_values(self):
+        self.assertEqual(parse_nav(" 49.74990 "), "49.7499")
+        self.assertEqual(parse_nav(57.8954), "57.8954")
+
+    def test_blank_dump_rows_from_pandas_are_rejected(self):
+        df = pd.read_csv(
+            __import__("io").StringIO("SCHEME ID\tNAV VALUE\nSM001003\t\n\t12.5\n"),
+            sep="\t",
+        )
+        rows = [(clean_cell(r["SCHEME ID"]), parse_nav(r["NAV VALUE"])) for _, r in df.iterrows()]
+        self.assertEqual(rows, [("SM001003", None), ("", "12.5")])
+
+
+def latest_record(code, date, nav, name="X"):
+    return {"Date": date, "PFM Code": "PFM" + code[2:5], "Scheme Code": code,
+            "Scheme Name": name, "PFM Name": name, "NAV": nav}
+
+
+class MergeLatestRecordsTests(unittest.TestCase):
+    def test_same_date_correction_replaces_stale_nav(self):
+        existing = [latest_record("SM001003", "11/20/2026", "50.1")]
+        new = [latest_record("SM001003", "11/20/2026", "50.2")]
+
+        merged = merge_latest_records(existing, new)
+
+        self.assertEqual([r["NAV"] for r in merged], ["50.2"])
+
+    def test_older_new_record_does_not_replace_latest(self):
+        existing = [latest_record("SM001003", "11/20/2026", "50.1")]
+        new = [latest_record("SM001003", "11/18/2026", "49.0")]
+
+        merged = merge_latest_records(existing, new)
+
+        self.assertEqual([(r["Date"], r["NAV"]) for r in merged], [("11/20/2026", "50.1")])
+
+    def test_names_are_not_taken_from_new_records(self):
+        existing = [latest_record("SM001003", "11/19/2026", "50.0", name="CANONICAL")]
+        new = [latest_record("SM001003", "11/20/2026", "50.1", name="FROM SOURCE")]
+
+        merged = merge_latest_records(existing, new)[0]
+
+        self.assertEqual((merged["Date"], merged["NAV"]), ("11/20/2026", "50.1"))
+        self.assertEqual((merged["Scheme Name"], merged["PFM Name"]), ("CANONICAL", "CANONICAL"))
+
+    def test_does_not_mutate_inputs(self):
+        existing = [latest_record("SM001003", "11/19/2026", "50.0")]
+        merge_latest_records(existing, [latest_record("SM001003", "11/20/2026", "50.1")])
+
+        self.assertEqual(existing[0]["NAV"], "50.0")
+
+    def test_newer_date_wins_and_untouched_schemes_are_kept(self):
+        existing = [latest_record("SM001003", "11/19/2026", "50.0"),
+                    latest_record("SM002003", "11/19/2026", "70.0")]
+        new = [latest_record("SM001003", "11/18/2026", "49.0"),
+               latest_record("SM001003", "11/20/2026", "50.1")]
+
+        merged = {r["Scheme Code"]: r for r in merge_latest_records(existing, new)}
+
+        self.assertEqual(merged["SM001003"]["NAV"], "50.1")
+        self.assertEqual(merged["SM002003"]["NAV"], "70.0")
+        self.assertEqual(len(merged), 2)
+
+
+class ProteanParsingTests(unittest.TestCase):
+    def test_pick_member_skips_macosx_junk(self):
+        names = ["__MACOSX/._NAV_File_19112026.out", "NAV_File_19112026.out"]
+        self.assertEqual(pick_protean_member(names), "NAV_File_19112026.out")
+        self.assertIsNone(pick_protean_member(["__MACOSX/._NAV_File_19112026.out"]))
+
+    def test_parse_standard_line(self):
+        line = "11/19/2026,PFM001,SBI PENSION FUNDS PRIVATE LIMITED,SM001005,SBI PENSION FUND SCHEME G - TIER I POP,41.9297"
+        self.assertEqual(parse_protean_line(line), {
+            "code": "SM001005", "nav": "41.9297", "date": "11/19/2026",
+            "pfm_name": "SBI PENSION FUNDS PRIVATE LIMITED",
+            "scheme_name": "SBI PENSION FUND SCHEME G - TIER I POP",
+        })
+
+    def test_commas_in_names_do_not_drop_the_line(self):
+        line = "11/19/2026,PFM001,SBI PENSION FUNDS, PRIVATE LIMITED,SM001005,SCHEME G, TIER I POP,41.9297\n"
+        record = parse_protean_line(line)
+        self.assertEqual(record["code"], "SM001005")
+        self.assertEqual(record["nav"], "41.9297")
+        self.assertEqual(record["pfm_name"], "SBI PENSION FUNDS, PRIVATE LIMITED")
+        self.assertEqual(record["scheme_name"], "SCHEME G, TIER I POP")
+
+    def test_malformed_lines_are_rejected(self):
+        for line in (
+            "",
+            "DATE,PFM,PFM NAME,SCHEME ID,SCHEME NAME,NAV",
+            "11/19/2026,PFM001,SBI,SM001005,SCHEME G,",
+            "2026-11-19,PFM001,SBI,SM001005,SCHEME G,41.9",
+            "11/19/2026,PFM001,SBI,NOTACODE,SCHEME G,41.9",
+        ):
+            self.assertIsNone(parse_protean_line(line), line)
+
+
+class CanonicalNameTests(unittest.TestCase):
+    def test_protean_name_wins(self):
+        self.assertEqual(
+            choose_scheme_name("SBI SCHEME E - TIER I POP", "SBI SCHEME E - TIER I", "SBI SCHEME E - TIER I"),
+            "SBI SCHEME E - TIER I POP",
+        )
+
+    def test_tier_guard_keeps_tiered_name(self):
+        protean = "ICICI PF NPS BALANCED ADVANTAGE FUND"
+        tiered = "NPS TRUST A/C - ICICI PF NPS BALANCED ADVANTAGE FUND - TIER I"
+        self.assertEqual(choose_scheme_name(protean, tiered, None), tiered)
+        self.assertEqual(choose_scheme_name(protean, protean, tiered), tiered)
+
+    def test_untiered_schemes_still_take_protean_name(self):
+        self.assertEqual(
+            choose_scheme_name("SBI SCHEME - CENTRAL GOVT", "Old name", "Dump name"),
+            "SBI SCHEME - CENTRAL GOVT",
+        )
+
+    def test_missing_protean_name_keeps_current(self):
+        self.assertEqual(choose_scheme_name("", "Current", "Dump"), "Current")
+
+    def test_apply_updates_only_schemes_in_protean(self):
+        records = [
+            latest_record("SM001003", "11/20/2026", "50.1", name="SBI SCHEME E - TIER I"),
+            latest_record("SM012001", "04/17/2025", "30.0", name="MAX LIFE SCHEME E - TIER I"),
+        ]
+        protean = {"SM001003": {"scheme_name": "SBI SCHEME E - TIER I POP", "pfm_name": "SBI PENSION FUNDS PRIVATE LIMITED"}}
+
+        changes = apply_protean_names(records, protean)
+
+        self.assertEqual(records[0]["Scheme Name"], "SBI SCHEME E - TIER I POP")
+        self.assertEqual(records[0]["PFM Name"], "SBI PENSION FUNDS PRIVATE LIMITED")
+        self.assertEqual(records[1]["Scheme Name"], "MAX LIFE SCHEME E - TIER I")
+        self.assertEqual(len(changes), 2)
+        self.assertEqual(apply_protean_names(records, protean), [])
+
 
 if __name__ == "__main__":
     unittest.main()
