@@ -7,7 +7,8 @@
       "Scheme names now use each Pension Fund's current name (e.g. UTI Pension Fund instead of UTI Retirement Solutions); scheme codes and URLs are unchanged",
       "Fixed NAVs being skipped when Protean's daily file lags NPS Trust, and backfilled the missing Nov 18 and Nov 20 NAVs",
       "A corrected NAV for the latest date now updates the homepage and latest APIs, not just the historical data",
-      "Hardened the daily fetch against blank or malformed rows in the source files"
+      "Hardened the daily fetch against blank or malformed rows in the source files",
+      "Fixed historical NAVs stored under day/month-swapped dates (e.g. a 4 Jun 2025 NAV saved as 6 Apr 2025): corrected 4 Nov 2016 for 51 schemes and removed bogus entries on non-trading days (2 Apr 2020, 2 Oct 2020, 6 Apr 2025) that showed up as spikes in fund charts and the historical API"
     ]
   },
   {

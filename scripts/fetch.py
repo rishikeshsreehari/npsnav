@@ -13,9 +13,9 @@ import time
 import logging
 
 try:
-    from .nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, pick_protean_member
+    from .nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, parse_source_date, pick_protean_member
 except ImportError:
-    from nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, pick_protean_member
+    from nav_validation import clean_cell, compare_nav_sources, filter_rows_for_scheme, group_records_by_date, merge_latest_records, apply_protean_names, parse_nav, parse_protean_line, parse_source_date, pick_protean_member
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -551,34 +551,15 @@ def try_read_file_alternative(file_content):
     raise Exception("All file reading methods failed")
 
 def parse_date_string(date_str):
-    """Parse date string with multiple format attempts"""
-    if not date_str or pd.isna(date_str):
+    """Parse a source date; returns (datetime, MM/DD/YYYY) or (None, None).
+
+    Ambiguous slashed dates (both parts <= 12) are rejected rather than guessed;
+    see nav_validation.parse_source_date.
+    """
+    current_date = parse_source_date(date_str)
+    if current_date is None:
         return None, None
-    
-    date_str = str(date_str).strip()
-    
-    # Skip header rows
-    if date_str.lower() in ['date', 'date of nav', 'nan']:
-        return None, None
-    
-    # Try different date formats
-    date_formats = [
-        '%Y-%m-%d',      # 2025-07-04 (ISO format from TSV)
-        '%d-%m-%Y',      # 04-07-2025
-        '%d/%m/%Y',      # 04/07/2025
-        '%m/%d/%Y',      # 07/04/2025
-        '%Y/%m/%d',      # 2025/07/04
-    ]
-    
-    for fmt in date_formats:
-        try:
-            current_date = datetime.strptime(date_str, fmt)
-            formatted_date = current_date.strftime(DATE_FORMAT)
-            return current_date, formatted_date
-        except ValueError:
-            continue
-    
-    return None, None
+    return current_date, current_date.strftime(DATE_FORMAT)
 
 def download_nav_excel(pfm_code, scheme_code, pfm_names, scheme_names, retry_count=3):
     """Download NAV data for a specific PFM and scheme from npstrust.org.in"""

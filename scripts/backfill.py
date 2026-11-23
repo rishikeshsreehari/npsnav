@@ -13,9 +13,9 @@ import logging
 import random
 
 try:
-    from .nav_validation import filter_rows_for_scheme
+    from .nav_validation import filter_rows_for_scheme, parse_source_date
 except ImportError:
-    from nav_validation import filter_rows_for_scheme
+    from nav_validation import filter_rows_for_scheme, parse_source_date
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -28,8 +28,9 @@ DATE_FORMAT = '%m/%d/%Y'
 BASE_URL = "https://npstrust.org.in/scheme-wise-nav-report-excel"
 
 # --- CONFIGURATION ---
-# '60' retrieves the last 5 years (60 months) of data in one shot.
-BACKFILL_MONTHS = '2' 
+# navyearselxls range: '12' = last 12 months, '60' = last 5 years, '1'/'2' = full
+# history (back to 2008). Despite the name, '2' is NOT two months.
+BACKFILL_MONTHS = '2'
 
 def get_pfm_scheme_mappings():
     """Extract PFM and Scheme mappings from existing data.json"""
@@ -138,18 +139,15 @@ def try_read_file_alternative(file_content):
     raise Exception("All file reading methods failed")
 
 def parse_date_string(date_str):
-    if not date_str or pd.isna(date_str): return None, None
-    date_str = str(date_str).strip()
-    if date_str.lower() in ['date', 'date of nav', 'nan']: return None, None
-    
-    date_formats = ['%Y-%m-%d', '%d-%m-%Y', '%d/%m/%Y', '%m/%d/%Y', '%Y/%m/%d']
-    for fmt in date_formats:
-        try:
-            current_date = datetime.strptime(date_str, fmt)
-            formatted_date = current_date.strftime(DATE_FORMAT)
-            return current_date, formatted_date
-        except ValueError: continue
-    return None, None
+    """Parse a source date; returns (datetime, MM/DD/YYYY) or (None, None).
+
+    Ambiguous slashed dates (both parts <= 12) are rejected rather than guessed;
+    see nav_validation.parse_source_date.
+    """
+    current_date = parse_source_date(date_str)
+    if current_date is None:
+        return None, None
+    return current_date, current_date.strftime(DATE_FORMAT)
 
 def parse_excel_data(df, pfm_code, scheme_code, pfm_names, scheme_names):
     data_list = []

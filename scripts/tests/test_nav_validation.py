@@ -2,7 +2,14 @@ import unittest
 
 import pandas as pd
 
+import glob
+import json
+import os
+from datetime import datetime
+
 from scripts.nav_validation import (
+    find_swapped_date_copies,
+    parse_source_date,
     apply_protean_names,
     choose_scheme_name,
     parse_protean_line,
@@ -347,6 +354,65 @@ class CanonicalNameTests(unittest.TestCase):
         self.assertEqual(records[1]["Scheme Name"], "MAX LIFE SCHEME E - TIER I")
         self.assertEqual(len(changes), 2)
         self.assertEqual(apply_protean_names(records, protean), [])
+
+
+class SourceDateTests(unittest.TestCase):
+    def test_unambiguous_formats(self):
+        self.assertEqual(parse_source_date("2025-06-04"), datetime(2025, 6, 4))
+        self.assertEqual(parse_source_date("04-06-2025"), datetime(2025, 6, 4))  # dashed = day-first
+        self.assertEqual(parse_source_date("13/06/2025"), datetime(2025, 6, 13))
+        self.assertEqual(parse_source_date("06/13/2025"), datetime(2025, 6, 13))
+        self.assertEqual(parse_source_date("05/05/2025"), datetime(2025, 5, 5))
+        self.assertEqual(parse_source_date(datetime(2025, 6, 4)), datetime(2025, 6, 4))
+
+    def test_ambiguous_slashed_dates_are_rejected(self):
+        # 04/06/2025 could be 4 Jun or 6 Apr: guessing is how NAVs got stored under swapped dates
+        self.assertIsNone(parse_source_date("04/06/2025"))
+        self.assertIsNone(parse_source_date("11/04/2016"))
+
+    def test_blank_and_header_cells(self):
+        for value in (None, float("nan"), "", "DATE OF NAV", "not a date", "31/31/2025"):
+            self.assertIsNone(parse_source_date(value), repr(value))
+
+
+class SwappedDateCopyTests(unittest.TestCase):
+    def test_spike_copy_on_trading_day_is_flagged(self):
+        history = {"04/11/2016": "16.7164", "04/12/2016": "16.8153",
+                   "11/03/2016": "19.1222", "11/04/2016": "16.7164", "11/07/2016": "19.1495"}
+        self.assertEqual(find_swapped_date_copies(history), ["11/04/2016"])
+
+    def test_weekend_copy_is_flagged(self):
+        # 04/06/2025 is a Sunday holding 4 Jun's NAV
+        history = {"04/04/2025": "51.2", "04/06/2025": "54.8799", "04/07/2025": "49.8",
+                   "06/04/2025": "54.8799", "06/05/2025": "55.0"}
+        self.assertEqual(find_swapped_date_copies(history), ["04/06/2025"])
+
+    def test_flat_navs_are_not_flagged(self):
+        history = {"07/02/2009": "10.0", "07/03/2009": "10.0", "07/06/2009": "10.0", "03/07/2009": "10.0"}
+        self.assertEqual(find_swapped_date_copies(history), [])
+
+    def test_genuine_values_are_not_flagged(self):
+        history = {"11/03/2016": "19.1222", "11/04/2016": "18.991", "11/07/2016": "19.1495",
+                   "04/11/2016": "16.7164"}
+        self.assertEqual(find_swapped_date_copies(history), [])
+
+
+class StoredHistoryIntegrityTests(unittest.TestCase):
+    """Guards the committed data/SM*.json files against swapped-date copies coming back."""
+
+    DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "data")
+
+    def test_no_swapped_date_copies_in_stored_history(self):
+        files = sorted(glob.glob(os.path.join(self.DATA_DIR, "SM*.json")))
+        if not files:
+            self.skipTest("no scheme files present")
+        offenders = {}
+        for path in files:
+            with open(path) as f:
+                flagged = find_swapped_date_copies(json.load(f))
+            if flagged:
+                offenders[os.path.basename(path)] = flagged
+        self.assertEqual(offenders, {}, "run scripts/repair_swapped_dates.py")
 
 
 if __name__ == "__main__":

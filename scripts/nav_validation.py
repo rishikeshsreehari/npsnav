@@ -216,6 +216,87 @@ def apply_protean_names(records, protean_latest, dump=None):
     return changes
 
 
+# --- Source date parsing ------------------------------------------------------------
+
+def parse_source_date(value):
+    """Parse a date cell from a source file into a datetime, or None.
+
+    Accepts datetimes, ISO dates (YYYY-MM-DD / YYYY/MM/DD) and day-first dashed dates
+    (DD-MM-YYYY, the NPS Trust convention). Slashed dates are only accepted when
+    unambiguous (a part > 12, or day == month): guessing day-first vs month-first
+    is how NAVs ended up stored under swapped dates (e.g. 4 Jun saved as 6 Apr).
+    """
+    if value is None:
+        return None
+    if isinstance(value, datetime):
+        return value
+    text = clean_cell(value)
+    if not text or text.lower() in ("date", "date of nav"):
+        return None
+    for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%d-%m-%Y"):
+        try:
+            return datetime.strptime(text, fmt)
+        except ValueError:
+            pass
+    parts = text.split("/")
+    if len(parts) == 3 and all(p.isdigit() for p in parts) and len(parts[2]) == 4:
+        a, b = int(parts[0]), int(parts[1])
+        try:
+            if a > 12 or a == b:
+                return datetime.strptime(text, "%d/%m/%Y")
+            if b > 12:
+                return datetime.strptime(text, "%m/%d/%Y")
+        except ValueError:
+            return None
+    return None
+
+
+# --- Swapped-date detection -------------------------------------------------------
+
+def _is_spike(prev_nav, nav, next_nav, threshold=0.015):
+    """A one-day jump that reverses: both neighbours on the same side, each > threshold away."""
+    if prev_nav <= 0 or next_nav <= 0:
+        return False
+    return (
+        abs(nav / prev_nav - 1) > threshold
+        and abs(nav / next_nav - 1) > threshold
+        and (nav - prev_nav) * (nav - next_nav) > 0
+    )
+
+
+def find_swapped_date_copies(history):
+    """Return dates whose NAV is a copy of the NAV stored at the day/month-swapped date.
+
+    history: {MM/DD/YYYY: nav}. A date D (day != month, both <= 12) is flagged when the
+    swapped date S exists with the identical NAV *and* D is a weekend or a one-day spike
+    against its neighbours, i.e. the value clearly belongs to S, not D. Flat stretches
+    (NAV equal to a neighbour, e.g. funds sitting at 10.0000) are skipped: matching the
+    swapped date there is coincidence, not a copy.
+    """
+    dates = sorted(history, key=_parse_date)
+    position = {d: i for i, d in enumerate(dates)}
+    flagged = []
+    for date in dates:
+        month, day, year = date.split("/")
+        if month == day or int(day) > 12:
+            continue
+        swapped = f"{day}/{month}/{year}"
+        if swapped not in history or float(history[swapped]) != float(history[date]):
+            continue
+        i = position[date]
+        nav = float(history[date])
+        neighbours = [float(history[dates[j]]) for j in (i - 1, i + 1) if 0 <= j < len(dates)]
+        if nav in neighbours:
+            continue
+        weekend = _parse_date(date).weekday() >= 5
+        spike = 0 < i < len(dates) - 1 and _is_spike(
+            float(history[dates[i - 1]]), float(history[date]), float(history[dates[i + 1]])
+        )
+        if weekend or spike:
+            flagged.append(date)
+    return flagged
+
+
 def _parse_date(date_str):
     return datetime.strptime(date_str, DATE_FORMAT)
 
